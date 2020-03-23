@@ -1,28 +1,28 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using PDAI;
 
 namespace PDAI
 {
-    class Prisoner
+    class viewPrisoner
     {
         Font_Class font;
         Panel employee_interface;
         PictureBox photo;
-        Label lFullName, lBirthDate, lCC, lMaritalStatus;
-        TextBox tFullName, tCC;
-        ComboBox cbMaritalStatus;
-        DateTimePicker tBirthDate;
+        Label lFullName, lBirthDate, lCC, lMaritalStatus, tFullName, tCC, cbMaritalStatus, tBirthDate;
         Button registration, addImg;
         Database db;
         string type = "Prisioneiro", recordsFolder = "";
         int fontSize = 13;
 
-        public Prisoner(Panel content_interface, int content_width, int content_height)
+        public viewPrisoner(Panel content_interface, int content_width, int content_height, string str)
         {
+            PrisonersManager pm = new PrisonersManager();
+
             font = new Font_Class();
             db = new Database();
 
@@ -44,14 +44,15 @@ namespace PDAI
             lFullName = new Label();
             lFullName.Size = new Size((content_width - photo.Location.X - photo.Width - ((content_width * 1 / 25))) * 7 / 10, 25);
             lFullName.Location = new Point(photo.Location.X + photo.Width + (content_width * 2 / 25), content_height * 1 / 10);
-            lFullName.Text = "Nome Completo";
+            lFullName.Text = "Nome Completo:";
             font.Size(lFullName, fontSize);
             employee_interface.Controls.Add(lFullName);
 
 
-            tFullName = new TextBox();
+            tFullName = new Label();
             tFullName.Size = new Size(lFullName.Width, lFullName.Height);
             tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height);
+            tFullName.Text = db.select.selecRecluso(str)[0].ToString();
             font.Size(tFullName, fontSize);
             employee_interface.Controls.Add(tFullName);
 
@@ -60,75 +61,48 @@ namespace PDAI
             lBirthDate = new Label();
             lBirthDate.Size = new Size(tFullName.Width, tFullName.Height);
             lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + 40);
-            lBirthDate.Text = "Data Nascimento";
             font.Size(lBirthDate, fontSize);
+            lBirthDate.Text = "Data de Nascimento:";
             employee_interface.Controls.Add(lBirthDate);
 
 
-            tBirthDate = new DateTimePicker();
+            tBirthDate = new Label();
             tBirthDate.Size = new Size(150, lFullName.Height);
             tBirthDate.Location = new Point(lBirthDate.Location.X, lBirthDate.Location.Y + lBirthDate.Height);
-            tBirthDate.Format = DateTimePickerFormat.Short;
             font.Size(tBirthDate, fontSize);
             employee_interface.Controls.Add(tBirthDate);
+            tBirthDate.Text = db.select.selecRecluso(str)[1].ToString();
 
 
 
             lCC = new Label();
             lCC.Size = new Size(tFullName.Width, tFullName.Height);
             lCC.Location = new Point(tBirthDate.Location.X, tBirthDate.Location.Y + tBirthDate.Height + 40);
-            lCC.Text = "Cartão Cidadão";
             font.Size(lCC, fontSize);
             employee_interface.Controls.Add(lCC);
+            lCC.Text = "Cart�o de Cidad�o:";
 
-            tCC = new TextBox();
+            tCC = new Label();
             tCC.Size = new Size(200, lFullName.Height);
             tCC.Location = new Point(lCC.Location.X, lCC.Location.Y + lCC.Height);
             font.Size(tCC, fontSize);
             employee_interface.Controls.Add(tCC);
+            tCC.Text = db.select.selecRecluso(str)[2].ToString();;
 
 
             lMaritalStatus = new Label();
             lMaritalStatus.Size = new Size(tFullName.Width, tFullName.Height);
             lMaritalStatus.Location = new Point(tCC.Location.X, tCC.Location.Y + tCC.Height + 40);
-            lMaritalStatus.Text = "Estado Civil";
             font.Size(lMaritalStatus, fontSize);
             employee_interface.Controls.Add(lMaritalStatus);
+            lMaritalStatus.Text = "Estado Civil:";
 
-            cbMaritalStatus = new ComboBox();
+            cbMaritalStatus = new Label();
             cbMaritalStatus.Size = new Size(200, lFullName.Height);
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
             font.Size(cbMaritalStatus, fontSize);
             employee_interface.Controls.Add(cbMaritalStatus);
-            cbMaritalStatus.Items.Add("Solteiro(a)");
-            cbMaritalStatus.Items.Add("Casado(a)");
-            cbMaritalStatus.Items.Add("Divorciado(a)");
-            cbMaritalStatus.Items.Add("Viúvo(a)");
-            cbMaritalStatus.Items.Add("Separado(a)");
-
-
-            registration = new Button();
-            registration.Size = new Size(150, 60);
-            registration.Location = new Point(cbMaritalStatus.Location.X, cbMaritalStatus.Location.Y + cbMaritalStatus.Height + 50);
-            registration.Text = "Registar";
-            font.Size(registration, fontSize);
-            employee_interface.Controls.Add(registration);
-            registration.Click += new EventHandler(Registration_Click);
-            registration.BackColor = Color.FromArgb(127, 127, 127);
-            registration.ForeColor = Color.White;
-            registration.Cursor = Cursors.Hand;
-
-            addImg = new Button();
-            addImg.Size = new Size(250, 60);
-            addImg.Location = new Point(content_width * 1 / 30, content_height * 1 / 5);
-            employee_interface.Controls.Add(addImg);
-            addImg.Text = "Adicionar Imagem";
-            addImg.BackColor = Color.FromArgb(127, 127, 127);
-            addImg.ForeColor = Color.White;
-            addImg.Cursor = Cursors.Hand;
-            font.Size(addImg, fontSize);
-
-
+            cbMaritalStatus.Text = db.select.selecRecluso(str)[3].ToString();
 
         }
 

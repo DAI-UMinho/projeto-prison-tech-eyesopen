@@ -110,6 +110,7 @@
     <Compile Include="I_CamGallery.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="Prisoner.cs" />
+    <Compile Include="PrisonersManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -126,6 +127,7 @@
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Update.cs" />
+    <Compile Include="viewPrisoner.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
