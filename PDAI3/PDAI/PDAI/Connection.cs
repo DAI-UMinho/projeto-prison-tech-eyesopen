@@ -8,8 +8,8 @@ namespace PDAI
 {
     class Connection
     {
-        
-        protected string connectionString = @"Data Source=LAPTOP-G0967CH5;Initial Catalog=DAI_Database;User ID=teste;Password=password";
+
+        protected string connectionString = @"Data Source=localhost\sqlexpress;Initial Catalog=DAI_Database;Integrated Security=True;";
 
         protected SqlConnection sqlConn;
         protected SqlCommand command;

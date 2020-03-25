@@ -60,6 +60,33 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
+        public void Ocorrencia(string idPessoa, string dataOcorrencia, string motivo, string descricao, int codigoOcorrencia)
+        {
+            try
+            {
+                string sql = "INSERT INTO ocorrencia (idPessoa, dataRegisto, dataOcorrencia, motivo, descricao, codigoOcorrencia)" +
+                            " values(@pessoa,getDate(),@dOcorrencia,@motivo,@descricao,@codigoOcorrencia);";
+                SqlConnection sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.Parameters.Add("@pessoa", SqlDbType.Int).Value = idPessoa;
+                command.Parameters.Add("@dOcorrencia", SqlDbType.DateTime).Value = dataOcorrencia;
+                command.Parameters.Add("@motivo", SqlDbType.NVarChar, 30).Value = motivo;
+                command.Parameters.Add("@descricao", SqlDbType.NVarChar, 100).Value = descricao;
+                command.Parameters.Add("@codigoOcorrencia", SqlDbType.Int).Value = codigoOcorrencia;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e)
+            {
+                System.Windows.Forms.MessageBox.Show("" + e);
+            }
+        }
+
 
 
 

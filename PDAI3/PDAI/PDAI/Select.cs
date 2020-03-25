@@ -63,14 +63,12 @@ namespace PDAI
             return var;
         }
 
-        public Double Count()
+        public List<object> Reclusos()
         {
-
-            Double counter = new Double();
+            List<object> var = new List<object>();
+            string sql = "select id,nomeCompleto from pessoa where tipo = 'Prisioneiro';";
             try
             {
-                sql = "select count (nomeCompleto) from Pessoa where tipo = 'Prisioneiro'";
-
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -78,7 +76,8 @@ namespace PDAI
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                counter = reader.GetInt32(0);
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
                 }
                 reader.Close();
                 command.Dispose();
@@ -86,37 +85,8 @@ namespace PDAI
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
-            return counter;
+            return var;
         }
-
-        public List<object> selecRecluso(String nome)
-        {
-
-            List<object> recluso = new List<object>();
-            try
-            {
-
-
-                sqlConn = new SqlConnection(connectionString);
-                sqlConn.Open();
-                command = new SqlCommand("select nomeCompleto, dataNascimento, cc, estadoCivil from Pessoa where nomeCompleto = '" + nome + "'", sqlConn);
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    recluso.Add(reader.GetValue(0));
-                    recluso.Add(reader.GetValue(1));
-                    recluso.Add(reader.GetValue(2));
-                    recluso.Add(reader.GetValue(3));
-                }
-                reader.Close();
-                command.Dispose();
-                sqlConn.Close();
-            }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-
-            return recluso;
-        }
-
 
 
     }
