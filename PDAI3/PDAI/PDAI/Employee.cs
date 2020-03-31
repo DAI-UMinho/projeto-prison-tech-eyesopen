@@ -124,7 +124,20 @@ namespace PDAI
         {
             //Guarda foto na pasta registos
 
-            db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Funcionario");
+            try
+            {
+                db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Funcionario");
+            }
+
+            catch (AccessViolationException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
 
         }
 

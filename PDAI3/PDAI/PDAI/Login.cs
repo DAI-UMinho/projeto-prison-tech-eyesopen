@@ -200,13 +200,26 @@ namespace PDAI
                 {
 
                     //INSERT LOGIN
-                    byte[] accountAccess = Encryption.AccountAccessEncryption(tuser.Text.Substring(1, tuser.Text.Length - 1)+tpassword.Text+AccessLevel.recursosHumanos);
-                    Database db = new Database();
-                    uint id = db.insert.Person("PersonName", DateTime.Now.ToString("yyyy-MM-dd"), "2dwdqwd", "Solteiro(a)", "Funcionario", "//");
-                    db.insert.Login(id, tuser.Text.Substring(1, tuser.Text.Length - 1), accountAccess, AccessLevel.recursosHumanos);
-                    tuser.Text = "";
-                    tpassword.Text = "";
-                    return;
+                    try
+                    {
+                        byte[] accountAccess = Encryption.AccountAccessEncryption(tuser.Text.Substring(1, tuser.Text.Length - 1) + tpassword.Text + AccessLevel.recursosHumanos);
+                        Database db = new Database();
+                        uint id = db.insert.Person("PersonName", DateTime.Now.ToString("yyyy-MM-dd"), "2dwdqwd", "Solteiro(a)", "Funcionario", "//");
+                        db.insert.Login(id, tuser.Text.Substring(1, tuser.Text.Length - 1), accountAccess, AccessLevel.recursosHumanos);
+                        tuser.Text = "";
+                        tpassword.Text = "";
+                        return;
+                    }
+
+                    catch (AccessViolationException ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show("" + ex);
+                    }
+
+                    catch (Exception ex)
+                    {
+                        System.Windows.Forms.MessageBox.Show("" + ex);
+                    }
                 }
                 //CÓDIGO PARA SIMULAÇÃO\\..........................................
 

@@ -25,11 +25,24 @@ namespace PDAI
                 adapter = new SqlDataAdapter();
                 adapter.InsertCommand = command;
                 id = Convert.ToUInt32(command.ExecuteScalar());
+            }
+
+            catch (AccessViolationException ex)
+            {
+                throw;
+            }
+
+            catch (Exception) 
+            { 
+                throw; 
+            }
+
+            finally
+            {
                 command.Dispose();
                 adapter.Dispose();
                 sqlConn.Close();
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
             return id;
         }
@@ -53,11 +66,19 @@ namespace PDAI
                 command.Parameters.Add("@accountAccess", SqlDbType.VarBinary, 8000).Value = accountAccess;
                 command.Parameters.Add("@accessLevel", SqlDbType.NVarChar, 30).Value = accessLevel;
                 command.ExecuteNonQuery();
+            }
+
+            catch (Exception e) 
+            { 
+                System.Windows.Forms.MessageBox.Show("" + e); 
+            }
+
+            finally
+            {
                 command.Dispose();
                 adapter.Dispose();
                 sqlConn.Close();
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
         public void Ocorrencia(string idPessoa, string dataOcorrencia, string motivo, string descricao, int codigoOcorrencia)
@@ -77,13 +98,18 @@ namespace PDAI
                 command.Parameters.Add("@descricao", SqlDbType.NVarChar, 100).Value = descricao;
                 command.Parameters.Add("@codigoOcorrencia", SqlDbType.Int).Value = codigoOcorrencia;
                 command.ExecuteNonQuery();
-                command.Dispose();
-                adapter.Dispose();
-                sqlConn.Close();
+                
             }
             catch (Exception e)
             {
-                System.Windows.Forms.MessageBox.Show("" + e);
+                throw;
+            }
+
+            finally
+            {
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
             }
         }
 

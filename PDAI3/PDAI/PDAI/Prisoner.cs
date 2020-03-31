@@ -119,9 +119,26 @@ namespace PDAI
 
         private void Registration_Click(object sender, EventArgs e)
         {
+
             //Guarda foto na pasta registos
-         
-            db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Recluso");
+
+            try
+
+            {
+                db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Recluso");
+            }
+
+            catch (AccessViolationException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+
+
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+            
 
         }
 

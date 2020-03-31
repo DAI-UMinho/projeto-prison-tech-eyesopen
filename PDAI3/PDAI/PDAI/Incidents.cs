@@ -134,12 +134,12 @@ namespace PDAI
             }
             catch (Exception f)
             {
-
+                System.Windows.Forms.MessageBox.Show("" + f);
             }
             finally
             {
                 pList.Text = null;
-                description = null;
+                description.Text = null;
 
             }
         }
