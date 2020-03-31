@@ -125,7 +125,17 @@ namespace PDAI
             try
 
             {
-                db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Recluso");
+                if (cbMaritalStatus.SelectedItem != null)
+                {
+
+
+                    db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Recluso");
+                    MessageBox.Show("Registo efetuado");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor escolha uma opcao");
+                }
             }
 
             catch (AccessViolationException ex)
