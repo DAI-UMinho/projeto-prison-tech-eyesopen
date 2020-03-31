@@ -106,6 +106,13 @@
       <DependentUpon>IncidentsAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Insert.cs" />
+    <Compile Include="I_editar.cs" />
+    <Compile Include="I_Editar1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I_Editar1.Designer.cs">
+      <DependentUpon>I_Editar1.cs</DependentUpon>
+    </Compile>
     <Compile Include="I_HumanResources.cs" />
     <Compile Include="I_CamGallery.cs" />
     <Compile Include="Login.cs" />
@@ -131,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IncidentsAddForm.resx">
       <DependentUpon>IncidentsAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I_Editar1.resx">
+      <DependentUpon>I_Editar1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
