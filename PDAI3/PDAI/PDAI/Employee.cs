@@ -128,13 +128,26 @@ namespace PDAI
             {
                 if (cbMaritalStatus.SelectedItem != null)
                 {
-                    db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Funcionario");
-                    MessageBox.Show("Registo Efetuado");
+                    if (tFullName.Text != null && tFullName.Text.Length > 10 && !(tFullName.Text.Any(char.IsDigit)))
+                    {
+                        if (tCC.Text != null && tCC.Text.All(char.IsDigit) && tCC.Text.Length == 8)
+                        {
+                            db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Funcionario");
+                            MessageBox.Show("Registo Efetuado");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Preencha Corretamente o CC");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha Corretamente o Nome Completo");
+                    }
                 }
-
                 else
                 {
-                    MessageBox.Show("Por favor escolha uma opcao");
+                    MessageBox.Show("Escolha uma Opcao do Estado Civil");
                 }
 
             }
