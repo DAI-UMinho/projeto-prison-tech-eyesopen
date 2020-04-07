@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Data.SqlClient;
+
 
 namespace PDAI
 {
@@ -70,6 +72,8 @@ namespace PDAI
             tBirthDate.Format = DateTimePickerFormat.Short;
             font.Size(tBirthDate, fontSize);
             employee_interface.Controls.Add(tBirthDate);
+            tBirthDate.MinDate = new DateTime(1900, 1, 1);
+            tBirthDate.MaxDate = new DateTime(2005, 1, 1);
 
 
 
@@ -148,6 +152,7 @@ namespace PDAI
                 else
                 {
                     MessageBox.Show("Escolha uma Opcao do Estado Civil");
+                    
                 }
 
             }
@@ -157,10 +162,24 @@ namespace PDAI
                 System.Windows.Forms.MessageBox.Show("" + ex);
             }
 
+            catch(SqlException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show("" + ex);
             }
+            finally
+            {
+                tFullName.Text = null;
+                tCC.Text = null;
+                cbMaritalStatus.Text = null;
+            }
+           
+            
+
+            
 
         }
 

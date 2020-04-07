@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Data.SqlClient;
 
 namespace PDAI
 {
@@ -152,13 +153,17 @@ namespace PDAI
                 }
 
             }
+            
 
             catch (AccessViolationException ex)
             {
                 System.Windows.Forms.MessageBox.Show("" + ex);
             }
 
-
+            catch(SqlException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
             catch (Exception ex)
             {
                 System.Windows.Forms.MessageBox.Show("" + ex);

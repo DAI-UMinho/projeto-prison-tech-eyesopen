@@ -25,12 +25,28 @@ namespace PDAI
                   
                     recluso = reader[0];
                 }
+                
+            }
+            catch(AccessViolationException ex)
+            {
+                throw ex;
+            }
+
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex) 
+            {
+                throw ex; 
+            }
+            
+            finally
+            {
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-
             return recluso;
         }
 
@@ -53,12 +69,26 @@ namespace PDAI
                     var.Add(reader[0]);
                     var.Add(reader[1]);
                 }
+                
+            }
+            catch(AccessViolationException ex)
+            {
+                throw ex;
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex) 
+            {
+                throw ex; 
+            }
+            finally
+            {
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-
             return var;
         }
 
@@ -78,12 +108,26 @@ namespace PDAI
                     var.Add(reader[0]);
                     var.Add(reader[1]);
                 }
+
+            }
+            catch (AccessViolationException ex)
+            {
+                throw ex;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-
             return var;
         }
 

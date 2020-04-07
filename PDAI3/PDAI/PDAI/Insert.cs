@@ -29,12 +29,16 @@ namespace PDAI
 
             catch (AccessViolationException ex)
             {
-                throw;
+                throw ex;
+            }
+            catch(SqlException ex)
+            {
+                throw ex;
             }
 
-            catch (Exception) 
+            catch (Exception ex) 
             { 
-                throw; 
+                throw ex; 
             }
 
             finally
@@ -67,10 +71,19 @@ namespace PDAI
                 command.Parameters.Add("@accessLevel", SqlDbType.NVarChar, 30).Value = accessLevel;
                 command.ExecuteNonQuery();
             }
+            catch(AccessViolationException ex)
+            {
+                throw ex;
+            }
 
-            catch (Exception e) 
-            { 
-                System.Windows.Forms.MessageBox.Show("" + e); 
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+
+            catch (Exception ex) 
+            {
+                throw ex; 
             }
 
             finally
@@ -100,9 +113,18 @@ namespace PDAI
                 command.ExecuteNonQuery();
                 
             }
-            catch (Exception e)
+            catch(AccessViolationException ex)
             {
-                throw;
+                throw ex;
+            }
+
+            catch(SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
             finally
