@@ -16,6 +16,8 @@ namespace PDAI
         Screen screen;
         I_Login i_login;
         int width, height;
+        I_editar i_editar;
+        
         
 
         public Main()
@@ -28,8 +30,13 @@ namespace PDAI
 
         private void Init()
         {
+<<<<<<< HEAD
             i_login = new I_Login(this, width, height);
             //I_HumanResources i_HumanResources = new I_HumanResources(this, width, height);
+=======
+            //i_login = new I_Login(this, width, height);
+            i_editar = new I_editar(this, width, height);
+>>>>>>> Carlos
         }
 
 

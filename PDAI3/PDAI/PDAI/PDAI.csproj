@@ -86,6 +86,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlterarPW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlterarPW.Designer.cs">
+      <DependentUpon>AlterarPW.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cam.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="Database.cs" />
@@ -99,6 +105,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Incidents.cs" />
     <Compile Include="IncidentsAddForm.cs">
       <SubType>Form</SubType>
@@ -107,6 +119,13 @@
       <DependentUpon>IncidentsAddForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Insert.cs" />
+    <Compile Include="I_editar.cs" />
+    <Compile Include="I_Editar1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="I_Editar1.Designer.cs">
+      <DependentUpon>I_Editar1.cs</DependentUpon>
+    </Compile>
     <Compile Include="I_HumanResources.cs" />
     <Compile Include="I_CamGallery.cs" />
     <Compile Include="Login.cs" />
@@ -128,12 +147,21 @@
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Update.cs" />
+<<<<<<< HEAD
     <Compile Include="viewPrisoner.cs" />
+=======
+    <EmbeddedResource Include="AlterarPW.resx">
+      <DependentUpon>AlterarPW.cs</DependentUpon>
+    </EmbeddedResource>
+>>>>>>> Carlos
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IncidentsAddForm.resx">
       <DependentUpon>IncidentsAddForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="I_Editar1.resx">
+      <DependentUpon>I_Editar1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
