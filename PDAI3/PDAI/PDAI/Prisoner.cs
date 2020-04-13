@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Data.SqlClient;
 
 namespace PDAI
 {
@@ -71,6 +72,8 @@ namespace PDAI
             tBirthDate.Format = DateTimePickerFormat.Short;
             font.Size(tBirthDate, fontSize);
             employee_interface.Controls.Add(tBirthDate);
+            tBirthDate.MinDate = new DateTime(1900, 1, 1);
+            tBirthDate.MaxDate = new DateTime(2005, 1, 1);
 
 
 
@@ -134,9 +137,53 @@ namespace PDAI
 
         private void Registration_Click(object sender, EventArgs e)
         {
+
             //Guarda foto na pasta registos
-         
-            db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Recluso");
+
+            try
+
+            {
+                if (cbMaritalStatus.SelectedItem != null)
+                {
+                    if (tFullName.Text != null && tFullName.Text.Length > 10 && !(tFullName.Text.Any(char.IsDigit)))
+                    {
+                        if (tCC.Text != null && tCC.Text.All(char.IsDigit) && tCC.Text.Length == 8)
+                        {
+                            db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Recluso");
+                            MessageBox.Show("Registo efetuado");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Preencha Corretamente o CC");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha Corretamente o Nome Completo");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Escolha uma Opcao do Estado Civil");
+                }
+
+            }
+            
+
+            catch (AccessViolationException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+
+            catch(SqlException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+            
 
         }
 
