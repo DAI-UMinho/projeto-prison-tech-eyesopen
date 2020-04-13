@@ -3,8 +3,10 @@
     "",
     "\\PDAI3",
     "\\PDAI3\\PDAI",
-    "\\PDAI3\\PDAI\\PDAI"
+    "\\PDAI3\\PDAI\\PDAI",
+    "\\PDAI3\\PDAI\\PDAI\\obj",
+    "\\PDAI3\\PDAI\\PDAI\\obj\\Debug"
   ],
-  "SelectedNode": "\\DAI_Database.sql",
+  "SelectedNode": "\\PDAI3\\PDAI\\PDAI\\obj\\Debug\\PDAI.sourcelink.json",
   "PreviewInSolutionExplorer": false
 }
