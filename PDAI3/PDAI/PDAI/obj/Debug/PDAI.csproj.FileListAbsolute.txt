@@ -248,3 +248,7 @@ C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin\Debug\PdfSharp.dll
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin\Debug\PdfSharp.pdb
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin\Debug\PdfSharp.xml
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\bin\Debug\de\PdfSharp.resources.dll
