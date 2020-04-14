@@ -16,7 +16,7 @@ namespace PDAI
         TextBox tFullName, tCC;
         ComboBox cbMaritalStatus ;
         DateTimePicker tBirthDate;
-        Button registration;
+        Button registration, addImg;
         Database db;
         string type = "Funcionario", recordsFolder = "";
         int fontSize = 13;
@@ -30,6 +30,7 @@ namespace PDAI
             employee_interface.Size = new Size(content_width, content_height);
             employee_interface.Location = new Point(0, 0);
             content_interface.Controls.Add(employee_interface);
+            employee_interface.BackColor = Color.FromArgb(196, 196, 196);
 
             photo = new PictureBox();
             photo.Size = new Size(250,250);
@@ -113,7 +114,19 @@ namespace PDAI
             font.Size(registration, fontSize);
             employee_interface.Controls.Add(registration);
             registration.Click += new EventHandler(Registration_Click);
+            registration.BackColor = Color.FromArgb(127, 127, 127);
+            registration.ForeColor = Color.White;
+            registration.Cursor = Cursors.Hand;
 
+            addImg = new Button();
+            addImg.Size = new Size(250, 60);
+            addImg.Location = new Point(content_width * 1 / 30, content_height * 1 / 5);
+            employee_interface.Controls.Add(addImg);
+            addImg.Text = "Adicionar Imagem";
+            addImg.BackColor = Color.FromArgb(127, 127, 127);
+            addImg.ForeColor = Color.White;
+            addImg.Cursor = Cursors.Hand;
+            font.Size(addImg, fontSize);
 
 
         }
@@ -125,6 +138,7 @@ namespace PDAI
             //Guarda foto na pasta registos
 
             db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type, "/pasta/Funcionario");
+            MessageBox.Show("Funcionário adicionado com sucesso!!", "", MessageBoxButtons.OK);
 
         }
 

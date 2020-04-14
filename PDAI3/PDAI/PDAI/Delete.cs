@@ -10,11 +10,11 @@ namespace PDAI
     class Delete : Connection
     {
 
-        public void Recluso(uint id)
+        public void Recluso(string nome)
         {
             try
             {
-                sql = "";
+                sql = "update Pessoa set ativo = '0' where nomeCompleto ='" + nome + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();

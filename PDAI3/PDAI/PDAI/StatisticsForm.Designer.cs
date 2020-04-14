@@ -28,22 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.incidents_Place = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.incidents_month = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
+            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_Place)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_month)).BeginInit();
             this.gunaPanel1.SuspendLayout();
@@ -63,56 +64,56 @@
             // incidents_Place
             // 
             this.incidents_Place.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            chartArea1.Name = "ChartArea1";
-            this.incidents_Place.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.incidents_Place.Legends.Add(legend1);
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            chartArea5.Name = "ChartArea1";
+            this.incidents_Place.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.incidents_Place.Legends.Add(legend5);
             this.incidents_Place.Location = new System.Drawing.Point(782, 271);
             this.incidents_Place.Name = "incidents_Place";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.LabelBackColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Ocorrências";
-            this.incidents_Place.Series.Add(series1);
+            series5.ChartArea = "ChartArea1";
+            series5.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series5.LabelBackColor = System.Drawing.Color.Transparent;
+            series5.Legend = "Legend1";
+            series5.Name = "Ocorrências";
+            this.incidents_Place.Series.Add(series5);
             this.incidents_Place.Size = new System.Drawing.Size(697, 478);
             this.incidents_Place.TabIndex = 2;
             this.incidents_Place.Text = "chart2";
-            title1.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Número de Ocorrências por Setor";
-            title1.Text = "Número de Ocorrências por Setor";
-            this.incidents_Place.Titles.Add(title1);
+            title5.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title5.Name = "Número de Ocorrências por Setor";
+            title5.Text = "Número de Ocorrências por Setor";
+            this.incidents_Place.Titles.Add(title5);
             // 
             // incidents_month
             // 
             this.incidents_month.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.incidents_month.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.Name = "ChartArea1";
-            this.incidents_month.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.incidents_month.Legends.Add(legend2);
+            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea6.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea6.Name = "ChartArea1";
+            this.incidents_month.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.incidents_month.Legends.Add(legend6);
             this.incidents_month.Location = new System.Drawing.Point(88, 271);
             this.incidents_month.Name = "incidents_month";
             this.incidents_month.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.BorderColor = System.Drawing.Color.Transparent;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Crimson;
-            series2.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Ocurrências";
-            this.incidents_month.Series.Add(series2);
+            series6.BorderColor = System.Drawing.Color.Transparent;
+            series6.ChartArea = "ChartArea1";
+            series6.Color = System.Drawing.Color.Crimson;
+            series6.Font = new System.Drawing.Font("Montserrat", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series6.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            series6.Legend = "Legend1";
+            series6.Name = "Ocurrências";
+            this.incidents_month.Series.Add(series6);
             this.incidents_month.Size = new System.Drawing.Size(688, 478);
             this.incidents_month.TabIndex = 3;
             this.incidents_month.Text = "chart1";
-            title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            title2.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "teste";
-            title2.Text = "Número de Ocurrências por Mês";
-            this.incidents_month.Titles.Add(title2);
+            title6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            title6.Font = new System.Drawing.Font("Montserrat", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title6.Name = "teste";
+            title6.Text = "Número de Ocurrências por Mês";
+            this.incidents_month.Titles.Add(title6);
             this.incidents_month.Click += new System.EventHandler(this.chart1_Click);
             // 
             // gunaPanel1
@@ -125,23 +126,6 @@
             this.gunaPanel1.TabIndex = 4;
             this.gunaPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.gunaPanel1_Paint);
             // 
-            // gunaPanel2
-            // 
-            this.gunaPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(180)))));
-            this.gunaPanel2.Location = new System.Drawing.Point(1049, 55);
-            this.gunaPanel2.Name = "gunaPanel2";
-            this.gunaPanel2.Size = new System.Drawing.Size(430, 120);
-            this.gunaPanel2.TabIndex = 5;
-            // 
-            // gunaPanel3
-            // 
-            this.gunaPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(77)))), ((int)(((byte)(81)))));
-            this.gunaPanel3.Controls.Add(this.gunaLabel3);
-            this.gunaPanel3.Location = new System.Drawing.Point(570, 55);
-            this.gunaPanel3.Name = "gunaPanel3";
-            this.gunaPanel3.Size = new System.Drawing.Size(430, 120);
-            this.gunaPanel3.TabIndex = 5;
-            // 
             // gunaLabel2
             // 
             this.gunaLabel2.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,6 +137,24 @@
             this.gunaLabel2.Text = "Reclusos Detetatos pelas Camaras (%)";
             this.gunaLabel2.Click += new System.EventHandler(this.gunaLabel2_Click);
             // 
+            // gunaPanel2
+            // 
+            this.gunaPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(180)))));
+            this.gunaPanel2.Location = new System.Drawing.Point(1049, 55);
+            this.gunaPanel2.Name = "gunaPanel2";
+            this.gunaPanel2.Size = new System.Drawing.Size(430, 120);
+            this.gunaPanel2.TabIndex = 5;
+            // 
+            // gunaPanel3
+            // 
+            this.gunaPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(77)))), ((int)(((byte)(81)))));
+            this.gunaPanel3.Controls.Add(this.gunaLabel4);
+            this.gunaPanel3.Controls.Add(this.gunaLabel3);
+            this.gunaPanel3.Location = new System.Drawing.Point(570, 55);
+            this.gunaPanel3.Name = "gunaPanel3";
+            this.gunaPanel3.Size = new System.Drawing.Size(430, 120);
+            this.gunaPanel3.TabIndex = 5;
+            // 
             // gunaLabel3
             // 
             this.gunaLabel3.Font = new System.Drawing.Font("Montserrat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -162,6 +164,17 @@
             this.gunaLabel3.Size = new System.Drawing.Size(319, 69);
             this.gunaLabel3.TabIndex = 1;
             this.gunaLabel3.Text = "Número de Camaras Ligadas";
+            // 
+            // gunaLabel4
+            // 
+            this.gunaLabel4.AutoSize = true;
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel4.Location = new System.Drawing.Point(346, 93);
+            this.gunaLabel4.Name = "gunaLabel4";
+            this.gunaLabel4.Size = new System.Drawing.Size(68, 15);
+            this.gunaLabel4.TabIndex = 2;
+            this.gunaLabel4.Text = "gunaLabel4";
+            this.gunaLabel4.Click += new System.EventHandler(this.gunaLabel4_Click);
             // 
             // StatisticsForm
             // 
@@ -183,6 +196,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.incidents_month)).EndInit();
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel3.ResumeLayout(false);
+            this.gunaPanel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +212,6 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private Guna.UI.WinForms.GunaLabel gunaLabel4;
     }
 }

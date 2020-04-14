@@ -6,11 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge.Controls;
 
 namespace PDAI
 {
     public partial class StatisticsForm : Form
     {
+        Font_Class font;
         int jan = 15;
         int fev = 10;
         int mar = 5;
@@ -23,6 +28,7 @@ namespace PDAI
         int oct = 20;
         int nov = 10;
         int dec = 1;
+        private FilterInfoCollection videoDevices;
 
 
         public StatisticsForm()
@@ -30,6 +36,11 @@ namespace PDAI
             InitializeComponent();
             monthChartValues();
             placeChartValues();
+            gunaLabel4.Size = new Size(50,50);
+            font = new Font_Class();
+            font.Size(gunaLabel4,16);
+            videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            gunaLabel4.Text = videoDevices.Count.ToString();
 
         }
 
@@ -83,6 +94,16 @@ namespace PDAI
         {
             incidents_Place.Series["Ocorrências"].Points.AddXY("Cam 1", 50);
             incidents_Place.Series["Ocorrências"].Points.AddXY("Cam 2", 70);
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gunaLabel4_Click(object sender, EventArgs e)
+        {
 
         }
     }

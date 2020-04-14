@@ -28,7 +28,8 @@ namespace PDAI
 
         private void Init()
         {
-            i_login = new I_Login(this, width, height);
+            //i_login = new I_Login(this, width, height);
+            I_HumanResources i_HumanResources = new I_HumanResources(this, width, height);
         }
 
 
