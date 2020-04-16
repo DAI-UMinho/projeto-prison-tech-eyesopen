@@ -111,7 +111,9 @@ namespace PDAI
                 command.Parameters.Add("@descricao", SqlDbType.NVarChar, 100).Value = descricao;
                 command.Parameters.Add("@codigoOcorrencia", SqlDbType.Int).Value = codigoOcorrencia;
                 command.ExecuteNonQuery();
-                
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
             }
             catch(AccessViolationException ex)
             {
@@ -127,12 +129,6 @@ namespace PDAI
                 throw ex;
             }
 
-            finally
-            {
-                command.Dispose();
-                adapter.Dispose();
-                sqlConn.Close();
-            }
         }
 
         public void Ocorrencia(string idPessoa, string dataOcorrencia, string motivo, string descricao, int codigoOcorrencia)

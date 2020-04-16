@@ -145,7 +145,7 @@ namespace PDAI
             {
                 if (cbMaritalStatus.SelectedItem != null)
                 {
-                    if (tFullName.Text != null && tFullName.Text.Length > 10 && !(tFullName.Text.Any(char.IsDigit)))
+                    if (tFullName.Text != null && tFullName.Text.Trim().Length > 10 && !(tFullName.Text.Any(char.IsDigit)))
                     {
                         if (tCC.Text != null && tCC.Text.All(char.IsDigit) && tCC.Text.Length == 8)
                         {
