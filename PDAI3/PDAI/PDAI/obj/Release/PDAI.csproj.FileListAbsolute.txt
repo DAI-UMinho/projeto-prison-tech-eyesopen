@@ -1,0 +1,7 @@
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.csprojAssemblyReference.cache
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.Main.resources
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.IncidentsAddForm.resources
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.Properties.Resources.resources
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.StatisticsForm.resources
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.csproj.GenerateResource.cache
+C:\Users\bitok\Desktop\PDAI3\PDAI\PDAI\obj\Release\PDAI.sourcelink.json

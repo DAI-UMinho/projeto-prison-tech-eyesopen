@@ -15,7 +15,7 @@ namespace PDAI
             List<object> recluso = new List<object>();
             try
             {
-                sql = "select nomeCompleto from Pessoa where tipo = 'Prisioneiro'";
+                sql = "select nomeCompleto from dbo.Pessoa where tipo='Prisioneiro' and ativo='1'";
 
                 
                 sqlConn = new SqlConnection(connectionString);
@@ -26,28 +26,12 @@ namespace PDAI
                 {
                         recluso.Add(reader.GetValue(0));
                 }
-                
-            }
-            catch(AccessViolationException ex)
-            {
-                throw ex;
-            }
-
-            catch(SqlException ex)
-            {
-                throw ex;
-            }
-            catch (Exception ex) 
-            {
-                throw ex; 
-            }
-            
-            finally
-            {
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
             }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
             return recluso;
         }
 
@@ -70,27 +54,67 @@ namespace PDAI
                     var.Add(reader[0]);
                     var.Add(reader[1]);
                 }
-                
-            }
-            catch(AccessViolationException ex)
-            {
-                throw ex;
-            }
-            catch(SqlException ex)
-            {
-                throw ex;
-            }
-            catch (Exception ex) 
-            {
-                throw ex; 
-            }
-            finally
-            {
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
             }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
             return var;
+        }
+
+        public Double Count()
+        {
+
+            Double counter = new Double();
+            try
+            {
+                sql = "select count (nomeCompleto) from Pessoa where tipo = 'Prisioneiro'";
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                counter = reader.GetInt32(0);
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return counter;
+        }
+
+        public List<object> selecRecluso(String nome)
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand("select nomeCompleto, dataNascimento, cc, estadoCivil from Pessoa where nomeCompleto = '" + nome + "'", sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                    recluso.Add(reader.GetValue(1));
+                    recluso.Add(reader.GetValue(2));
+                    recluso.Add(reader.GetValue(3));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
         }
 
         public List<object> Reclusos()
@@ -109,28 +133,15 @@ namespace PDAI
                     var.Add(reader[0]);
                     var.Add(reader[1]);
                 }
-
-            }
-            catch (AccessViolationException ex)
-            {
-                throw ex;
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            finally
-            {
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
             }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
             return var;
         }
+
 
 
     }

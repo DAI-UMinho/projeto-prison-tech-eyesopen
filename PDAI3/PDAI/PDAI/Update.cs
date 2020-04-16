@@ -9,11 +9,13 @@ namespace PDAI
 {
     class Update : Connection
     {
-        public void Recluso(string nome, DateTime dataNascimento, string estadoCivil)
+        public void Recluso(string nome, string dataNascimento, string cc, string estadoCivil, string str)
         {
+            string date = Convert.ToDateTime(dataNascimento).ToString("yyyy-MM-dd");
+
             try
             {
-                sql = "";
+                sql = "update Pessoa set nomeCompleto ='" + nome + "', dataNascimento ='" + date + "' , cc ='" + cc + "', estadoCivil ='" + estadoCivil + "' where nomeCompleto = '" + str + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -28,6 +30,7 @@ namespace PDAI
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
+
 
     }
 }
