@@ -130,8 +130,7 @@ namespace PDAI
                        "Nome Relatorio",
                        "NovoRelatorio"
                        );
-            if (input.Length > 0 && incidents_month.IsDisposed)
-            {
+            
                 
                 PdfDocument document = new PdfDocument();
                 document.Info.Title = "Created with PDFsharp";
@@ -176,11 +175,7 @@ namespace PDAI
 
                 document.Save(filename);
                 MessageBox.Show("feito");
-            }
-            else
-            {
-                MessageBox.Show("Por favor crie o grafico de ocorrencias");
-            }
+            
         }
     }
 }
