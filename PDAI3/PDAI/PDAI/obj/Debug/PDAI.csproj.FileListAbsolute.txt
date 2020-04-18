@@ -299,3 +299,11 @@ C:\Users\Bruno\Desktop\PDAI3-BACKUP\PDAI\PDAI\bin\Debug\AForge.Video.xml
 C:\Users\Bruno\Desktop\PDAI3-BACKUP\PDAI\PDAI\bin\Debug\AForge.Video.DirectShow.xml
 C:\Users\Bruno\Desktop\PDAI3-BACKUP\PDAI\PDAI\bin\Debug\AForge.Imaging.xml
 C:\Users\Bruno\Desktop\PDAI3-BACKUP\PDAI\PDAI\bin\Debug\AForge.Math.xml
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.exe
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI3\PDAI\PDAI\obj\Debug\PDAI.pdb
