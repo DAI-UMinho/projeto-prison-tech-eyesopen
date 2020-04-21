@@ -165,8 +165,8 @@ namespace PDAI
                 MessageBox.Show("Nao existem reclusos na base de dados.");
                 return;
             }
-            IncidentsAddForm f1 = new IncidentsAddForm(var, pList);
-            f1.Show();
+            //IncidentsAddForm f1 = new IncidentsAddForm(var, pList);
+            //f1.Show();
         }
 
         public void listPrisioners(String[] listP)

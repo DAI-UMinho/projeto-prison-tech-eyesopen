@@ -9,7 +9,7 @@ namespace PDAI
 {
     class I_HumanResources
     {
-      
+
         Button statistics, cams, employees, prisoners, incident, employeesDrop2, employeesDrop1, prisonersDrop2, prisonersDrop1, Logout;
         Panel menu, content_interface, employeesPanel, prisonersPanel;
         Font_Class font;
@@ -29,7 +29,7 @@ namespace PDAI
 
             menu = new Panel();
             form.Controls.Add(menu);
-            menu.Size = new Size(width * 1/11, height);
+            menu.Size = new Size(width * 1 / 11, height);
             menu.Location = new Point(0, 0);
             menu.BackColor = color;
             menu.BorderStyle = BorderStyle.None;
@@ -222,7 +222,7 @@ namespace PDAI
             Logout = new Button();
             menu.Controls.Add(Logout);
             Logout.Size = new Size(buttonWidth, buttonHeight);
-            Logout.Location = new Point(buttonLocationX, height- Logout.Height);
+            Logout.Location = new Point(buttonLocationX, height - Logout.Height);
             Logout.Click += new EventHandler(Logout_Click);
             font.Size(Logout, fontSize);
             Logout.Text = "Sair";
@@ -238,7 +238,7 @@ namespace PDAI
             content_interface = new Panel();
             form.Controls.Add(content_interface);
             content_interface.Size = new Size(width - menu.Width, height);
-            content_interface.Location = new Point(menu.Location.X+ menu.Width, 0);
+            content_interface.Location = new Point(menu.Location.X + menu.Width, 0);
             content_interface.BorderStyle = BorderStyle.None;
             content_interface.BackColor = Color.White;
 
@@ -246,7 +246,6 @@ namespace PDAI
             content_width = content_interface.Width;
             content_height = content_interface.Height;
 
-            camGallery = new I_CamGallery(content_interface);
 
             InitialPage();
         }
@@ -255,6 +254,8 @@ namespace PDAI
         {
             InitialPage();
             hideSubMenu();
+            //I_CamGallery i = new I_CamGallery();
+            //i.StopCameras();
         }
 
         private void InitialPage()
@@ -262,7 +263,7 @@ namespace PDAI
             Stop_Last_Task();
             hideSubMenu();
             openChildForm(new StatisticsForm());
-            
+
         }
 
 
@@ -271,13 +272,7 @@ namespace PDAI
             Stop_Last_Task();
             hideSubMenu();
 
-            //foreach (PictureBox contentor_cam in camGallery.contentor_cams)
-            //{
-            //    content_interface.Controls.Add(contentor_cam);
-            //}
-            if (camGallery.contentor_cams.Count < 10) camGallery.AddNewCam(0, "webcam");
-
-            camGallery.Start();
+            I_CamGallery camsGallery = new I_CamGallery(content_interface, content_width, content_width);
 
 
 
@@ -323,7 +318,7 @@ namespace PDAI
         {
             Stop_Last_Task();
             PrisonersManager pm = new PrisonersManager(content_interface, content_width, content_width);
-           
+
         }
 
         private void prisonersDrop1_Click(object sender, EventArgs e)
@@ -345,7 +340,7 @@ namespace PDAI
 
         private void Stop_Cams()
         {
-            
+
 
             //camsList[0].StopWebcam();
             //foreach (Cam c in camsList)
@@ -359,7 +354,7 @@ namespace PDAI
         {
             content_interface.Controls.Clear();
             Stop_Cams();
-            
+
         }
 
         public void openChildForm(Form childForm)
