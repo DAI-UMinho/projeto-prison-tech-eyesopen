@@ -576,6 +576,85 @@ namespace PDAI
             return ids;
         }
 
+        public List<object> selecReclusoVisitado(int id)
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand("select nomeCompleto from Pessoa where id = '" + id + "'", sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
+        }
+
+        public List<object> Recluso()
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+                sql = "select nomeCompleto from dbo.Pessoa where tipo='Prisioneiro' and ativo='1'";
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
+        }
+
+        public List<object> selecRecluso(String nome)
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand("select nomeCompleto, dataNascimento, cc, estadoCivil from Pessoa where nomeCompleto = '" + nome + "'", sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                    recluso.Add(reader.GetValue(1));
+                    recluso.Add(reader.GetValue(2));
+                    recluso.Add(reader.GetValue(3));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
+        }
+
 
     }
 }

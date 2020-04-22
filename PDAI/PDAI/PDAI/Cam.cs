@@ -50,7 +50,7 @@ namespace PDAI
 
         public Cam(int indexCam)
         {
-           
+
 
             //FaceRecognition = new EigenFaceRecognizer(80, double.PositiveInfinity);
             //FaceDetection = new CascadeClassifier("haarcascade_frontalface_default.xml");
@@ -74,14 +74,14 @@ namespace PDAI
 
             Webcam.ImageGrabbed += Webcam_ImageGrabbad;
             Webcam.Start();
-            
+
 
         }
 
         public void StopWebcam()
         {
-           Webcam.Stop();
-           
+            Webcam.Stop();
+
         }
 
         private void Webcam_ImageGrabbad(object sender, EventArgs e)
@@ -99,20 +99,20 @@ namespace PDAI
                 //if (FaceSquare)
                 //{
                 //    //foreach (var face in faces)
-                    //{
-                        //imageFrame.Draw(face, new Bgr(Color.BurlyWood), 3);
+                //{
+                //imageFrame.Draw(face, new Bgr(Color.BurlyWood), 3);
 
-                        //if (FaceDetected)
-                        //    using (Graphics gr = Graphics.FromImage(bitmap))
-                        //    {
-                        //        System.Drawing.Font font = new System.Drawing.Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
-                        //        gr.DrawString(FacesName[0].ToString(), font, Brushes.LightGreen, face.Location.X, face.Location.Y - font.Height);
-                        //    }
-                  //  }
+                //if (FaceDetected)
+                //    using (Graphics gr = Graphics.FromImage(bitmap))
+                //    {
+                //        System.Drawing.Font font = new System.Drawing.Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
+                //        gr.DrawString(FacesName[0].ToString(), font, Brushes.LightGreen, face.Location.X, face.Location.Y - font.Height);
+                //    }
+                //  }
 
 
 
-              //  }
+                //  }
 
 
                 //if (EyeSquare)
@@ -153,7 +153,7 @@ namespace PDAI
         private void Timer_Tick(object sender, EventArgs e)
         {
 
-        
+
 
             //var imageFrame = Frame.ToImage<Gray, byte>();
 
@@ -270,7 +270,7 @@ namespace PDAI
 
         private void gunaButton1_Click(object sender, EventArgs e)
         {
-           // this.Close();
+            // this.Close();
         }
 
         private void WebcamBox_Click(object sender, EventArgs e)
