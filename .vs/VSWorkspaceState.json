@@ -5,8 +5,9 @@
     "\\PDAI3\\PDAI",
     "\\PDAI3\\PDAI\\PDAI",
     "\\PDAI3\\PDAI\\PDAI\\obj",
-    "\\PDAI3\\PDAI\\PDAI\\obj\\Debug"
+    "\\PDAI3\\PDAI\\PDAI\\obj\\Debug",
+    "\\PDAI3\\PDAI\\PDAI\\obj\\Debug\\TempPE"
   ],
-  "SelectedNode": "\\PDAI3\\PDAI\\PDAI\\obj\\Debug\\PDAI.sourcelink.json",
+  "SelectedNode": "\\PDAI3\\PDAI\\PDAI\\Form1.cs",
   "PreviewInSolutionExplorer": false
 }
