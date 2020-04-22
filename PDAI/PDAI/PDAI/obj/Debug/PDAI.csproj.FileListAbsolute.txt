@@ -1,0 +1,338 @@
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Desktop\PDAI\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI2\PDAI\obj\Debug\PDAI.pdb
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\PDAI.exe
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\PDAI.pdb
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.exe
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.pdb
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.IncidentsAddForm.resources
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\Guna.UI.dll
+C:\Users\Bruno\Downloads\PDAI - ultimo\PDAI\bin\Debug\Guna.UI.pdb
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\Guna.UI.pdb
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.IncidentsAddForm.resources
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Downloads\wetransfer-40ddbf\PDAI - ultimo\PDAI\obj\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\Guna.UI.pdb
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.IncidentsAddForm.resources
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI3\PDAI\PDAI\obj\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\Guna.UI.pdb
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.IncidentsAddForm.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI3 - Cópia\PDAI\PDAI\obj\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\Guna.UI.pdb
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.IncidentsAddForm.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\obj\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x64\concrt140.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x64\cvextern.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x64\msvcp140.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x64\opencv_videoio_ffmpeg411_64.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x64\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x86\concrt140.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x86\cvextern.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x86\msvcp140.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x86\opencv_videoio_ffmpeg411.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\x86\vcruntime140.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\PDAI.pdb
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\Emgu.CV.UI.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\Emgu.CV.World.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\ZedGraph.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\Emgu.CV.UI.xml
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\Emgu.CV.World.xml
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\Guna.UI.pdb
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\ZedGraph.xml
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\de\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\es\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\fr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\hu\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\it\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\ja\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\pt\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\ru\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\sk\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\sv\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\tr\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\zh-cn\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\bin\Debug\zh-tw\ZedGraph.resources.dll
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.csprojAssemblyReference.cache
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.Main.resources
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.IncidentsAddForm.resources
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.Properties.Resources.resources
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.StatisticsForm.resources
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.csproj.GenerateResource.cache
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.sourcelink.json
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.exe
+C:\Users\HP\Desktop\PDAI - Backoffice\PDAI\PDAI\obj\Debug\PDAI.pdb
