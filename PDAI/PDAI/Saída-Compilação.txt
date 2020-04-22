@@ -1,0 +1,10 @@
+﻿1>------ Compilação iniciada: Projeto: PDAI, Configuração: Debug Any CPU ------
+1>  Emgu CV nuget package compiling against WindowsForms
+1>  Emgu CV compiling with x86 x64 binary
+1>C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\packages\Microsoft.Build.Tasks.Git.1.0.0\build\Microsoft.Build.Tasks.Git.targets(24,5): warning : Não é possível localizar o repositório com o diretório de trabalho que contém o diretório 'C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI'.
+1>C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\packages\Microsoft.SourceLink.Common.1.0.0\build\Microsoft.SourceLink.Common.targets(52,5): warning : As informações de controle de origem não estão disponíveis – o vínculo de origem gerado está vazio.
+1>C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\IO_Class.cs(25,30,25,31): warning CS0168: A variável "e" está declarada, mas nunca é usada
+1>C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\I_CamGallery.cs(17,13,17,16): warning CS0169: O campo "I_CamGallery.cam" nunca é usado
+1>C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\PrivilegeItem.cs(21,13,21,18): warning CS0169: O campo "PrivilegeItem.index" nunca é usado
+1>  PDAI -> C:\Users\HP\Desktop\PDAI3 - Cópia 3\PDAI\PDAI\bin\Debug\PDAI.exe
+========== Compilar: 1 com êxito, 0 com falha, 0 atualizados, 0 ignorados ==========
