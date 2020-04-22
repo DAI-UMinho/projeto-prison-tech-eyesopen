@@ -264,12 +264,37 @@ namespace PDAI
                     person.height = container.Height;
                     person.locationX = menu.locationX + menu.width;
                     person.locationY = 0;
-                    person.Open();
+                    person.Open(true,false);
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = person;
                 }
 
             }
+
+
+            if (((Label)sender).Name == "Privilégio Recluso-Registar" || val == "Privilégio Recluso-Registar")
+            {
+                if (val == "Privilégio Recluso-Registar")
+                {
+                    ((I_Person)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    I_Person person = new I_Person();
+                    container.Controls.Add(person.container);
+                    person.width = container.Width - menu.width;
+                    person.height = container.Height;
+                    person.locationX = menu.locationX + menu.width;
+                    person.locationY = 0;
+                    person.Open(false,false);
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = person;
+                }
+
+            }
+
 
             if (((Label)sender).Name == "Privilégio Recluso-Visualizar" || val == "Privilégio Recluso-Visualizar")
             {

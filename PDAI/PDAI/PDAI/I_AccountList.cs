@@ -79,7 +79,7 @@ namespace PDAI
             person.height = container.Height * 8 / 10;
             person.locationX = container.Width/2 - person.width/2;
             person.locationY = container.Height / 2 - person.height / 2; ;
-            person.Open();
+            person.Open(true, true);
             person.container.Disposed += new EventHandler(Control_Disposed);
            // person.container.BackColor = Color.White;
 

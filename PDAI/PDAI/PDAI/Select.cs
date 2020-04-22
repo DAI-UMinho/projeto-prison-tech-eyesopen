@@ -265,6 +265,31 @@ namespace PDAI
 
 
 
+        public List<string> GetRoles()
+        {
+            List<string> roles = new List<string>();
+            try
+            {
+                sql = "select tipo from Tipo where cargo = 1";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    roles.Add(reader[0].ToString());
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return roles;
+        }
+
 
         public void GetPrivilegesRole(ListView_Class lv)
         {

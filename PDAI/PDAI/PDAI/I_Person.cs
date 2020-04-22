@@ -19,9 +19,9 @@ namespace PDAI
         Font_Class font;
         Database database;
         PictureBox photo;
-        Label lFullName, lBirthDate, lCC, lMaritalStatus;
+        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole;
         TextBox tFullName, tCC;
-        ComboBox cbMaritalStatus ;
+        ComboBox cbMaritalStatus, cbRole ;
         DateTimePicker tBirthDate;
         Button registration;
         Database db;
@@ -29,13 +29,14 @@ namespace PDAI
         string type = "";
         int fontSize = 13;
         string path = Rule.TargetPath,imgPath;
+        bool employee, callback;
 
         public I_Person()
         {
             font = new Font_Class();
             database = new Database();
             db = new Database();
-            this.type = "Secretária";
+         
 
             container = new Panel();
             photo = new PictureBox();
@@ -44,17 +45,16 @@ namespace PDAI
         }
 
 
-        public void Open()
+        public void Open(bool employee, bool callback)
         {
+            this.employee = employee;
+            this.callback = callback;
 
-            
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
             container.Controls.Add(photo);
-           // photo.Image = Properties.Resources.Anotação_2020_03_07_232413;
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
-            //photo.BackColor = Color.Gray;
             photo.BackColor = Color.White;
 
             Label ladicionarImg = new Label();
@@ -133,10 +133,38 @@ namespace PDAI
                 cbMaritalStatus.Items.Add(item);
             }
 
+            int varLocationX = cbMaritalStatus.Location.X;
+            int varLocationY = cbMaritalStatus.Location.Y;
+            int varLocationHeight = cbMaritalStatus.Height;
+            if (employee)
+            {
+                lRole = new Label();
+                lRole.Size = new Size(tFullName.Width, tFullName.Height);
+                lRole.Location = new Point(cbMaritalStatus.Location.X, cbMaritalStatus.Location.Y + cbMaritalStatus.Height + 40);
+                lRole.Text = "Cargo";
+                font.Size(lRole, fontSize);
+                container.Controls.Add(lRole);
+
+                cbRole = new ComboBox();
+                cbRole.Size = new Size(200, lFullName.Height);
+                cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height);
+                font.Size(cbRole, fontSize);
+                container.Controls.Add(cbRole);
+                List<string> roles = database.select.GetRoles();
+                foreach (string item in roles)
+                {
+                    cbRole.Items.Add(item);
+                }
+
+                varLocationX = cbRole.Location.X;
+                varLocationY = cbRole.Location.Y;
+                varLocationHeight = cbRole.Height;
+            }
+            
 
             registration = new Button();
             registration.Size = new Size(150, 60);
-            registration.Location = new Point(cbMaritalStatus.Location.X, cbMaritalStatus.Location.Y + cbMaritalStatus.Height + 50);
+            registration.Location = new Point(varLocationX, varLocationY + varLocationHeight + 50);
             registration.Text = "Registar";
             font.Size(registration, fontSize);
             container.Controls.Add(registration);
@@ -147,18 +175,47 @@ namespace PDAI
 
         private void Registration_Click(object sender, EventArgs e)
         {
-
-            type = "Secretária";
-            uint id = db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
-            if (IO_Class.CreateFolder(@""+path + id.ToString()))
+            if (tFullName.Text != string.Empty)
             {
-                db.update.Person(id, path + id.ToString());
-                IO_Class.CopyFile(imgPath, path + id.ToString());
+                if (tBirthDate.Text != string.Empty)
+                {
+                    if (tCC.Text != string.Empty)
+                    {
+                        if (cbMaritalStatus.Text != string.Empty)
+                        {
+                            if (!employee) type = "Prisioneiro";
+                            else if (cbRole.Text != string.Empty) type = cbRole.Text;
+
+                            if (type != string.Empty)
+                            {
+                                uint id = db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                {
+                                    try
+                                    {
+                                        db.update.Person(id, path + id.ToString());
+                                        IO_Class.CopyFile(imgPath, path + id.ToString());
+                                        tFullName.Text = "";
+                                        tBirthDate.Text = "";
+                                        tCC.Text = "";
+                                        cbMaritalStatus.Text = "";
+                                        photo.Image = null;
+                                        if (employee)  cbRole.Text = "";
+                                        MessageBox.Show("Registado com sucesso!");
+                                    }
+                                    catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                }
+                                if(callback) container.Dispose();
+                            }
+                            else { MessageBox.Show("Campo cargo obrigatório."); }
+                        }
+                        else { MessageBox.Show("Campo estado civil obrigatório."); }
+                    }
+                    else { MessageBox.Show("Campo cartão cidadão obrigatório."); }
+                }
+                else { MessageBox.Show("Campo data de nascimento obrigatório."); }
             }
-           
-
-            container.Dispose();
-
+            else { MessageBox.Show("Campo nome obrigatório."); }
         }
 
 
