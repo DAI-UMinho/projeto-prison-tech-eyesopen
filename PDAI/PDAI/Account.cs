@@ -343,7 +343,28 @@ namespace PDAI
             }
 
 
+            if (((Label)sender).Name == "Privilégio Ocorrência-Registar" || val == "Privilégio Ocorrência-Registar")
+            {
+                if (val == "Privilégio Ocorrência-Registar")
+                {
+                    ((Incidents)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    Incidents incidents = new Incidents(container, container.Width, container.Height);
+                   // container.Controls.Add(incidents.container);
+                   // incidents.width = container.Width - menu.width;
+                   // incidents.height = container.Height;
+                   //incidents.locationX = menu.locationX + menu.width;
+                   // incidents.locationY = 0;
+                  /* incidents.Open(true, false)*/;
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = incidents;
+                }
 
+            }
 
 
         }
