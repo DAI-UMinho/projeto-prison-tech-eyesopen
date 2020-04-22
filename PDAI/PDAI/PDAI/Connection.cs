@@ -10,8 +10,7 @@ namespace PDAI
     {
 
 
-        //protected string connectionString = @"Data Source=DESKTOP-SBQKKVO\DAI_SERVER;Initial Catalog=DAI_Database;User ID=sa;Password=dai";
-        //protected string connectionString = @"Data Source=LAPTOP-G0967CH5;Initial Catalog=DAI_Database;User ID=teste;Password=password";
+    
         protected string connectionString = @"Data Source=OXYZ\PROJECTDEV;Initial Catalog=DAI_Database;User ID=sa;Password=ProjectDev";
 
 
