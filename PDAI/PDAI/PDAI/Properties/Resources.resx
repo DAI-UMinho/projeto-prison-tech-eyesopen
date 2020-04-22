@@ -136,4 +136,16 @@
   <data name="Seta1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Seta1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="iconfinder_ic_play_arrow_48px_352072" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\iconfinder_ic_play_arrow_48px_352072.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Pause_Button_PNG_File" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pause-Button-PNG-File.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Donald_Trump_official_portrait" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Donald_Trump_official_portrait.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="_0122" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\0122.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

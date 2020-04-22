@@ -271,7 +271,51 @@ namespace PDAI
 
             }
 
+            if (((Label)sender).Name == "Privilégio Recluso-Visualizar" || val == "Privilégio Recluso-Visualizar")
+            {
+                if (val == "Privilégio Recluso-Visualizar")
+                {
+                    ((PrisonersManager)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    PrisonersManager pm = new PrisonersManager(container, container.Width, container.Height);
+                    //container.Controls.Add(pm.container);
+                    //pm.width = container.Width - menu.width;
+                    //pm.height = container.Height;
+                    //pm.locationX = menu.locationX + menu.width;
+                    //pm.locationY = 0;
+                    //pm.Open();
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = pm;
+                }
 
+            }
+
+            if (((Label)sender).Name == "Privilégio Câmara-Visualizar Deteção" || val == "Privilégio Câmara-Visualizar Deteção")
+            {
+                if (val == "Privilégio Câmara-Visualizar Deteção")
+                {
+                    ((I_CamGallery)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    I_CamGallery camGallery = new I_CamGallery(container, container.Width, container.Height);
+                    //container.Controls.Add(pm.container);
+                    //pm.width = container.Width - menu.width;
+                    //pm.height = container.Height;
+                    //pm.locationX = menu.locationX + menu.width;
+                    //pm.locationY = 0;
+                    //pm.Open();
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = camGallery;
+                }
+
+            }
 
 
 
