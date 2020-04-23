@@ -44,6 +44,8 @@
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.gunaPanel3 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_Place)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_month)).BeginInit();
             this.gunaPanel1.SuspendLayout();
@@ -70,7 +72,7 @@
             legend1.Name = "Legend1";
             this.incidents_Place.Legends.Add(legend1);
             this.incidents_Place.Location = new System.Drawing.Point(1043, 334);
-            this.incidents_Place.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidents_Place.Margin = new System.Windows.Forms.Padding(4);
             this.incidents_Place.Name = "incidents_Place";
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
@@ -96,8 +98,8 @@
             this.incidents_month.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.incidents_month.Legends.Add(legend2);
-            this.incidents_month.Location = new System.Drawing.Point(117, 334);
-            this.incidents_month.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidents_month.Location = new System.Drawing.Point(118, 397);
+            this.incidents_month.Margin = new System.Windows.Forms.Padding(4);
             this.incidents_month.Name = "incidents_month";
             this.incidents_month.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
             series2.BorderColor = System.Drawing.Color.Transparent;
@@ -123,7 +125,7 @@
             this.gunaPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(195)))), ((int)(((byte)(75)))));
             this.gunaPanel1.Controls.Add(this.gunaLabel2);
             this.gunaPanel1.Location = new System.Drawing.Point(117, 68);
-            this.gunaPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPanel1.Name = "gunaPanel1";
             this.gunaPanel1.Size = new System.Drawing.Size(573, 148);
             this.gunaPanel1.TabIndex = 4;
@@ -145,7 +147,7 @@
             // 
             this.gunaPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(180)))));
             this.gunaPanel2.Location = new System.Drawing.Point(1399, 68);
-            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPanel2.Name = "gunaPanel2";
             this.gunaPanel2.Size = new System.Drawing.Size(573, 148);
             this.gunaPanel2.TabIndex = 5;
@@ -155,7 +157,7 @@
             this.gunaPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(77)))), ((int)(((byte)(81)))));
             this.gunaPanel3.Controls.Add(this.gunaLabel3);
             this.gunaPanel3.Location = new System.Drawing.Point(760, 68);
-            this.gunaPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPanel3.Name = "gunaPanel3";
             this.gunaPanel3.Size = new System.Drawing.Size(573, 148);
             this.gunaPanel3.TabIndex = 5;
@@ -171,12 +173,33 @@
             this.gunaLabel3.TabIndex = 1;
             this.gunaLabel3.Text = "Número de Camaras Ligadas";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.AccessibleName = "combo";
+            this.comboBox1.DropDownWidth = 121;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(402, 334);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 24);
+            this.comboBox1.TabIndex = 6;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(552, 334);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.ClientSize = new System.Drawing.Size(1942, 1047);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gunaPanel2);
             this.Controls.Add(this.gunaPanel3);
             this.Controls.Add(this.gunaPanel1);
@@ -184,7 +207,7 @@
             this.Controls.Add(this.incidents_Place);
             this.Controls.Add(this.gunaLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StatisticsForm";
             this.Text = "StatisticsForm";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
@@ -207,5 +230,7 @@
         private Guna.UI.WinForms.GunaPanel gunaPanel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
