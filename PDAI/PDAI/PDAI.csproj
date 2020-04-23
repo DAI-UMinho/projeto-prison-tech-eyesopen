@@ -126,6 +126,10 @@
       <HintPath>..\..\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\.net 4.0\Guna.UI.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PdfSharp">
+      <HintPath>..\PdfSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
