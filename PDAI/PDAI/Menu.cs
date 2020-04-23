@@ -21,7 +21,8 @@ namespace PDAI
         Color subItemColor = Color.FromArgb(189, 195, 197);
         List<Panel> itemsTop, itemsBottom;
         Font_Class font;
-        int fontSize = 15, itemDefaultHeight, subItemDefaultHeight;
+        int fontSize = 15;
+        int itemWidth, itemHeight;
 
         public Menu()
         {
@@ -35,16 +36,22 @@ namespace PDAI
             itemsBottom = new List<Panel>();
             font = new Font_Class();
 
-           
+         
         }
 
+
+        public void Open()
+        {
+            itemWidth = container.Width - 5;
+            itemHeight = container.Height / 10;
+        }
 
 
         public Panel AddItem(string item, Event clickEvent, MenuPosition menuPosition)
         {
             Panel pane = new Panel();
             container.Controls.Add(pane);
-            pane.Size = new Size(container.Width - 4, container.Height / 10);
+            pane.Size = new Size(itemWidth, itemHeight);
             pane.BackColor = color;
             pane.BorderStyle = BorderStyle.FixedSingle;
 
@@ -79,18 +86,61 @@ namespace PDAI
             return pane;
         }
 
+        public Panel AddItem(string item, Event clickEvent, MenuPosition menuPosition, int width, int height)
+        {
+            Panel pane = new Panel();
+            container.Controls.Add(pane);
+            //int thisItemWidth = itemWidth;
+            //int thisItemHeight = itemHeight;
+            if (width != 0) itemWidth = width;
+            if (height != 0) itemHeight = height;
+            pane.Size = new Size(itemWidth, itemHeight);
+            pane.BackColor = color;
+            pane.BorderStyle = BorderStyle.FixedSingle;
+
+            if (menuPosition == MenuPosition.top)
+            {
+                if (itemsTop.Count == 0) pane.Location = new Point(0, 0);
+                else pane.Location = new Point(0, itemsTop[itemsTop.Count - 1].Location.Y + itemsTop[itemsTop.Count - 1].Height - 1);
+                itemsTop.Add(pane);
+            }
+            else
+            {
+                if (itemsBottom.Count == 0) pane.Location = new Point(0, container.Height - pane.Height - 4);
+                else pane.Location = new Point(0, itemsBottom[itemsBottom.Count - 1].Location.Y - pane.Height + 1);
+                itemsBottom.Add(pane);
+            }
+
+
+            Label itemName = new Label();
+            pane.Controls.Add(itemName);
+            itemName.Text = item;
+            font.Size(itemName, fontSize);
+            itemName.ForeColor = Color.White;
+
+            itemName.BorderStyle = BorderStyle.FixedSingle;
+            itemName.AutoSize = false;
+            itemName.TextAlign = ContentAlignment.MiddleCenter;
+            itemName.Dock = DockStyle.Fill;
+            itemName.MouseHover += new EventHandler(Hover);
+            itemName.MouseLeave += new EventHandler(Leave);
+            itemName.Click += new EventHandler(clickEvent);
+
+            return pane;
+        }
+
 
 
 
 
         public Panel AddItem(string item, MenuPosition menuPosition)
         {
-            itemDefaultHeight = container.Height / 10;
-            subItemDefaultHeight = itemDefaultHeight * 2 / 3;
+            //itemWidth = container.Height / 10;
+            //itemHeight = itemHeight * 2 / 3;
 
             Panel pane = new Panel();
             container.Controls.Add(pane);
-            pane.Size = new Size(container.Width - 4, itemDefaultHeight);
+            pane.Size = new Size(itemWidth, itemHeight);
             pane.BackColor = color;
             pane.BorderStyle = BorderStyle.FixedSingle;
 
@@ -115,7 +165,7 @@ namespace PDAI
             font.Size(itemName, fontSize);
             itemName.ForeColor = Color.White;
             //itemName.BackColor = Color.White;
-            itemName.Size = new Size(container.Width - 4, itemDefaultHeight);
+            itemName.Size = new Size(itemWidth, itemHeight);
             itemName.AutoSize = false;
             itemName.TextAlign = ContentAlignment.MiddleCenter;
             // itemName.Dock = DockStyle.Fill;
@@ -133,6 +183,7 @@ namespace PDAI
 
         public void AddSubItem(Panel item, string subItem, Event clickEvent)
         {
+            int itemHeightSubItem = itemHeight * 2 / 3;
 
             int maxLocationY = 0;
             foreach (Label control in item.Controls)
@@ -145,7 +196,7 @@ namespace PDAI
             itemName.Text = subItem.Split('-').GetValue(1).ToString();
             itemName.Name = subItem;
             font.Size(itemName, fontSize-3);
-            itemName.Size = new Size(container.Width - 4, subItemDefaultHeight);
+            itemName.Size = new Size(itemWidth, itemHeightSubItem);
             itemName.Location = new Point(0, maxLocationY);
             itemName.ForeColor = Color.White;
             //itemName.BackColor = subItemColor;
@@ -187,7 +238,7 @@ namespace PDAI
         {
             foreach (Panel item in container.Controls)
             {
-                item.Height = itemDefaultHeight;
+                item.Height = itemHeight;
             }
 
             int maxLocationY = 0;
@@ -197,7 +248,7 @@ namespace PDAI
                 if (maxLocationY < var) maxLocationY = var;
             }
             if (((Label)sender).Name == "+") { ((Label)sender).Name = "-"; ((Label)sender).Parent.Height = maxLocationY;  }
-            else { ((Label)sender).Name = "+"; ((Label)sender).Parent.Height = itemDefaultHeight;  }
+            else { ((Label)sender).Name = "+"; ((Label)sender).Parent.Height = itemHeight;  }
 
             foreach (Panel item in container.Controls)
             {

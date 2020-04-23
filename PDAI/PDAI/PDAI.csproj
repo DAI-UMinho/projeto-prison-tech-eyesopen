@@ -153,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AccountCredentials.cs" />
     <Compile Include="Cam.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CustomizableList.cs" />

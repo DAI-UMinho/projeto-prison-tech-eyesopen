@@ -24,7 +24,6 @@ namespace PDAI
         ComboBox cbMaritalStatus, cbRole ;
         DateTimePicker tBirthDate;
         Button registration;
-        Database db;
         Bitmap bitmapImage;
         string type = "";
         int fontSize = 13;
@@ -35,7 +34,6 @@ namespace PDAI
         {
             font = new Font_Class();
             database = new Database();
-            db = new Database();
          
 
             container = new Panel();
@@ -86,7 +84,7 @@ namespace PDAI
 
             lBirthDate = new Label();
             lBirthDate.Size = new Size(tFullName.Width, tFullName.Height);
-            lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + 40);
+            lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + container.Height * 1/20);
             lBirthDate.Text = "Data Nascimento";
             font.Size(lBirthDate, fontSize);
             container.Controls.Add(lBirthDate);
@@ -103,7 +101,7 @@ namespace PDAI
 
             lCC = new Label();
             lCC.Size = new Size(tFullName.Width, tFullName.Height);
-            lCC.Location = new Point(tBirthDate.Location.X, tBirthDate.Location.Y + tBirthDate.Height + 40);
+            lCC.Location = new Point(tBirthDate.Location.X, tBirthDate.Location.Y + tBirthDate.Height + container.Height * 1 / 20);
             lCC.Text = "Cartão Cidadão";
             font.Size(lCC, fontSize);
             container.Controls.Add(lCC);
@@ -117,7 +115,7 @@ namespace PDAI
 
             lMaritalStatus = new Label();
             lMaritalStatus.Size = new Size(tFullName.Width, tFullName.Height);
-            lMaritalStatus.Location = new Point(tCC.Location.X, tCC.Location.Y + tCC.Height + 40);
+            lMaritalStatus.Location = new Point(tCC.Location.X, tCC.Location.Y + tCC.Height + container.Height * 1 / 20);
             lMaritalStatus.Text = "Estado Civil";
             font.Size(lMaritalStatus, fontSize);
             container.Controls.Add(lMaritalStatus);
@@ -140,7 +138,7 @@ namespace PDAI
             {
                 lRole = new Label();
                 lRole.Size = new Size(tFullName.Width, tFullName.Height);
-                lRole.Location = new Point(cbMaritalStatus.Location.X, cbMaritalStatus.Location.Y + cbMaritalStatus.Height + 40);
+                lRole.Location = new Point(cbMaritalStatus.Location.X, cbMaritalStatus.Location.Y + cbMaritalStatus.Height + container.Height * 1 / 20);
                 lRole.Text = "Cargo";
                 font.Size(lRole, fontSize);
                 container.Controls.Add(lRole);
@@ -164,7 +162,7 @@ namespace PDAI
 
             registration = new Button();
             registration.Size = new Size(150, 60);
-            registration.Location = new Point(varLocationX, varLocationY + varLocationHeight + 50);
+            registration.Location = new Point(varLocationX, varLocationY + varLocationHeight + container.Height * 1 / 10);
             registration.Text = "Registar";
             font.Size(registration, fontSize);
             container.Controls.Add(registration);
@@ -188,12 +186,12 @@ namespace PDAI
 
                             if (type != string.Empty)
                             {
-                                uint id = db.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
                                 if (IO_Class.CreateFolder(@"" + path + id.ToString()))
                                 {
                                     try
                                     {
-                                        db.update.Person(id, path + id.ToString());
+                                        database.update.Person(id, path + id.ToString());
                                         IO_Class.CopyFile(imgPath, path + id.ToString());
                                         tFullName.Text = "";
                                         tBirthDate.Text = "";

@@ -66,6 +66,7 @@ namespace PDAI
             privileges.Add("Privilégio Ocorrência-Visualizar");
             privileges.Add("Privilégio Conta-Visualizar");
             privileges.Add("Privilégio Alerta-Visualizar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
 
             return privileges;
         }
@@ -81,6 +82,7 @@ namespace PDAI
             privileges.Add("Privilégio Recluso-Editar");
             privileges.Add("Privilégio Recluso-Apagar");
             privileges.Add("Privilégio Recluso-Visualizar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
 
             return privileges;
         }
@@ -94,6 +96,7 @@ namespace PDAI
             privileges.Add("Privilégio Visita-Editar");
             privileges.Add("Privilégio Visita-Apagar");
             privileges.Add("Privilégio Visita-Visualizar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             return privileges;
         }
 
@@ -116,6 +119,7 @@ namespace PDAI
             privileges.Add("Privilégio Ocorrência-Visualizar");
             privileges.Add("Privilégio Alerta-Visualizar");
             privileges.Add("Privilégio Guarda-Visualizar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             return privileges;
         }
 
@@ -131,6 +135,7 @@ namespace PDAI
             privileges.Add("Privilégio Ocorrência-Editar");
             privileges.Add("Privilégio Ocorrência-Apagar");
             privileges.Add("Privilégio Ocorrência-Visualizar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             return privileges;
         }
 
@@ -176,8 +181,10 @@ namespace PDAI
             privileges.Add("Privilégio Conta-Editar");
             privileges.Add("Privilégio Conta-Apagar");
             privileges.Add("Privilégio Conta-Visualizar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             privileges.Add("Privilégio Alerta");
             privileges.Add("Privilégio Alerta-Visualizar");
+            
 
             return privileges;
         }
