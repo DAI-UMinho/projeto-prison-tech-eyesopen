@@ -765,6 +765,43 @@ namespace PDAI
             return var;
         }
 
+        public List<object> Top10()
+        {
+            List<object> var = new List<object>();
+            sql = "select o.idPessoa, COUNT(o.id) as contagem, p.nomeCompleto " +
+                "from Ocorrencia o, Pessoa p " +
+                "where o.idPessoa = p.id " +
+                "GROUP BY YEAR(o.dataOcorrencia), o.idPessoa, p.nomeCompleto " +
+                "ORDER BY contagem DESC; ";
+            try
+            {
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
+                    var.Add(reader[2]);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConn.Close();
+                reader.Close();
+            }
+            return var;
+        }
+
+
 
 
 
