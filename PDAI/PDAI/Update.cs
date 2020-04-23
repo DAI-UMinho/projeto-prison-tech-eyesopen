@@ -202,6 +202,28 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
+        public void Visita(string id, string nome, string idRecluso, string dataVsista)
+        {
+            string date = Convert.ToDateTime(dataVsista).ToString("yyyy-MM-dd");
+
+            try
+            {
+                sql = "update Visita set  idPessoa ='" + idRecluso + "', nome ='" + nome + "', dataVisita ='" + date + "' where id = '" + id + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+        }
+
 
 
     }
