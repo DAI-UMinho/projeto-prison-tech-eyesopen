@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Data.SqlClient;
 
 namespace PDAI
 {
@@ -114,13 +115,67 @@ namespace PDAI
 
         private void Register_Click(object sender, EventArgs e)
         {
+            string[] idPessoas = pList.Text.Split('-');
+            string idPessoa = idPessoas[0];
+            string data;
+            data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
+                ":" + hour.Value.Second;
 
+            string motivo = lDescription.Text;
+            string descricao = description.Text;
+            int codigoOcorrencia = 0; //ver onde esta isto
+            try
+            {
+                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                {
+                    if (descricao.Length <= 100)
+                    {
+                        db.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                        MessageBox.Show("Registo efetuado");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Descricao contem demasiados carateres!");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por Favor Preencha todos os campos!");
+                }
+            }
+            catch (AccessViolationException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+            catch (SqlException ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show("" + ex);
+            }
+            finally
+            {
+                pList.Text = null;
+                description.Text = null;
+
+            }
         }
 
         private void Add_Click(object sender, EventArgs e)
         {
-            IncidentsAddForm f1 = new IncidentsAddForm();
-            f1.Show();
+            List<object> var = new List<object>();
+            var = db.select.Reclusos();
+            //github
+            if (var.Count == 0)
+            {
+                MessageBox.Show("Nao existem reclusos na base de dados.");
+                return;
+            }
+            //IncidentsAddForm f1 = new IncidentsAddForm(var, pList);
+            //f1.Show();
         }
 
         public void listPrisioners(String[] listP)
