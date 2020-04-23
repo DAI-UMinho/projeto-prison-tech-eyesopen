@@ -766,5 +766,32 @@ namespace PDAI
         }
 
 
+
+
+        public bool UsernameExists(string username)
+        {
+            bool val = false;
+
+            try
+            {
+                sql = "select id from Login where username ='"+username+"'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (Convert.ToByte(reader[0]) > 0) val = true;
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return val;
+        }
+
     }
 }

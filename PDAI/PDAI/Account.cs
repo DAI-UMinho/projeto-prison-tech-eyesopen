@@ -14,8 +14,7 @@ namespace PDAI
         public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
-        string username;
-        byte[] password;
+        string username, password;
         uint idAccount;
         Database database;
         Form form;
@@ -36,7 +35,7 @@ namespace PDAI
         }
 
 
-        public Account(string username, byte[] password, uint idAccount)
+        public Account(string username, string password, uint idAccount)
         {
             container = new Panel();
             container.BackColor = Color.White;
@@ -87,6 +86,7 @@ namespace PDAI
             menu.locationY = 0;
             menu.width = width / 8;
             menu.height = height;
+            menu.Open();
 
             form.Controls.Add(container);
             container.Location = new Point(0, 0);
@@ -97,14 +97,14 @@ namespace PDAI
             {
                 Panel item = menu.AddItem("Contas", AccountList,MenuPosition.top);
                 menu.AddItem("Definições", AccountSettings, MenuPosition.top);
-                menu.AddItem("Sair", Logout,  MenuPosition.bottom);
+                menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
                 AccountList(item, new EventArgs());
             }
             else 
             {
                 Panel currentItem = null;
 
-                menu.AddItem("Sair", Logout, MenuPosition.bottom);
+                menu.AddItem("Terminar sessão", Logout, MenuPosition.bottom, 0, 60);
                 foreach (string privilege in Rule.GetPrivileges())
                 {
                     Array privilegeName = privilege.Split('-');
@@ -188,20 +188,20 @@ namespace PDAI
             Role role = new Role();
             role.width = general.container.Width * 9 / 10;
             role.height = 400;
-            role.Create();
+            role.Open();
             general.AddItem(role.container);
 
             MaritalStatus maritalStatus = new MaritalStatus();
             maritalStatus.width = general.container.Width * 9 / 10;
             maritalStatus.height = 400;
-            maritalStatus.Create();
+            maritalStatus.Open();
             general.AddItem(maritalStatus.container);
 
 
             PrivilegesRole privilegesRole = new PrivilegesRole();
             privilegesRole.width = general.container.Width * 9 / 10;
             privilegesRole.height = 600;
-            privilegesRole.Create();
+            privilegesRole.Open();
             general.AddItem(privilegesRole.container);
 
          
@@ -212,7 +212,7 @@ namespace PDAI
 
         private void Logout(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Deseja terminar a sessão?", "Logout", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show("Deseja terminar a sessão?", "Terminar sessão", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 form.Controls.Clear();
@@ -294,6 +294,33 @@ namespace PDAI
                 }
 
             }
+
+
+            if (((Label)sender).Name == "Privilégio Conta-Alterar Credenciais" || val == "Privilégio Conta-Alterar Credenciais")
+            {
+                if (val == "Privilégio Conta-Alterar Credenciais")
+                {
+                    ((AccountCredentials)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    AccountCredentials accountCredentials = new AccountCredentials(idAccount,username,password);
+                    container.Controls.Add(accountCredentials.container);
+                    accountCredentials.width = container.Width - menu.width;
+                    accountCredentials.height = container.Height;
+                    accountCredentials.locationX = menu.locationX + menu.width;
+                    accountCredentials.locationY = 0;
+                    accountCredentials.Open();
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = accountCredentials;
+                }
+
+            }
+
+
+
 
 
             if (((Label)sender).Name == "Privilégio Recluso-Visualizar" || val == "Privilégio Recluso-Visualizar")
