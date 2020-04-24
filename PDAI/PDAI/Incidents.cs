@@ -15,9 +15,9 @@ namespace PDAI
         public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
+
         Font_Class font;
-        Panel incidents_interface;
-        Database db;
+        Database database;
         RichTextBox description;
         RichTextBox pList;
         string[] t = new string[0];
@@ -34,27 +34,24 @@ namespace PDAI
         Color color = Color.FromArgb(127, 127, 127);
 
 
-        public Incidents(Panel content_interface, int content_width, int content_height)
+        public Incidents()
         {
             font = new Font_Class();
-            db = new Database();
+            database = new Database();
             container = new Panel();
+        }
 
-            incidents_interface = new Panel();
-            incidents_interface.Size = new Size(content_width, content_height);
-            incidents_interface.Location = new Point(0, 0);
-            content_interface.Controls.Add(incidents_interface);
 
-            listPrisioners(t);
-
+        public void Open()
+        {
             description = new RichTextBox();
-            incidents_interface.Controls.Add(description);
+            container.Controls.Add(description);
             description.Size = new Size(600, 300);
             description.Location = new Point(350, 410);
-           
+
 
             lDescription = new Label();
-            incidents_interface.Controls.Add(lDescription);
+            container.Controls.Add(lDescription);
             lDescription.Size = new Size(100, 50);
             lDescription.Location = new Point(350, 355);
             lDescription.Text = "Descrição";
@@ -62,13 +59,13 @@ namespace PDAI
             font.Size(lDescription, fontSize);
 
             date = new DateTimePicker();
-            incidents_interface.Controls.Add(date);
+            container.Controls.Add(date);
             date.Size = new Size(200, 50);
             date.Location = new Point(350, 295);
             date.Format = DateTimePickerFormat.Short;
 
             hour = new DateTimePicker();
-            incidents_interface.Controls.Add(hour);
+            container.Controls.Add(hour);
             hour.Size = new Size(200, 50);
             hour.Location = new Point(750, 295);
             hour.Format = DateTimePickerFormat.Custom;
@@ -77,7 +74,7 @@ namespace PDAI
             hour.ShowUpDown = true;
 
             lDate = new Label();
-            incidents_interface.Controls.Add(lDate);
+            container.Controls.Add(lDate);
             lDate.Size = new Size(100, 50);
             lDate.Location = new Point(350, 250);
             lDate.Text = "Data";
@@ -85,7 +82,7 @@ namespace PDAI
             font.Size(lDate, fontSize);
 
             lHour = new Label();
-            incidents_interface.Controls.Add(lHour);
+            container.Controls.Add(lHour);
             lHour.Size = new Size(100, 50);
             lHour.Location = new Point(750, 250);
             lHour.Text = "Hora";
@@ -98,7 +95,7 @@ namespace PDAI
             register.Location = new Point(875, 720);
             register.Text = "Registar";
             font.Size(register, fontSize);
-            incidents_interface.Controls.Add(register);
+            container.Controls.Add(register);
             register.Click += new EventHandler(Register_Click);
             register.BackColor = color;
 
@@ -107,11 +104,13 @@ namespace PDAI
             add.Location = new Point(350, 75);
             add.Text = "Adicionar Intervenientes";
             font.Size(add, fontSize);
-            incidents_interface.Controls.Add(add);
+            container.Controls.Add(add);
             add.Click += new EventHandler(Add_Click);
             add.BackColor = color;
 
+            listPrisioners(t);
         }
+
 
         private void Register_Click(object sender, EventArgs e)
         {
@@ -130,7 +129,7 @@ namespace PDAI
                 {
                     if (descricao.Length <= 100)
                     {
-                        db.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                        database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
                         MessageBox.Show("Registo efetuado");
                     }
                     else
@@ -167,7 +166,7 @@ namespace PDAI
         private void Add_Click(object sender, EventArgs e)
         {
             List<object> var = new List<object>();
-            var = db.select.Reclusos();
+            var = database.select.Reclusos();
             //github
             if (var.Count == 0)
             {
@@ -184,7 +183,7 @@ namespace PDAI
             if (l == 0)
             {
                 pList = new RichTextBox();
-                incidents_interface.Controls.Add(pList);
+                container.Controls.Add(pList);
                 pList.Size = new Size(600, (listY));
                 pList.Location = new Point(350, 175);
                 pList.Text = "Não selecionou ninguém";
@@ -193,7 +192,7 @@ namespace PDAI
             else
             {
                 pList = new RichTextBox();
-                incidents_interface.Controls.Add(pList);
+                container.Controls.Add(pList);
                 pList.Size = new Size(l * 600, listY);
                 pList.Location = new Point(350, 175);
                 pList.Text = listP[0] + listP[1] + listP[2] + listP[3] + listP[4];
