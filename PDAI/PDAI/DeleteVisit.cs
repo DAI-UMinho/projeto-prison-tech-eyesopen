@@ -64,12 +64,12 @@ namespace PDAI
                 b.BackColor = Color.FromArgb(127, 127, 127);
                 b.Click += new EventHandler(b_Click);
                 b.Cursor = Cursors.Hand;
-                b.Dock = DockStyle.Left;
+                b.Dock = DockStyle.Right;
 
                 ldata = new Label();
                 row.Controls.Add(ldata);
                 ldata.Text = "Data: " + names[i + 1].ToString();
-                ldata.Size = new Size(200, 60);
+                ldata.Size = new Size(400, 60);
                 ldata.BackColor = Color.Transparent;
                 font.Size(ldata, 13);
                 ldata.TextAlign = ContentAlignment.MiddleLeft;
@@ -78,7 +78,7 @@ namespace PDAI
                 l = new Label();
                 row.Controls.Add(l);
                 l.Text = "Visitante: " + names[i].ToString();
-                l.Size = new Size(200, 60);
+                l.Size = new Size(400, 60);
                 l.BackColor = Color.Transparent;
                 font.Size(l, 13);
                 l.TextAlign = ContentAlignment.MiddleLeft;

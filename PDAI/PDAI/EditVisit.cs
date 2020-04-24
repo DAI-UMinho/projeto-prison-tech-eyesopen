@@ -61,7 +61,7 @@ namespace PDAI
                 ldata = new Label();
                 row.Controls.Add(ldata);
                 ldata.Text = "Data: " + names[i + 1].ToString();
-                ldata.Size = new Size(200, 60);
+                ldata.Size = new Size(450, 60);
                 ldata.BackColor = Color.Transparent;
                 font.Size(ldata, 13);
                 ldata.TextAlign = ContentAlignment.MiddleLeft;
@@ -71,7 +71,7 @@ namespace PDAI
                 l = new Label();
                 row.Controls.Add(l);
                 l.Text = "Visitante: " + names[i].ToString();
-                l.Size = new Size(200, 60);
+                l.Size = new Size(450, 60);
                 l.BackColor = Color.Transparent;
                 font.Size(l, 13);
                 l.TextAlign = ContentAlignment.MiddleLeft;

@@ -46,7 +46,8 @@ namespace PDAI
             Ids = db.select.visitedPrisionerId(cbPrisionerVisited.Text);
 
             db.insert.Visit(Ids[0].ToString(), tFullName.Text, thisDay.ToString("d"), tVisitDate.Text);
-            System.Diagnostics.Debug.WriteLine( Ids[0].ToString() + "  " + tFullName.Text + "  " + thisDay.ToString("d") + "  " + tVisitDate.Text);
+
+            System.Diagnostics.Debug.WriteLine( "Senatus Populusque Romanus " + Ids[0].ToString() + "  " + tFullName.Text + "  " + thisDay.ToString("d") + "  " + tVisitDate.Text);
 
             MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
 

@@ -939,5 +939,30 @@ namespace PDAI
             return visita;
         }
 
+        public List<object> prisionerPhoto(string nome)
+        {
+
+            List<object> photo = new List<object>();
+            try
+            {
+                sql = "select pastaRegistos from Pessoa where nomeCompleto = '" + nome + "' and pastaRegistos is not null";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    photo.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return photo;
+        }
+
     }
 }

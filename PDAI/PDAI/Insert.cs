@@ -305,7 +305,7 @@ namespace PDAI
             string dateNow = Convert.ToDateTime(dateRegist).ToString("yyyy-MM-dd");
             try
             {
-                sql = "insert into Visita (idPessoa, nome, dataRegisto, dataVisita) values ('" + visitedPrisioner + "','" + fullName + "', '" + dateNow + "', '" + date + "');";
+                sql = "insert into Visita (idPessoa, nome, dataRegisto, dataVisita) values ('" + visitedPrisioner + "','" + fullName + "', '" + dateNow + "', '" + date + "')s";
 
                 System.Diagnostics.Debug.WriteLine("---------" + visitedPrisioner + "  " + fullName + "  " + dateNow + "  " + date);
 

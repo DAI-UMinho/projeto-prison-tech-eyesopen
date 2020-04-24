@@ -70,7 +70,7 @@ namespace PDAI
 
         System.Windows.Forms.PictureBox teste;
 
-        FaceRecognizer recognizer = new FisherFaceRecognizer(0, 4000);
+        FaceRecognizer recognizer = new FisherFaceRecognizer(0, 3500);
 
 
         //private Capture _capture = null; //Camera
@@ -119,7 +119,7 @@ namespace PDAI
                 arrayFacesConverted[i] = Faces[i].Mat;
             }
 
-            recognizer.Train(arrayFacesConverted, faceLabels);
+            FaceRecognition.Train(arrayFacesConverted, faceLabels);
 
             Frame = new Mat();
 
@@ -395,7 +395,7 @@ namespace PDAI
                     {
 
                         var processImage = frameImg.Copy(rectangle).Convert<Gray, byte>().Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-                        var result = recognizer.Predict(processImage);
+                        var result = FaceRecognition.Predict(processImage);
 
                         if (Int32.Parse(result.Label.ToString()) != -1)
                         {
