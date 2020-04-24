@@ -234,12 +234,14 @@ namespace PDAI
                 else
                 {
                     StatisticsForm statisticsForm = new StatisticsForm();
+                    statisticsForm.TopLevel = false;
+                    statisticsForm.FormBorderStyle = FormBorderStyle.None;
                     statisticsForm.Width = container.Width - menu.width;
-                    statisticsForm.Show();
                     statisticsForm.Height = container.Height;
                     statisticsForm.Location = new Point(menu.locationX + menu.width, 23);
-                    stringObject.Add(((Label)sender).Name);
-                    disposeObject[((Label)sender).Name] = statisticsForm;
+                    container.Controls.Add(statisticsForm);
+                    statisticsForm.BringToFront();
+                    statisticsForm.Show();
                 }
             }
 
