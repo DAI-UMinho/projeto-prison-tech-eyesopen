@@ -733,3 +733,4 @@ C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug
 C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
 C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.exe
 C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.pdb
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\PdfSharp.dll
