@@ -138,25 +138,6 @@ namespace PDAI
             cbMaritalStatus.Text = db.select.selecRecluso(str)[3].ToString();
             cbMaritalStatus.ForeColor = Color.White;
 
-            edit = new Button();
-            edit.Size = new Size(150, 60);
-            edit.Location = new Point(editPanel.Width + editPanel.Width * 1/5, content_height);
-            edit.Text = "Editar";
-            font.Size(edit, fontSize);
-            employee_interface.Controls.Add(edit);
-            edit.Click += new EventHandler(Edit_Click);
-            edit.BackColor = Color.FromArgb(127, 127, 127);
-            edit.ForeColor = Color.White;
-            edit.Cursor = Cursors.Hand;
-
         }
-
-        private void Edit_Click(object sender, EventArgs e)
-        {
-            save.Controls.Clear();
-            EditPrisoner ep = new EditPrisoner(save, saveWidth, saveHeight, select);
-        }
-
-
     }
 }

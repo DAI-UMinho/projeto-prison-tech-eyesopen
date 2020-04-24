@@ -27,7 +27,5 @@ namespace PDAI
             container.BackColor = Color.White;
 
         }
-
-
     }
 }
