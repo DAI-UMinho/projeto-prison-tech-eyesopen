@@ -134,7 +134,7 @@ namespace PDAI
             double comeco = (page.Width - xfoto.PointWidth) / 2;
             gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
             // Save the document...
-            string filename = "C:\\Users\\Nuno\\Desktop\\" + input + ".pdf";
+            string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
 
             document.Save(filename);
             MessageBox.Show("Pdf criado com sucesso");
