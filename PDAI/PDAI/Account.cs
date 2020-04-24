@@ -203,10 +203,6 @@ namespace PDAI
             privilegesRole.height = 600;
             privilegesRole.Open();
             general.AddItem(privilegesRole.container);
-
-         
-
-
         }
 
 
@@ -556,5 +552,3 @@ namespace PDAI
 
     }
 }
-
-//56AO4  user2

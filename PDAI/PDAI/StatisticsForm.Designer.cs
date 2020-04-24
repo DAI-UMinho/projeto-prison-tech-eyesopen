@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.incidents_month = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
@@ -67,32 +67,32 @@
             // 
             this.incidents_month.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.incidents_month.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea4.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea4.Name = "ChartArea1";
-            this.incidents_month.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.incidents_month.Legends.Add(legend4);
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea2.Name = "ChartArea1";
+            this.incidents_month.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.incidents_month.Legends.Add(legend2);
             this.incidents_month.Location = new System.Drawing.Point(118, 397);
             this.incidents_month.Margin = new System.Windows.Forms.Padding(4);
             this.incidents_month.Name = "incidents_month";
             this.incidents_month.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series4.BorderColor = System.Drawing.Color.Transparent;
-            series4.ChartArea = "ChartArea1";
-            series4.Color = System.Drawing.Color.Crimson;
-            series4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series4.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            series4.Legend = "Legend1";
-            series4.Name = "Ocorrências";
-            this.incidents_month.Series.Add(series4);
+            series2.BorderColor = System.Drawing.Color.Transparent;
+            series2.ChartArea = "ChartArea1";
+            series2.Color = System.Drawing.Color.Crimson;
+            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            series2.Legend = "Legend1";
+            series2.Name = "Ocorrências";
+            this.incidents_month.Series.Add(series2);
             this.incidents_month.Size = new System.Drawing.Size(917, 588);
             this.incidents_month.TabIndex = 3;
             this.incidents_month.Text = "chart1";
-            title4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.Name = "teste";
-            title4.Text = "Número de Ocorrências por Mês";
-            this.incidents_month.Titles.Add(title4);
+            title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.Name = "teste";
+            title2.Text = "Número de Ocorrências por Mês";
+            this.incidents_month.Titles.Add(title2);
             this.incidents_month.Click += new System.EventHandler(this.chart1_Click);
             // 
             // gunaPanel1
@@ -160,11 +160,12 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(552, 334);
+            this.button1.AccessibleName = "";
+            this.button1.Location = new System.Drawing.Point(552, 324);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(138, 42);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Mostrar Estatísticas";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
