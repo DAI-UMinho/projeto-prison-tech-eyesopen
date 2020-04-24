@@ -223,9 +223,9 @@ namespace PDAI
             string val = "";
             if (stringObject.Count != 0) val = stringObject[0];
 
-            if (((Label)sender).Name == "Privilégio Estatística-Visualizar" || val == "Privilégio Estatística-Visualizar")
+            if (((Label)sender).Name == "Privilégio Estatística-Consultar" || val == "Privilégio Estatística-Consultar")
             {
-                if (val == "Privilégio Estatística-Visualizar")
+                if (val == "Privilégio Estatística-Consultar")
                 {
                     ((StatisticsForm)disposeObject[val]).Dispose();
                     disposeObject.Remove(val);
@@ -339,9 +339,9 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Recluso-Visualizar" || val == "Privilégio Recluso-Visualizar")
+            if (((Label)sender).Name == "Privilégio Recluso-Consultar" || val == "Privilégio Recluso-Consultar")
             {
-                if (val == "Privilégio Recluso-Visualizar")
+                if (val == "Privilégio Recluso-Consultar")
                 {
                     ((PrisonersManager)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
@@ -362,9 +362,9 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Câmara-Visualizar Deteção" || val == "Privilégio Câmara-Visualizar Deteção")
+            if (((Label)sender).Name == "Privilégio Câmara-Consultar Deteção" || val == "Privilégio Câmara-Consultar Deteção")
             {
-                if (val == "Privilégio Câmara-Visualizar Deteção")
+                if (val == "Privilégio Câmara-Consultar Deteção")
                 {
                     ((I_CamGallery)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
@@ -454,9 +454,9 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Visita-Visualizar" || val == "Privilégio Visita-Visualizar")
+            if (((Label)sender).Name == "Privilégio Visita-Consultar" || val == "Privilégio Visita-Consultar")
             {
-                if (val == "Privilégio Visita-Visualizar")
+                if (val == "Privilégio Visita-Consultar")
                 {
                     ((VisitManager)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
@@ -523,9 +523,9 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Câmara-Visualizar" || val == "Privilégio Câmara-Visualizar")
+            if (((Label)sender).Name == "Privilégio Câmara-Consultar" || val == "Privilégio Câmara-Consultar")
             {
-                if (val == "Privilégio Câmara-Visualizar")
+                if (val == "Privilégio Câmara-Consultar")
                 {
                     ((viewCamNRec)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
