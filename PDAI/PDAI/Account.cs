@@ -242,6 +242,9 @@ namespace PDAI
                     container.Controls.Add(statisticsForm);
                     statisticsForm.BringToFront();
                     statisticsForm.Show();
+
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = statisticsForm;
                 }
             }
 
