@@ -801,6 +801,46 @@ namespace PDAI
             return var;
         }
 
+        public List<object> VisualizarOcorrencia()
+        {
+            List<object> var = new List<object>();
+            string sql = "select p.nomeCompleto, o.id, o.dataOcorrencia" +
+                "from Ocorrencia o, Pessoa p" +
+                "where o.idPessoa = p.id" +
+                "order by o.dataOcorrencia DESC;";
+
+            try
+            {
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
+                    var.Add(reader[2]);
+
+                }
+            }
+
+            catch(SqlException es)
+            {
+                throw es;
+            }
+
+            finally 
+            {
+                sqlConn.Close();
+                reader.Close();
+            }
+            return var;
+            
+        }
+
+        
+       
+
 
 
     }

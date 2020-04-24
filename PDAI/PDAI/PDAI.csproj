@@ -153,12 +153,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="ApagarOcorrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ApagarOcorrencia.Designer.cs">
+      <DependentUpon>ApagarOcorrencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="Cam.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CustomizableList.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Delete.cs" />
     <Compile Include="EditPrisoner.cs" />
+    <Compile Include="Edit_Incidents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Incidents.Designer.cs">
+      <DependentUpon>Edit_Incidents.cs</DependentUpon>
+    </Compile>
     <Compile Include="Encryption.cs" />
     <Compile Include="Font_Class.cs" />
     <Compile Include="Form1.cs">
@@ -213,6 +225,18 @@
     <Compile Include="Update.cs" />
     <Compile Include="viewCam.cs" />
     <Compile Include="viewPrisoner.cs" />
+    <Compile Include="VisualizarOcorrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizarOcorrencia.Designer.cs">
+      <DependentUpon>VisualizarOcorrencia.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ApagarOcorrencia.resx">
+      <DependentUpon>ApagarOcorrencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Incidents.resx">
+      <DependentUpon>Edit_Incidents.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarOcorrencia.resx">
+      <DependentUpon>VisualizarOcorrencia.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

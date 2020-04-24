@@ -92,6 +92,30 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
+        public void Ocorrencia(String id)
+        {
+            try
+            {
+                sql = "delete from Ocorrencia where id = " + id;
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+
+            catch(Exception es)
+            {
+                throw es;
+            }
+        }
+
 
     }
 }
