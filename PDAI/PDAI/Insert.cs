@@ -299,31 +299,29 @@ namespace PDAI
 
         }
 
-        public void Visit(string visitedPrisioner, string fullName, string dateRegist, string visitDate)
+        public bool Visit(uint idVisitedPrisioner, string fullName, string visitDate)
         {
-            string date = Convert.ToDateTime(visitDate).ToString("yyyy-MM-dd");
-            string dateNow = Convert.ToDateTime(dateRegist).ToString("yyyy-MM-dd");
+            bool val = true;
             try
             {
-                sql = "insert into Visita (idPessoa, nome, dataRegisto, dataVisita) values ('" + visitedPrisioner + "','" + fullName + "', '" + dateNow + "', '" + date + "')s";
-
-                System.Diagnostics.Debug.WriteLine("---------" + visitedPrisioner + "  " + fullName + "  " + dateNow + "  " + date);
-
+                string date = Convert.ToDateTime(visitDate).ToString("yyyy-MM-dd");
+                sql = "insert Visita (idPessoa, nome, dataVisita) values ("+ idVisitedPrisioner + ",'"+ fullName + "', '"+ date + "')";
+                //  System.Diagnostics.Debug.WriteLine("---------" + visitedPrisioner + "  " + fullName + "  " + dateNow + "  " + date);
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
-
                 command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
                 adapter = new SqlDataAdapter();
                 adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
                 command.Dispose();
                 adapter.Dispose();
                 sqlConn.Close();
+
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+            catch (Exception e) { val = false; };
 
+            return val;
         }
-
-
 
     }
 }

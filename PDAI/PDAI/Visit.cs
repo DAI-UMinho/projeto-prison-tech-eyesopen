@@ -41,17 +41,10 @@ namespace PDAI
 
         private void Registration_Click(object sender, EventArgs e)
         {
-            DateTime thisDay = DateTime.Today;
-
             Ids = db.select.visitedPrisionerId(cbPrisionerVisited.Text);
-
-            db.insert.Visit(Ids[0].ToString(), tFullName.Text, thisDay.ToString("d"), tVisitDate.Text);
-
-            System.Diagnostics.Debug.WriteLine( "Senatus Populusque Romanus " + Ids[0].ToString() + "  " + tFullName.Text + "  " + thisDay.ToString("d") + "  " + tVisitDate.Text);
-
-            MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
-
-
+            if(db.insert.Visit(Convert.ToUInt32(Ids[0]), tFullName.Text, tVisitDate.Text)) MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
+            else MessageBox.Show("Ocorreu um erro. Não foi possível registar a visita.", "", MessageBoxButtons.OK);
+            //  System.Diagnostics.Debug.WriteLine( Ids[0].ToString() + "  " + tFullName.Text + "  " + thisDay.ToString("d") + "  " + tVisitDate.Text);
         }
 
         public void Open()

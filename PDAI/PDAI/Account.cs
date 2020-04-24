@@ -325,13 +325,13 @@ namespace PDAI
                 }
                 else
                 {
-                    Incidents incidents = new Incidents(container, container.Width, container.Height);
-                   // container.Controls.Add(incidents.container);
-                   // incidents.width = container.Width - menu.width;
-                   // incidents.height = container.Height;
-                   //incidents.locationX = menu.locationX + menu.width;
-                   // incidents.locationY = 0;
-                  /* incidents.Open(true, false)*/;
+                    Incidents incidents = new Incidents();
+                    container.Controls.Add(incidents.container);
+                    incidents.width = container.Width - menu.width;
+                    incidents.height = container.Height;
+                    incidents.locationX = menu.locationX + menu.width;
+                    incidents.locationY = 0;
+                    incidents.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = incidents;
                 }
