@@ -6,6 +6,10 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Data;
 using PDAI;
+using System.IO;
+using Emgu;
+using Emgu.CV;
+using Emgu.CV.Structure;
 
 namespace PDAI
 {
@@ -35,6 +39,9 @@ namespace PDAI
         int saveWidth, saveHeight, fontSize = 13;
         double var;
         string label, nome;
+
+        Image<Bgr, byte> pPhoto;
+
         public EditPrisioner()
         {
             container = new Panel();
@@ -102,10 +109,15 @@ namespace PDAI
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
             container.Controls.Add(photo);
-            //photo.BackColor = Color.Beige;
             photo.Image = Properties.Resources.preso1;
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
 
+            if (db.select.prisionerPhoto(select) != null)
+            {
+                string[] filePaths = Directory.GetFiles(db.select.prisionerPhoto(select)[0].ToString());
+                pPhoto = new Image<Bgr, byte>(filePaths[0]);
+                photo.Image = pPhoto.Bitmap;
+            }
 
             lFullName = new Label();
             lFullName.Size = new Size((container.Width - photo.Location.X - photo.Width - ((container.Width * 1 / 25))) * 7 / 10, 25);
