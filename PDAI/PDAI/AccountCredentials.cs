@@ -191,7 +191,7 @@ namespace PDAI
                 }
                 else { MessageBox.Show("A nova palavra-passe não coincide"); }
             }
-            else { MessageBox.Show("Password incorreta"); }
+            else { MessageBox.Show("palavra-passe incorreta"); }
         }
 
 

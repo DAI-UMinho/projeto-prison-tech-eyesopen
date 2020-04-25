@@ -462,12 +462,10 @@ namespace PDAI
         {
             byte val = 0;
 
-            //   MessageBox.Show(custimizedRole.Substring(0, custimizedRole.Length - 1) + "%");
-
             try
             {
 
-                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length - 1) +"%" +"'";
+                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length) +" %" +"'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();

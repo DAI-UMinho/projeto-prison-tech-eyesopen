@@ -195,7 +195,7 @@ namespace PDAI
                 privilegesList.width = (container.Width - privilegesList.locationX) * 9 / 10;
                 privilegesList.height = container.Height * 8 / 10 - lv.Location.Y;
                 container.Controls.Add(privilegesList.container);
-
+                privilegesList.container.Visible = false;
                 string val = "";
                 PrivilegeItem privileges = new PrivilegeItem(CheckBoxContentChanged);
                 foreach (string privilege in Rule.GetPrivileges())
@@ -231,7 +231,7 @@ namespace PDAI
 
                 privilegesList.Update();
                 privileges.Update();
-
+                privilegesList.container.Visible = true;
             }
         }
 
