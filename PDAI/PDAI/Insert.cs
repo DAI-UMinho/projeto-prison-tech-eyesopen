@@ -296,7 +296,6 @@ namespace PDAI
             {
                 throw ex;
             }
-
         }
 
         public bool Visit(uint idVisitedPrisioner, string fullName, string visitDate)
