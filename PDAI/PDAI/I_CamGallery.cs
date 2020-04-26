@@ -14,10 +14,10 @@ namespace PDAI
     class I_CamGallery
     {
         public Panel container { get; }
-        //public int locationX { set { container.Location = new Point(value, container.Location.Y); } get { return container.Location.X; } }
-        //public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
-        //public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
-        //public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
+        public int locationX { set { container.Location = new System.Drawing.Point(value, container.Location.Y); } get { return container.Location.X; } }
+        public int locationY { set { container.Location = new System.Drawing.Point(container.Location.X, value); } get { return container.Location.Y; } }
+        public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
+        public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
 
         public List<System.Windows.Forms.PictureBox> contentor_cams { get; }
         List<Cam> cams;
@@ -25,26 +25,43 @@ namespace PDAI
         Panel content_interface, content, save;
         Font_Class font;
         Cam cam;
-        int fontSize = 8, defaultWidth = 200, defaultHeight = 200, locationX = 50, locationY = 50, width, height;
+        int fontSize = 8;
+        //defaultWidth = 200, defaultHeight = 200, locationX = 50, locationY = 50, width, height;
         int lastLocationX, lastLocationY, saveWidth, saveHeight;
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
         double var;
 
 
-        public I_CamGallery(Panel content_interface, int content_width, int content_height)
+        public I_CamGallery()
         {
             container = new Panel();
-            save = content_interface;
-            saveWidth = content_width;
-            saveHeight = content_height;
+        }
 
-            content = new Panel();
-            content.Size = new Size(content_width, content_height);
-            content.Location = new System.Drawing.Point(0, 0);
-            content_interface.Controls.Add(content);
-            content.BackColor = Color.FromArgb(196, 196, 196);
 
+
+        public void StopCameras()
+        {
+            for (int i = 1, n = videoDevices.Count; i <= n; i++)
+            {
+                string videoSource = "VideoSourcePlayer" + i + " : " + videoDevices[i - 1].Name;
+
+                (content.Controls.Find(videoSource, true).FirstOrDefault() as VideoSourcePlayer).SignalToStop();
+                (content.Controls.Find(videoSource, true).FirstOrDefault() as VideoSourcePlayer).WaitForStop();
+            }
+
+        }
+
+
+        private void pb_MouseDoubleClick(Object sender, MouseEventArgs e)
+        {
+            var = Char.GetNumericValue((sender as AForge.Controls.VideoSourcePlayer).Name.ToString(), 17);
+            container.Controls.Clear();
+            viewCam vc = new viewCam(container, container.Width, container.Height, var);
+        }
+
+        public void Open()
+        {
             // show device list
 
             // enumerate video devices
@@ -59,7 +76,7 @@ namespace PDAI
             {
                 string cameraName = i + " : " + videoDevices[i - 1].Name;
                 Panel p = new Panel();
-                content.Controls.Add(p);
+                container.Controls.Add(p);
                 p.Dock = DockStyle.Left;
                 p.Size = new Size(250, 300);
                 p.Padding = new Padding(5, 5, 5, 5);
@@ -90,31 +107,5 @@ namespace PDAI
             }
         }
 
-
-
-        public void StopCameras()
-        {
-            for (int i = 1, n = videoDevices.Count; i <= n; i++)
-            {
-                string videoSource = "VideoSourcePlayer" + i + " : " + videoDevices[i - 1].Name;
-
-                (content.Controls.Find(videoSource, true).FirstOrDefault() as VideoSourcePlayer).SignalToStop();
-                (content.Controls.Find(videoSource, true).FirstOrDefault() as VideoSourcePlayer).WaitForStop();
-            }
-
-        }
-
-        public I_CamGallery()
-        {
-        }
-
-        private void pb_MouseDoubleClick(Object sender, MouseEventArgs e)
-        {
-            var = Char.GetNumericValue((sender as AForge.Controls.VideoSourcePlayer).Name.ToString(), 17);
-            save.Controls.Clear();
-            viewCam vc = new viewCam(save, saveWidth, saveHeight, var);
-        }
-
     }
 }
-

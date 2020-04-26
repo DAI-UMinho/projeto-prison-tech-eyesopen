@@ -393,14 +393,5 @@ namespace PDAI
                 GetTitleCheckBox[checkBox].Checked = true;
             }
         }
-
-
-
-
-
-
-
-
-
     }
 }

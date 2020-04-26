@@ -104,7 +104,7 @@ namespace PDAI
             XFont font = new XFont("Verdana", 25, XFontStyle.BoldItalic);
             // Draw the text
 
-            gfx.DrawString("Relatório", font, XBrushes.Fuchsia,
+            gfx.DrawString("Relatório", font, XBrushes.Black,
             new XRect(0, 0, page.Width, 30),
             XStringFormats.Center);
 
@@ -119,7 +119,7 @@ namespace PDAI
             //int height = dataGridView1.Height - 500;
 
             //dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
-            gfx.DrawString("TOP 10 Ocorrencias", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
+            gfx.DrawString("Reclusos com mais Ocorrências", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
             //Create a Bitmap and draw the DataGridView on it.
             Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
             dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
@@ -134,10 +134,10 @@ namespace PDAI
             double comeco = (page.Width - xfoto.PointWidth) / 2;
             gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
             // Save the document...
-            string filename = "C:\\Users\\Nuno\\Desktop\\" + input + ".pdf";
+            string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
 
             document.Save(filename);
-            MessageBox.Show("feito");
+            MessageBox.Show("Pdf criado com sucesso");
         }
 
         public void PreencherDataGrid()

@@ -92,9 +92,6 @@ namespace PDAI
             // photo.SizeMode = PictureBoxSizeMode.StretchImage;
             //// photo.BorderStyle = BorderStyle.Fixed3D;
             // photo.BackColor = color;
-
-
-
         }
 
 

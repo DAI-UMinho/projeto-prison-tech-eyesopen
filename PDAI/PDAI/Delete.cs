@@ -14,7 +14,7 @@ namespace PDAI
         {
             try
             {
-                sql = "delete from Tipo where tipo ='"+role+"'";
+                sql = "delete from Tipo where tipo ='" + role + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -92,11 +92,25 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
+
         public void Ocorrencia(String id)
         {
             try
             {
                 sql = "delete from Ocorrencia where id = " + id;
+			}
+			
+			catch(Exception es)
+            {
+                throw es;
+            }
+		}
+
+        public void visita(string id)
+        {
+            try
+            {
+                sql = "delete from Visita where id = '" + id + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -109,13 +123,13 @@ namespace PDAI
                 adapter.Dispose();
                 sqlConn.Close();
             }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
-            catch(Exception es)
-            {
-                throw es;
-            }
         }
 
 
     }
+
+
 }
+

@@ -60,7 +60,7 @@ namespace PDAI
             loginPanel.Controls.Add(luser);
             luser.Size = new Size(300, 20);
             luser.Location = new Point(width* 3/ 5, height * 2 / 7);
-            luser.Text = "Número de Identificação:";
+            luser.Text = "Utilizador:";
             font.Size(luser, fontSize);
 
             tuser = new TextBox();
@@ -74,7 +74,7 @@ namespace PDAI
             loginPanel.Controls.Add(lpassword);
             lpassword.Size = new Size(luser.Width, 20);
             lpassword.Location = new Point(luser.Location.X, tuser.Location.Y + tuser.Height + 50);
-            lpassword.Text = "Password:";
+            lpassword.Text = "Palavra-passe:";
             font.Size(lpassword, fontSize);
 
             tpassword = new TextBox();
@@ -87,10 +87,10 @@ namespace PDAI
 
             login = new Button();
             loginPanel.Controls.Add(login);
-            login.Size = new Size(120, 40);
+            login.Size = new Size(150, 40);
             login.Location = new Point(luser.Location.X + luser.Width/2 - login.Width/2, tpassword.Location.Y + tpassword.Height + 30);
             font.Size(login, fontSize+2);
-            login.Text = "Login";
+            login.Text = "Iniciar sessão";
             login.BackColor = color;
             login.FlatStyle = FlatStyle.Flat;
             login.FlatAppearance.BorderColor = Color.Black;
@@ -197,7 +197,7 @@ namespace PDAI
                 List<object> databaseValues = database.select.Login(tuser.Text);
                 if (databaseValues.Count != 0)
                 {
-                    if (Encryption.CheckAccountAccess((byte[])databaseValues[0], Encryption.AccountAccessEncryption(tuser.Text + tpassword.Text))) Logged(tuser.Text, (byte[])databaseValues[0],Convert.ToUInt32(databaseValues[1]));
+                    if (Encryption.CheckAccountAccess((byte[])databaseValues[0], Encryption.AccountAccessEncryption(tuser.Text + tpassword.Text))) Logged(tuser.Text, tpassword.Text, Convert.ToUInt32(databaseValues[1]));
                     else MessageBox.Show("Utilizador ou password incorreto!");
                 }
                 else MessageBox.Show("Utilizador ou password incorreto!");
@@ -205,7 +205,7 @@ namespace PDAI
         }
 
 
-        private void Logged(string username, byte[] password, uint idAccount)
+        private void Logged(string username, string password, uint idAccount)
         {
             form.Controls.Clear();
             Account account = new Account(username, password, idAccount);

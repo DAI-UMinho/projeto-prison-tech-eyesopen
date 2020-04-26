@@ -68,11 +68,9 @@ namespace PDAI
 
         Bitmap bitmap;
 
+        System.Windows.Forms.PictureBox teste;
 
-        //private Capture _capture = null; //Camera
-        //private bool _captureInProgress = false; //Variable to track camera state
-        //int CameraDevice = 0; //Variable to track camera device selected
-        //Video_Device[] WebCams; //List containing all the camera available
+        FaceRecognizer recognizer = new FisherFaceRecognizer(0, 3500);
 
         public viewCam(Panel content_interface, int content_width, int content_height, double dbl)
         {
@@ -80,11 +78,47 @@ namespace PDAI
             save = content_interface;
             saveWidth = content_width;
             saveHeight = content_height;
+            db = new Database();
 
-            Frame = new Mat();
+            //Treinar Algoritmo
             Faces = new List<Image<Gray, byte>>();
             IDs = new List<int>();
 
+            FaceRecognition = new EigenFaceRecognizer(80, double.PositiveInfinity);
+
+            for (int i = 0; i < db.select.trainImages().Count; i = (i + 2))
+            {
+                System.Diagnostics.Debug.WriteLine(db.select.trainImages()[i + 1].ToString());
+
+                string[] filePaths = Directory.GetFiles(db.select.trainImages()[i + 1].ToString());
+                trainImg_II = new Image<Gray, byte>(filePaths[0]);
+                trainImg_II = trainImg_II.Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
+                Faces.Add(trainImg_II);
+                IDs.Add(Int32.Parse(db.select.trainImages()[i].ToString()));
+
+            }
+
+            var faceImages = new Image<Gray, byte>[Faces.Count];
+            var faceLabels = new int[IDs.Count];
+
+
+            for (int i = 0; i < IDs.Count; i++)
+            {
+                faceLabels[i] = IDs[i];
+            }
+
+            Mat[] arrayFacesConverted = new Mat[Faces.Count()];
+
+            for (int i = 0; i < Faces.Count; i++)
+            {
+                arrayFacesConverted[i] = Faces[i].Mat;
+            }
+
+            FaceRecognition.Train(arrayFacesConverted, faceLabels);
+
+            //Fim do Treino
+
+            Frame = new Mat();
             FacesName = new List<int>();
 
             font = new Font_Class();
@@ -111,12 +145,13 @@ namespace PDAI
             camPanel.Controls.Add(pic);
             pic.Location = new System.Drawing.Point(pb.Location.X, pb.Location.Y);
             pic.Size = new Size(pb.Size.Width, pb.Size.Height);
+            pic.Dock = DockStyle.Fill;
             pic.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pauseImg = new AForge.Controls.PictureBox();
             camPanel.Controls.Add(pauseImg);
-            pauseImg.Location = new System.Drawing.Point(pb.Location.X, pb.Location.Y);
-            pauseImg.Size = new Size(pb.Size.Width, pb.Size.Height);
+            pauseImg.Location = new System.Drawing.Point(pic.Location.X, pic.Location.Y);
+            pauseImg.Size = new Size(pic.Size.Width, pic.Size.Height);
             pauseImg.Visible = false;
             pauseImg.SizeMode = PictureBoxSizeMode.StretchImage;
 
@@ -142,16 +177,20 @@ namespace PDAI
             start.Click += new EventHandler(Start_Click);
 
 
-            FaceRecognition = new EigenFaceRecognizer();
+
 
             videoDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             VideoCaptureDevice videoSource1 = new VideoCaptureDevice(videoDevices[Convert.ToInt32(var) - 1].MonikerString);
-            videoSource1.DesiredFrameRate = 10;
-
+            //videoSource1.DesiredFrameRate = 30;
+            videoSource1.Start();
+            videoSource1.NewFrame += new NewFrameEventHandler(video_NewFrame);
             videoSource1.NewFrame += Device_NewFrame;
             pb.VideoSource = videoSource1;
             pb.Start();
-            videoSource1.NewFrame += new NewFrameEventHandler(video_NewFrame);
+
+
+
+
 
 
         }
@@ -160,33 +199,18 @@ namespace PDAI
 
         private void video_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            pauseImg.Image = (Bitmap)eventArgs.Frame.Clone();
+            //pauseImg.Image = (Bitmap)eventArgs.Frame.Clone();
+
         }
 
         private void Device_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            bitmap = (Bitmap)eventArgs.Frame.Clone();
-            frameImg = new Image<Bgr, byte>(bitmap);
-            //grayImg = new Image<Gray, byte>(bitmap);
 
             FacesName = new List<int>();
-            learn();
-
-            rectangles = cascadeClassifier.DetectMultiScale(frameImg, 1.3, 2);
-            /*foreach (Rectangle rectangle in rectangles)
-            {
-                using (Graphics graphics = Graphics.FromImage(bitmap))
-                {
-                    using (Pen pen = new Pen(Color.Red, 1))
-                    {
-                        graphics.DrawRectangle(pen, rectangle);
-                        Font font = new Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
-                        graphics.DrawString("Unknown".ToString(), font, Brushes.LightGreen, rectangle.Location.X, rectangle.Location.Y - font.Height);
-                    }
-                }
-            }*/
-
+            bitmap = (Bitmap)eventArgs.Frame.Clone();
+            frameImg = new Image<Bgr, byte>(bitmap);
             predict();
+
         }
 
         private void Pause_Click(object sender, EventArgs e)
@@ -213,169 +237,64 @@ namespace PDAI
 
         }
 
-        public void learn()
-        {
-
-            if (frameImg != null)
-            {
-                Rectangle[] faces = cascadeClassifier.DetectMultiScale(frameImg, 1.3, 2);
-
-                /*if (faces.Count() > 0)
-                {
-                    var processImage = imageFrame.Copy(faces[0]).Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-                    Faces.Add(processImage);
-
-
-
-                    IDs.Add(Int32.Parse(IDBox.Text));
-                    ScanCounter++;
-
-
-
-                }*/
-
-                trainImg = new Image<Gray, byte>(Properties.Resources.Donald_Trump_official_portrait);
-                trainImg = trainImg.Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-                Faces.Add(trainImg);
-
-                trainImg_II = new Image<Gray, byte>(Properties.Resources._0122);
-                trainImg_II = trainImg_II.Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-                Faces.Add(trainImg_II);
-
-
-                IDs.Add(Int32.Parse("1"));
-                IDs.Add(Int32.Parse("2"));
-
-                Mat[] arrayFacesConverted = new Mat[Faces.Count()];
-
-                for (int i = 0; i < Faces.Count; i++)
-                {
-                    arrayFacesConverted[i] = Faces[i].Mat;
-                }
-
-                FaceRecognition.Train(arrayFacesConverted, IDs.ToArray());
-                //FaceRecognition.Write(YMLPath);
-
-
-            }
-
-
-
-            //Timer.Stop();
-            //TimerCounter = 0;
-
-
-
-            //Timer = new System.Windows.Forms.Timer();
-            //Timer.Interval = 500;
-            //Timer.Tick += Timer_Tick;
-            //Timer.Start();
-        }
-
-        /*private void Timer_Tick(object sender, EventArgs e)
-        {
-
-            //  Webcam.Retrieve(Frame);
-
-            //var imageFrame = Frame.ToImage<Gray, byte>();
-
-
-            if (TimerCounter < TimerLimit)
-            {
-                TimerCounter++;
-
-
-                if (grayImage != null)
-                {
-                    Rectangle[] faces = cascadeClassifier.DetectMultiScale(grayImage, 1.3, 2);
-
-                    /*if (faces.Count() > 0)
-                    {
-                        var processImage = imageFrame.Copy(faces[0]).Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-                        Faces.Add(processImage);
-
-
-
-                        IDs.Add(Int32.Parse(IDBox.Text));
-                        ScanCounter++;
-
-
-
-                    }*/
-
-        /* trainImg = new Image<Gray, byte>(Properties.Resources.Donald_Trump_official_portrait);
-         trainImg = trainImg.Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-         Faces.Add(trainImg);
-
-         IDs.Add(Int32.Parse("1"));
-
-     }
- }
- else
- {
-
-     Mat[] arrayFacesConverted = new Mat[Faces.Count()];
-
-     for (int i = 0; i < Faces.Count; i++)
-     {
-         arrayFacesConverted[i] = Faces[i].Mat;
-     }
-
-     FaceRecognition.Train(arrayFacesConverted, IDs.ToArray());
-     FaceRecognition.Write(YMLPath);
-     Timer.Stop();
-     TimerCounter = 0;
-
- }
-
-
-
-
-}*/
-
         public void predict()
         {
-            grayImg = frameImg.Convert<Gray, byte>();
 
 
             if (frameImg != null)
             {
 
-                //Rectangle[] faces = cascadeClassifier.DetectMultiScale(frameImg, 1.3, 2);
+                rectangles = cascadeClassifier.DetectMultiScale(frameImg, 1.2, 10, new Size(50, 50), Size.Empty);
 
                 if (rectangles.Count() != 0)
                 {
                     foreach (Rectangle rectangle in rectangles)
                     {
 
-                        var processImage = grayImg.Copy(rectangle).Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
+                        var processImage = frameImg.Copy(rectangle).Convert<Gray, byte>().Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
                         var result = FaceRecognition.Predict(processImage);
-                        //FaceRecognizer.PredictionResult ER = FaceRecognition.Predict(processImage);
 
-                        FaceDetected = true;
-                        FacesName.Add(result.Label);
-
-
-
-                        using (Graphics graphics = Graphics.FromImage(bitmap))
+                        if (Int32.Parse(result.Label.ToString()) != -1)
                         {
-                            using (Pen pen = new Pen(Color.Red, 1))
+                            FaceDetected = true;
+                            FacesName.Add(result.Label);
+
+                            using (Graphics graphics = Graphics.FromImage(bitmap))
                             {
-                                graphics.DrawRectangle(pen, rectangle);
-                                Font font = new Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
-                                graphics.DrawString(result.Label.ToString(), font, Brushes.LightGreen, rectangle.Location.X, rectangle.Location.Y - font.Height);
+                                using (Pen pen = new Pen(Color.Red, 1))
+                                {
+                                    graphics.DrawRectangle(pen, rectangle);
+                                    Font font = new Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
+                                    graphics.DrawString(result.Label.ToString(), font, Brushes.Black, rectangle.Location.X, rectangle.Location.Y - font.Height);
+                                }
+                            }
+
+
+                            pic.Image = bitmap;
+                        }
+                        else
+                        {
+                            using (Graphics graphics = Graphics.FromImage(bitmap))
+                            {
+                                using (Pen pen = new Pen(Color.Red, 1))
+                                {
+                                    graphics.DrawRectangle(pen, rectangle);
+                                    Font font = new Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
+                                    graphics.DrawString("Desconhecido", font, Brushes.Black, rectangle.Location.X, rectangle.Location.Y - font.Height);
+                                }
                             }
                         }
 
+
+
                         System.Diagnostics.Debug.WriteLine("Aqui!!!! - ");
-                        pic.Image = bitmap;
                     }
 
+                }
 
-
-                    //if (result.Label.ToString() == "1")  MessageBox.Show(yourName);
-                    //else MessageBox.Show(noName);
-
+                else
+                {
+                    pic.Image = bitmap;
                 }
 
             }
