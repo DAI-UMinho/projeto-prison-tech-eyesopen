@@ -92,6 +92,20 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
+
+        public void Ocorrencia(String id)
+        {
+            try
+            {
+                sql = "delete from Ocorrencia where id = " + id+ ";";
+			}
+			
+			catch(Exception es)
+            {
+                throw es;
+            }
+		}
+
         public void visita(string id)
         {
             try
@@ -110,6 +124,7 @@ namespace PDAI
                 sqlConn.Close();
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
         }
 
 

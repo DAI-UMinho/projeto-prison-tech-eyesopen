@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace PDAI
 {
@@ -41,6 +42,13 @@ namespace PDAI
             container = new Panel();
         }
 
+        public Incidents(List<object> aux)
+        {
+            description.Text = "" + aux.ElementAt(1);
+            pList.Text = "" + aux.ElementAt(0) + " - " + aux.ElementAt(3);
+            date.Value = DateTime.ParseExact((string) aux.ElementAt(4), "yyyy-MM-dd", CultureInfo.InvariantCulture);
+            hour.Value = DateTime.ParseExact((string)aux.ElementAt(4), "HH:mm", CultureInfo.InvariantCulture);
+        }
 
         public void Open()
         {
