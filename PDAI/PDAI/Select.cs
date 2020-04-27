@@ -165,18 +165,18 @@ namespace PDAI
                 uint maxId = 0;
                 while (reader.Read())
                 {
-                   
+
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
                     if (!(reader.IsDBNull(5))) accountCreated = true;
-                    list.AddItem(Convert.ToUInt32(reader[0]),reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
                     accountCreated = false;
                     counter++;
-                   // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
+                    // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
                 }
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
- 
+
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
@@ -190,7 +190,7 @@ namespace PDAI
             List<string> roles = new List<string>();
             try
             {
-                sql = "select tipo from Tipo where cargo = 1"; 
+                sql = "select tipo from Tipo where cargo = 1";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -217,7 +217,7 @@ namespace PDAI
             List<string> maritalStatus = new List<string>();
             try
             {
-                sql = "select estadoCivil from EstadoCivil"; 
+                sql = "select estadoCivil from EstadoCivil";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -320,7 +320,7 @@ namespace PDAI
         public Dictionary<string, uint> GetPrivilegesRole(ComboBox comboBox)
         {
             comboBox.Items.Clear();
-            Dictionary<string,uint> ids = new Dictionary<string, uint>();
+            Dictionary<string, uint> ids = new Dictionary<string, uint>();
             try
             {
                 sql = "select papel, Papel.id from Papel";
@@ -361,8 +361,8 @@ namespace PDAI
                 while (reader.Read())
                 {
                     if (!privilegesList.ContainsKey(reader[0].ToString())) privilegesList[reader[0].ToString()] = new List<string>();
-                    if (!Convert.ToBoolean(reader[2])){if (privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Remove(reader[1].ToString());}
-                    else{if (!privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Add(reader[1].ToString());}
+                    if (!Convert.ToBoolean(reader[2])) { if (privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Remove(reader[1].ToString()); }
+                    else { if (!privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Add(reader[1].ToString()); }
                 }
                 reader.Close();
                 command.Dispose();
@@ -383,7 +383,7 @@ namespace PDAI
             try
             {
 
-                sql = "select count(id) from Pessoa where tipo = '"+ role + "'";
+                sql = "select count(id) from Pessoa where tipo = '" + role + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -467,13 +467,13 @@ namespace PDAI
             try
             {
 
-                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length - 1) +"%" +"'";
+                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length - 1) + "%" + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
                 command = new SqlCommand(sql, sqlConn);
                 reader = command.ExecuteReader();
-              
+
                 while (reader.Read())
                 {
                     val = Convert.ToByte(reader[0]);
@@ -488,7 +488,7 @@ namespace PDAI
         }
 
 
-        
+
 
         public string GetPrivilegeRole(uint idLogin)
         {
@@ -497,7 +497,7 @@ namespace PDAI
             try
             {
 
-                sql = "select papel from Login inner join (AssocPapel inner join Papel on Papel.id = AssocPapel.idPapel) on Login.id = AssocPapel.idLogin where idLogin = "+ idLogin;
+                sql = "select papel from Login inner join (AssocPapel inner join Papel on Papel.id = AssocPapel.idPapel) on Login.id = AssocPapel.idLogin where idLogin = " + idLogin;
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -553,7 +553,7 @@ namespace PDAI
             try
             {
 
-                sql = "select id from Papel  where papel = '"+ privilegeRole + "'";
+                sql = "select id from Papel  where papel = '" + privilegeRole + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -751,7 +751,7 @@ namespace PDAI
         public List<object> VisualizarOcorrencia()
         {
             List<object> var = new List<object>();
-            string sql = "select p.nomeCompleto, o.id, o.dataOcorrencia" +
+            string sql = "select p.nomeCompleto, o.id, convert(varchar(20),o.dataOcorrencia,120)" +
                 "from Ocorrencia o, Pessoa p" +
                 "where o.idPessoa = p.id" +
                 "order by o.dataOcorrencia DESC;";
@@ -771,22 +771,22 @@ namespace PDAI
                 }
             }
 
-            catch(SqlException es)
+            catch (SqlException es)
             {
                 throw es;
             }
 
-            finally 
+            finally
             {
                 sqlConn.Close();
                 reader.Close();
             }
             return var;
-            
+
         }
 
-        
-       
+
+
 
 
 
@@ -798,7 +798,7 @@ namespace PDAI
 
             try
             {
-                sql = "select id from Login where username ='"+username+"'";
+                sql = "select id from Login where username ='" + username + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -1004,5 +1004,45 @@ namespace PDAI
             return photo;
         }
 
+        public List<Object> Edit_Incidents(String id)
+        {
+            List<Object> var = new List<object>();
+            try
+            {
+
+                String sql = "select idPessoa, descricao" +
+                    "from Ocorrencia o" +
+                    "where o.id = " + id + ";";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
+                    var.Add(reader[2]);
+                    var.Add(reader[3]);
+                }
+            }
+
+            catch (Exception e)
+            {
+
+            }
+
+            finally
+            {
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+
+            return var;
+
+        }
+
     }
 }
+

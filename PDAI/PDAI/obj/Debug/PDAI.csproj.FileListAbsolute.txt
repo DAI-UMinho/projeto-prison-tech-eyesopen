@@ -734,7 +734,6 @@ C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug
 C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.exe
 C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.pdb
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\PdfSharp.dll
-
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\x64\concrt140.dll
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\x64\cvextern.dll
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\x64\msvcp140.dll
@@ -798,5 +797,7 @@ C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.csproj.CopyComplete
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.exe
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.pdb
-
 C:\Users\HP\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\PdfSharp.dll
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.ApagarOcorrencia.resources
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.Edit_Incidents.resources
+C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.VisualizarOcorrencia.resources

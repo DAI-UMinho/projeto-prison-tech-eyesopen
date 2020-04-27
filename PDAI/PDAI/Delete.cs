@@ -97,7 +97,7 @@ namespace PDAI
         {
             try
             {
-                sql = "delete from Ocorrencia where id = " + id;
+                sql = "delete from Ocorrencia where id = " + id+ ";";
 			}
 			
 			catch(Exception es)
