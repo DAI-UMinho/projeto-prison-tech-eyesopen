@@ -33,7 +33,7 @@ namespace PDAI
         Dictionary<CheckBox, CheckBox> GetTitleCheckBox;
         CheckBox currentTitleCheckBox;
         Dictionary<CheckBox, PrivilegeItem> GetPrivilegeItem;
-        bool autoCheck;
+        bool autoCheck, breakAction;
         List<string> allPrivileges;
         string user, pass, privilegeRole;
 
@@ -55,6 +55,7 @@ namespace PDAI
             GetTitleCheckBox = new Dictionary<CheckBox, CheckBox>();
             GetPrivilegeItem = new Dictionary<CheckBox, PrivilegeItem>();
             autoCheck = false;
+            breakAction = false;
             allPrivileges = new List<string>();
             foreach (string privilege in Rule.GetPrivileges())
             {
@@ -211,6 +212,16 @@ namespace PDAI
         {  
             try
             {
+                //bool next = false;
+                //foreach (CheckBox ckb in GetPrivilegeItem[((CheckBox)sender)].privilegesCheckBoxes[((CheckBox)sender).Name.Split('-').GetValue(1).ToString()])
+                //{
+                //    if (((CheckBox)sender).Checked) next = true;
+                //}
+
+                MessageBox.Show("breakAction: " + breakAction);
+
+
+
                 if (cbPrivilegeRole.Text != string.Empty)
                 {
                     uint idRole = 0;
@@ -223,7 +234,7 @@ namespace PDAI
                         database.insert.SetPrivileges(idRole, allPrivileges);
                     }
                     else { idRole = database.select.GetIdPrivilegeRole(cbPrivilegeRole.Text); }
-                        
+
 
                     idsPrivilegeRoles = database.select.GetPrivilegesRole(cbPrivilegeRole);
 
@@ -258,6 +269,7 @@ namespace PDAI
                     privilegesRole = new Dictionary<string, List<string>>();
                     PrivilegeRoleChanged(cbPrivilegeRole, new EventArgs());
                 }
+                else MessageBox.Show("Não é possível criar/alterar uma conta sem um papel atribuido.");
                
             }
             catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
@@ -372,9 +384,18 @@ namespace PDAI
                 if (database.select.PrivilegeRoleExists(cbPrivilegeRole.Text))
                 {
                     byte val = database.select.GetNextCustomizedRole(cbPrivilegeRole.Text);
-                    if (val == 1) cbPrivilegeRole.Text = cbPrivilegeRole.Text + " Personalizado";
-                    else cbPrivilegeRole.Text = cbPrivilegeRole.Text + " Personalizado " + val ;
 
+                    string privilegeRoleName = cbPrivilegeRole.Text;
+                    int counter = 0;
+                    foreach (char letter in cbPrivilegeRole.Text)
+                    {
+                        
+                        if(letter == 'P'&& (cbPrivilegeRole.Text.Length - counter) >= 13 ) if(cbPrivilegeRole.Text.Substring(counter,13) == "Personalizado") { privilegeRoleName = cbPrivilegeRole.Text.Substring(0, counter-1); break; }
+                        counter++;
+                    }
+                    val = database.select.GetNextCustomizedRole(privilegeRoleName);
+                    cbPrivilegeRole.Text = privilegeRoleName + " Personalizado  " + ++val;
+                
                     privilegesRole[cbPrivilegeRole.Text] = privilegesRole[currentRole];
                     currentRole = cbPrivilegeRole.Text;
 

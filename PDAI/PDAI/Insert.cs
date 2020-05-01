@@ -296,7 +296,6 @@ namespace PDAI
             {
                 throw ex;
             }
-
         }
 
         public void Reconhecimento(string idPessoa)

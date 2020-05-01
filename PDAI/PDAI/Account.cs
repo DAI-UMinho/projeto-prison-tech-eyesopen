@@ -26,6 +26,7 @@ namespace PDAI
         string privilegeRole;
         List<string> stringObject;
         Dictionary<string, object> disposeObject;
+        PictureBox logo;
 
         public Account()
         {
@@ -92,6 +93,14 @@ namespace PDAI
             container.Location = new Point(0, 0);
             container.Size = new Size(width, height);
             container.Controls.Add(menu.container);
+
+            logo = new PictureBox();
+            container.Controls.Add(logo);
+            logo.Image = Properties.Resources.log2;
+            //logo.Size = new Size(container.Width - menu.width, container.Height);
+            logo.Size = new Size(200, 250);
+            logo.SizeMode = PictureBoxSizeMode.StretchImage;
+            logo.Location = new Point(container.Width - menu.width - logo.Width + 100, 0);
 
             if (VerifiedAdmin())
             {
@@ -549,6 +558,58 @@ namespace PDAI
                     disposeObject[((Label)sender).Name] = vcnorecognition;
                 }
 
+            }
+
+
+            if (((Label)sender).Name == "Privilégio Ocorrência-Apagar" || val == "Privilégio Ocorrência-Apagar")
+            {
+                if (val == "Privilégio Ocorrência-Apagar")
+                {
+                    ((ApagarOcorrencia)disposeObject[val]).Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    ApagarOcorrencia deleteincident = new ApagarOcorrencia();
+                    deleteincident.TopLevel = false;
+                    deleteincident.FormBorderStyle = FormBorderStyle.None;
+                    deleteincident.Width = container.Width - menu.width;
+                    deleteincident.Height = container.Height;
+                    deleteincident.Location = new Point(menu.locationX + menu.width, 23);
+                    container.Controls.Add(deleteincident);
+                    deleteincident.BringToFront();
+                    deleteincident.Show();
+
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = deleteincident;
+                }
+            }
+
+
+            if (((Label)sender).Name == "Privilégio Ocorrência-Editar" || val == "Privilégio Ocorrência-Editar")
+            {
+                if (val == "Privilégio Ocorrência-Editar")
+                {
+                    ((Edit_Incidents)disposeObject[val]).Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    Edit_Incidents editincident = new Edit_Incidents();
+                    editincident.TopLevel = false;
+                    editincident.FormBorderStyle = FormBorderStyle.None;
+                    editincident.Width = container.Width - menu.width;
+                    editincident.Height = container.Height;
+                    editincident.Location = new Point(menu.locationX + menu.width, 23);
+                    container.Controls.Add(editincident);
+                    editincident.BringToFront();
+                    editincident.Show();
+
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = editincident;
+                }
             }
 
 

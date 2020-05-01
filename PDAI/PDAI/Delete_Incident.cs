@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -24,11 +25,23 @@ namespace PDAI
 
         public void PreencherDataGrid()
         {
-            List<object> var = new List<object>();
-            var = db.select.VisualizarOcorrencia();
-            for(int i=0; i<var.Count; i+= 3)
+            try
             {
-                dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 1), var.ElementAt(i + 2));
+                List<object> var = new List<object>();
+                var = db.select.VisualizarOcorrencia();
+                for (int i = 0; i < var.Count; i += 3)
+                {
+                    dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 1), var.ElementAt(i + 2));
+                }
+            }
+            catch (SqlException es)
+            {
+                System.Windows.Forms.MessageBox.Show("" + es);
+            }
+
+            catch (Exception es)
+            {
+                System.Windows.Forms.MessageBox.Show("" + es);
             }
         }
 

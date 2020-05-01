@@ -467,7 +467,7 @@ namespace PDAI
             try
             {
 
-                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length - 1) + "%" + "'";
+                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length) + "%" + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -769,6 +769,8 @@ namespace PDAI
                     var.Add(reader[2]);
 
                 }
+                sqlConn.Close();
+                reader.Close();
             }
 
             catch (SqlException es)
@@ -776,11 +778,6 @@ namespace PDAI
                 throw es;
             }
 
-            finally
-            {
-                sqlConn.Close();
-                reader.Close();
-            }
             return var;
 
         }
