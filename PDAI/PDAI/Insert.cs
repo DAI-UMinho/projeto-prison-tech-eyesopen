@@ -298,6 +298,39 @@ namespace PDAI
             }
         }
 
+        public void Reconhecimento(string idPessoa)
+        {
+            try
+            {
+                string sql = "insert into Reconhecimento(idOcorrencia, idPessoa) " +
+                    "values((select MAX(id) from Ocorrencia), " + idPessoa +")";
+                SqlConnection sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                //command.Parameters.Add("@pessoa", SqlDbType.Int).Value = idPessoa;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+
+            catch (AccessViolationException ex)
+            {
+                throw ex;
+            }
+
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public bool Visit(uint idVisitedPrisioner, string fullName, string visitDate)
         {
             bool val = true;

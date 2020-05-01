@@ -44,6 +44,7 @@ namespace PDAI
 
         public Incidents(List<object> aux)
         {
+            register.Text = "Editar";
             description.Text = "" + aux.ElementAt(1);
             pList.Text = "" + aux.ElementAt(0) + " - " + aux.ElementAt(3);
             date.Value = DateTime.ParseExact((string) aux.ElementAt(4), "yyyy-MM-dd", CultureInfo.InvariantCulture);
@@ -52,6 +53,7 @@ namespace PDAI
 
         public void Open()
         {
+            
             description = new RichTextBox();
             container.Controls.Add(description);
             description.Size = new Size(600, 300);
@@ -123,52 +125,65 @@ namespace PDAI
         private void Register_Click(object sender, EventArgs e)
         {
             string[] idPessoas = pList.Text.Split('-');
-            string idPessoa = idPessoas[0];
-            string data;
-            data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
-                ":" + hour.Value.Second;
+                string idPessoa = idPessoas[0];
+                string data;
+                data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
+                    ":" + hour.Value.Second;
 
-            string motivo = lDescription.Text;
-            string descricao = description.Text;
-            int codigoOcorrencia = 0; //ver onde esta isto
-            try
-            {
-                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                string motivo = lDescription.Text;
+                string descricao = description.Text;
+                int codigoOcorrencia = 0; 
+                try
                 {
-                    if (descricao.Length <= 100)
+                    if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
                     {
-                        database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
-                        MessageBox.Show("Registo efetuado");
+                        if (descricao.Length <= 100)
+                        {
+                            database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                            MessageBox.Show("Registo efetuado");
+                            if(idPessoas.Length>2)
+                                {
+                            int i = 2;
+                            while(i<idPessoas.Length)
+                            {
+                                string id = idPessoas[i];
+                                database.insert.Reconhecimento(id);
+                                
+                                i += 2;
+                                MessageBox.Show("Registou mais que um recluso");
+                            }
+                                }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Descricao contem demasiados carateres!");
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Descricao contem demasiados carateres!");
+                        MessageBox.Show("Por Favor Preencha todos os campos!");
                     }
                 }
-                else
+                catch (AccessViolationException ex)
                 {
-                    MessageBox.Show("Por Favor Preencha todos os campos!");
+                    System.Windows.Forms.MessageBox.Show("" + ex);
                 }
-            }
-            catch (AccessViolationException ex)
-            {
-                System.Windows.Forms.MessageBox.Show("" + ex);
-            }
-            catch (SqlException ex)
-            {
-                System.Windows.Forms.MessageBox.Show("" + ex);
-            }
+                catch (SqlException ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("" + ex);
+                }
 
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show("" + ex);
-            }
-            finally
-            {
-                pList.Text = null;
-                description.Text = null;
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show("" + ex);
+                }
+                finally
+                {
+                    pList.Text = null;
+                    description.Text = null;
 
-            }
+                }
+            
         }
 
         private void Add_Click(object sender, EventArgs e)
