@@ -769,6 +769,8 @@ namespace PDAI
                     var.Add(reader[2]);
 
                 }
+                sqlConn.Close();
+                reader.Close();
             }
 
             catch (SqlException es)
@@ -776,11 +778,6 @@ namespace PDAI
                 throw es;
             }
 
-            finally
-            {
-                sqlConn.Close();
-                reader.Close();
-            }
             return var;
 
         }
