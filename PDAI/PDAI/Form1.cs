@@ -10,6 +10,7 @@ using System.Windows.Forms;
 namespace PDAI
 {
     enum AccessLevel {administrador, director, secretaria, recursosHumanos, guardaChefe, guarda }
+    enum option { view, edit, delete}
     enum MenuPosition { top, bottom }
     delegate void Event(object sender, EventArgs e);
 

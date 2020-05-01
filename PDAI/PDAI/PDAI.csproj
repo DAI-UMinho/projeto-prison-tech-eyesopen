@@ -188,6 +188,7 @@
     <Compile Include="I_Account.cs" />
     <Compile Include="I_CamGallery.cs" />
     <Compile Include="I_Login.cs" />
+    <Compile Include="I_PersonView.cs" />
     <Compile Include="ListView_Class.cs">
       <SubType>Component</SubType>
     </Compile>

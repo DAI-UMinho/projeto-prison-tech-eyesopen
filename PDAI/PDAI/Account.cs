@@ -320,6 +320,80 @@ namespace PDAI
 
             }
 
+            if (((Label)sender).Name == "Privilégio Funcionário-Consultar" || val == "Privilégio Funcionário-Consultar")
+            {
+                if (val == "Privilégio Funcionário-Consultar")
+                {
+                    ((I_PersonView)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    I_PersonView employee = new I_PersonView();
+                    container.Controls.Add(employee.container);
+                    employee.width = container.Width - menu.width;
+                    employee.height = container.Height;
+                    employee.locationX = menu.locationX + menu.width;
+                    employee.locationY = 0;
+                    employee.Open(option.view);
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = employee;
+                }
+
+            }
+
+
+            if (((Label)sender).Name == "Privilégio Funcionário-Editar" || val == "Privilégio Funcionário-Editar")
+            {
+                if (val == "Privilégio Funcionário-Editar")
+                {
+                    ((I_PersonView)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    I_PersonView employee = new I_PersonView();
+                    container.Controls.Add(employee.container);
+                    employee.width = container.Width - menu.width;
+                    employee.height = container.Height;
+                    employee.locationX = menu.locationX + menu.width;
+                    employee.locationY = 0;
+                    employee.Open(option.edit);
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = employee;
+                }
+
+            }
+
+
+
+            if (((Label)sender).Name == "Privilégio Funcionário-Apagar" || val == "Privilégio Funcionário-Apagar")
+            {
+                if (val == "Privilégio Funcionário-Apagar")
+                {
+                    ((I_PersonView)disposeObject[val]).container.Dispose();
+                    disposeObject.Remove(val);
+                    stringObject.Remove(val);
+                }
+                else
+                {
+                    I_PersonView employee = new I_PersonView();
+                    container.Controls.Add(employee.container);
+                    employee.width = container.Width - menu.width;
+                    employee.height = container.Height;
+                    employee.locationX = menu.locationX + menu.width;
+                    employee.locationY = 0;
+                    employee.Open(option.delete);
+                    stringObject.Add(((Label)sender).Name);
+                    disposeObject[((Label)sender).Name] = employee;
+                }
+
+            }
+
+
+
             if (((Label)sender).Name == "Privilégio Ocorrência-Registar" || val == "Privilégio Ocorrência-Registar")
             {
                 if (val == "Privilégio Ocorrência-Registar")
