@@ -218,9 +218,7 @@ namespace PDAI
                 //    if (((CheckBox)sender).Checked) next = true;
                 //}
 
-                MessageBox.Show("breakAction: " + breakAction);
-
-
+              
 
                 if (cbPrivilegeRole.Text != string.Empty)
                 {
