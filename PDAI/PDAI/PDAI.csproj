@@ -273,6 +273,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Prisão.png" />
     <None Include="Resources\iconfinder_ic_play_arrow_48px_352072.png" />
     <None Include="Resources\Pause-Button-PNG-File.png" />
     <None Include="Resources\Seta1.png" />

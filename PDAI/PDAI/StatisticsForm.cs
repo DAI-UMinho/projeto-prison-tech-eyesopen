@@ -31,7 +31,6 @@ namespace PDAI
         int nov = 10;
         int dec = 1;
 
-
         public StatisticsForm()
         {
             InitializeComponent();
@@ -40,6 +39,7 @@ namespace PDAI
             Preenche_ComboBox();
             PreencherDataGrid();
             this.Name = "StatisticsForm";
+            dataGridView1.Size = new Size(this.Size.Width / 3, this.Size.Height / 3);
 
         }
 
@@ -179,6 +179,11 @@ namespace PDAI
                 }
                 flag = false;
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

@@ -103,6 +103,7 @@ namespace PDAI
         private void Init()
         {
             i_login = new I_Login(this, width, height);
+
         }
 
 

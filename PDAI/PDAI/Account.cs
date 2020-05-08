@@ -27,6 +27,10 @@ namespace PDAI
         List<string> stringObject;
         Dictionary<string, object> disposeObject;
         PictureBox logo;
+        Label nome;
+        Font_Class font;
+        int fontSize = 13;
+
 
         public Account()
         {
@@ -81,6 +85,7 @@ namespace PDAI
             this.form = form;
             formContainerWidth = width;
             formContainerHeight = height;
+            font = new Font_Class();
 
             menu = new Menu();
             menu.locationX = 0;
@@ -101,12 +106,28 @@ namespace PDAI
             logo.Size = new Size(200, 250);
             logo.SizeMode = PictureBoxSizeMode.StretchImage;
             logo.Location = new Point(container.Width - menu.width - logo.Width + 100, 0);
+            logo.SendToBack();
+
+            nome = new Label();
+            container.Controls.Add(nome);
+            nome.Size = new Size(400, 400);
+            nome.Location = new Point(700, 350);
+            font.Size(nome, fontSize);
+            nome.Text = "EyesOpen";
+            nome.Font = new Font("Arial", 50, FontStyle.Bold);
+            nome.SendToBack();
+            //nome.BorderStyle = BorderStyle.None;
+            //nome.BackColor = color;
+
+
 
             if (VerifiedAdmin())
             {
                 Panel item = menu.AddItem("Contas", AccountList,MenuPosition.top);
                 menu.AddItem("Definições", AccountSettings, MenuPosition.top);
                 menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
+                logo.Hide();
+                nome.Hide();
                 AccountList(item, new EventArgs());
             }
             else 
@@ -247,10 +268,11 @@ namespace PDAI
                     statisticsForm.FormBorderStyle = FormBorderStyle.None;
                     statisticsForm.Width = container.Width - menu.width;
                     statisticsForm.Height = container.Height;
-                    statisticsForm.Location = new Point(menu.locationX + menu.width, 23);
+                    statisticsForm.Location = new Point(menu.locationX + menu.width, menu.locationY);
                     container.Controls.Add(statisticsForm);
                     statisticsForm.BringToFront();
                     statisticsForm.Show();
+                    
 
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = statisticsForm;
@@ -265,6 +287,7 @@ namespace PDAI
                     ((I_Person)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -277,6 +300,8 @@ namespace PDAI
                     person.Open(true,false);
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = person;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -289,6 +314,7 @@ namespace PDAI
                     ((I_Person)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -301,6 +327,9 @@ namespace PDAI
                     person.Open(false,false);
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = person;
+                    logo.Hide();
+                    nome.Hide();
+
                 }
 
             }
@@ -313,6 +342,7 @@ namespace PDAI
                     ((AccountCredentials)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -325,6 +355,8 @@ namespace PDAI
                     accountCredentials.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = accountCredentials;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -336,6 +368,7 @@ namespace PDAI
                     ((Incidents)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -348,6 +381,8 @@ namespace PDAI
                     incidents.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = incidents;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -360,6 +395,7 @@ namespace PDAI
                     ((PrisonersManager)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -372,6 +408,7 @@ namespace PDAI
                     pm.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = pm;
+
                 }
 
             }
@@ -383,6 +420,7 @@ namespace PDAI
                     ((I_CamGallery)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -395,6 +433,8 @@ namespace PDAI
                     camGallery.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = camGallery;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -406,6 +446,7 @@ namespace PDAI
                     ((EditPrisioner)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -418,6 +459,8 @@ namespace PDAI
                     ep.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = ep;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -429,6 +472,7 @@ namespace PDAI
                     ((DeletePrisioner)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -441,6 +485,8 @@ namespace PDAI
                     dp.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = dp;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -452,6 +498,7 @@ namespace PDAI
                     ((Visit)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -464,6 +511,8 @@ namespace PDAI
                     visit.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = visit;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -475,6 +524,7 @@ namespace PDAI
                     ((VisitManager)disposeObject[val]).container.Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -487,6 +537,8 @@ namespace PDAI
                     VM.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = VM;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -510,6 +562,8 @@ namespace PDAI
                     dv.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = dv;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -533,6 +587,8 @@ namespace PDAI
                     ev.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = ev;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -556,6 +612,8 @@ namespace PDAI
                     vcnorecognition.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = vcnorecognition;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -568,6 +626,7 @@ namespace PDAI
                     ((ApagarOcorrencia)disposeObject[val]).Dispose();
                     disposeObject.Remove(val);
                     stringObject.Remove(val);
+
                 }
                 else
                 {
@@ -583,6 +642,7 @@ namespace PDAI
 
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = deleteincident;
+                    
                 }
             }
 

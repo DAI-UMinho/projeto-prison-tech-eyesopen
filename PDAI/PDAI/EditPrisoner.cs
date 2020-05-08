@@ -39,6 +39,7 @@ namespace PDAI
         int saveWidth, saveHeight, fontSize = 13;
         double var;
         string label, nome;
+        PictureBox fundo;
 
         Image<Bgr, byte> pPhoto;
 
@@ -78,7 +79,7 @@ namespace PDAI
 
                 l.Name = "label" + i;
 
-
+                
             }
 
             System.Diagnostics.Debug.WriteLine("ola");
@@ -105,12 +106,13 @@ namespace PDAI
             select = (sender as Label).Text.ToString();
             container.Controls.Clear();
 
-            photo = new PictureBox();
+
+            /*photo = new PictureBox();
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
             container.Controls.Add(photo);
             photo.Image = Properties.Resources.preso1;
-            photo.SizeMode = PictureBoxSizeMode.StretchImage;
+            photo.SizeMode = PictureBoxSizeMode.StretchImage;*/
 
             if (db.select.prisionerPhoto(select) != null)
             {
@@ -175,6 +177,7 @@ namespace PDAI
             lMaritalStatus.Text = "Estado Civil";
             font.Size(lMaritalStatus, fontSize);
             container.Controls.Add(lMaritalStatus);
+            lMaritalStatus.BackColor = Color.Transparent;
 
             cbMaritalStatus = new ComboBox();
             cbMaritalStatus.Size = new Size(200, lFullName.Height);
@@ -210,6 +213,12 @@ namespace PDAI
             addImg.Cursor = Cursors.Hand;
             font.Size(addImg, fontSize);
 
+            /*fundo = new PictureBox();
+            container.Controls.Add(fundo);
+            fundo.Image = Properties.Resources.Prisão;
+            fundo.Dock = DockStyle.Fill;
+            fundo.SizeMode = PictureBoxSizeMode.StretchImage;*/
+
         }
 
         public static Control GetUniqueControl(string controlName, Control.ControlCollection Controls)
@@ -241,6 +250,12 @@ namespace PDAI
             //tabela.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             System.Diagnostics.Debug.WriteLine(Application.StartupPath);
             createTable();
+
+            /*fundo = new PictureBox();
+            container.Controls.Add(fundo);
+            fundo.Image = Properties.Resources.Prisão;
+            fundo.Dock = DockStyle.Fill;
+            fundo.SizeMode = PictureBoxSizeMode.StretchImage;*/
         }
 
         private void Guardar_Click(object sender, EventArgs e)
