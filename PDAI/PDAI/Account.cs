@@ -380,6 +380,8 @@ namespace PDAI
                     employee.Open(option.view);
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = employee;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -404,6 +406,8 @@ namespace PDAI
                     employee.Open(option.edit);
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = employee;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -429,6 +433,8 @@ namespace PDAI
                     employee.Open(option.delete);
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = employee;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -482,6 +488,8 @@ namespace PDAI
                     pm.Open();
                     stringObject.Add(((Label)sender).Name);
                     disposeObject[((Label)sender).Name] = pm;
+                    logo.Hide();
+                    nome.Hide();
 
                 }
 
