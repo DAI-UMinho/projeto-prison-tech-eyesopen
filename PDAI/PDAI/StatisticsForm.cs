@@ -89,53 +89,38 @@ namespace PDAI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string input = Microsoft.VisualBasic.Interaction.InputBox("Insira o nome do relatorio:",
+             string input = Microsoft.VisualBasic.Interaction.InputBox("Insira o nome do relatorio:",
                       "Nome Relatorio",
                       "NovoRelatorio"
                       );
-
-
             PdfDocument document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
-            // Create an empty page
+            // Cria uma pagina em branco
             PdfPage page = document.AddPage();
             XGraphics gfx = XGraphics.FromPdfPage(page);
-            // Create a font
+            // Cria a font
             XFont font = new XFont("Verdana", 25, XFontStyle.BoldItalic);
-            // Draw the text
-
+            // representa uma superficie de desenho abstracta
             gfx.DrawString("Relatório", font, XBrushes.Black,
             new XRect(0, 0, page.Width, 30),
             XStringFormats.Center);
-
-
-
+            //abre um fluxo cujo armazenamento secundario é a memoria
             MemoryStream ms = new MemoryStream();
+            //grava a imagem no formato escolhido
             incidents_month.SaveImage(ms, ChartImageFormat.Png);
             XImage xfoto = XImage.FromStream(ms);
             gfx.DrawImage(xfoto, 100, 50, 350, 300);
-
-            //Resize DataGridView to full height.
-            //int height = dataGridView1.Height - 500;
-
-            //dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
             gfx.DrawString("Reclusos com mais Ocorrências", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
-            //Create a Bitmap and draw the DataGridView on it.
+            //cria um bitmap e desenha o datagridview lá
             Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
             dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
-
-            //Resize DataGridView back to original height.
-
-            //dataGridView1.Height = height;
-
             MemoryStream ms2 = new MemoryStream();
             bitmap.Save(ms2, System.Drawing.Imaging.ImageFormat.Jpeg);
             xfoto = XImage.FromStream(ms2);
             double comeco = (page.Width - xfoto.PointWidth) / 2;
-            gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
-            // Save the document...
+            gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));  
+            // guarda o documento
             string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
-
             document.Save(filename);
             MessageBox.Show("Pdf criado com sucesso");
         }
@@ -155,6 +140,7 @@ namespace PDAI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            //desenha ocorrencias/mes
             incidents_month.Series.Clear();
             incidents_month.Series.Add("Ocorrencias");
             List<object> var = new List<object>();
@@ -166,16 +152,16 @@ namespace PDAI
             {
                 for (int j = 0; j < var.Count(); j += 2)
                 {
-                    if ((int)var.ElementAt(j) == i)
+                    if ((int)var.ElementAt(j + 1) == i) ;
                     {
                         flag = true;
                         incidents_month.Series["Ocorrencias"].Points.AddXY((int)var.ElementAt(j + 1), "" + var.ElementAt(j));
                         break;
                     }
                 }
-                if (flag == false)
-                {
-                    incidents_month.Series["Ocorrencias"].Points.AddXY(i, "0");
+                if (flag == false) { 
+                
+                    incidents_month.Series["Ocorrencias"].Points.AddXY(i,"0");
                 }
                 flag = false;
             }
