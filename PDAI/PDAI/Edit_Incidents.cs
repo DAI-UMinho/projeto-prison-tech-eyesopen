@@ -12,11 +12,17 @@ namespace PDAI
     public partial class Edit_Incidents : Form
     {
         Database db;
+        Menu menu;
+        public Panel container { get; }
+        List<string> stringObject;
+        Dictionary<string, object> disposeObject;
         public Edit_Incidents()
         {
             InitializeComponent();
             db = new Database();
             PreencherDataGrid();
+            container = new Panel();
+            menu = new Menu();
         }
 
         public void PreencherDataGrid()
@@ -31,6 +37,7 @@ namespace PDAI
 
         private void button1_Click(object sender, EventArgs e)
         {
+            container.Controls.Clear();
             List<Object> var = new List<object>();
             if (dataGridView1.SelectedCells.Count > 0)
             {
@@ -39,14 +46,26 @@ namespace PDAI
                 string id = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
                 string dataOcorrencia = Convert.ToString(selectedRow.Cells["dataOcorrencia"].Value);
                 string nomeCompleto = Convert.ToString(selectedRow.Cells["nomeCompleto"].Value);
-
+                
                 var = db.select.Edit_Incidents(id);
                 var.Add(id);
                 var.Add(nomeCompleto);
                 var.Add(dataOcorrencia);
 
+                //MessageBox.Show("" + var.ElementAt(0) + "" + "," + var.ElementAt(1)+"," + "" + var.ElementAt(2)+","+ var.ElementAt(3)+"," + var.ElementAt(4));
+                Incidents incidents = new Incidents(var);
+                /* container.Controls.Add(incidents.container);
+                 incidents.width = container.Width - menu.width;
+                 incidents.height = container.Height;
+                 incidents.locationX = menu.locationX + menu.width;
+                 incidents.locationY = 0;
+                 incidents.Open();*/
+                this.Controls.Clear();
+                this.Controls.Add(incidents.container);
 
-                Incidents ola = new Incidents(var);
+
+
+
             }
         }
     }

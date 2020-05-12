@@ -1007,9 +1007,9 @@ namespace PDAI
             try
             {
 
-                String sql = "select idPessoa, descricao" +
-                    "from Ocorrencia o" +
-                    "where o.id = " + id + ";";
+                String sql = "select idPessoa, descricao " +
+                    "from Ocorrencia " +
+                    "where id = " + id +";";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();

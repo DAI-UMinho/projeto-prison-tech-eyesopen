@@ -42,14 +42,7 @@ namespace PDAI
             container = new Panel();
         }
 
-        public Incidents(List<object> aux)
-        {
-            register.Text = "Editar";
-            description.Text = "" + aux.ElementAt(1);
-            pList.Text = "" + aux.ElementAt(0) + " - " + aux.ElementAt(3);
-            date.Value = DateTime.ParseExact((string) aux.ElementAt(4), "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            hour.Value = DateTime.ParseExact((string)aux.ElementAt(4), "HH:mm", CultureInfo.InvariantCulture);
-        }
+        
 
         public void Open()
         {
@@ -119,6 +112,21 @@ namespace PDAI
             add.BackColor = color;
 
             listPrisioners(t);
+        }
+
+        public Incidents(List<object> aux)
+        {
+            font = new Font_Class();
+            database = new Database();
+            container = new Panel();
+            Open();
+
+            register.Text = "Editar";
+            description.Text = "" + aux.ElementAt(1);
+            pList.Text = "" + aux.ElementAt(0) + " - " + aux.ElementAt(3);
+            date.Value = DateTime.Parse((string)aux.ElementAt(4));
+            //ParseExact((string)aux.ElementAt(4), "dd-MM-yyyy", CultureInfo.InvariantCulture);
+            //hour.Value = DateTime.ParseExact((string)aux.ElementAt(4), "HH:mm", CultureInfo.InvariantCulture);
         }
 
 
