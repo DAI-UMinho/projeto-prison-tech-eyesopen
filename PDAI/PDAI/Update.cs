@@ -224,6 +224,26 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
+    public void Ocorrencia(string idPessoa, string descricao, string id)
+        {
+            try
+            {
+                sql = "update Ocorrencia set  idPessoa = " + idPessoa + " , descricao = '" + descricao + "' where id = " + id + ";";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+        }
+
 
 
     }

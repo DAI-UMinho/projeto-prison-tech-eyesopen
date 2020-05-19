@@ -1008,7 +1008,7 @@ namespace PDAI
             {
 
                 String sql = "select idPessoa, descricao " +
-                    "from Ocorrencia " +
+                    "from Ocorrencia  " +
                     "where id = " + id +";";
 
                 sqlConn = new SqlConnection(connectionString);

@@ -9,7 +9,7 @@ using System.Globalization;
 
 namespace PDAI
 {
-    class Incidents
+  public partial class Incidents : Form 
     {
         public Panel container { get; }
         public int locationX { set { container.Location = new Point(value, container.Location.Y); } get { return container.Location.X; } }
@@ -120,7 +120,6 @@ namespace PDAI
             database = new Database();
             container = new Panel();
             Open();
-
             register.Text = "Editar";
             description.Text = "" + aux.ElementAt(1);
             pList.Text = "" + aux.ElementAt(0) + " - " + aux.ElementAt(3);
