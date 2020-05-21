@@ -88,12 +88,17 @@ namespace PDAI
 
         private void AccountButton_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(((Button)sender).Name);
-
             switch (((Button)sender).Name)
             {
                 case "view":
                     MessageBox.Show("Consultar Funcionario");
+                    //I_Person person = new I_Person();
+                    //container.Controls.Add(person.container);
+                    //person.width = container.Width;
+                    //person.height = container.Height;
+                    //person.locationY = 0;
+                    //person.Open(true, false);
+                    //person.container.BringToFront();
                     break;
                 case "edit":
                     MessageBox.Show("Editar Funcionario");
