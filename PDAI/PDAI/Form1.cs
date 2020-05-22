@@ -31,6 +31,7 @@ namespace PDAI
             screen.full_Screen = true;
             database = new Database();
             SetDefaultRules();
+
         }
 
 

@@ -167,6 +167,7 @@
     <Compile Include="Delete.cs" />
     <Compile Include="DeletePrisioner.cs" />
     <Compile Include="DeleteVisit.cs" />
+    <Compile Include="EditarIncidents2.cs" />
     <Compile Include="EditPrisoner.cs" />
     <Compile Include="Edit_Incidents.cs">
       <SubType>Form</SubType>
