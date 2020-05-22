@@ -29,6 +29,7 @@ namespace PDAI
         Label lHour;
         Button register;
         Button add;
+        Label Titulo;
         int listX = 200;
         int listY = 35;
         int fontSize = 13;
@@ -90,6 +91,15 @@ namespace PDAI
             lDate.Text = "Data";
             lDate.BorderStyle = BorderStyle.None;
             font.Size(lDate, fontSize);
+
+            Titulo = new Label();
+            container.Controls.Add(Titulo);
+            Titulo.Size = new Size(900, 100);
+            Titulo.Location = new Point(0, 0);
+            font.Size(Titulo, fontSize);
+            Titulo.Text = "Registar Ocorrência";
+            Titulo.Font = new Font("Arial", 40, FontStyle.Bold);
+            Titulo.SendToBack();
 
             lHour = new Label();
             container.Controls.Add(lHour);

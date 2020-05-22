@@ -111,7 +111,7 @@ namespace PDAI
             nome = new Label();
             container.Controls.Add(nome);
             nome.Size = new Size(400, 400);
-            nome.Location = new Point(700, 350);
+            nome.Location = new Point(700, 100);
             font.Size(nome, fontSize);
             nome.Text = "EyesOpen";
             nome.Font = new Font("Arial", 50, FontStyle.Bold);
