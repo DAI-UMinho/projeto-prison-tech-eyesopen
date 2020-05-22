@@ -89,11 +89,6 @@ namespace PDAI
                 checkBox.Name = "title-" + checkBox.Name;
             }
 
-          
-            
-
-
-
         }
 
 

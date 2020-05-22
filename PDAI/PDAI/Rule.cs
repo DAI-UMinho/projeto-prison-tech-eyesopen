@@ -53,19 +53,19 @@ namespace PDAI
         public static List<string> GetPrivileges_Diretor()
         {
             List<string> privileges = new List<string>();
-            privileges.Add("Privilégio Estatística-Visualizar");
-            privileges.Add("Privilégio Estatística-Converter para PDF");
+            privileges.Add("Privilégio Estatística-Consultar");
             privileges.Add("Privilégio Câmara-Registar");
             privileges.Add("Privilégio Câmara-Editar");
-            privileges.Add("Privilégio Câmara-Visualizar");
-            privileges.Add("Privilégio Câmara-Visualizar Gravação");
-            privileges.Add("Privilégio Recluso-Visualizar");
-            privileges.Add("Privilégio Funcionário-Visualizar");
+            privileges.Add("Privilégio Câmara-Consultar");
+            privileges.Add("Privilégio Câmara-Consultar Gravação");
+            privileges.Add("Privilégio Recluso-Consultar");
+            privileges.Add("Privilégio Funcionário-Consultar");
             privileges.Add("Privilégio Guarda");
-            privileges.Add("Privilégio Guarda-Visualizar");
-            privileges.Add("Privilégio Ocorrência-Visualizar");
-            privileges.Add("Privilégio Conta-Visualizar");
-            privileges.Add("Privilégio Alerta-Visualizar");
+            privileges.Add("Privilégio Guarda-Consultar");
+            privileges.Add("Privilégio Ocorrência-Consultar");
+            privileges.Add("Privilégio Conta-Consultar");
+            privileges.Add("Privilégio Alerta-Consultar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
 
             return privileges;
         }
@@ -76,11 +76,12 @@ namespace PDAI
             privileges.Add("Privilégio Funcionário-Registar");
             privileges.Add("Privilégio Funcionário-Editar");
             privileges.Add("Privilégio Funcionário-Apagar");
-            privileges.Add("Privilégio Funcionário-Visualizar");
+            privileges.Add("Privilégio Funcionário-Consultar");
             privileges.Add("Privilégio Recluso-Registar");
             privileges.Add("Privilégio Recluso-Editar");
             privileges.Add("Privilégio Recluso-Apagar");
-            privileges.Add("Privilégio Recluso-Visualizar");
+            privileges.Add("Privilégio Recluso-Consultar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
 
             return privileges;
         }
@@ -89,11 +90,12 @@ namespace PDAI
         public static List<string> GetPrivileges_Secretaria()
         {
             List<string> privileges = new List<string>();
-            privileges.Add("Privilégio Recluso-Visualizar");
+            privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Visita-Registar");
             privileges.Add("Privilégio Visita-Editar");
             privileges.Add("Privilégio Visita-Apagar");
-            privileges.Add("Privilégio Visita-Visualizar");
+            privileges.Add("Privilégio Visita-Consultar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             return privileges;
         }
 
@@ -102,20 +104,20 @@ namespace PDAI
         public static List<string> GetPrivileges_GuardaChefe()
         {
             List<string> privileges = new List<string>();
-            privileges.Add("Privilégio Estatística-Visualizar");
-            privileges.Add("Privilégio Estatística-Converter para PDF");
+            privileges.Add("Privilégio Estatística-Consultar");
             privileges.Add("Privilégio Câmara-Registar");
             privileges.Add("Privilégio Câmara-Editar");
-            privileges.Add("Privilégio Câmara-Visualizar");
-            privileges.Add("Privilégio Câmara-Visualizar Gravação");
+            privileges.Add("Privilégio Câmara-Consultar");
+            privileges.Add("Privilégio Câmara-Consultar Gravação");
             privileges.Add("Privilégio Câmara-Apagar Gravação");
-            privileges.Add("Privilégio Recluso-Visualizar");
+            privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Ocorrência-Registar");
             privileges.Add("Privilégio Ocorrência-Editar");
             privileges.Add("Privilégio Ocorrência-Apagar");
-            privileges.Add("Privilégio Ocorrência-Visualizar");
-            privileges.Add("Privilégio Alerta-Visualizar");
-            privileges.Add("Privilégio Guarda-Visualizar");
+            privileges.Add("Privilégio Ocorrência-Consultar");
+            privileges.Add("Privilégio Alerta-Consultar");
+            privileges.Add("Privilégio Guarda-Consultar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             return privileges;
         }
 
@@ -124,13 +126,14 @@ namespace PDAI
         public static List<string> GetPrivileges_Guarda()
         {
             List<string> privileges = new List<string>();
-            privileges.Add("Privilégio Câmara-Visualizar");
-            privileges.Add("Privilégio Câmara-Visualizar Gravação");
-            privileges.Add("Privilégio Recluso-Visualizar");
+            privileges.Add("Privilégio Câmara-Consultar");
+            privileges.Add("Privilégio Câmara-Consultar Gravação");
+            privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Ocorrência-Registar");
             privileges.Add("Privilégio Ocorrência-Editar");
             privileges.Add("Privilégio Ocorrência-Apagar");
-            privileges.Add("Privilégio Ocorrência-Visualizar");
+            privileges.Add("Privilégio Ocorrência-Consultar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             return privileges;
         }
 
@@ -139,45 +142,46 @@ namespace PDAI
         {
             List<string> privileges = new List<string>();
             privileges.Add("Privilégio Estatística");
-            privileges.Add("Privilégio Estatística-Visualizar");
-            privileges.Add("Privilégio Estatística-Converter para PDF");
+            privileges.Add("Privilégio Estatística-Consultar");
             privileges.Add("Privilégio Câmara");
             privileges.Add("Privilégio Câmara-Registar");
             privileges.Add("Privilégio Câmara-Editar");
             privileges.Add("Privilégio Câmara-Apagar");
-            privileges.Add("Privilégio Câmara-Visualizar");
-            privileges.Add("Privilégio Câmara-Visualizar Deteção");
-            privileges.Add("Privilégio Câmara-Visualizar Gravação");
+            privileges.Add("Privilégio Câmara-Consultar");
+            privileges.Add("Privilégio Câmara-Consultar Deteção");
+            privileges.Add("Privilégio Câmara-Consultar Gravação");
             privileges.Add("Privilégio Câmara-Apagar Gravação");
             privileges.Add("Privilégio Recluso");
             privileges.Add("Privilégio Recluso-Registar");
             privileges.Add("Privilégio Recluso-Editar");
             privileges.Add("Privilégio Recluso-Apagar");
-            privileges.Add("Privilégio Recluso-Visualizar");
+            privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Funcionário");
             privileges.Add("Privilégio Funcionário-Registar");
             privileges.Add("Privilégio Funcionário-Editar");
             privileges.Add("Privilégio Funcionário-Apagar");
-            privileges.Add("Privilégio Funcionário-Visualizar");
+            privileges.Add("Privilégio Funcionário-Consultar");
             privileges.Add("Privilégio Guarda");
-            privileges.Add("Privilégio Guarda-Visualizar");
+            privileges.Add("Privilégio Guarda-Consultar");
             privileges.Add("Privilégio Visita");
             privileges.Add("Privilégio Visita-Registar");
             privileges.Add("Privilégio Visita-Editar");
             privileges.Add("Privilégio Visita-Apagar");
-            privileges.Add("Privilégio Visita-Visualizar");
+            privileges.Add("Privilégio Visita-Consultar");
             privileges.Add("Privilégio Ocorrência");
             privileges.Add("Privilégio Ocorrência-Registar");
             privileges.Add("Privilégio Ocorrência-Editar");
             privileges.Add("Privilégio Ocorrência-Apagar");
-            privileges.Add("Privilégio Ocorrência-Visualizar");
+            privileges.Add("Privilégio Ocorrência-Consultar");
             privileges.Add("Privilégio Conta");
             privileges.Add("Privilégio Conta-Registar");
             privileges.Add("Privilégio Conta-Editar");
             privileges.Add("Privilégio Conta-Apagar");
-            privileges.Add("Privilégio Conta-Visualizar");
+            privileges.Add("Privilégio Conta-Consultar");
+            privileges.Add("Privilégio Conta-Alterar Credenciais");
             privileges.Add("Privilégio Alerta");
-            privileges.Add("Privilégio Alerta-Visualizar");
+            privileges.Add("Privilégio Alerta-Consultar");
+            
 
             return privileges;
         }

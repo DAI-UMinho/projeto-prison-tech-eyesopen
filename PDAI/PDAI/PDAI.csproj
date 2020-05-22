@@ -126,6 +126,10 @@
       <HintPath>..\..\Guna.UI-Framework-Lib-master\Guna.UI-Framework-Lib\.net 4.0\Guna.UI.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PdfSharp">
+      <HintPath>..\PdfSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ServiceModel" />
@@ -149,12 +153,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="Delete_Incident.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Incident.Designer.cs">
+      <DependentUpon>Delete_Incident.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AccountCredentials.cs" />
     <Compile Include="Cam.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="CustomizableList.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="Delete.cs" />
+    <Compile Include="DeletePrisioner.cs" />
+    <Compile Include="DeleteVisit.cs" />
     <Compile Include="EditPrisoner.cs" />
+    <Compile Include="Edit_Incidents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Edit_Incidents.Designer.cs">
+      <DependentUpon>Edit_Incidents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditVisit.cs" />
     <Compile Include="Encryption.cs" />
     <Compile Include="Font_Class.cs" />
     <Compile Include="Form1.cs">
@@ -180,6 +200,7 @@
     <Compile Include="I_Account.cs" />
     <Compile Include="I_CamGallery.cs" />
     <Compile Include="I_Login.cs" />
+    <Compile Include="I_PersonView.cs" />
     <Compile Include="ListView_Class.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -208,7 +229,22 @@
     </Compile>
     <Compile Include="Update.cs" />
     <Compile Include="viewCam.cs" />
+    <Compile Include="viewCamNRec.cs" />
     <Compile Include="viewPrisoner.cs" />
+    <Compile Include="VisualizarOcorrencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisualizarOcorrencia.Designer.cs">
+      <DependentUpon>VisualizarOcorrencia.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Delete_Incident.resx">
+      <DependentUpon>Delete_Incident.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Edit_Incidents.resx">
+      <DependentUpon>Edit_Incidents.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Visit.cs" />
+    <Compile Include="VisitManager.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -223,6 +259,9 @@
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="VisualizarOcorrencia.resx">
+      <DependentUpon>VisualizarOcorrencia.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -235,6 +274,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\papel.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\Prisão.png" />
     <None Include="Resources\iconfinder_ic_play_arrow_48px_352072.png" />
     <None Include="Resources\Pause-Button-PNG-File.png" />
     <None Include="Resources\Seta1.png" />
@@ -254,6 +296,12 @@
     <None Include="Resources\Anotação 2020-03-07 232413.jpg" />
     <None Include="Resources\0122.jpg" />
     <None Include="Resources\Donald_Trump_official_portrait.jpg" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\desenhar.png" />
+    <None Include="Resources\icon %281%29.png" />
+    <None Include="Resources\icon %282%29.png" />
+    <None Include="Resources\camera-de-seguranca.png" />
+    <None Include="Resources\grafico.png" />
     <Content Include="Resources\IconEyesOpen.png" />
     <None Include="Resources\índice.png" />
   </ItemGroup>

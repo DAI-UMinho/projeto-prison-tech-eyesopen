@@ -33,7 +33,7 @@ namespace PDAI
         }
 
 
-        public void Create()
+        public void Open()
         {
 
             Label title = new Label();

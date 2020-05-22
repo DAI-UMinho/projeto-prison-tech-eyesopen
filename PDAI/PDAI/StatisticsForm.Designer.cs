@@ -28,16 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.incidents_Place = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.incidents_month = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gunaPanel1 = new Guna.UI.WinForms.GunaPanel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -46,10 +41,15 @@
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.incidents_Place)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NomeRecluso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroOcorrencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_month)).BeginInit();
             this.gunaPanel1.SuspendLayout();
             this.gunaPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLabel1
@@ -63,61 +63,36 @@
             this.gunaLabel1.TabIndex = 0;
             this.gunaLabel1.Click += new System.EventHandler(this.gunaLabel1_Click);
             // 
-            // incidents_Place
-            // 
-            this.incidents_Place.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            chartArea1.Name = "ChartArea1";
-            this.incidents_Place.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.incidents_Place.Legends.Add(legend1);
-            this.incidents_Place.Location = new System.Drawing.Point(1043, 334);
-            this.incidents_Place.Margin = new System.Windows.Forms.Padding(4);
-            this.incidents_Place.Name = "incidents_Place";
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.LabelBackColor = System.Drawing.Color.Transparent;
-            series1.Legend = "Legend1";
-            series1.Name = "Ocorrências";
-            this.incidents_Place.Series.Add(series1);
-            this.incidents_Place.Size = new System.Drawing.Size(929, 588);
-            this.incidents_Place.TabIndex = 2;
-            this.incidents_Place.Text = "chart2";
-            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.Name = "Número de Ocorrências por Setor";
-            title1.Text = "Número de Ocorrências por Setor";
-            this.incidents_Place.Titles.Add(title1);
-            // 
             // incidents_month
             // 
             this.incidents_month.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.incidents_month.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.Name = "ChartArea1";
-            this.incidents_month.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.incidents_month.Legends.Add(legend2);
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea5.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea5.Name = "ChartArea1";
+            this.incidents_month.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.incidents_month.Legends.Add(legend5);
             this.incidents_month.Location = new System.Drawing.Point(118, 397);
             this.incidents_month.Margin = new System.Windows.Forms.Padding(4);
             this.incidents_month.Name = "incidents_month";
             this.incidents_month.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.BorderColor = System.Drawing.Color.Transparent;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Crimson;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Ocorrências";
-            this.incidents_month.Series.Add(series2);
+            series5.BorderColor = System.Drawing.Color.Transparent;
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Crimson;
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series5.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            series5.Legend = "Legend1";
+            series5.Name = "Ocorrências";
+            this.incidents_month.Series.Add(series5);
             this.incidents_month.Size = new System.Drawing.Size(917, 588);
             this.incidents_month.TabIndex = 3;
             this.incidents_month.Text = "chart1";
-            title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "teste";
-            title2.Text = "Número de Ocorrências por Mês";
-            this.incidents_month.Titles.Add(title2);
+            title5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title5.Name = "teste";
+            title5.Text = "Número de Ocorrências por Mês";
+            this.incidents_month.Titles.Add(title5);
             this.incidents_month.Click += new System.EventHandler(this.chart1_Click);
             // 
             // gunaPanel1
@@ -185,12 +160,68 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(552, 334);
+            this.button1.AccessibleName = "";
+            this.button1.Location = new System.Drawing.Point(552, 324);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(138, 42);
             this.button1.TabIndex = 7;
-            this.button1.Text = "button1";
+            this.button1.Text = "Mostrar Estatísticas";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NomeRecluso,
+            this.NumeroOcorrencias,
+            this.Nome});
+            this.dataGridView1.Location = new System.Drawing.Point(1130, 462);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.Size = new System.Drawing.Size(472, 263);
+            this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // NomeRecluso
+            // 
+            this.NomeRecluso.HeaderText = "IDRecluso";
+            this.NomeRecluso.MinimumWidth = 6;
+            this.NomeRecluso.Name = "NomeRecluso";
+            this.NomeRecluso.ReadOnly = true;
+            this.NomeRecluso.Width = 125;
+            // 
+            // NumeroOcorrencias
+            // 
+            this.NumeroOcorrencias.HeaderText = "NumOcorrencias";
+            this.NumeroOcorrencias.MinimumWidth = 6;
+            this.NumeroOcorrencias.Name = "NumeroOcorrencias";
+            this.NumeroOcorrencias.ReadOnly = true;
+            this.NumeroOcorrencias.Width = 125;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.MinimumWidth = 6;
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 320;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1330, 809);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(117, 23);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Criar PDF";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // StatisticsForm
             // 
@@ -198,23 +229,24 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.ClientSize = new System.Drawing.Size(1942, 1047);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.gunaPanel2);
             this.Controls.Add(this.gunaPanel3);
             this.Controls.Add(this.gunaPanel1);
             this.Controls.Add(this.incidents_month);
-            this.Controls.Add(this.incidents_Place);
             this.Controls.Add(this.gunaLabel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StatisticsForm";
             this.Text = "StatisticsForm";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.incidents_Place)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_month)).EndInit();
             this.gunaPanel1.ResumeLayout(false);
             this.gunaPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,7 +255,6 @@
         #endregion
 
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart incidents_Place;
         private System.Windows.Forms.DataVisualization.Charting.Chart incidents_month;
         private Guna.UI.WinForms.GunaPanel gunaPanel1;
         private Guna.UI.WinForms.GunaPanel gunaPanel2;
@@ -232,5 +263,10 @@
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeRecluso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroOcorrencias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.Button button2;
     }
 }

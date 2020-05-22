@@ -80,31 +80,10 @@ namespace PDAI
         }
 
 
-        //public void Credentials(uint idLogin, string username, byte[] accountAccess)
-        //{
-        //    try
-        //    {
 
-        //        sql = "update Login set username = '" + username + "',password= " + @accountAccess + " where id = " + idLogin;
-
-        //        sqlConn = new SqlConnection(connectionString);
-        //        sqlConn.Open();
-        //        command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
-        //        adapter = new SqlDataAdapter();
-        //        adapter.InsertCommand = command;
-        //        command.ExecuteNonQuery();
-        //        command.Dispose();
-        //        adapter.Dispose();
-        //        sqlConn.Close();
-
-        //    }
-        //    catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-        //}
-
-
-
-        public void Credentials(uint idLogin, string username, byte[] accountAccess)
+        public bool Credentials(uint idLogin, string username, byte[] accountAccess)
         {
+            bool var = true;
             try
             {
                 sql = "update Login set username = @username,password= @accountAccess where id = @id";
@@ -123,7 +102,9 @@ namespace PDAI
                 adapter.Dispose();
                 sqlConn.Close();
             }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+            catch (Exception e) { var = false; };
+
+            return var;
         }
 
 
@@ -206,6 +187,28 @@ namespace PDAI
             try
             {
                 sql = "update Pessoa set nomeCompleto ='" + nome + "', dataNascimento ='" + date + "' , cc ='" + cc + "', estadoCivil ='" + estadoCivil + "' where nomeCompleto = '" + str + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+        }
+
+        public void Visita(string id, string nome, string idRecluso, string dataVsista)
+        {
+            string date = Convert.ToDateTime(dataVsista).ToString("yyyy-MM-dd");
+
+            try
+            {
+                sql = "update Visita set  idPessoa ='" + idRecluso + "', nome ='" + nome + "', dataVisita ='" + date + "' where id = '" + id + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();

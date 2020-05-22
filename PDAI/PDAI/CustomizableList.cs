@@ -54,6 +54,23 @@ namespace PDAI
         }
 
 
+        public void AddItem(uint id, string imgPath, string employeeName, string maritalStatus, string role, option option)
+        {
+
+            item = new AccountItem(container, ItemClicked);
+            item.width = container.Width - 2;
+            item.height = defaultHeight;
+            item.Create(id, imgPath, employeeName, maritalStatus, role, option);
+            this.id[item.item] = id;
+            if (items.Count == 0) item.item.Location = new Point(0, 0);
+            else item.item.Location = new Point(0, items[items.Count - 1].item.Location.Y + defaultHeight - 1);
+            items.Add(item);
+
+            // return item.accountButton;
+        }
+
+
+
 
         public void Update()
         {

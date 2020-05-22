@@ -165,23 +165,53 @@ namespace PDAI
                 uint maxId = 0;
                 while (reader.Read())
                 {
-                   
+
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
                     if (!(reader.IsDBNull(5))) accountCreated = true;
-                    list.AddItem(Convert.ToUInt32(reader[0]),reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
                     accountCreated = false;
                     counter++;
-                   // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
+                    // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
                 }
                 reader.Close();
                 command.Dispose();
                 sqlConn.Close();
- 
+
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
             return index;
         }
+
+        public int Get_Employees(CustomizableList list, option option)
+        {
+            int index = 0, counter = 0;
+            try
+            {
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa left join Login on Pessoa.id = Login.id where tipo <> 'Administrador' and tipo <> 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                uint maxId = 0;
+                while (reader.Read())
+                {
+
+                    if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), option);
+                    counter++;
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return index;
+        }
+
 
 
         public List<string> GetRoles(ListView_Class lv)
@@ -190,7 +220,7 @@ namespace PDAI
             List<string> roles = new List<string>();
             try
             {
-                sql = "select tipo from Tipo where cargo = 1"; 
+                sql = "select tipo from Tipo where cargo = 1";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -217,7 +247,7 @@ namespace PDAI
             List<string> maritalStatus = new List<string>();
             try
             {
-                sql = "select estadoCivil from EstadoCivil"; 
+                sql = "select estadoCivil from EstadoCivil";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -320,7 +350,7 @@ namespace PDAI
         public Dictionary<string, uint> GetPrivilegesRole(ComboBox comboBox)
         {
             comboBox.Items.Clear();
-            Dictionary<string,uint> ids = new Dictionary<string, uint>();
+            Dictionary<string, uint> ids = new Dictionary<string, uint>();
             try
             {
                 sql = "select papel, Papel.id from Papel";
@@ -361,8 +391,8 @@ namespace PDAI
                 while (reader.Read())
                 {
                     if (!privilegesList.ContainsKey(reader[0].ToString())) privilegesList[reader[0].ToString()] = new List<string>();
-                    if (!Convert.ToBoolean(reader[2])){if (privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Remove(reader[1].ToString());}
-                    else{if (!privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Add(reader[1].ToString());}
+                    if (!Convert.ToBoolean(reader[2])) { if (privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Remove(reader[1].ToString()); }
+                    else { if (!privilegesList[reader[0].ToString()].Contains(reader[1].ToString())) privilegesList[reader[0].ToString()].Add(reader[1].ToString()); }
                 }
                 reader.Close();
                 command.Dispose();
@@ -383,7 +413,7 @@ namespace PDAI
             try
             {
 
-                sql = "select count(id) from Pessoa where tipo = '"+ role + "'";
+                sql = "select count(id) from Pessoa where tipo = '" + role + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -467,13 +497,13 @@ namespace PDAI
             try
             {
 
-                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length - 1) +"%" +"'";
+                sql = "select Count(id) from Papel where papel like '" + custimizedRole.Substring(0, custimizedRole.Length) + "%" + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
                 command = new SqlCommand(sql, sqlConn);
                 reader = command.ExecuteReader();
-              
+
                 while (reader.Read())
                 {
                     val = Convert.ToByte(reader[0]);
@@ -488,7 +518,7 @@ namespace PDAI
         }
 
 
-        
+
 
         public string GetPrivilegeRole(uint idLogin)
         {
@@ -497,7 +527,7 @@ namespace PDAI
             try
             {
 
-                sql = "select papel from Login inner join (AssocPapel inner join Papel on Papel.id = AssocPapel.idPapel) on Login.id = AssocPapel.idLogin where idLogin = "+ idLogin;
+                sql = "select papel from Login inner join (AssocPapel inner join Papel on Papel.id = AssocPapel.idPapel) on Login.id = AssocPapel.idLogin where idLogin = " + idLogin;
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -553,7 +583,7 @@ namespace PDAI
             try
             {
 
-                sql = "select id from Papel  where papel = '"+ privilegeRole + "'";
+                sql = "select id from Papel  where papel = '" + privilegeRole + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -626,59 +656,6 @@ namespace PDAI
             return recluso;
         }
 
-        public List<object> Recluso()
-        {
-
-            List<object> recluso = new List<object>();
-            try
-            {
-                sql = "select nomeCompleto from dbo.Pessoa where tipo='Prisioneiro' and ativo='1'";
-
-
-                sqlConn = new SqlConnection(connectionString);
-                sqlConn.Open();
-                command = new SqlCommand(sql, sqlConn);
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    recluso.Add(reader.GetValue(0));
-                }
-                reader.Close();
-                command.Dispose();
-                sqlConn.Close();
-            }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-
-            return recluso;
-        }
-
-        public List<object> selecRecluso(String nome)
-        {
-
-            List<object> recluso = new List<object>();
-            try
-            {
-
-
-                sqlConn = new SqlConnection(connectionString);
-                sqlConn.Open();
-                command = new SqlCommand("select nomeCompleto, dataNascimento, cc, estadoCivil from Pessoa where nomeCompleto = '" + nome + "'", sqlConn);
-                reader = command.ExecuteReader();
-                while (reader.Read())
-                {
-                    recluso.Add(reader.GetValue(0));
-                    recluso.Add(reader.GetValue(1));
-                    recluso.Add(reader.GetValue(2));
-                    recluso.Add(reader.GetValue(3));
-                }
-                reader.Close();
-                command.Dispose();
-                sqlConn.Close();
-            }
-            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
-
-            return recluso;
-        }
 
         public List<object> Reclusos()
         {
@@ -765,6 +742,334 @@ namespace PDAI
             return var;
         }
 
+        public List<object> Top10()
+        {
+            List<object> var = new List<object>();
+            sql = "select o.idPessoa, COUNT(o.id) as contagem, p.nomeCompleto " +
+                "from Ocorrencia o, Pessoa p " +
+                "where o.idPessoa = p.id " +
+                "GROUP BY YEAR(o.dataOcorrencia), o.idPessoa, p.nomeCompleto " +
+                "ORDER BY contagem DESC; ";
+            try
+            {
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
+                    var.Add(reader[2]);
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                sqlConn.Close();
+                reader.Close();
+            }
+            return var;
+        }
+
+        public List<object> VisualizarOcorrencia()
+        {
+            List<object> var = new List<object>();
+            string sql = "select p.nomeCompleto, o.id, convert(varchar(20),o.dataOcorrencia,120)" +
+                "from Ocorrencia o, Pessoa p" +
+                "where o.idPessoa = p.id" +
+                "order by o.dataOcorrencia DESC;";
+
+            try
+            {
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
+                    var.Add(reader[2]);
+
+                }
+                sqlConn.Close();
+                reader.Close();
+            }
+
+            catch (SqlException es)
+            {
+                throw es;
+            }
+
+            return var;
+
+        }
+
+
+
+
+
+
+
+
+        public bool UsernameExists(string username)
+        {
+            bool val = false;
+
+            try
+            {
+                sql = "select id from Login where username ='" + username + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (Convert.ToByte(reader[0]) > 0) val = true;
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return val;
+        }
+
+        public List<object> Recluso()
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+                sql = "select nomeCompleto from dbo.Pessoa where tipo='Prisioneiro' and ativo='1'";
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
+        }
+
+        public List<object> selecRecluso(String nome)
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand("select nomeCompleto, dataNascimento, cc, estadoCivil from Pessoa where nomeCompleto = '" + nome + "'", sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                    recluso.Add(reader.GetValue(1));
+                    recluso.Add(reader.GetValue(2));
+                    recluso.Add(reader.GetValue(3));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
+        }
+
+        public List<object> visitedPrisionerId(String nome)
+        {
+            List<object> var = new List<object>();
+
+            try
+            {
+                sql = "select id from Pessoa where nomeCompleto = '" + nome + "' and tipo='Prisioneiro' and ativo='1' ";
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return var;
+        }
+
+        public List<object> Visit()
+        {
+
+            List<object> visita = new List<object>();
+            try
+            {
+                sql = "select nome, dataVisita, id from Visita";
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    visita.Add(reader.GetValue(0));
+                    visita.Add(reader.GetValue(1));
+                    visita.Add(reader.GetValue(2));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return visita;
+        }
+
+        public List<object> selecVisita(String id)
+        {
+
+            List<object> visita = new List<object>();
+            try
+            {
+                sql = "select idPessoa, nome, dataRegisto, dataVisita from Visita where id = '" + id + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    visita.Add(reader.GetValue(0));
+                    visita.Add(reader.GetValue(1));
+                    visita.Add(reader.GetValue(2));
+                    visita.Add(reader.GetValue(3));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return visita;
+        }
+
+        public List<object> trainImages()
+        {
+
+            List<object> visita = new List<object>();
+            try
+            {
+                sql = "select id, pastaRegistos from Pessoa where ativo = '1' and tipo != 'Administrador'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    visita.Add(reader.GetValue(0));
+                    visita.Add(reader.GetValue(1));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return visita;
+        }
+
+        public List<object> prisionerPhoto(string nome)
+        {
+
+            List<object> photo = new List<object>();
+            try
+            {
+                sql = "select pastaRegistos from Pessoa where nomeCompleto = '" + nome + "' and pastaRegistos is not null";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    photo.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return photo;
+        }
+
+        public List<Object> Edit_Incidents(String id)
+        {
+            List<Object> var = new List<object>();
+            try
+            {
+
+                String sql = "select idPessoa, descricao" +
+                    "from Ocorrencia o" +
+                    "where o.id = " + id + ";";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
+                    var.Add(reader[2]);
+                    var.Add(reader[3]);
+                }
+            }
+
+            catch (Exception e)
+            {
+
+            }
+
+            finally
+            {
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+
+            return var;
+
+        }
 
     }
 }
+
