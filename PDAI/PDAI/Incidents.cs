@@ -45,6 +45,10 @@ namespace PDAI
 
         public Incidents(List<object> aux)
         {
+            font = new Font_Class();
+            database = new Database();
+            container = new Panel();
+            Open();
             register.Text = "Editar";
             description.Text = "" + aux.ElementAt(1);
             pList.Text = "" + aux.ElementAt(0) + " - " + aux.ElementAt(3);
