@@ -354,14 +354,25 @@ namespace PDAI
             if (((Label)sender).Name == "Privilégio Ocorrência-Registar" || val == "Privilégio Ocorrência-Registar")
             {
 
-                Incidents incidents = new Incidents();
+                /*Incidents incidents = new Incidents();
                 disposeObject = incidents;
                 container.Controls.Add(incidents.container);
                 incidents.width = container.Width - menu.width;
                 incidents.height = container.Height;
                 incidents.locationX = menu.locationX + menu.width;
                 incidents.locationY = 0;
-                incidents.Open();
+                incidents.Open();*/
+
+                Incidents incidents = new Incidents();
+                disposeObject = incidents;
+                incidents.TopLevel = false;
+                incidents.FormBorderStyle = FormBorderStyle.None;
+                incidents.Width = container.Width - menu.width;
+                incidents.Height = container.Height;
+                incidents.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(incidents);
+                incidents.BringToFront();
+                incidents.Show();
 
             }
 
@@ -497,28 +508,50 @@ namespace PDAI
 
             if (((Label)sender).Name == "Privilégio Ocorrência-Consultar" || val == "Privilégio Ocorrência-Consultar")
             {
-                if (val == "Privilégio Ocorrência-Consultar")
-                {
-                    ((VisualizarOcorrencia)disposeObject[val]).Dispose();
-                    disposeObject.Remove(val);
-                    stringObject.Remove(val);
-                }
-                else
-                {
-                    VisualizarOcorrencia VS = new VisualizarOcorrencia();
-                    VS.TopLevel = false;
-                    VS.FormBorderStyle = FormBorderStyle.None;
-                    VS.Width = container.Width - menu.width;
-                    VS.Height = container.Height;
-                    VS.Location = new Point(menu.locationX + menu.width, 23);
-                    container.Controls.Add(VS);
-                    VS.BringToFront();
-                    VS.Show();
 
-                    stringObject.Add(((Label)sender).Name);
-                    disposeObject[((Label)sender).Name] = VS;
-                }
+                VisualizarOcorrencia VS = new VisualizarOcorrencia();
+                disposeObject = VS;
+                VS.TopLevel = false;
+                VS.FormBorderStyle = FormBorderStyle.None;
+                VS.Width = container.Width - menu.width;
+                VS.Height = container.Height;
+                VS.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(VS);
+                VS.BringToFront();
+                VS.Show();
             }
+
+
+            if (((Label)sender).Name == "Privilégio Ocorrência-Editar" || val == "Privilégio Ocorrência-Editar")
+            {
+
+                Edit_Incidents editincident = new Edit_Incidents();
+                disposeObject = editincident;
+                editincident.TopLevel = false;
+                editincident.FormBorderStyle = FormBorderStyle.None;
+                editincident.Width = container.Width - menu.width;
+                editincident.Height = container.Height;
+                editincident.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(editincident);
+                editincident.BringToFront();
+                editincident.Show();
+            }
+
+
+            /*if (((Label)sender).Name == "Privilégio Ocorrência-Apagar" || val == "Privilégio Ocorrência-Apagar")
+            {
+
+                Delete_Incident deleteincident = new Delete_Incident();
+                disposeObject = deleteincident;
+                deleteincident.TopLevel = false;
+                deleteincident.FormBorderStyle = FormBorderStyle.None;
+                deleteincident.Width = container.Width - menu.width;
+                deleteincident.Height = container.Height;
+                deleteincident.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(deleteincident);
+                deleteincident.BringToFront();
+                deleteincident.Show();
+            }*/
 
 
         }
