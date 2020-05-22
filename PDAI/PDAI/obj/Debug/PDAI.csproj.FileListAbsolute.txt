@@ -804,3 +804,7 @@ C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.ApagarOcorrencia.resources
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.Edit_Incidents.resources
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.VisualizarOcorrencia.resources
+C:\Users\ASUS\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\bin\Debug\PdfSharp.dll
+C:\Users\ASUS\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.ApagarOcorrencia.resources
+C:\Users\ASUS\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.Edit_Incidents.resources
+C:\Users\ASUS\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.VisualizarOcorrencia.resources
