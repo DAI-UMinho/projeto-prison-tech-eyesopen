@@ -93,35 +93,49 @@ namespace PDAI
                       "Nome Relatorio",
                       "NovoRelatorio"
                       );
+
+
             PdfDocument document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
             // Create an empty page
             PdfPage page = document.AddPage();
-            //representa uma superficie de desenho abstracta
             XGraphics gfx = XGraphics.FromPdfPage(page);
             // Create a font
             XFont font = new XFont("Verdana", 25, XFontStyle.BoldItalic);
             // Draw the text
+
             gfx.DrawString("Relatório", font, XBrushes.Black,
             new XRect(0, 0, page.Width, 30),
             XStringFormats.Center);
-            //abre um fluxo cujo armazenamento secundario e a memoria
+
+
+
             MemoryStream ms = new MemoryStream();
-            //grava a imagem no formato escolhido
             incidents_month.SaveImage(ms, ChartImageFormat.Png);
             XImage xfoto = XImage.FromStream(ms);
             gfx.DrawImage(xfoto, 100, 50, 350, 300);
+
+            //Resize DataGridView to full height.
+            //int height = dataGridView1.Height - 500;
+
+            //dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
             gfx.DrawString("Reclusos com mais Ocorrências", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
             //Create a Bitmap and draw the DataGridView on it.
             Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
             dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+
+            //Resize DataGridView back to original height.
+
+            //dataGridView1.Height = height;
+
             MemoryStream ms2 = new MemoryStream();
             bitmap.Save(ms2, System.Drawing.Imaging.ImageFormat.Jpeg);
             xfoto = XImage.FromStream(ms2);
             double comeco = (page.Width - xfoto.PointWidth) / 2;
             gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
             // Save the document...
-            string filename = "C:\\Users\\Nuno\\Desktop\\" + input + ".pdf";
+            string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
+
             document.Save(filename);
             MessageBox.Show("Pdf criado com sucesso");
         }

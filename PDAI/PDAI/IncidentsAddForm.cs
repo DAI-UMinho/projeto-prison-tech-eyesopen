@@ -35,9 +35,7 @@ namespace PDAI
             }
             else
             {
-                
                 string texto = "";
-                dataGridView1.SelectedCells[0].OwningRow.Selected = true;
                 foreach (DataGridViewRow dgv in dataGridView1.SelectedRows)
                 {
                     if (texto == "")

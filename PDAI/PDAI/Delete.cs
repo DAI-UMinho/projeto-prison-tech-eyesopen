@@ -98,25 +98,11 @@ namespace PDAI
             try
             {
                 sql = "delete from Ocorrencia where id = " + id+ ";";
-                sqlConn = new SqlConnection(connectionString);
-                sqlConn.Open();
-
-                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
-                adapter = new SqlDataAdapter();
-                adapter.InsertCommand = command;
-                command.ExecuteNonQuery();
-
-            }
+			}
 			
 			catch(Exception es)
             {
                 throw es;
-            }
-            finally
-            {
-                command.Dispose();
-                adapter.Dispose();
-                sqlConn.Close();
             }
 		}
 
