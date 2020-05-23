@@ -26,6 +26,10 @@ namespace PDAI
         string privilegeRole;
         List<string> stringObject;
         Dictionary<string, object> disposeObject;
+        PictureBox logo;
+        Label nome;
+        Font_Class font;
+        int fontSize = 13;
 
         public Account()
         {
@@ -80,6 +84,7 @@ namespace PDAI
             this.form = form;
             formContainerWidth = width;
             formContainerHeight = height;
+            font = new Font_Class();
 
             menu = new Menu();
             menu.locationX = 0;
@@ -93,12 +98,34 @@ namespace PDAI
             container.Size = new Size(width, height);
             container.Controls.Add(menu.container);
 
+            logo = new PictureBox();
+            container.Controls.Add(logo);
+            logo.Image = Properties.Resources.log2;
+            //logo.Size = new Size(container.Width - menu.width, container.Height);
+            logo.Size = new Size(200, 250);
+            logo.SizeMode = PictureBoxSizeMode.StretchImage;
+            logo.Location = new Point(container.Width - menu.width - logo.Width + 100, 0);
+            logo.SendToBack();
+
+            nome = new Label();
+            container.Controls.Add(nome);
+            nome.Size = new Size(400, 400);
+            nome.Location = new Point(700, 350);
+            font.Size(nome, fontSize);
+            nome.Text = "EyesOpen";
+            nome.Font = new Font("Arial", 50, FontStyle.Bold);
+            nome.SendToBack();
+            //nome.BorderStyle = BorderStyle.None;
+            //nome.BackColor = color;
+
             if (VerifiedAdmin())
             {
                 Panel item = menu.AddItem("Contas", AccountList,MenuPosition.top);
                 menu.AddItem("Definições", AccountSettings, MenuPosition.top);
                 menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
                 AccountList(item, new EventArgs());
+                logo.Hide();
+                nome.Hide();
             }
             else 
             {
@@ -242,6 +269,8 @@ namespace PDAI
                     container.Controls.Add(statisticsForm);
                     statisticsForm.BringToFront();
                     statisticsForm.Show();
+                    logo.Hide();
+                    nome.Hide();
 
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = statisticsForm;
@@ -268,6 +297,8 @@ namespace PDAI
                     person.Open(true,false);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = person;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -292,6 +323,8 @@ namespace PDAI
                     person.Open(false,false);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = person;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -316,6 +349,8 @@ namespace PDAI
                     accountCredentials.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = accountCredentials;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -339,6 +374,8 @@ namespace PDAI
                     employee.Open(option.view);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = employee;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -363,6 +400,8 @@ namespace PDAI
                     employee.Open(option.edit);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = employee;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -388,6 +427,8 @@ namespace PDAI
                     employee.Open(option.delete);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = employee;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -413,6 +454,8 @@ namespace PDAI
                     incidents.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = incidents;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -437,6 +480,8 @@ namespace PDAI
                     pm.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = pm;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -460,6 +505,8 @@ namespace PDAI
                     camGallery.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = camGallery;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -483,6 +530,8 @@ namespace PDAI
                     ep.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = ep;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -506,6 +555,8 @@ namespace PDAI
                     dp.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = dp;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -529,6 +580,8 @@ namespace PDAI
                     visit.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = visit;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -552,6 +605,8 @@ namespace PDAI
                     VM.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = VM;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -575,6 +630,8 @@ namespace PDAI
                     dv.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = dv;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -598,6 +655,8 @@ namespace PDAI
                     ev.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = ev;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
@@ -621,6 +680,8 @@ namespace PDAI
                     vcnorecognition.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = vcnorecognition;
+                    logo.Hide();
+                    nome.Hide();
                 }
 
             }
