@@ -244,7 +244,7 @@ namespace PDAI
 
 
 
-            if (((Label)sender).Name == "Privilégio Estatística-Consultar" || val == "Privilégio Estatística-Consultar")
+            if (((Button)sender).Name == "Privilégio Estatística-Consultar" || val == "Privilégio Estatística-Consultar")
             {
 
                     StatisticsForm statisticsForm = new StatisticsForm();
@@ -261,7 +261,7 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Funcionário-Registar" || val == "Privilégio Funcionário-Registar")
+            if (((Button)sender).Name == "Privilégio Funcionário-Registar" || val == "Privilégio Funcionário-Registar")
             {
      
                 I_Person person = new I_Person();
@@ -276,7 +276,7 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Recluso-Registar" || val == "Privilégio Recluso-Registar")
+            if (((Button)sender).Name == "Privilégio Recluso-Registar" || val == "Privilégio Recluso-Registar")
             {
 
                 I_Person person = new I_Person();
@@ -291,7 +291,7 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Conta-Alterar Credenciais" || val == "Privilégio Conta-Alterar Credenciais")
+            if (((Button)sender).Name == "Privilégio Conta-Alterar Credenciais" || val == "Privilégio Conta-Alterar Credenciais")
             {
 
                 AccountCredentials accountCredentials = new AccountCredentials(idAccount,username,password);
@@ -305,7 +305,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Funcionário-Consultar" || val == "Privilégio Funcionário-Consultar")
+            if (((Button)sender).Name == "Privilégio Funcionário-Consultar" || val == "Privilégio Funcionário-Consultar")
             {
 
                 I_PersonView employee = new I_PersonView();
@@ -320,7 +320,7 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Funcionário-Editar" || val == "Privilégio Funcionário-Editar")
+            if (((Button)sender).Name == "Privilégio Funcionário-Editar" || val == "Privilégio Funcionário-Editar")
             {
 
                 I_PersonView employee = new I_PersonView();
@@ -336,7 +336,7 @@ namespace PDAI
 
 
 
-            if (((Label)sender).Name == "Privilégio Funcionário-Apagar" || val == "Privilégio Funcionário-Apagar")
+            if (((Button)sender).Name == "Privilégio Funcionário-Apagar" || val == "Privilégio Funcionário-Apagar")
             {
 
                 I_PersonView employee = new I_PersonView();
@@ -352,7 +352,7 @@ namespace PDAI
 
 
 
-            if (((Label)sender).Name == "Privilégio Ocorrência-Registar" || val == "Privilégio Ocorrência-Registar")
+            if (((Button)sender).Name == "Privilégio Ocorrência-Registar" || val == "Privilégio Ocorrência-Registar")
             {
 
                 Incidents incidents = new Incidents();
@@ -367,7 +367,7 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Recluso-Consultar" || val == "Privilégio Recluso-Consultar")
+            if (((Button)sender).Name == "Privilégio Recluso-Consultar" || val == "Privilégio Recluso-Consultar")
             {
  
                 PrisonersManager pm = new PrisonersManager();
@@ -381,7 +381,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Câmara-Consultar Deteção" || val == "Privilégio Câmara-Consultar Deteção")
+            if (((Button)sender).Name == "Privilégio Câmara-Consultar Deteção" || val == "Privilégio Câmara-Consultar Deteção")
             {
 
                 I_CamGallery camGallery = new I_CamGallery();
@@ -395,7 +395,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Recluso-Editar" || val == "Privilégio Recluso-Editar")
+            if (((Button)sender).Name == "Privilégio Recluso-Editar" || val == "Privilégio Recluso-Editar")
             {
   
                 EditPrisioner ep = new EditPrisioner();
@@ -409,7 +409,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Recluso-Apagar" || val == "Privilégio Recluso-Apagar")
+            if (((Button)sender).Name == "Privilégio Recluso-Apagar" || val == "Privilégio Recluso-Apagar")
             {
 
                 DeletePrisioner dp = new DeletePrisioner();
@@ -423,7 +423,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Visita-Registar" || val == "Privilégio Visita-Registar")
+            if (((Button)sender).Name == "Privilégio Visita-Registar" || val == "Privilégio Visita-Registar")
             {
 
                 Visit visit = new Visit();
@@ -437,7 +437,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Visita-Consultar" || val == "Privilégio Visita-Consultar")
+            if (((Button)sender).Name == "Privilégio Visita-Consultar" || val == "Privilégio Visita-Consultar")
             {
 
                 VisitManager VM = new VisitManager();
@@ -451,7 +451,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Visita-Apagar" || val == "Privilégio Visita-Apagar")
+            if (((Button)sender).Name == "Privilégio Visita-Apagar" || val == "Privilégio Visita-Apagar")
             {
 
                 DeleteVisit dv = new DeleteVisit();
@@ -466,7 +466,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Visita-Editar" || val == "Privilégio Visita-Editar")
+            if (((Button)sender).Name == "Privilégio Visita-Editar" || val == "Privilégio Visita-Editar")
             {
 
                 EditVisit ev = new EditVisit();
@@ -481,7 +481,7 @@ namespace PDAI
 
             }
 
-            if (((Label)sender).Name == "Privilégio Câmara-Consultar" || val == "Privilégio Câmara-Consultar")
+            if (((Button)sender).Name == "Privilégio Câmara-Consultar" || val == "Privilégio Câmara-Consultar")
             {
 
                 viewCamNRec vcnorecognition = new viewCamNRec();
@@ -497,7 +497,7 @@ namespace PDAI
             }
 
 
-            if (((Label)sender).Name == "Privilégio Ocorrência-Consultar" || val == "Privilégio Ocorrência-Consultar")
+            if (((Button)sender).Name == "Privilégio Ocorrência-Consultar" || val == "Privilégio Ocorrência-Consultar")
             {
 
 
