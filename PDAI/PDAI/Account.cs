@@ -228,7 +228,8 @@ namespace PDAI
             else if (disposeObject.GetType() == typeof(I_Person)) ((I_Person)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(AccountCredentials)) ((AccountCredentials)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(I_PersonView)) ((I_PersonView)disposeObject).container.Dispose();
-            else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
+           // else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
+            else if (disposeObject.GetType() == typeof(VisualizarOcorrencia)) ((VisualizarOcorrencia)disposeObject).Dispose();
             else if (disposeObject.GetType() == typeof(PrisonersManager)) ((PrisonersManager)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(I_CamGallery)) ((I_CamGallery)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(EditPrisioner)) ((EditPrisioner)disposeObject).container.Dispose();
@@ -495,30 +496,26 @@ namespace PDAI
 
             }
 
+
             if (((Label)sender).Name == "Privilégio Ocorrência-Consultar" || val == "Privilégio Ocorrência-Consultar")
             {
-                if (val == "Privilégio Ocorrência-Consultar")
-                {
-                    ((VisualizarOcorrencia)disposeObject[val]).Dispose();
-                    disposeObject.Remove(val);
-                    stringObject.Remove(val);
-                }
-                else
-                {
-                    VisualizarOcorrencia VS = new VisualizarOcorrencia();
-                    VS.TopLevel = false;
-                    VS.FormBorderStyle = FormBorderStyle.None;
-                    VS.Width = container.Width - menu.width;
-                    VS.Height = container.Height;
-                    VS.Location = new Point(menu.locationX + menu.width, 23);
-                    container.Controls.Add(VS);
-                    VS.BringToFront();
-                    VS.Show();
 
-                    stringObject.Add(((Label)sender).Name);
-                    disposeObject[((Label)sender).Name] = VS;
-                }
+
+                VisualizarOcorrencia VS = new VisualizarOcorrencia();
+                disposeObject = VS;
+                VS.TopLevel = false;
+                VS.FormBorderStyle = FormBorderStyle.None;
+                VS.Width = container.Width - menu.width;
+                VS.Height = container.Height;
+                VS.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(VS);
+               // VS.BringToFront();
+                VS.Show();
+
+
             }
+
+           
 
 
         }
