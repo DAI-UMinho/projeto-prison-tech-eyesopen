@@ -125,6 +125,7 @@ namespace PDAI
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
             font.Size(cbMaritalStatus, fontSize);
             container.Controls.Add(cbMaritalStatus);
+            cbMaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             List<string> maritalStatus = database.select.GetMaritalStatus();
             foreach (string item in maritalStatus)
             {
@@ -148,6 +149,7 @@ namespace PDAI
                 cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height);
                 font.Size(cbRole, fontSize);
                 container.Controls.Add(cbRole);
+                cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
                 List<string> roles = database.select.GetRoles();
                 foreach (string item in roles)
                 {
