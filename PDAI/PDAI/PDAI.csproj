@@ -167,6 +167,7 @@
     <Compile Include="Delete.cs" />
     <Compile Include="DeletePrisioner.cs" />
     <Compile Include="DeleteVisit.cs" />
+    <Compile Include="EditarIncidents2.cs" />
     <Compile Include="EditPrisoner.cs" />
     <Compile Include="Edit_Incidents.cs">
       <SubType>Form</SubType>
@@ -188,9 +189,7 @@
     <Compile Include="I_General.cs" />
     <Compile Include="IO_Class.cs" />
     <Compile Include="I_Person.cs" />
-    <Compile Include="Incidents.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Incidents.cs" />
     <Compile Include="IncidentsAddForm.cs">
       <SubType>Form</SubType>
     </Compile>
