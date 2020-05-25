@@ -21,20 +21,20 @@ namespace PDAI
         PictureBox photo;
         Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole, titulo, tituloFunc;
         TextBox tFullName, tCC;
-        ComboBox cbMaritalStatus, cbRole ;
+        ComboBox cbMaritalStatus, cbRole;
         DateTimePicker tBirthDate;
         Button registration;
         Bitmap bitmapImage;
         string type = "";
         int fontSize = 13;
-        string path = Rule.TargetPath,imgPath;
+        string path = Rule.TargetPath, imgPath;
         bool employee, callback;
 
         public I_Person()
         {
             font = new Font_Class();
             database = new Database();
-         
+
 
             container = new Panel();
             photo = new PictureBox();
@@ -56,8 +56,8 @@ namespace PDAI
             photo.BackColor = Color.White;
 
             Label ladicionarImg = new Label();
-            ladicionarImg.Size = new Size(photo.Width-1, photo.Height-1);
-            ladicionarImg.Location = new Point(0,0);
+            ladicionarImg.Size = new Size(photo.Width - 1, photo.Height - 1);
+            ladicionarImg.Location = new Point(0, 0);
             ladicionarImg.DoubleClick += new EventHandler(Photo_DoubleClick);
             ladicionarImg.Text = "Adicionar" + System.Environment.NewLine + "Imagem" + System.Environment.NewLine + System.Environment.NewLine + "(Duplo Click)";
             ladicionarImg.ForeColor = Color.LightGray;
@@ -84,7 +84,7 @@ namespace PDAI
 
             lBirthDate = new Label();
             lBirthDate.Size = new Size(tFullName.Width, tFullName.Height);
-            lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + container.Height * 1/20);
+            lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + container.Height * 1 / 20);
             lBirthDate.Text = "Data Nascimento";
             font.Size(lBirthDate, fontSize);
             container.Controls.Add(lBirthDate);
@@ -187,7 +187,7 @@ namespace PDAI
                 varLocationY = cbRole.Location.Y;
                 varLocationHeight = cbRole.Height;
             }
-            
+
 
             registration = new Button();
             registration.Size = new Size(150, 60);
@@ -210,31 +210,39 @@ namespace PDAI
                     {
                         if (cbMaritalStatus.Text != string.Empty)
                         {
-                            if (!employee) type = "Prisioneiro";
-                            else if (cbRole.Text != string.Empty) type = cbRole.Text;
-
-                            if (type != string.Empty)
+                            if (IsAllDigits(tCC.Text))
                             {
-                                uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
-                                if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                if (tCC.Text.Length == 8)
                                 {
-                                    try
+                                    if (!employee) type = "Prisioneiro";
+                                    else if (cbRole.Text != string.Empty) type = cbRole.Text;
+
+                                    if (type != string.Empty)
                                     {
-                                        database.update.Person(id, path + id.ToString());
-                                        IO_Class.CopyFile(imgPath, path + id.ToString());
-                                        tFullName.Text = "";
-                                        tBirthDate.Text = "";
-                                        tCC.Text = "";
-                                        cbMaritalStatus.Text = "";
-                                        photo.Image = null;
-                                        if (employee)  cbRole.Text = "";
-                                        MessageBox.Show("Registado com sucesso!");
+                                        uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                        if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                        {
+                                            try
+                                            {
+                                                database.update.Person(id, path + id.ToString());
+                                                IO_Class.CopyFile(imgPath, path + id.ToString());
+                                                tFullName.Text = "";
+                                                tBirthDate.Text = "";
+                                                tCC.Text = "";
+                                                cbMaritalStatus.Text = "";
+                                                photo.Image = null;
+                                                if (employee) cbRole.Text = "";
+                                                MessageBox.Show("Registado com sucesso!");
+                                            }
+                                            catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                        }
+                                        if (callback) container.Dispose();
                                     }
-                                    catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                    else { MessageBox.Show("Campo cargo obrigatório."); }
                                 }
-                                if(callback) container.Dispose();
+                                else { MessageBox.Show("Introduza um cartão de cidadão válido"); }
                             }
-                            else { MessageBox.Show("Campo cargo obrigatório."); }
+                            else { MessageBox.Show("Campo estado civil só pode conter números."); }
                         }
                         else { MessageBox.Show("Campo estado civil obrigatório."); }
                     }
@@ -270,6 +278,16 @@ namespace PDAI
                 photo.Controls.Remove((PictureBox)sender);
                 imgPath = open.FileName;
             }
+        }
+
+        bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+            return true;
         }
 
     }
