@@ -32,7 +32,7 @@ namespace PDAI
         public static String select;
         Panel row;
         int saveWidth, saveHeight;
-        double var;
+        string var;
         string label, nome, id_visit;
         int id, fontSize = 13;
         public EditVisit()
@@ -114,8 +114,10 @@ namespace PDAI
             select = (sender as Label).Text.ToString();
             container.Controls.Clear();
 
-            var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            //var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            var = (sender as Label).Name.ToString().Substring(9);
             label = "Id" + var;
+            System.Diagnostics.Debug.WriteLine(label);
             var control = tabela.Controls.Find(label, true)[0];
             id_visit = control.Text.ToString();
 

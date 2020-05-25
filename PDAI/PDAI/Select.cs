@@ -659,7 +659,7 @@ namespace PDAI
 
         public List<object> Reclusos()
         {
-            List<object> var = new List<object>();
+            List<object> listPrisioners = new List<object>();
             string sql = "select id,nomeCompleto from pessoa where tipo = 'Prisioneiro';";
             try
             {
@@ -670,8 +670,8 @@ namespace PDAI
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    var.Add(reader[0]);
-                    var.Add(reader[1]);
+                    listPrisioners.Add(reader[0]);
+                    listPrisioners.Add(reader[1]);
                 }
                 reader.Close();
                 command.Dispose();
@@ -679,7 +679,7 @@ namespace PDAI
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
-            return var;
+            return listPrisioners;
         }
 
         public List<object> OcorrenciaMes(int ano)
@@ -927,7 +927,7 @@ namespace PDAI
         public List<object> Visit()
         {
 
-            List<object> visita = new List<object>();
+            List<object> listVisits = new List<object>();
             try
             {
                 sql = "select nome, dataVisita, id from Visita";
@@ -939,9 +939,9 @@ namespace PDAI
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    visita.Add(reader.GetValue(0));
-                    visita.Add(reader.GetValue(1));
-                    visita.Add(reader.GetValue(2));
+                    listVisits.Add(reader.GetValue(0));
+                    listVisits.Add(reader.GetValue(1));
+                    listVisits.Add(reader.GetValue(2));
                 }
                 reader.Close();
                 command.Dispose();
@@ -949,7 +949,7 @@ namespace PDAI
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
-            return visita;
+            return listVisits;
         }
 
         public List<object> selecVisita(String id)
