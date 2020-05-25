@@ -19,7 +19,7 @@ namespace PDAI
         Font_Class font;
         Database database;
         PictureBox photo;
-        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole;
+        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole, titulo, tituloFunc;
         TextBox tFullName, tCC;
         ComboBox cbMaritalStatus, cbRole ;
         DateTimePicker tBirthDate;
@@ -49,7 +49,7 @@ namespace PDAI
             this.callback = callback;
 
             photo.Size = new Size(250, 250);
-            photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
+            photo.Location = new Point(container.Width * 1 / 30, container.Height * 2 / 20);
             container.Controls.Add(photo);
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
@@ -112,6 +112,18 @@ namespace PDAI
             font.Size(tCC, fontSize);
             container.Controls.Add(tCC);
 
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Registar Recluso";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.Gray;
+            titulo.SendToBack();
+            //nome.BorderStyle = BorderStyle.None;
+            //nome.BackColor = color;
+
 
             lMaritalStatus = new Label();
             lMaritalStatus.Size = new Size(tFullName.Width, tFullName.Height);
@@ -125,6 +137,7 @@ namespace PDAI
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
             font.Size(cbMaritalStatus, fontSize);
             container.Controls.Add(cbMaritalStatus);
+            cbMaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             List<string> maritalStatus = database.select.GetMaritalStatus();
             foreach (string item in maritalStatus)
             {
@@ -143,11 +156,27 @@ namespace PDAI
                 font.Size(lRole, fontSize);
                 container.Controls.Add(lRole);
 
+                titulo.Hide();
+
+                tituloFunc = new Label();
+                container.Controls.Add(tituloFunc);
+                tituloFunc.Size = new Size(700, 100);
+                tituloFunc.Location = new Point(450, 0);
+                font.Size(tituloFunc, fontSize);
+                tituloFunc.Text = "Registar Funcionário";
+                tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                tituloFunc.ForeColor = Color.Gray;
+                tituloFunc.SendToBack();
+                //nome.BorderStyle = BorderStyle.None;
+                //nome.BackColor = color;
+
+
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);
                 cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height);
                 font.Size(cbRole, fontSize);
                 container.Controls.Add(cbRole);
+                cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
                 List<string> roles = database.select.GetRoles();
                 foreach (string item in roles)
                 {

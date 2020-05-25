@@ -35,10 +35,13 @@ namespace PDAI
         int saveWidth, saveHeight, fontSize = 13;
         double var;
         string label, nome;
+        PictureBox log;
+        
         public DeletePrisioner()
         {
             container = new Panel();
             db = new Database();
+
         }
 
         public void createTable()
@@ -60,9 +63,10 @@ namespace PDAI
 
                 Button b = new Button();
                 row.Controls.Add(b);
-                b.Text = "Eliminar";
+                b.Image = Properties.Resources.delete;
+                //b.Text = "Eliminar";
                 b.Size = new Size(85, 60);
-                b.BackColor = Color.FromArgb(127, 127, 127);
+                //b.BackColor = Color.FromArgb(127, 127, 127);
                 b.Click += new EventHandler(b_Click);
                 b.Cursor = Cursors.Hand;
                 b.Dock = DockStyle.Left;

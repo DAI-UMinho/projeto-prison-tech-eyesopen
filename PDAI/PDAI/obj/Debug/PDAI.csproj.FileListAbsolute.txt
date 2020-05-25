@@ -804,3 +804,9 @@ C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.ApagarOcorrencia.resources
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.Edit_Incidents.resources
 C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.VisualizarOcorrencia.resources
+C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.ApagarOcorrencia.resources
+C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.Edit_Incidents.resources
+C:\Users\Bruno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.VisualizarOcorrencia.resources
+C:\Users\HP\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.ApagarOcorrencia.resources
+C:\Users\HP\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.Edit_Incidents.resources
+C:\Users\HP\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Debug\PDAI.VisualizarOcorrencia.resources

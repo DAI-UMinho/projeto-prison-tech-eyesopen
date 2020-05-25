@@ -201,6 +201,7 @@
     <Compile Include="I_Account.cs" />
     <Compile Include="I_CamGallery.cs" />
     <Compile Include="I_Login.cs" />
+    <Compile Include="I_PersonView.cs" />
     <Compile Include="ListView_Class.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -274,6 +275,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\papel.png" />
+    <None Include="Resources\logout.png" />
+    <None Include="Resources\Prisão.png" />
     <None Include="Resources\iconfinder_ic_play_arrow_48px_352072.png" />
     <None Include="Resources\Pause-Button-PNG-File.png" />
     <None Include="Resources\Seta1.png" />
@@ -293,6 +297,12 @@
     <None Include="Resources\Anotação 2020-03-07 232413.jpg" />
     <None Include="Resources\0122.jpg" />
     <None Include="Resources\Donald_Trump_official_portrait.jpg" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\desenhar.png" />
+    <None Include="Resources\icon %281%29.png" />
+    <None Include="Resources\icon %282%29.png" />
+    <None Include="Resources\camera-de-seguranca.png" />
+    <None Include="Resources\grafico.png" />
     <Content Include="Resources\IconEyesOpen.png" />
     <None Include="Resources\índice.png" />
   </ItemGroup>

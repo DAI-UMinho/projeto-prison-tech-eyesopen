@@ -59,9 +59,10 @@ namespace PDAI
 
                 Button b = new Button();
                 row.Controls.Add(b);
-                b.Text = "Eliminar";
+                b.Image = Properties.Resources.delete;
+                //b.Text = "Eliminar";
                 b.Size = new Size(85, 60);
-                b.BackColor = Color.FromArgb(127, 127, 127);
+                //b.BackColor = Color.FromArgb(127, 127, 127);
                 b.Click += new EventHandler(b_Click);
                 b.Cursor = Cursors.Hand;
                 b.Dock = DockStyle.Right;
