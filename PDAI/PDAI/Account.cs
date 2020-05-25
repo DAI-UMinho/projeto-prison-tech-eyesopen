@@ -98,6 +98,7 @@ namespace PDAI
             {
                 Panel item = menu.AddItem("Contas", AccountList,MenuPosition.top);
                 menu.AddItem("Definições", AccountSettings, MenuPosition.top);
+                menu.AddItem("Alterar Credenciais", AccountCredentials, MenuPosition.top);
                 menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
                 AccountList(item, new EventArgs());
             }
@@ -172,6 +173,22 @@ namespace PDAI
         }
 
 
+        private void AccountCredentials(object sender, EventArgs e)
+        {
+
+            if (activeContainer != null) container.Controls.Remove(activeContainer);
+            AccountCredentials accountCredentials = new AccountCredentials(idAccount, username, password);
+            disposeObject = accountCredentials;
+            container.Controls.Add(accountCredentials.container);
+            accountCredentials.width = container.Width - menu.width;
+            accountCredentials.height = container.Height;
+            accountCredentials.locationX = menu.locationX + menu.width;
+            accountCredentials.locationY = 0;
+            accountCredentials.AdminAccount = true;
+            accountCredentials.Open();
+            
+        }
+
 
         private void AccountSettings(object sender, EventArgs e)
         {
@@ -228,7 +245,6 @@ namespace PDAI
             else if (disposeObject.GetType() == typeof(I_Person)) ((I_Person)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(AccountCredentials)) ((AccountCredentials)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(I_PersonView)) ((I_PersonView)disposeObject).container.Dispose();
-           // else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(VisualizarOcorrencia)) ((VisualizarOcorrencia)disposeObject).Dispose();
             else if (disposeObject.GetType() == typeof(PrisonersManager)) ((PrisonersManager)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(I_CamGallery)) ((I_CamGallery)disposeObject).container.Dispose();
