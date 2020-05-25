@@ -781,7 +781,7 @@ namespace PDAI
         public List<object> VisualizarOcorrencia()
         {
             List<object> var = new List<object>();
-            string sql = "select p.nomeCompleto, o.id, convert(varchar(20),o.dataOcorrencia,120) " +
+            string sql = "select p.nomeCompleto, o.motivo, convert(varchar(20),o.dataOcorrencia,120), o.id " +
                 "from Ocorrencia o, Pessoa p " +
                 "where o.idPessoa = p.id " +
                 "order by o.dataOcorrencia DESC;";
@@ -805,7 +805,7 @@ namespace PDAI
 
             catch (SqlException es)
             {
-                throw es;
+                System.Windows.Forms.MessageBox.Show("" + es);
             }
 
             return var;
