@@ -92,14 +92,23 @@ namespace PDAI
 
             switch (((Button)sender).Name)
             {
-                case "view":
+                case "viewEmployee":
                     MessageBox.Show("Consultar Funcionario");
                     break;
-                case "edit":
+                case "editEmployee":
                     MessageBox.Show("Editar Funcionario");
                     break;
-                case "delete":
+                case "deleteEmployee":
                     MessageBox.Show("Apagar Funcionario");
+                    break;
+                case "viewPrisoner":
+                    MessageBox.Show("Consultar recluso");
+                    break;
+                case "editPrisoner":
+                    MessageBox.Show("Editar recluso");
+                    break;
+                case "deletePrisoner":
+                    MessageBox.Show("Apagar recluso");
                     break;
             }
             
