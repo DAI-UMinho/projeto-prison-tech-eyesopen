@@ -30,8 +30,8 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.nomeCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Intervenientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -42,8 +42,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nomeCompleto,
-            this.idOcorrencia,
+            this.Intervenientes,
+            this.Motivo,
             this.dataOcorrencia});
             this.dataGridView1.Location = new System.Drawing.Point(46, 53);
             this.dataGridView1.Name = "dataGridView1";
@@ -63,21 +63,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // nomeCompleto
+            // Intervenientes
             // 
-            this.nomeCompleto.HeaderText = "nomeCompleto";
-            this.nomeCompleto.MinimumWidth = 6;
-            this.nomeCompleto.Name = "nomeCompleto";
-            this.nomeCompleto.ReadOnly = true;
-            this.nomeCompleto.Width = 125;
+            this.Intervenientes.HeaderText = "Intervenientes";
+            this.Intervenientes.MinimumWidth = 6;
+            this.Intervenientes.Name = "Intervenientes";
+            this.Intervenientes.ReadOnly = true;
+            this.Intervenientes.Width = 125;
             // 
-            // idOcorrencia
+            // Motivo
             // 
-            this.idOcorrencia.HeaderText = "idOcorrencia";
-            this.idOcorrencia.MinimumWidth = 6;
-            this.idOcorrencia.Name = "idOcorrencia";
-            this.idOcorrencia.ReadOnly = true;
-            this.idOcorrencia.Width = 125;
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.MinimumWidth = 6;
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
+            this.Motivo.Width = 125;
             // 
             // dataOcorrencia
             // 
@@ -104,9 +104,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idOcorrencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Intervenientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
     }
 }

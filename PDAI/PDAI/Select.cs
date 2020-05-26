@@ -659,7 +659,7 @@ namespace PDAI
 
         public List<object> Reclusos()
         {
-            List<object> listPrisioners = new List<object>();
+            List<object> var = new List<object>();
             string sql = "select id,nomeCompleto from pessoa where tipo = 'Prisioneiro';";
             try
             {
@@ -670,8 +670,8 @@ namespace PDAI
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    listPrisioners.Add(reader[0]);
-                    listPrisioners.Add(reader[1]);
+                    var.Add(reader[0]);
+                    var.Add(reader[1]);
                 }
                 reader.Close();
                 command.Dispose();
@@ -679,7 +679,7 @@ namespace PDAI
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
-            return listPrisioners;
+            return var;
         }
 
         public List<object> OcorrenciaMes(int ano)
@@ -781,7 +781,7 @@ namespace PDAI
         public List<object> VisualizarOcorrencia()
         {
             List<object> var = new List<object>();
-            string sql = "select p.nomeCompleto, o.id, convert(varchar(20),o.dataOcorrencia,120) " +
+            string sql = "select p.nomeCompleto, o.motivo, convert(varchar(20),o.dataOcorrencia,120), o.id " +
                 "from Ocorrencia o, Pessoa p " +
                 "where o.idPessoa = p.id " +
                 "order by o.dataOcorrencia DESC;";
@@ -805,7 +805,7 @@ namespace PDAI
 
             catch (SqlException es)
             {
-                throw es;
+                System.Windows.Forms.MessageBox.Show("" + es);
             }
 
             return var;
@@ -927,7 +927,7 @@ namespace PDAI
         public List<object> Visit()
         {
 
-            List<object> listVisits = new List<object>();
+            List<object> visita = new List<object>();
             try
             {
                 sql = "select nome, dataVisita, id from Visita";
@@ -939,9 +939,9 @@ namespace PDAI
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    listVisits.Add(reader.GetValue(0));
-                    listVisits.Add(reader.GetValue(1));
-                    listVisits.Add(reader.GetValue(2));
+                    visita.Add(reader.GetValue(0));
+                    visita.Add(reader.GetValue(1));
+                    visita.Add(reader.GetValue(2));
                 }
                 reader.Close();
                 command.Dispose();
@@ -949,7 +949,7 @@ namespace PDAI
             }
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
 
-            return listVisits;
+            return visita;
         }
 
         public List<object> selecVisita(String id)

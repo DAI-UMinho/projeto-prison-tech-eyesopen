@@ -268,10 +268,7 @@ namespace PDAI
                             {
                                 db.update.Recluso(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, select);
                                 string[] filePaths = Directory.GetFiles(db.select.prisionerPhoto(select)[0].ToString());
-                                if (filePaths is null)
-                                {
-                                    File.Delete(filePaths[0]);
-                                }
+                                File.Delete(filePaths[0]);
                                 IO_Class.CopyFile(imgPath, db.select.prisionerPhoto(select)[0].ToString());
                                 MessageBox.Show("Alterações guardadas com sucesso!!");
                                 select = tFullName.Text;

@@ -45,13 +45,9 @@ namespace PDAI
             {
                 if (tVisitDate.Text != string.Empty)
                 {
-                    if (cbPrisionerVisited.Text != string.Empty)
-                    {
-                        Ids = db.select.visitedPrisionerId(cbPrisionerVisited.Text);
-                        if (db.insert.Visit(Convert.ToUInt32(Ids[0]), tFullName.Text, tVisitDate.Text)) MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
-                        else MessageBox.Show("Ocorreu um erro. Não foi possível registar a visita.", "", MessageBoxButtons.OK);
-                    }
-                    else { MessageBox.Show("Campo Recluso Visitado obrigatório."); }
+                    Ids = db.select.visitedPrisionerId(cbPrisionerVisited.Text);
+                    if (db.insert.Visit(Convert.ToUInt32(Ids[0]), tFullName.Text, tVisitDate.Text)) MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
+                    else MessageBox.Show("Ocorreu um erro. Não foi possível registar a visita.", "", MessageBoxButtons.OK);
                 }
                 else { MessageBox.Show("Campo Data da Visita obrigatório."); }
             }

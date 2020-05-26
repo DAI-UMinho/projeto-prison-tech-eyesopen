@@ -32,7 +32,7 @@ namespace PDAI
         public static String select;
         Panel save, row;
         int saveWidth, saveHeight, fontSize = 13;
-        string var;
+        double var;
         string label, nome, id_visit;
         public DeleteVisit()
         {
@@ -155,8 +155,7 @@ namespace PDAI
             if (confirmResult == DialogResult.Yes)
             {
                 // If 'Yes', do something here.
-                //var = Char.GetNumericValue((sender as Button).Name.ToString(), 3);
-                var = (sender as Label).Name.ToString().Substring(9);
+                var = Char.GetNumericValue((sender as Button).Name.ToString(), 3);
                 label = "Id" + var;
                 var control = tabela.Controls.Find(label, true)[0];
                 id_visit = control.Text.ToString();
