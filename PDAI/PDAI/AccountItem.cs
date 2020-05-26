@@ -160,15 +160,26 @@ namespace PDAI
 
             switch (option)
             {
-                case option.view:
-                    accountButton.Image = Properties.Resources.papel; accountButton.Name = ""+option.view;
+                case option.viewEmployee:
+                    accountButton.Image = Properties.Resources.papel; accountButton.Name = ""+option.viewEmployee;
                     break;
-                case option.edit:
-                    accountButton.Image = Properties.Resources.desenhar; accountButton.Name = ""+option.edit;
+                case option.editEmployee:
+                    accountButton.Image = Properties.Resources.desenhar; accountButton.Name = ""+option.editEmployee;
                     break;
-                case option.delete:
+                case option.deleteEmployee:
                     
-                    accountButton.Image = Properties.Resources.delete; accountButton.Name = "" + option.delete;
+                    accountButton.Image = Properties.Resources.delete; accountButton.Name = "" + option.deleteEmployee;
+                    break;
+
+                case option.viewPrisoner:
+                    accountButton.Image = Properties.Resources.papel; accountButton.Name = "" + option.viewEmployee;
+                    break;
+                case option.editPrisoner:
+                    accountButton.Image = Properties.Resources.desenhar; accountButton.Name = "" + option.editEmployee;
+                    break;
+                case option.deletePrisoner:
+
+                    accountButton.Image = Properties.Resources.delete; accountButton.Name = "" + option.deleteEmployee;
                     break;
             }
             

@@ -15,6 +15,7 @@ namespace PDAI
         public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
+        public bool AdminAccount { set; get; }
 
         Font_Class font;
         Database database;
@@ -33,6 +34,7 @@ namespace PDAI
             this.idLogin = idLogin;
             this.username = username;
             this.password = password;
+            AdminAccount = false;
 
         }
 
@@ -76,11 +78,10 @@ namespace PDAI
             changeUsername.Text = "Alterar";
             changeUsername.Size = new Size(100, 50);
             changeUsername.Location = new Point(tusermane.Location.X, tusermane.Location.Y + tusermane.Height + container.Height * 1 / 20);
-            changeUsername.Click += new EventHandler(ChangeUsername_Click);
+            if (!AdminAccount)  changeUsername.Click += new EventHandler(ChangeUsername_Click);
+            else tusermane.ReadOnly = true;
             container.Controls.Add(changeUsername);
             font.Size(changeUsername, fontSize - 3);
-
-            
 
             Label title2 = new Label();
             title2.Text = "Alterar palavra-passe";

@@ -90,7 +90,7 @@ namespace PDAI
         {
             switch (((Button)sender).Name)
             {
-                case "view":
+                case "viewEmployee":
                     MessageBox.Show("Consultar Funcionario");
                     //I_Person person = new I_Person();
                     //container.Controls.Add(person.container);
@@ -100,11 +100,20 @@ namespace PDAI
                     //person.Open(true, false);
                     //person.container.BringToFront();
                     break;
-                case "edit":
+                case "editEmployee":
                     MessageBox.Show("Editar Funcionario");
                     break;
-                case "delete":
+                case "deleteEmployee":
                     MessageBox.Show("Apagar Funcionario");
+                    break;
+                case "viewPrisoner":
+                    MessageBox.Show("Consultar recluso");
+                    break;
+                case "editPrisoner":
+                    MessageBox.Show("Editar recluso");
+                    break;
+                case "deletePrisoner":
+                    MessageBox.Show("Apagar recluso");
                     break;
             }
             
