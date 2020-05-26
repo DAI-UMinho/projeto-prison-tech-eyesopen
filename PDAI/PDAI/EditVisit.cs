@@ -32,7 +32,7 @@ namespace PDAI
         public static String select;
         Panel row;
         int saveWidth, saveHeight;
-        double var;
+        string var;
         string label, nome, id_visit;
         int id, fontSize = 13;
         public EditVisit()
@@ -114,8 +114,10 @@ namespace PDAI
             select = (sender as Label).Text.ToString();
             container.Controls.Clear();
 
-            var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            //var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            var = (sender as Label).Name.ToString().Substring(9);
             label = "Id" + var;
+            System.Diagnostics.Debug.WriteLine(label);
             var control = tabela.Controls.Find(label, true)[0];
             id_visit = control.Text.ToString();
 
@@ -165,6 +167,7 @@ namespace PDAI
             cbPrisionerVisited.Location = new Point(lPrisionerVisited.Location.X, lPrisionerVisited.Location.Y + lPrisionerVisited.Height);
             font.Size(cbPrisionerVisited, fontSize);
             container.Controls.Add(cbPrisionerVisited);
+            cbPrisionerVisited.DropDownStyle = ComboBoxStyle.DropDownList;
             names = db.select.Recluso();
             for (int i = 0; i < names.Count; i++)
             {
@@ -217,11 +220,19 @@ namespace PDAI
 
         public void Save_Click(object sender, EventArgs e)
         {
-            db.update.Visita(id_visit, tFullName.Text.ToString(), db.select.visitedPrisionerId(cbPrisionerVisited.Text.ToString())[0].ToString(), tVisitDate.Value.ToString());
-            MessageBox.Show("Alterações guardadas com sucesso!!");
-            //select = tFullName.Text;
-            container.Controls.Clear();
-            Open();
+            if (tFullName.Text != string.Empty)
+            {
+                if (tVisitDate.Text != string.Empty)
+                {
+                    db.update.Visita(id_visit, tFullName.Text.ToString(), db.select.visitedPrisionerId(cbPrisionerVisited.Text.ToString())[0].ToString(), tVisitDate.Value.ToString());
+                    MessageBox.Show("Alterações guardadas com sucesso!!");
+                    //select = tFullName.Text;
+                    container.Controls.Clear();
+                    Open();
+                }
+                else { MessageBox.Show("Campo Data da Visita obrigatório."); }
+            }
+            else { MessageBox.Show("Campo Nome Completo obrigatório."); }
         }
     }
 }

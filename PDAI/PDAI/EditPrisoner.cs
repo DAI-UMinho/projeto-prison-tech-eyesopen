@@ -10,6 +10,7 @@ using System.IO;
 using Emgu;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using System.Diagnostics;
 
 namespace PDAI
 {
@@ -35,11 +36,11 @@ namespace PDAI
         ListView lv;
         Font_Class font;
         public static String select;
+        Bitmap bitmapImage;
         Panel save, row;
         int saveWidth, saveHeight, fontSize = 13;
         double var;
-        string label, nome;
-        PictureBox fundo;
+        string label, nome, imgPath;
 
         Image<Bgr, byte> pPhoto;
 
@@ -79,7 +80,7 @@ namespace PDAI
 
                 l.Name = "label" + i;
 
-                
+
             }
 
             System.Diagnostics.Debug.WriteLine("ola");
@@ -106,19 +107,26 @@ namespace PDAI
             select = (sender as Label).Text.ToString();
             container.Controls.Clear();
 
-
-            /*photo = new PictureBox();
+            photo = new PictureBox();
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
             container.Controls.Add(photo);
             photo.Image = Properties.Resources.preso1;
-            photo.SizeMode = PictureBoxSizeMode.StretchImage;*/
+            photo.SizeMode = PictureBoxSizeMode.StretchImage;
+            photo.DoubleClick += new EventHandler(Photo_DoubleClick);
 
             if (db.select.prisionerPhoto(select) != null)
             {
                 string[] filePaths = Directory.GetFiles(db.select.prisionerPhoto(select)[0].ToString());
-                pPhoto = new Image<Bgr, byte>(filePaths[0]);
-                photo.Image = pPhoto.Bitmap;
+                if(filePaths.Length != 0)
+                {
+                    pPhoto = new Image<Bgr, byte>(filePaths[0]);
+                    photo.Image = pPhoto.Bitmap;
+                }
+                else
+                {
+                    photo.BackColor = Color.Beige;
+                }
             }
 
             lFullName = new Label();
@@ -177,13 +185,13 @@ namespace PDAI
             lMaritalStatus.Text = "Estado Civil";
             font.Size(lMaritalStatus, fontSize);
             container.Controls.Add(lMaritalStatus);
-            lMaritalStatus.BackColor = Color.Transparent;
 
             cbMaritalStatus = new ComboBox();
             cbMaritalStatus.Size = new Size(200, lFullName.Height);
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
             font.Size(cbMaritalStatus, fontSize);
             container.Controls.Add(cbMaritalStatus);
+            cbMaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             cbMaritalStatus.Items.Add("Solteiro(a)");
             cbMaritalStatus.Items.Add("Casado(a)");
             cbMaritalStatus.Items.Add("Divorciado(a)");
@@ -212,12 +220,6 @@ namespace PDAI
             addImg.ForeColor = Color.White;
             addImg.Cursor = Cursors.Hand;
             font.Size(addImg, fontSize);
-
-            /*fundo = new PictureBox();
-            container.Controls.Add(fundo);
-            fundo.Image = Properties.Resources.Prisão;
-            fundo.Dock = DockStyle.Fill;
-            fundo.SizeMode = PictureBoxSizeMode.StretchImage;*/
 
         }
 
@@ -250,24 +252,53 @@ namespace PDAI
             //tabela.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             System.Diagnostics.Debug.WriteLine(Application.StartupPath);
             createTable();
-
-            /*fundo = new PictureBox();
-            container.Controls.Add(fundo);
-            fundo.Image = Properties.Resources.Prisão;
-            fundo.Dock = DockStyle.Fill;
-            fundo.SizeMode = PictureBoxSizeMode.StretchImage;*/
         }
 
         private void Guardar_Click(object sender, EventArgs e)
         {
-            //Guarda foto na pasta registos
+            if (tFullName.Text != string.Empty)
+            {
+                if (tBirthDate.Text != string.Empty)
+                {
+                    if(tCC.Text != string.Empty)
+                    {
+                        if (cbMaritalStatus.Text != string.Empty)
+                        {
+                            try
+                            {
+                                db.update.Recluso(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, select);
+                                string[] filePaths = Directory.GetFiles(db.select.prisionerPhoto(select)[0].ToString());
+                                if (filePaths is null)
+                                {
+                                    File.Delete(filePaths[0]);
+                                }
+                                IO_Class.CopyFile(imgPath, db.select.prisionerPhoto(select)[0].ToString());
+                                MessageBox.Show("Alterações guardadas com sucesso!!");
+                                select = tFullName.Text;
+                                container.Controls.Clear();
+                                Open();
+                            }
+                            catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                        }
+                        else { MessageBox.Show("Campo estado civil obrigatório."); }
+                    }
+                    else { MessageBox.Show("Campo cartão cidadão obrigatório."); }
+                }
+                else { MessageBox.Show("Campo data de nascimento obrigatório."); }
+            }
+            else { MessageBox.Show("Campo nome obrigatório."); }
+        }
 
-            db.update.Recluso(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, select);
-            MessageBox.Show("Alterações guardadas com sucesso!!");
-            select = tFullName.Text;
-            container.Controls.Clear();
-            Open();
-
+        private void Photo_DoubleClick(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                bitmapImage = new Bitmap(open.FileName);
+                photo.Image = bitmapImage;
+                imgPath = open.FileName;
+            }
         }
     }
 }

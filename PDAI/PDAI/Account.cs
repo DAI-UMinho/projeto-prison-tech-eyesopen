@@ -515,7 +515,47 @@ namespace PDAI
 
             }
 
-           
+
+            if (((Button)sender).Name == "Privilégio Ocorrência-Editar" || val == "Privilégio Ocorrência-Editar")
+            {
+
+
+                Edit_Incidents ED = new Edit_Incidents();
+                disposeObject = ED;
+                ED.TopLevel = false;
+                ED.FormBorderStyle = FormBorderStyle.None;
+                ED.Width = container.Width - menu.width;
+                ED.Height = container.Height;
+                ED.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(ED);
+                // VS.BringToFront();
+                ED.Show();
+
+
+            }
+
+
+            if (((Button)sender).Name == "Privilégio Ocorrência-Apagar" || val == "Privilégio Ocorrência-Apagar")
+            {
+
+
+                ApagarOcorrencia AP = new ApagarOcorrencia();
+                disposeObject = AP;
+                AP.TopLevel = false;
+                AP.FormBorderStyle = FormBorderStyle.None;
+                AP.Width = container.Width - menu.width;
+                AP.Height = container.Height;
+                AP.Location = new Point(menu.locationX + menu.width, 23);
+                container.Controls.Add(AP);
+                // VS.BringToFront();
+                AP.Show();
+
+
+            }
+
+
+
+
 
 
         }
