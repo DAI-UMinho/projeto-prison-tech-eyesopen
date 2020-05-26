@@ -170,7 +170,6 @@ namespace PDAI
                 //nome.BorderStyle = BorderStyle.None;
                 //nome.BackColor = color;
 
-
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);
                 cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height);
