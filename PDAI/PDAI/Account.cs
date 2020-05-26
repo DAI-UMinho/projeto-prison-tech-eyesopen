@@ -497,6 +497,9 @@ namespace PDAI
             }
 
 
+
+
+
             if (((Button)sender).Name == "Privilégio Ocorrência-Consultar" || val == "Privilégio Ocorrência-Consultar")
             {
 
@@ -516,9 +519,9 @@ namespace PDAI
             }
 
 
+
             if (((Button)sender).Name == "Privilégio Ocorrência-Editar" || val == "Privilégio Ocorrência-Editar")
             {
-
 
                 Edit_Incidents ED = new Edit_Incidents();
                 disposeObject = ED;
@@ -528,16 +531,15 @@ namespace PDAI
                 ED.Height = container.Height;
                 ED.Location = new Point(menu.locationX + menu.width, 23);
                 container.Controls.Add(ED);
-                // VS.BringToFront();
+                ED.BringToFront();
                 ED.Show();
-
 
             }
 
 
+
             if (((Button)sender).Name == "Privilégio Ocorrência-Apagar" || val == "Privilégio Ocorrência-Apagar")
             {
-
 
                 ApagarOcorrencia AP = new ApagarOcorrencia();
                 disposeObject = AP;
@@ -547,9 +549,8 @@ namespace PDAI
                 AP.Height = container.Height;
                 AP.Location = new Point(menu.locationX + menu.width, 23);
                 container.Controls.Add(AP);
-                // VS.BringToFront();
+                AP.BringToFront();
                 AP.Show();
-
 
             }
 
