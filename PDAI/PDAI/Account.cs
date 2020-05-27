@@ -697,7 +697,7 @@ namespace PDAI
 
             }
 
-            if (((Button)sender).Name == "Privilégio Alerta-Visualizar" || val == "Privilégio Alerta-Visualizar")
+            if (((Button)sender).Name == "Privilégio Alerta-Consultar" || val == "Privilégio Alerta-Consultar")
             {
 
                 viewAlert VA = new viewAlert();

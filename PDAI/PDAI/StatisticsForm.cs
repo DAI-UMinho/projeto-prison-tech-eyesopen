@@ -41,6 +41,7 @@ namespace PDAI
         public StatisticsForm()
         {
             InitializeComponent();
+            font = new Font_Class();
             //monthChartValues();
             this.db = new Database();
             Preenche_ComboBox();
