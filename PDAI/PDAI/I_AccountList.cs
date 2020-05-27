@@ -24,9 +24,12 @@ namespace PDAI
         Color color = Color.FromArgb(196, 196, 196);
         List<AccountItem> accountListItems;
         int lastItemIndex;
+        string type;
 
-        public I_AccountList()
+        public I_AccountList(string type)
         {
+            this.type = type;
+
             container = new Panel();
             container.Location = new Point(0, 0);
             container.BackColor = Color.White;
@@ -41,15 +44,18 @@ namespace PDAI
         public void Open()
         {
 
-
-
             accountList = new CustomizableList();
             container.Controls.Add(accountList.container);
             accountList.width = container.Width * 9 / 10;
             accountList.height = container.Height * 9 / 10;
             accountList.locationX = container.Width / 2 - accountList.width / 2;
             accountList.locationY = container.Height / 2 - accountList.height / 2;
-            lastItemIndex = database.select.Get_Accounts(accountList);
+            
+            
+
+            if (type == "Prisoners") lastItemIndex = database.select.Get_Prisoners(accountList);
+            else lastItemIndex = database.select.Get_Accounts(accountList);
+
             accountList.Update();
             accountListItems = accountList.GetItems();
             foreach (AccountItem accountItem in accountListItems) { accountItem.accountButton.Click += new EventHandler(AccountButton_Click); getAccountItem[accountItem.accountButton] = accountItem; }
@@ -127,6 +133,7 @@ namespace PDAI
                 case "activate":
                     MessageBox.Show("Ativar conta");
                     break;
+
             }
 
         }

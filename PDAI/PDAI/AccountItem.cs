@@ -172,14 +172,14 @@ namespace PDAI
                     break;
 
                 case option.viewPrisoner:
-                    accountButton.Image = Properties.Resources.papel; accountButton.Name = "" + option.viewEmployee;
+                    accountButton.Image = Properties.Resources.papel; accountButton.Name = "" + option.viewPrisoner;
                     break;
                 case option.editPrisoner:
-                    accountButton.Image = Properties.Resources.desenhar; accountButton.Name = "" + option.editEmployee;
+                    accountButton.Image = Properties.Resources.desenhar; accountButton.Name = "" + option.editPrisoner;
                     break;
                 case option.deletePrisoner:
 
-                    accountButton.Image = Properties.Resources.delete; accountButton.Name = "" + option.deleteEmployee;
+                    accountButton.Image = Properties.Resources.delete; accountButton.Name = "" + option.deletePrisoner;
                     break;
             }
             

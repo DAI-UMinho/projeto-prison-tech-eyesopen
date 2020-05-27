@@ -25,7 +25,6 @@ namespace PDAI
         Dictionary<string, List<string>> privilegesRole;
         string privilegeRole;
         List<string> stringObject;
-        //Dictionary<string, object> disposeObject;
         Object disposeObject;
 
         public Account()
@@ -159,7 +158,7 @@ namespace PDAI
         private void AccountList(object sender, EventArgs e)
         {
             if (activeContainer != null) container.Controls.Remove(activeContainer);
-            I_AccountList accountList = new I_AccountList();
+            I_AccountList accountList = new I_AccountList("");
             container.Controls.Add(accountList.container);
             accountList.locationX = menu.locationX + menu.width-2;
             accountList.locationY = 0;
@@ -186,7 +185,8 @@ namespace PDAI
             accountCredentials.locationY = 0;
             accountCredentials.AdminAccount = true;
             accountCredentials.Open();
-            
+            activeContainer = accountCredentials.container;
+
         }
 
 
@@ -255,8 +255,11 @@ namespace PDAI
             else if (disposeObject.GetType() == typeof(DeleteVisit)) ((DeleteVisit)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(EditVisit)) ((EditVisit)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(viewCamNRec)) ((viewCamNRec)disposeObject).container.Dispose();
+            else if (disposeObject.GetType() == typeof(Edit_Incidents)) ((Edit_Incidents)disposeObject).Dispose();
+            else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
 
-            
+
+
 
             if (((Button)sender).Name == "Privilégio Estatística-Consultar" || val == "Privilégio Estatística-Consultar")
             {
@@ -384,14 +387,14 @@ namespace PDAI
             if (((Button)sender).Name == "Privilégio Recluso-Consultar" || val == "Privilégio Recluso-Consultar")
             {
 
-                I_PersonView employee = new I_PersonView();
-                disposeObject = employee;
-                container.Controls.Add(employee.container);
-                employee.width = container.Width - menu.width;
-                employee.height = container.Height;
-                employee.locationX = menu.locationX + menu.width;
-                employee.locationY = 0;
-                employee.Open(option.viewPrisoner);
+                I_PersonView prisoner = new I_PersonView();
+                disposeObject = prisoner;
+                container.Controls.Add(prisoner.container);
+                prisoner.width = container.Width - menu.width;
+                prisoner.height = container.Height;
+                prisoner.locationX = menu.locationX + menu.width;
+                prisoner.locationY = 0;
+                prisoner.Open(option.viewPrisoner);
 
 
             }
@@ -566,7 +569,7 @@ namespace PDAI
                 ED.Height = container.Height;
                 ED.Location = new Point(menu.locationX + menu.width, 23);
                 container.Controls.Add(ED);
-                ED.BringToFront();
+                //ED.BringToFront();
                 ED.Show();
 
             }
