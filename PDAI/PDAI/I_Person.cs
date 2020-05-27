@@ -254,7 +254,7 @@ namespace PDAI
                                 }
                                 else { MessageBox.Show("Introduza um cartão de cidadão válido"); }
                             }
-                            else { MessageBox.Show("Campo estado civil só pode conter números."); }
+                            else { MessageBox.Show("Campo cartão de cidadão só pode conter números."); }
                         }
                         else { MessageBox.Show("Campo estado civil obrigatório."); }
                     }
