@@ -274,6 +274,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\xixa.png" />
+    <None Include="Resources\log3png.png" />
+    <None Include="Resources\Violencia-1.png" />
     <None Include="Resources\papel.png" />
     <None Include="Resources\logout.png" />
     <None Include="Resources\Prisão.png" />
@@ -302,6 +305,10 @@
     <None Include="Resources\icon %282%29.png" />
     <None Include="Resources\camera-de-seguranca.png" />
     <None Include="Resources\grafico.png" />
+    <None Include="Resources\100476609_2918552011592069_8177699443336806400_n.jpg" />
+    <None Include="Resources\Dai1.png" />
+    <None Include="Resources\Dai1.1.png" />
+    <None Include="Resources\Homi.png" />
     <Content Include="Resources\IconEyesOpen.png" />
     <None Include="Resources\índice.png" />
   </ItemGroup>

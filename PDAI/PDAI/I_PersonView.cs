@@ -6,7 +6,9 @@ using System.Windows.Forms;
 using System.Drawing;
 
 namespace PDAI
+   
 {
+    
     class I_PersonView
     {
 
@@ -24,6 +26,10 @@ namespace PDAI
         int lastItemIndex;
         option setOption;
         List<AccountItem> accountListItems;
+        Label titulo;
+        int fontSize = 13;
+        
+
 
         public I_PersonView()
         {
@@ -44,16 +50,57 @@ namespace PDAI
             employeeList = new CustomizableList();
             container.Controls.Add(employeeList.container);
             employeeList.width = container.Width * 9 / 10;
-            employeeList.height = container.Height * 9 / 10;
+            employeeList.height = container.Height * 8 / 11;
             employeeList.locationX = container.Width / 2 - employeeList.width / 2;
             employeeList.locationY = container.Height / 2 - employeeList.height / 2;
             lastItemIndex = database.select.Get_Employees(employeeList, option);
             employeeList.Update();
             accountListItems = employeeList.GetItems();
-            foreach (AccountItem accountItem in accountListItems) { accountItem.accountButton.Click += new EventHandler(AccountButton_Click);  }
+            foreach (AccountItem accountItem in accountListItems) { accountItem.accountButton.Click += new EventHandler(AccountButton_Click); }
+
+          
+
+            switch (option)
+            {
+                case option.view:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Consultar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.edit:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Editar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.delete:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Apagar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
 
 
 
+            }
         }
 
 
@@ -93,13 +140,20 @@ namespace PDAI
             switch (((Button)sender).Name)
             {
                 case "view":
+
                     MessageBox.Show("Consultar Funcionario");
                     break;
                 case "edit":
                     MessageBox.Show("Editar Funcionario");
                     break;
                 case "delete":
-                    MessageBox.Show("Apagar Funcionario");
+                    if (MessageBox.Show("Tem certeza que deseja eliminar o FUncionnario?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        
+                    }
+
+
+
                     break;
             }
             

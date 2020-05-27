@@ -19,7 +19,7 @@ namespace PDAI
         Font_Class font;
         Database database;
         PictureBox photo;
-        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole;
+        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole, titulo;
         TextBox tFullName, tCC;
         ComboBox cbMaritalStatus, cbRole ;
         DateTimePicker tBirthDate;
@@ -49,7 +49,7 @@ namespace PDAI
             this.callback = callback;
 
             photo.Size = new Size(250, 250);
-            photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
+            photo.Location = new Point(container.Width * 1/30 , container.Height * 3 / 20);
             container.Controls.Add(photo);
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
@@ -120,6 +120,7 @@ namespace PDAI
             font.Size(lMaritalStatus, fontSize);
             container.Controls.Add(lMaritalStatus);
 
+
             cbMaritalStatus = new ComboBox();
             cbMaritalStatus.Size = new Size(200, lFullName.Height);
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
@@ -142,6 +143,19 @@ namespace PDAI
                 lRole.Text = "Cargo";
                 font.Size(lRole, fontSize);
                 container.Controls.Add(lRole);
+
+
+
+                titulo = new Label();
+                container.Controls.Add(titulo);
+                titulo.Size = new Size(700, 100);
+                titulo.Location = new Point(450, 0);
+                font.Size(titulo, fontSize);
+                titulo.Text = "Registar Funcionário";
+                titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                titulo.ForeColor = Color.DarkBlue;
+                titulo.SendToBack();
+
 
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);

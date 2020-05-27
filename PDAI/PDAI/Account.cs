@@ -4,14 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Timers;
+using System.IO;
+using Emgu.CV;
+using Emgu.CV.Face;
+using Emgu.CV.Structure;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge.Controls;
+
 
 namespace PDAI
 {
+
+
     class Account
     {
         public Panel container { get; }
-        public int locationX { set { container.Location = new Point(value, container.Location.Y); } get { return container.Location.X; } }
-        public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
+        public int locationX { set { container.Location = new System.Drawing.Point(value, container.Location.Y); } get { return container.Location.X; } }
+        public int locationY { set { container.Location = new System.Drawing.Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
         string username, password;
@@ -25,13 +37,34 @@ namespace PDAI
         Dictionary<string, List<string>> privilegesRole;
         string privilegeRole;
         List<string> stringObject;
+        AForge.Controls.PictureBox pictureBox1,logo;
         Dictionary<string, object> disposeObject;
+        public List<Bitmap> image { get; set; }
+        System.Timers.Timer timer1;
+        Label titulo;
+        int fontSize = 13;
+        Font_Class font;
+       
+
+
+        //string[] pictures = Directory.GetFiles(@"C:\Users\ASUS\Desktop\Nova pasta (4)");
+
+
+        //Array[] images = { "log2.jpg", "log1.jpg" };
+
+        int i = 0;
+
+        //private int count = -1;
 
         public Account()
         {
             container = new Panel();
             container.BackColor = Color.White;
             database = new Database();
+            
+
+
+
         }
 
 
@@ -49,10 +82,11 @@ namespace PDAI
             privilegesRole = new Dictionary<string, List<string>>();
             stringObject = new List<string>();
             disposeObject = new Dictionary<string, object>();
+
         }
 
-   
-        
+
+
         public void CreateAccount(uint idPerson, string username, string password)
         {
             this.username = username;
@@ -75,8 +109,19 @@ namespace PDAI
         }
 
 
-        public void Open(Form form, int width, int height) 
+        public void Open(Form form, int width, int height)
         {
+            font = new Font_Class();
+            image = new List <Bitmap>();
+            image.Add(Properties.Resources.log3png);
+            image.Add(Properties.Resources.xixa);
+            //image.Add(Properties.Resources.log1);
+            image.Add(Properties.Resources.Violencia_1);
+            image.Add(Properties.Resources.Homi);
+
+
+            logo = new AForge.Controls.PictureBox();
+            pictureBox1 = new AForge.Controls.PictureBox();
             this.form = form;
             formContainerWidth = width;
             formContainerHeight = height;
@@ -89,18 +134,75 @@ namespace PDAI
             menu.Open();
 
             form.Controls.Add(container);
-            container.Location = new Point(0, 0);
+            container.Location = new System.Drawing.Point(0, 0);
             container.Size = new Size(width, height);
             container.Controls.Add(menu.container);
 
+
+
+
+
+
+
+            pictureBox1.Size = new Size(1100,600);
+            pictureBox1.Location = new System.Drawing.Point(320,50);
+            container.Controls.Add(pictureBox1);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.BackColor = Color.White;
+
+            pictureBox1.Image = image[image.Count - 4];
+
+
+
+
+
+
+
+            System.Timers.Timer timer1 = new System.Timers.Timer();
+            timer1 = new System.Timers.Timer(5000);
+            // Hook up the Elapsed event for the timer. 
+            timer1.Elapsed += new ElapsedEventHandler(timer1_Tick);
+
+            timer1.AutoReset = true;
+            timer1.Enabled = true;
+
+            //logo.Size = new Size(170,170);
+            //logo.Location = new System.Drawing.Point(1350, 0);
+            //container.Controls.Add(logo);
+            //logo.SizeMode = PictureBoxSizeMode.StretchImage;
+            //logo.BorderStyle = BorderStyle.None;
+            //logo.BackColor = Color.White;
+            //logo.Image = Properties.Resources.log2;
+
+
+            //titulo = new Label();
+            //container.Controls.Add(titulo);
+            //titulo.Size = new Size(700, 150);
+            //titulo.Location = new System.Drawing.Point(570, 0);
+            //font.Size(titulo, fontSize);
+            //titulo.Text = "EyesOpen";
+            //titulo.Font = new Font("Cambria", 55, FontStyle.Bold);
+            //titulo.ForeColor = Color.Black;
+            //titulo.SendToBack();
+
+
+
+            //pictureBox1.Image = Image.FromFile("Resources/" + images[0]);
+
+
+
+
+
+
             if (VerifiedAdmin())
             {
-                Panel item = menu.AddItem("Contas", AccountList,MenuPosition.top);
+                Panel item = menu.AddItem("Contas", AccountList, MenuPosition.top);
                 menu.AddItem("Definições", AccountSettings, MenuPosition.top);
-                menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
+                menu.AddItem("Terminar sessão", Logout, MenuPosition.bottom, 0, 60);
                 AccountList(item, new EventArgs());
             }
-            else 
+            else
             {
                 Panel currentItem = null;
 
@@ -121,7 +223,7 @@ namespace PDAI
                                     if (join) { mainPrivilege += str; }
                                     join = true;
                                 }
-                                
+
                                 currentItem = menu.AddItem(mainPrivilege, MenuPosition.top);
                                 menu.AddSubItem(currentItem, privilege, Pages);
                             }
@@ -131,19 +233,36 @@ namespace PDAI
                             }
                         }
                     }
-                    else { currentItem = null;  }
+                    else { currentItem = null; }
                 }
             }
 
         }
 
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+           
+
+            pictureBox1.Image = image[i];
+            if(i== image.Count -1)
+            {
+                i = 0;
+            } else { 
+            i++;
+                }
+           
+        }
+
+
+      
 
 
         private bool VerifiedAdmin()
         {
             if (username == Rule.GetAdminUsername) return true; else return false;
-        } 
+        }
 
 
         private void CreateAdminAccount(string username, string password)
@@ -159,7 +278,7 @@ namespace PDAI
             if (activeContainer != null) container.Controls.Remove(activeContainer);
             I_AccountList accountList = new I_AccountList();
             container.Controls.Add(accountList.container);
-            accountList.locationX = menu.locationX + menu.width-2;
+            accountList.locationX = menu.locationX + menu.width - 2;
             accountList.locationY = 0;
             accountList.width = formContainerWidth - menu.width;
             accountList.height = formContainerHeight;
@@ -184,7 +303,7 @@ namespace PDAI
             general.height = formContainerHeight;
             activeContainer = general.container;
 
-      
+
             Role role = new Role();
             role.width = general.container.Width * 9 / 10;
             role.height = 400;
@@ -214,7 +333,7 @@ namespace PDAI
                 form.Controls.Clear();
                 I_Login i_login = new I_Login(form, formContainerWidth, formContainerHeight);
             }
-          
+
         }
 
 
@@ -238,13 +357,17 @@ namespace PDAI
                     statisticsForm.FormBorderStyle = FormBorderStyle.None;
                     statisticsForm.Width = container.Width - menu.width;
                     statisticsForm.Height = container.Height;
-                    statisticsForm.Location = new Point(menu.locationX + menu.width, 23);
+                    statisticsForm.Location = new System.Drawing.Point(menu.locationX + menu.width, 23);
                     container.Controls.Add(statisticsForm);
                     statisticsForm.BringToFront();
                     statisticsForm.Show();
+                    pictureBox1.Hide();
+
+
 
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = statisticsForm;
+                   
                 }
             }
 
@@ -265,9 +388,10 @@ namespace PDAI
                     person.height = container.Height;
                     person.locationX = menu.locationX + menu.width;
                     person.locationY = 0;
-                    person.Open(true,false);
+                    person.Open(true, false);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = person;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -289,9 +413,10 @@ namespace PDAI
                     person.height = container.Height;
                     person.locationX = menu.locationX + menu.width;
                     person.locationY = 0;
-                    person.Open(false,false);
+                    person.Open(false, false);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = person;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -307,7 +432,7 @@ namespace PDAI
                 }
                 else
                 {
-                    AccountCredentials accountCredentials = new AccountCredentials(idAccount,username,password);
+                    AccountCredentials accountCredentials = new AccountCredentials(idAccount, username, password);
                     container.Controls.Add(accountCredentials.container);
                     accountCredentials.width = container.Width - menu.width;
                     accountCredentials.height = container.Height;
@@ -316,6 +441,7 @@ namespace PDAI
                     accountCredentials.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = accountCredentials;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -339,6 +465,7 @@ namespace PDAI
                     employee.Open(option.view);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = employee;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -363,6 +490,7 @@ namespace PDAI
                     employee.Open(option.edit);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = employee;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -388,6 +516,7 @@ namespace PDAI
                     employee.Open(option.delete);
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = employee;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -413,6 +542,7 @@ namespace PDAI
                     incidents.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = incidents;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -437,6 +567,7 @@ namespace PDAI
                     pm.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = pm;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -460,6 +591,7 @@ namespace PDAI
                     camGallery.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = camGallery;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -483,6 +615,7 @@ namespace PDAI
                     ep.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = ep;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -506,6 +639,7 @@ namespace PDAI
                     dp.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = dp;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -529,6 +663,7 @@ namespace PDAI
                     visit.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = visit;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -552,6 +687,7 @@ namespace PDAI
                     VM.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = VM;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -575,6 +711,7 @@ namespace PDAI
                     dv.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = dv;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -598,6 +735,7 @@ namespace PDAI
                     ev.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = ev;
+                    pictureBox1.Hide();
                 }
 
             }
@@ -621,6 +759,7 @@ namespace PDAI
                     vcnorecognition.Open();
                     stringObject.Add(((Button)sender).Name);
                     disposeObject[((Button)sender).Name] = vcnorecognition;
+                    pictureBox1.Hide();
                 }
 
             }

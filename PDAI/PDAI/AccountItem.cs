@@ -28,7 +28,7 @@ namespace PDAI
         Event clicked;
         uint thisId;
         string imgPath;
-
+        
         public AccountItem(Panel container, Event clicked)
         {
             this.clicked = clicked;
@@ -50,6 +50,8 @@ namespace PDAI
             int lateral = 12;
 
             thisId = id;
+
+           
 
             parent.Controls.Add(item);
             item.Click += new EventHandler(Clicked);
@@ -94,7 +96,8 @@ namespace PDAI
             item.Controls.Add(name);
             font.Size(name, fontSize);
             name.Click += new EventHandler(Clicked);
-
+           
+            
 
             Label lEmployeeMaritalStatus = new Label();
             lEmployeeMaritalStatus.Text = "Estado Civil:";
@@ -127,6 +130,8 @@ namespace PDAI
             item.Controls.Add(employeeRole);
             font.Size(employeeRole, fontSize);
             employeeRole.Click += new EventHandler(Clicked);
+
+            
         }
 
 
@@ -150,6 +155,8 @@ namespace PDAI
             image.BorderStyle = BorderStyle.Fixed3D;
             image.Click += new EventHandler(Clicked);
 
+           
+
 
             accountButton.Size = new Size(item.Height - 4 * lateral, item.Height - 4 * lateral);
             accountButton.Location = new Point(item.Width - accountButton.Width - lateral, item.Height / 2 - accountButton.Height / 2);
@@ -162,6 +169,8 @@ namespace PDAI
             {
                 case option.view:
                     accountButton.Image = Properties.Resources.papel; accountButton.Name = ""+option.view;
+                    
+
                     break;
                 case option.edit:
                     accountButton.Image = Properties.Resources.desenhar; accountButton.Name = ""+option.edit;
@@ -217,6 +226,9 @@ namespace PDAI
             item.Controls.Add(lemployeeRole);
             font.Size(lemployeeRole, fontSize);
             lemployeeRole.Click += new EventHandler(Clicked);
+           
+           
+
 
 
             employeeRole.Text = role.ToString();
