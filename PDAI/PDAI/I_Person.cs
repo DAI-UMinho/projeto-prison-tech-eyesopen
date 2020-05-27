@@ -29,6 +29,7 @@ namespace PDAI
         int fontSize = 13;
         string path = Rule.TargetPath, imgPath;
         bool employee, callback;
+        Label ladicionarImg;
 
         public I_Person()
         {
@@ -55,7 +56,7 @@ namespace PDAI
             photo.BorderStyle = BorderStyle.Fixed3D;
             photo.BackColor = Color.White;
 
-            Label ladicionarImg = new Label();
+            ladicionarImg = new Label();
             ladicionarImg.Size = new Size(photo.Width - 1, photo.Height - 1);
             ladicionarImg.Location = new Point(0, 0);
             ladicionarImg.DoubleClick += new EventHandler(Photo_DoubleClick);
@@ -200,9 +201,10 @@ namespace PDAI
 
         public void Load(AccountItem accountItem)
         {
-          //  bitmapImage = new Bitmap(accountItem.imagePath);
-          //  photo.Image = bitmapImage;
-          ////  imgPath = open.FileName;
+            bitmapImage = new Bitmap(accountItem.imagePath);
+            photo.Image = bitmapImage;
+            photo.Controls.Remove(ladicionarImg);
+          //  imgPath = open.FileName;
 
             tFullName.Text = accountItem.name.Text;
             // tBirthDate.Text = 
