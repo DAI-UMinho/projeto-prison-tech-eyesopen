@@ -10,6 +10,10 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge.Controls;
 
 namespace PDAI
 {
@@ -31,6 +35,9 @@ namespace PDAI
         int nov = 10;
         int dec = 1;
 
+        private FilterInfoCollection filters;
+        Font_Class font;
+
         public StatisticsForm()
         {
             InitializeComponent();
@@ -40,7 +47,13 @@ namespace PDAI
             PreencherDataGrid();
             this.Name = "StatisticsForm";
             dataGridView1.Size = new Size(this.Size.Width / 3, this.Size.Height / 3);
-
+            filters = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            font.Size(label1, 15);
+            label1.Text = filters.Count.ToString();
+            label1.ForeColor = Color.White;
+            font.Size(label2, 15);
+            label2.Text = db.select.idIncident().Count.ToString();
+            label2.ForeColor = Color.White;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
