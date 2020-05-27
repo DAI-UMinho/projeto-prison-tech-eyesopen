@@ -151,7 +151,7 @@ namespace PDAI
                     MessageBox.Show("Editar Funcionario");
                     break;
                 case "deleteEmployee":
-                    if (MessageBox.Show("Tem certeza que deseja eliminar o FUncionnario?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    if (MessageBox.Show("Tem certeza que deseja eliminar o Funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                     {
                         MessageBox.Show("Apagar Funcionario");
                     }
