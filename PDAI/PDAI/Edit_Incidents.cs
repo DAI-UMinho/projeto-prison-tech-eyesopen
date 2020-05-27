@@ -49,7 +49,7 @@ namespace PDAI
                 string id = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
                 string dataOcorrencia = Convert.ToString(selectedRow.Cells["dataOcorrencia"].Value);
                 string nomeCompleto = Convert.ToString(selectedRow.Cells["nomeCompleto"].Value);
-                
+
                 var = db.select.Edit_Incidents(id);
                 int idPessoa = (int)var.ElementAt(0);
                 string descricao = (string)var.ElementAt(1);

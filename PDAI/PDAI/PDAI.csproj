@@ -153,11 +153,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
-    <Compile Include="Delete_Incident.cs">
+    <Compile Include="ApagarOcorrencia.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Delete_Incident.Designer.cs">
-      <DependentUpon>Delete_Incident.cs</DependentUpon>
+    <Compile Include="ApagarOcorrencia.Designer.cs">
+      <DependentUpon>ApagarOcorrencia.cs</DependentUpon>
     </Compile>
     <Compile Include="AccountCredentials.cs" />
     <Compile Include="Cam.cs" />
@@ -239,8 +239,8 @@
     <Compile Include="VisualizarOcorrencia.Designer.cs">
       <DependentUpon>VisualizarOcorrencia.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Delete_Incident.resx">
-      <DependentUpon>Delete_Incident.cs</DependentUpon>
+    <EmbeddedResource Include="ApagarOcorrencia.resx">
+      <DependentUpon>ApagarOcorrencia.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Edit_Incidents.resx">
       <DependentUpon>Edit_Incidents.cs</DependentUpon>
