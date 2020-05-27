@@ -17,13 +17,16 @@ namespace PDAI
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
 
         Database database;
-        CustomizableList employeeList;
+        CustomizableList personList;
         I_Person person;
         Font_Class font;
         Color color = Color.FromArgb(196, 196, 196);
         int lastItemIndex;
         option setOption;
         List<AccountItem> accountListItems;
+        Dictionary<Button, AccountItem> getAccountItem;
+        Label titulo;
+        int fontSize = 13;
 
         public I_PersonView()
         {
@@ -34,25 +37,69 @@ namespace PDAI
 
             font = new Font_Class();
             database = new Database();
-
+            getAccountItem = new Dictionary<Button, AccountItem>();
         }
 
         public void Open(option option)
         {
             setOption = option;
 
-            employeeList = new CustomizableList();
-            container.Controls.Add(employeeList.container);
-            employeeList.width = container.Width * 9 / 10;
-            employeeList.height = container.Height * 9 / 10;
-            employeeList.locationX = container.Width / 2 - employeeList.width / 2;
-            employeeList.locationY = container.Height / 2 - employeeList.height / 2;
-            lastItemIndex = database.select.Get_Employees(employeeList, option);
-            employeeList.Update();
-            accountListItems = employeeList.GetItems();
-            foreach (AccountItem accountItem in accountListItems) { accountItem.accountButton.Click += new EventHandler(AccountButton_Click);  }
+            switch (option)
+            {
+                case option.viewEmployee:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Consultar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.editEmployee:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Editar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.deleteEmployee:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Apagar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+            }
 
 
+            personList = new CustomizableList();
+            container.Controls.Add(personList.container);
+            personList.width = container.Width * 9 / 10;
+            personList.height = container.Height * 8 / 11;
+            personList.locationX = container.Width / 2 - personList.width / 2;
+            personList.locationY = container.Height / 2 - personList.height / 2;
+
+            if (option == option.viewEmployee || option == option.editEmployee || option == option.deleteEmployee)
+                lastItemIndex = database.select.Get_Employees(personList, option);
+            else
+                lastItemIndex = database.select.Get_Prisoners(personList, option);
+
+            personList.Update();
+            accountListItems = personList.GetItems();
+            foreach (AccountItem accountItem in accountListItems) { accountItem.accountButton.Click += new EventHandler(AccountButton_Click); getAccountItem[accountItem.accountButton] = accountItem; }
 
         }
 
@@ -88,18 +135,42 @@ namespace PDAI
 
         private void AccountButton_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(((Button)sender).Name);
-
             switch (((Button)sender).Name)
             {
-                case "view":
-                    MessageBox.Show("Consultar Funcionario");
+                case "viewEmployee":
+                    I_Person viewPerson = new I_Person();
+                    container.Controls.Add(viewPerson.container);
+                    viewPerson.width = container.Width;
+                    viewPerson.height = container.Height;
+                    viewPerson.locationY = 0;
+                    viewPerson.Open(true, false);
+                    viewPerson.Load(getAccountItem[((Button)sender)]);
+                    viewPerson.container.BringToFront();
                     break;
-                case "edit":
+                case "editEmployee":
                     MessageBox.Show("Editar Funcionario");
                     break;
-                case "delete":
-                    MessageBox.Show("Apagar Funcionario");
+                case "deleteEmployee":
+                    if (MessageBox.Show("Tem certeza que deseja eliminar o Funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Apagar Funcionario");
+                    }
+                    break;
+                case "viewPrisoner":
+                    I_Person viewPrisoner = new I_Person();
+                    container.Controls.Add(viewPrisoner.container);
+                    viewPrisoner.width = container.Width;
+                    viewPrisoner.height = container.Height;
+                    viewPrisoner.locationY = 0;
+                    viewPrisoner.Open(false, false);
+                    viewPrisoner.Load(getAccountItem[((Button)sender)]);
+                    viewPrisoner.container.BringToFront();
+                    break;
+                case "editPrisoner":
+                    MessageBox.Show("Editar recluso");
+                    break;
+                case "deletePrisoner":
+                    MessageBox.Show("Apagar recluso");
                     break;
             }
             
@@ -109,7 +180,7 @@ namespace PDAI
         private void Control_Disposed(object sender, EventArgs e)
         {
             Open(setOption);
-            employeeList.ScrollToLastItem(lastItemIndex);
+            personList.ScrollToLastItem(lastItemIndex);
         }
 
     }

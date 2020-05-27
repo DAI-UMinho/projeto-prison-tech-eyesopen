@@ -73,6 +73,16 @@ namespace PDAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _100476609_2918552011592069_8177699443336806400_n {
+            get {
+                object obj = ResourceManager.GetObject("_100476609_2918552011592069_8177699443336806400_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Anotação_2020_03_07_232413 {
             get {
                 object obj = ResourceManager.GetObject("Anotação_2020_03_07_232413", resourceCulture);
@@ -83,9 +93,99 @@ namespace PDAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap camera_de_seguranca {
+            get {
+                object obj = ResourceManager.GetObject("camera_de_seguranca", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dai1 {
+            get {
+                object obj = ResourceManager.GetObject("Dai1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Dai1_1 {
+            get {
+                object obj = ResourceManager.GetObject("Dai1_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete {
+            get {
+                object obj = ResourceManager.GetObject("delete", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap desenhar {
+            get {
+                object obj = ResourceManager.GetObject("desenhar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Donald_Trump_official_portrait {
             get {
                 object obj = ResourceManager.GetObject("Donald_Trump_official_portrait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap grafico {
+            get {
+                object obj = ResourceManager.GetObject("grafico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Homi {
+            get {
+                object obj = ResourceManager.GetObject("Homi", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon__1_ {
+            get {
+                object obj = ResourceManager.GetObject("icon__1_", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icon__2_ {
+            get {
+                object obj = ResourceManager.GetObject("icon__2_", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,6 +233,36 @@ namespace PDAI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap log3png {
+            get {
+                object obj = ResourceManager.GetObject("log3png", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logout {
+            get {
+                object obj = ResourceManager.GetObject("logout", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap papel {
+            get {
+                object obj = ResourceManager.GetObject("papel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pause_Button_PNG_File {
             get {
                 object obj = ResourceManager.GetObject("Pause_Button_PNG_File", resourceCulture);
@@ -166,6 +296,26 @@ namespace PDAI.Properties {
         internal static System.Drawing.Bitmap Seta1 {
             get {
                 object obj = ResourceManager.GetObject("Seta1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Violencia_1 {
+            get {
+                object obj = ResourceManager.GetObject("Violencia_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xixa {
+            get {
+                object obj = ResourceManager.GetObject("xixa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -41,10 +41,21 @@ namespace PDAI
 
         private void Registration_Click(object sender, EventArgs e)
         {
-            Ids = db.select.visitedPrisionerId(cbPrisionerVisited.Text);
-            if(db.insert.Visit(Convert.ToUInt32(Ids[0]), tFullName.Text, tVisitDate.Text)) MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
-            else MessageBox.Show("Ocorreu um erro. Não foi possível registar a visita.", "", MessageBoxButtons.OK);
-            //  System.Diagnostics.Debug.WriteLine( Ids[0].ToString() + "  " + tFullName.Text + "  " + thisDay.ToString("d") + "  " + tVisitDate.Text);
+            if (tFullName.Text != string.Empty)
+            {
+                if (tVisitDate.Text != string.Empty)
+                {
+                    if (cbPrisionerVisited.Text != string.Empty)
+                    {
+                        Ids = db.select.visitedPrisionerId(cbPrisionerVisited.Text);
+                        if (db.insert.Visit(Convert.ToUInt32(Ids[0]), tFullName.Text, tVisitDate.Text)) MessageBox.Show("Visita adicionada com sucesso!!", "", MessageBoxButtons.OK);
+                        else MessageBox.Show("Ocorreu um erro. Não foi possível registar a visita.", "", MessageBoxButtons.OK);
+                    }
+                    else { MessageBox.Show("Campo Recluso Visitado obrigatório."); }
+                }
+                else { MessageBox.Show("Campo Data da Visita obrigatório."); }
+            }
+            else { MessageBox.Show("Campo Nome Completo obrigatório."); }
         }
 
         public void Open()
@@ -90,6 +101,7 @@ namespace PDAI
 
             cbPrisionerVisited = new ComboBox();
             cbPrisionerVisited.Size = new Size(200, lFullName.Height);
+            cbPrisionerVisited.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPrisionerVisited.Location = new Point(lPrisionerVisited.Location.X, lPrisionerVisited.Location.Y + lPrisionerVisited.Height);
             font.Size(cbPrisionerVisited, fontSize);
             container.Controls.Add(cbPrisionerVisited);

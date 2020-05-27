@@ -19,22 +19,22 @@ namespace PDAI
         Font_Class font;
         Database database;
         PictureBox photo;
-        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole;
+        Label lFullName, lBirthDate, lCC, lMaritalStatus, lRole, titulo, tituloFunc;
         TextBox tFullName, tCC;
-        ComboBox cbMaritalStatus, cbRole ;
+        ComboBox cbMaritalStatus, cbRole;
         DateTimePicker tBirthDate;
         Button registration;
         Bitmap bitmapImage;
         string type = "";
         int fontSize = 13;
-        string path = Rule.TargetPath,imgPath;
+        string path = Rule.TargetPath, imgPath;
         bool employee, callback;
 
         public I_Person()
         {
             font = new Font_Class();
             database = new Database();
-         
+
 
             container = new Panel();
             photo = new PictureBox();
@@ -49,15 +49,15 @@ namespace PDAI
             this.callback = callback;
 
             photo.Size = new Size(250, 250);
-            photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
+            photo.Location = new Point(container.Width * 1 / 30, container.Height * 2 / 20);
             container.Controls.Add(photo);
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
             photo.BackColor = Color.White;
 
             Label ladicionarImg = new Label();
-            ladicionarImg.Size = new Size(photo.Width-1, photo.Height-1);
-            ladicionarImg.Location = new Point(0,0);
+            ladicionarImg.Size = new Size(photo.Width - 1, photo.Height - 1);
+            ladicionarImg.Location = new Point(0, 0);
             ladicionarImg.DoubleClick += new EventHandler(Photo_DoubleClick);
             ladicionarImg.Text = "Adicionar" + System.Environment.NewLine + "Imagem" + System.Environment.NewLine + System.Environment.NewLine + "(Duplo Click)";
             ladicionarImg.ForeColor = Color.LightGray;
@@ -84,7 +84,7 @@ namespace PDAI
 
             lBirthDate = new Label();
             lBirthDate.Size = new Size(tFullName.Width, tFullName.Height);
-            lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + container.Height * 1/20);
+            lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + container.Height * 1 / 20);
             lBirthDate.Text = "Data Nascimento";
             font.Size(lBirthDate, fontSize);
             container.Controls.Add(lBirthDate);
@@ -112,6 +112,18 @@ namespace PDAI
             font.Size(tCC, fontSize);
             container.Controls.Add(tCC);
 
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Registar Recluso";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
+            //nome.BorderStyle = BorderStyle.None;
+            //nome.BackColor = color;
+
 
             lMaritalStatus = new Label();
             lMaritalStatus.Size = new Size(tFullName.Width, tFullName.Height);
@@ -125,6 +137,7 @@ namespace PDAI
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
             font.Size(cbMaritalStatus, fontSize);
             container.Controls.Add(cbMaritalStatus);
+            cbMaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             List<string> maritalStatus = database.select.GetMaritalStatus();
             foreach (string item in maritalStatus)
             {
@@ -143,11 +156,26 @@ namespace PDAI
                 font.Size(lRole, fontSize);
                 container.Controls.Add(lRole);
 
+                titulo.Hide();
+
+                tituloFunc = new Label();
+                container.Controls.Add(tituloFunc);
+                tituloFunc.Size = new Size(700, 100);
+                tituloFunc.Location = new Point(450, 0);
+                font.Size(tituloFunc, fontSize);
+                tituloFunc.Text = "Registar Funcionário";
+                tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                tituloFunc.ForeColor = Color.DarkBlue;
+                tituloFunc.SendToBack();
+                //nome.BorderStyle = BorderStyle.None;
+                //nome.BackColor = color;
+
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);
                 cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height);
                 font.Size(cbRole, fontSize);
                 container.Controls.Add(cbRole);
+                cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
                 List<string> roles = database.select.GetRoles();
                 foreach (string item in roles)
                 {
@@ -158,7 +186,7 @@ namespace PDAI
                 varLocationY = cbRole.Location.Y;
                 varLocationHeight = cbRole.Height;
             }
-            
+
 
             registration = new Button();
             registration.Size = new Size(150, 60);
@@ -167,6 +195,19 @@ namespace PDAI
             font.Size(registration, fontSize);
             container.Controls.Add(registration);
             registration.Click += new EventHandler(Registration_Click);
+        }
+
+
+        public void Load(AccountItem accountItem)
+        {
+          //  bitmapImage = new Bitmap(accountItem.imagePath);
+          //  photo.Image = bitmapImage;
+          ////  imgPath = open.FileName;
+
+            tFullName.Text = accountItem.name.Text;
+            // tBirthDate.Text = 
+            cbMaritalStatus.Text = accountItem.maritalStatus.Text;
+            if(employee) cbRole.Text = accountItem.employeeRole.Text;
         }
 
 
@@ -181,31 +222,39 @@ namespace PDAI
                     {
                         if (cbMaritalStatus.Text != string.Empty)
                         {
-                            if (!employee) type = "Prisioneiro";
-                            else if (cbRole.Text != string.Empty) type = cbRole.Text;
-
-                            if (type != string.Empty)
+                            if (IsAllDigits(tCC.Text))
                             {
-                                uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
-                                if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                if (tCC.Text.Length == 8)
                                 {
-                                    try
+                                    if (!employee) type = "Prisioneiro";
+                                    else if (cbRole.Text != string.Empty) type = cbRole.Text;
+
+                                    if (type != string.Empty)
                                     {
-                                        database.update.Person(id, path + id.ToString());
-                                        IO_Class.CopyFile(imgPath, path + id.ToString());
-                                        tFullName.Text = "";
-                                        tBirthDate.Text = "";
-                                        tCC.Text = "";
-                                        cbMaritalStatus.Text = "";
-                                        photo.Image = null;
-                                        if (employee)  cbRole.Text = "";
-                                        MessageBox.Show("Registado com sucesso!");
+                                        uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                        if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                        {
+                                            try
+                                            {
+                                                database.update.Person(id, path + id.ToString());
+                                                IO_Class.CopyFile(imgPath, path + id.ToString());
+                                                tFullName.Text = "";
+                                                tBirthDate.Text = "";
+                                                tCC.Text = "";
+                                                cbMaritalStatus.Text = "";
+                                                photo.Image = null;
+                                                if (employee) cbRole.Text = "";
+                                                MessageBox.Show("Registado com sucesso!");
+                                            }
+                                            catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                        }
+                                        if (callback) container.Dispose();
                                     }
-                                    catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                    else { MessageBox.Show("Campo cargo obrigatório."); }
                                 }
-                                if(callback) container.Dispose();
+                                else { MessageBox.Show("Introduza um cartão de cidadão válido"); }
                             }
-                            else { MessageBox.Show("Campo cargo obrigatório."); }
+                            else { MessageBox.Show("Campo cartão de cidadão só pode conter números."); }
                         }
                         else { MessageBox.Show("Campo estado civil obrigatório."); }
                     }
@@ -241,6 +290,16 @@ namespace PDAI
                 photo.Controls.Remove((PictureBox)sender);
                 imgPath = open.FileName;
             }
+        }
+
+        bool IsAllDigits(string s)
+        {
+            foreach (char c in s)
+            {
+                if (!char.IsDigit(c))
+                    return false;
+            }
+            return true;
         }
 
     }
