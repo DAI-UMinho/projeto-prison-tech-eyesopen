@@ -196,7 +196,7 @@ namespace PDAI
 
             if (privilegeRole != string.Empty)
             {
-                DialogResult dialogResult = MessageBox.Show("Já existem credenciais da conta.\nAo prosseguir irá gerar novas credenciais automáticamente.\n\nPretende continuar?", "Credenciais", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("Já existem credenciais da conta.\nAo prosseguir irá gerar novas credenciais automaticamente.\n\nPretende continuar?", "Credenciais", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.Yes)
                 {
                     byte[] accountAccess = Encryption.AccountAccessEncryption(user + pass);

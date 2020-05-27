@@ -183,12 +183,75 @@ namespace PDAI
             return index;
         }
 
+
+        public int Get_Prisoners(CustomizableList list)
+        {
+            int index = 0, counter = 0;
+            try
+            {
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, Login.id, ativo from Pessoa left join Login on Pessoa.id = Login.id where tipo = 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                bool accountCreated = false;
+                uint maxId = 0;
+                while (reader.Read())
+                {
+
+                    if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
+                    if (!(reader.IsDBNull(5))) accountCreated = true;
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
+                    accountCreated = false;
+                    counter++;
+                    // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return index;
+        }
+
         public int Get_Employees(CustomizableList list, option option)
         {
             int index = 0, counter = 0;
             try
             {
                 sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa left join Login on Pessoa.id = Login.id where tipo <> 'Administrador' and tipo <> 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                uint maxId = 0;
+                while (reader.Read())
+                {
+
+                    if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), option);
+                    counter++;
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return index;
+        }
+
+        public int Get_Prisoners(CustomizableList list, option option)
+        {
+            int index = 0, counter = 0;
+            try
+            {
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa left join Login on Pessoa.id = Login.id where tipo = 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();

@@ -198,6 +198,19 @@ namespace PDAI
         }
 
 
+        public void Load(AccountItem accountItem)
+        {
+          //  bitmapImage = new Bitmap(accountItem.imagePath);
+          //  photo.Image = bitmapImage;
+          ////  imgPath = open.FileName;
+
+            tFullName.Text = accountItem.name.Text;
+            // tBirthDate.Text = 
+            cbMaritalStatus.Text = accountItem.maritalStatus.Text;
+            if(employee) cbRole.Text = accountItem.employeeRole.Text;
+        }
+
+
 
         private void Registration_Click(object sender, EventArgs e)
         {
