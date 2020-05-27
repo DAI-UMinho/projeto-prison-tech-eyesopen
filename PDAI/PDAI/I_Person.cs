@@ -119,7 +119,7 @@ namespace PDAI
             font.Size(titulo, fontSize);
             titulo.Text = "Registar Recluso";
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-            titulo.ForeColor = Color.Gray;
+            titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
             //nome.BorderStyle = BorderStyle.None;
             //nome.BackColor = color;
@@ -165,7 +165,7 @@ namespace PDAI
                 font.Size(tituloFunc, fontSize);
                 tituloFunc.Text = "Registar Funcionário";
                 tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-                tituloFunc.ForeColor = Color.Gray;
+                tituloFunc.ForeColor = Color.DarkBlue;
                 tituloFunc.SendToBack();
                 //nome.BorderStyle = BorderStyle.None;
                 //nome.BackColor = color;
