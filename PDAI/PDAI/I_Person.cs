@@ -29,6 +29,7 @@ namespace PDAI
         int fontSize = 13;
         string path = Rule.TargetPath, imgPath;
         bool employee, callback;
+        Label ladicionarImg;
 
         public I_Person()
         {
@@ -55,7 +56,7 @@ namespace PDAI
             photo.BorderStyle = BorderStyle.Fixed3D;
             photo.BackColor = Color.White;
 
-            Label ladicionarImg = new Label();
+            ladicionarImg = new Label();
             ladicionarImg.Size = new Size(photo.Width - 1, photo.Height - 1);
             ladicionarImg.Location = new Point(0, 0);
             ladicionarImg.DoubleClick += new EventHandler(Photo_DoubleClick);
@@ -119,7 +120,7 @@ namespace PDAI
             font.Size(titulo, fontSize);
             titulo.Text = "Registar Recluso";
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-            titulo.ForeColor = Color.DarkBlue;
+            titulo.ForeColor = Color.Gray;
             titulo.SendToBack();
             //nome.BorderStyle = BorderStyle.None;
             //nome.BackColor = color;
@@ -165,7 +166,7 @@ namespace PDAI
                 font.Size(tituloFunc, fontSize);
                 tituloFunc.Text = "Registar Funcionário";
                 tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-                tituloFunc.ForeColor = Color.DarkBlue;
+                tituloFunc.ForeColor = Color.Gray;
                 tituloFunc.SendToBack();
                 //nome.BorderStyle = BorderStyle.None;
                 //nome.BackColor = color;
@@ -200,9 +201,10 @@ namespace PDAI
 
         public void Load(AccountItem accountItem)
         {
-          //  bitmapImage = new Bitmap(accountItem.imagePath);
-          //  photo.Image = bitmapImage;
-          ////  imgPath = open.FileName;
+            bitmapImage = new Bitmap(accountItem.imagePath);
+            photo.Image = bitmapImage;
+            photo.Controls.Remove(ladicionarImg);
+          //  imgPath = open.FileName;
 
             tFullName.Text = accountItem.name.Text;
             // tBirthDate.Text = 
@@ -254,7 +256,7 @@ namespace PDAI
                                 }
                                 else { MessageBox.Show("Introduza um cartão de cidadão válido"); }
                             }
-                            else { MessageBox.Show("Campo cartão de cidadão só pode conter números."); }
+                            else { MessageBox.Show("Campo estado civil só pode conter números."); }
                         }
                         else { MessageBox.Show("Campo estado civil obrigatório."); }
                     }

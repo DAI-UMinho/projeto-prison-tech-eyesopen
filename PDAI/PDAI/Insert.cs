@@ -355,51 +355,5 @@ namespace PDAI
             return val;
         }
 
-        public bool Alarm(uint type)
-        {
-            bool val = true;
-            try
-            {
-                sql = "insert Alerta (alerta) values (" + type + ")";
-
-                sqlConn = new SqlConnection(connectionString);
-                sqlConn.Open();
-                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
-                adapter = new SqlDataAdapter();
-                adapter.InsertCommand = command;
-                command.ExecuteNonQuery();
-                command.Dispose();
-                adapter.Dispose();
-                sqlConn.Close();
-
-            }
-            catch (Exception e) { val = false; };
-
-            return val;
-        }
-
-        public bool AssocAlarm(uint idPessoa, uint idAlerta)
-        {
-            bool val = true;
-            try
-            {
-                sql = "insert AssocAlerta (idPessoa, idAlerta, dataRegisto) values ('" + idPessoa + "', '" + idAlerta + "', GETDATE())";
-
-                sqlConn = new SqlConnection(connectionString);
-                sqlConn.Open();
-                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
-                adapter = new SqlDataAdapter();
-                adapter.InsertCommand = command;
-                command.ExecuteNonQuery();
-                command.Dispose();
-                adapter.Dispose();
-                sqlConn.Close();
-
-            }
-            catch (Exception e) { val = false; };
-
-            return val;
-        }
-
     }
 }

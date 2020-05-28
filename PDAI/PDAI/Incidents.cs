@@ -22,7 +22,7 @@ namespace PDAI
         RichTextBox description;
         RichTextBox pList;
         string[] t = new string[0];
-        Label lDescription,titulo;
+        Label lDescription;
         DateTimePicker date;
         DateTimePicker hour;
         Label lDate;
@@ -58,16 +58,7 @@ namespace PDAI
             container.Controls.Add(description);
             description.Size = new Size(600, 300);
             description.Location = new Point(350, 410);
-            
-            titulo = new Label();
-            container.Controls.Add(titulo);
-            titulo.Size = new Size(700, 70);
-            titulo.Location = new Point(450, 0);
-            font.Size(titulo, fontSize);
-            titulo.Text = "Registar Ocorrência";
-            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-            titulo.ForeColor = Color.DarkBlue;
-            titulo.SendToBack();
+
 
             lDescription = new Label();
             container.Controls.Add(lDescription);
@@ -120,7 +111,7 @@ namespace PDAI
 
             add = new Button();
             add.Size = new Size(150, 60);
-            add.Location = new Point(350, 90);
+            add.Location = new Point(350, 75);
             add.Text = "Adicionar Intervenientes";
             font.Size(add, fontSize);
             container.Controls.Add(add);

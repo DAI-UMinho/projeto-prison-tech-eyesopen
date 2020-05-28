@@ -5,7 +5,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 
-
 namespace PDAI
 {
     class I_Account
@@ -37,13 +36,9 @@ namespace PDAI
         bool autoCheck, breakAction;
         List<string> allPrivileges;
         string user, pass, privilegeRole;
-       
 
         public I_Account(AccountItem accountItem)
         {
-
-            string[] pictures = { "delete.png", "log1.jpg", "log2.jpg" };
-
             this.accountItem = accountItem;
 
             font = new Font_Class();
@@ -76,9 +71,7 @@ namespace PDAI
 
         public void Open()
         {
-
-
-            string[] pictures = { "delete.png", "log1.jpg", "log2.jpg" };
+          
 
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 30, container.Height * 1 / 20);
@@ -103,8 +96,6 @@ namespace PDAI
                 photo.Controls.Add(ladicionarImg);
             }
 
-          
-            
 
 
 
@@ -186,10 +177,7 @@ namespace PDAI
         }
 
 
-
-        
-    
-    private void credentials_Click(object sender, EventArgs e)
+        private void credentials_Click(object sender, EventArgs e)
         {
             user = "user" + accountItem.id;
             Random random = new Random();

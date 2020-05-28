@@ -175,25 +175,4 @@
   <data name="papel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\papel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Dai1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dai1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Dai1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Dai1.1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="_100476609_2918552011592069_8177699443336806400_n" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\100476609_2918552011592069_8177699443336806400_n.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Homi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Homi.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="log3png" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\log3png.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Violencia_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Violencia-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="xixa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\xixa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
 </root>
