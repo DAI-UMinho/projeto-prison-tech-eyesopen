@@ -32,7 +32,7 @@ namespace PDAI
         ComboBox cbMaritalStatus;
         Select count = new Select();
         Button b, guardar, addImg;
-        Label l, lFullName, lBirthDate, lCC, lMaritalStatus;
+        Label l, lFullName, lBirthDate, lCC, lMaritalStatus,titulo;
         ListView lv;
         Font_Class font;
         public static String select;
@@ -235,7 +235,10 @@ namespace PDAI
 
         public void Open()
         {
-            listPanel = new Panel();
+            font = new Font_Class();
+
+                   
+                    listPanel = new Panel();
             container.Controls.Add(listPanel);
             listPanel.Location = new Point((container.Width / 5), (container.Height / 14));
             listPanel.Size = new Size(993, 800);
@@ -252,6 +255,10 @@ namespace PDAI
             //tabela.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             System.Diagnostics.Debug.WriteLine(Application.StartupPath);
             createTable();
+
+
+         
+
         }
 
         private void Guardar_Click(object sender, EventArgs e)

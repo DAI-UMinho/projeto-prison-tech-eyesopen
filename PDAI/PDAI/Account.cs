@@ -388,6 +388,7 @@ namespace PDAI
                 statisticsForm.BringToFront();
                 statisticsForm.Show();
                 pictureBox1.Hide();
+               
 
             }
 

@@ -49,7 +49,7 @@ namespace PDAI
             this.callback = callback;
 
             photo.Size = new Size(250, 250);
-            photo.Location = new Point(container.Width * 1 / 30, container.Height * 2 / 20);
+            photo.Location = new Point(container.Width * 1 / 30, container.Height * 3/ 20);
             container.Controls.Add(photo);
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
@@ -194,6 +194,11 @@ namespace PDAI
             registration.Text = "Registar";
             font.Size(registration, fontSize);
             container.Controls.Add(registration);
+            registration.Image = Properties.Resources.adicionar;
+            registration.ImageAlign = ContentAlignment.MiddleLeft;
+            registration.TextAlign = ContentAlignment.MiddleRight;
+            
+            registration.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
             registration.Click += new EventHandler(Registration_Click);
         }
 

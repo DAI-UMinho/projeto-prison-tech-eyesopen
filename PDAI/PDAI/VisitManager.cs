@@ -23,7 +23,7 @@ namespace PDAI
         TableLayoutPanel tabela;
         Select count = new Select();
         Button b;
-        Label l, ldata, lId, lFullName, tFullName, lVisitDate, tVisitDate, lPrisionerVisited, cbPrisionerVisited;
+        Label l, ldata, lId, lFullName, tFullName, lVisitDate, tVisitDate, lPrisionerVisited, cbPrisionerVisited, titulo;
         ListView lv;
         Font_Class font;
         public static String select;
@@ -82,6 +82,8 @@ namespace PDAI
                 lId.BackColor = Color.Transparent;
                 lId.Dock = DockStyle.Left;
                 lId.Visible = false;
+               
+                
 
                 ldata.Name = "labelData" + i;
                 l.Name = "labelNome" + i;
@@ -125,6 +127,8 @@ namespace PDAI
             editPanelBorder.Size = new Size(700, 600);
             editPanelBorder.BackColor = Color.Black;
             editPanelBorder.SendToBack();
+
+            
 
             editPanel = new Panel();
             editPanelBorder.Controls.Add(editPanel);
@@ -202,9 +206,22 @@ namespace PDAI
 
         public void Open()
         {
+            font = new Font_Class();
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Consultar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
+            
+
             listPanel = new Panel();
             container.Controls.Add(listPanel);
-            listPanel.Location = new Point((container.Width / 5), (container.Height / 14));
+            listPanel.Location = new Point((container.Width / 8), (container.Height / 8));
             listPanel.Size = new Size(993, 800);
             listPanel.BackColor = Color.White;
 

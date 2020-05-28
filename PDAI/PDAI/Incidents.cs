@@ -116,7 +116,12 @@ namespace PDAI
             font.Size(register, fontSize);
             container.Controls.Add(register);
             register.Click += new EventHandler(Register_Click);
-            register.BackColor = color;
+            /*egister.BackColor = color;*/
+            register.Image = Properties.Resources.adicionar;
+           register.ImageAlign = ContentAlignment.MiddleLeft;
+            register.TextAlign = ContentAlignment.MiddleRight;
+
+            register.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
 
             add = new Button();
             add.Size = new Size(150, 60);

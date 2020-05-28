@@ -19,7 +19,7 @@ namespace PDAI
         Font_Class font;
         Panel visit_interface;
         PictureBox photo;
-        Label lFullName, lVisitDate, lCC, lPrisionerVisited;
+        Label lFullName, lVisitDate, lCC, lPrisionerVisited, titulo;
         TextBox tFullName, tCC;
         ComboBox cbPrisionerVisited;
         DateTimePicker tVisitDate;
@@ -76,6 +76,17 @@ namespace PDAI
             container.Controls.Add(tFullName);
 
 
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Registar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
+            
+
 
             lVisitDate = new Label();
             lVisitDate.Size = new Size(tFullName.Width, tFullName.Height);
@@ -120,8 +131,12 @@ namespace PDAI
             font.Size(registration, fontSize);
             container.Controls.Add(registration);
             registration.Click += new EventHandler(Registration_Click);
-            registration.BackColor = Color.FromArgb(127, 127, 127);
-            registration.ForeColor = Color.White;
+            registration.Image = Properties.Resources.adicionar;
+            registration.ImageAlign = ContentAlignment.MiddleLeft;
+            registration.TextAlign = ContentAlignment.MiddleRight;
+
+            registration.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
+            //registration.ForeColor = Color.White;
             registration.Cursor = Cursors.Hand;
         }
     }
