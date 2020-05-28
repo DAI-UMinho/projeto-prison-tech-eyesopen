@@ -55,12 +55,35 @@ namespace PDAI
             font.Size(label2, 15);
             label2.Text = db.select.idIncident().Count.ToString();
             label2.ForeColor = Color.White;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
         {
-            //limpar dados todos
             incidents_month.Series.Clear();
+            incidents_month.Series.Add("Ocorrencias");
+            List<object> var = new List<object>();
+            var = db.select.OcorrenciaMes((int)comboBox1.SelectedItem);
+
+            //insere meses com dados e depois preenche restantes meses a zero
+            bool flag = false;
+            for (int i = 1; i < 13; i++)
+            {
+                for (int j = 0; j < var.Count(); j += 2)
+                {
+                    if ((int)var.ElementAt(j) == i)
+                    {
+                        flag = true;
+                        incidents_month.Series["Ocorrencias"].Points.AddXY((int)var.ElementAt(j + 1), "" + var.ElementAt(j));
+                        break;
+                    }
+                }
+                if (flag == false)
+                {
+                    incidents_month.Series["Ocorrencias"].Points.AddXY(i, "0");
+                }
+                flag = false;
+            }
         }
 
         private void gunaLabel1_Click(object sender, EventArgs e)
@@ -148,9 +171,10 @@ namespace PDAI
             double comeco = (page.Width - xfoto.PointWidth) / 2;
             gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
             // Save the document...
-            string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
-
-            document.Save(filename);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
+            
+            document.Save(path + "\\" + input + ".pdf");
             MessageBox.Show("Pdf criado com sucesso");
         }
 
@@ -197,7 +221,17 @@ namespace PDAI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
 
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

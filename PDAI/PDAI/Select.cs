@@ -841,6 +841,114 @@ namespace PDAI
             return var;
         }
 
+        public List<object> GetInterveniente(int id)
+        {
+
+            List<object> var = new List<object>();
+            string sql = "select nomeCompleto " +
+                         "from Pessoa where id in " +
+                         "(select idPessoa from Ocorrencia where id = " + id + ");";
+
+            try
+            {
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+
+                }
+
+            }
+
+            catch (SqlException es)
+            {
+                System.Windows.Forms.MessageBox.Show("" + es);
+            }
+            finally
+            {
+                sqlConn.Close();
+                reader.Close();
+            }
+
+
+            return var;
+
+        }
+
+        public List<object> GetMaisIntervenientes(int id)
+        {
+
+            List<object> var = new List<object>();
+            string sql = "select nomeCompleto " +
+                         "from Pessoa where id in " +
+                         "(select idPessoa from Reconhecimento where idOcorrencia = " + id + ");";
+
+            try
+            {
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+
+                }
+                
+            }
+
+            catch (SqlException es)
+            {
+                System.Windows.Forms.MessageBox.Show("" + es);
+            }
+            finally
+            {
+                sqlConn.Close();
+                reader.Close();
+            }
+            
+
+            return var;
+
+        }
+
+        public List<object> getDescricao(int id)
+        {
+            List<object> var = new List<object>();
+            string sql = "select descricao " +
+                "from Ocorrencia " +
+                "where id = " + id + ";";
+            try
+            {
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var.Add(reader[0]);
+                    
+                }
+
+            }
+            
+
+            catch (SqlException es)
+            {
+                System.Windows.Forms.MessageBox.Show("" + es);
+            }
+            finally
+            {
+                sqlConn.Close();
+                reader.Close();
+                
+            }
+            return var;
+        }
+
         public List<object> VisualizarOcorrencia()
         {
             List<object> var = new List<object>();
@@ -848,6 +956,7 @@ namespace PDAI
                 "from Ocorrencia o, Pessoa p " +
                 "where o.idPessoa = p.id " +
                 "order by o.dataOcorrencia DESC;";
+
 
             try
             {
@@ -860,6 +969,7 @@ namespace PDAI
                     var.Add(reader[0]);
                     var.Add(reader[1]);
                     var.Add(reader[2]);
+                    var.Add(reader[3]);
 
                 }
                 sqlConn.Close();

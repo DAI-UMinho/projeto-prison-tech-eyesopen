@@ -37,7 +37,10 @@ namespace PDAI
             {
                 
                 string texto = "";
-                dataGridView1.SelectedCells[0].OwningRow.Selected = true;
+                for (int i = 0; i < dataGridView1.SelectedCells.Count; i++)
+                {
+                    dataGridView1.SelectedCells[i].OwningRow.Selected = true;
+                }
                 foreach (DataGridViewRow dgv in dataGridView1.SelectedRows)
                 {
                     if (texto == "")
