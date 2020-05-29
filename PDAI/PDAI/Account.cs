@@ -4,14 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Timers;
+using System.IO;
+using Emgu.CV;
+using Emgu.CV.Face;
+using Emgu.CV.Structure;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge.Controls;
 
 namespace PDAI
 {
     class Account
     {
         public Panel container { get; }
-        public int locationX { set { container.Location = new Point(value, container.Location.Y); } get { return container.Location.X; } }
-        public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
+        public int locationX { set { container.Location = new System.Drawing.Point(value, container.Location.Y); } get { return container.Location.X; } }
+        public int locationY { set { container.Location = new System.Drawing.Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
         string username, password;
@@ -26,6 +35,16 @@ namespace PDAI
         string privilegeRole;
         List<string> stringObject;
         Object disposeObject;
+        AForge.Controls.PictureBox pictureBox1, logo;
+        public List<Bitmap> image { get; set; }
+        System.Timers.Timer timer1;
+        Label titulo;
+        int fontSize = 13;
+        Font_Class font;
+
+
+
+        int i = 0;
 
         public Account()
         {
@@ -77,6 +96,18 @@ namespace PDAI
 
         public void Open(Form form, int width, int height) 
         {
+            font = new Font_Class();
+            image = new List<Bitmap>();
+            image.Add(Properties.Resources.log3png);
+            image.Add(Properties.Resources.xixa);
+            //image.Add(Properties.Resources.log1);
+            image.Add(Properties.Resources.Violencia_1);
+            image.Add(Properties.Resources.Homi);
+
+
+            logo = new AForge.Controls.PictureBox();
+            pictureBox1 = new AForge.Controls.PictureBox();
+
             this.form = form;
             formContainerWidth = width;
             formContainerHeight = height;
@@ -89,9 +120,27 @@ namespace PDAI
             menu.Open();
 
             form.Controls.Add(container);
-            container.Location = new Point(0, 0);
+            container.Location = new System.Drawing.Point(0, 0);
             container.Size = new Size(width, height);
             container.Controls.Add(menu.container);
+
+            pictureBox1.Size = new Size(1100, 600);
+            pictureBox1.Location = new System.Drawing.Point(320, 50);
+            container.Controls.Add(pictureBox1);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.BorderStyle = BorderStyle.Fixed3D;
+            pictureBox1.BackColor = Color.White;
+
+            pictureBox1.Image = image[image.Count - 4];
+
+
+            System.Timers.Timer timer1 = new System.Timers.Timer();
+            timer1 = new System.Timers.Timer(5000);
+            // Hook up the Elapsed event for the timer. 
+            timer1.Elapsed += new ElapsedEventHandler(timer1_Tick);
+
+            timer1.AutoReset = true;
+            timer1.Enabled = true;
 
             if (VerifiedAdmin())
             {
@@ -138,6 +187,22 @@ namespace PDAI
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+
+
+            pictureBox1.Image = image[i];
+            if (i == image.Count - 1)
+            {
+                i = 0;
+            }
+            else
+            {
+                i++;
+            }
+
+        }
 
 
 
@@ -270,10 +335,11 @@ namespace PDAI
                     statisticsForm.FormBorderStyle = FormBorderStyle.None;
                     statisticsForm.Width = container.Width - menu.width;
                     statisticsForm.Height = container.Height;
-                    statisticsForm.Location = new Point(menu.locationX + menu.width, 23);
+                    statisticsForm.Location = new System.Drawing.Point(menu.locationX + menu.width, 23);
                     container.Controls.Add(statisticsForm);
                     statisticsForm.BringToFront();
                     statisticsForm.Show();
+                    pictureBox1.Hide();
 
             }
 
@@ -289,6 +355,7 @@ namespace PDAI
                 person.locationX = menu.locationX + menu.width;
                 person.locationY = 0;
                 person.Open(true,false);
+                pictureBox1.Hide();
 
             }
 
@@ -304,6 +371,7 @@ namespace PDAI
                 person.locationX = menu.locationX + menu.width;
                 person.locationY = 0;
                 person.Open(false,false);
+                pictureBox1.Hide();
 
             }
 
@@ -319,6 +387,7 @@ namespace PDAI
                 accountCredentials.locationX = menu.locationX + menu.width;
                 accountCredentials.locationY = 0;
                 accountCredentials.Open();
+                pictureBox1.Hide();
 
             }
 
@@ -333,6 +402,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.viewEmployee);
+                pictureBox1.Hide();
 
             }
 
@@ -348,6 +418,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.editEmployee);
+                pictureBox1.Hide();
 
             }
 
@@ -364,6 +435,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.deleteEmployee);
+                pictureBox1.Hide();
 
             }
 
@@ -380,6 +452,7 @@ namespace PDAI
                 incidents.locationX = menu.locationX + menu.width;
                 incidents.locationY = 0;
                 incidents.Open();
+                pictureBox1.Hide();
 
             }
 
@@ -395,6 +468,7 @@ namespace PDAI
                 prisoner.locationX = menu.locationX + menu.width;
                 prisoner.locationY = 0;
                 prisoner.Open(option.viewPrisoner);
+                pictureBox1.Hide();
 
 
             }
@@ -419,6 +493,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.editPrisoner);
+                pictureBox1.Hide();
 
             }
 
@@ -442,6 +517,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.deletePrisoner);
+                pictureBox1.Hide();
 
             }
 
@@ -456,6 +532,7 @@ namespace PDAI
                 camGallery.locationX = menu.locationX + menu.width;
                 camGallery.locationY = 0;
                 camGallery.Open();
+                pictureBox1.Hide();
 
             }
 
@@ -472,6 +549,7 @@ namespace PDAI
                 visit.locationX = menu.locationX + menu.width;
                 visit.locationY = 0;
                 visit.Open();
+                pictureBox1.Hide();
 
             }
 
@@ -486,6 +564,7 @@ namespace PDAI
                 VM.locationX = menu.locationX + menu.width;
                 VM.locationY = 0;
                 VM.Open();
+                pictureBox1.Hide();
 
             }
 
@@ -500,7 +579,7 @@ namespace PDAI
                 dv.locationX = menu.locationX + menu.width;
                 dv.locationY = 0;
                 dv.Open();
-
+                pictureBox1.Hide();
 
             }
 
@@ -515,7 +594,7 @@ namespace PDAI
                 ev.locationX = menu.locationX + menu.width;
                 ev.locationY = 0;
                 ev.Open();
-
+                pictureBox1.Hide();
 
             }
 
@@ -530,6 +609,7 @@ namespace PDAI
                 vcnorecognition.locationX = menu.locationX + menu.width;
                 vcnorecognition.locationY = 0;
                 vcnorecognition.Open();
+                pictureBox1.Hide();
 
 
             }
@@ -548,10 +628,11 @@ namespace PDAI
                 VS.FormBorderStyle = FormBorderStyle.None;
                 VS.Width = container.Width - menu.width;
                 VS.Height = container.Height;
-                VS.Location = new Point(menu.locationX + menu.width, 23);
+                VS.Location = new System.Drawing.Point(menu.locationX + menu.width, 23);
                 container.Controls.Add(VS);
                // VS.BringToFront();
                 VS.Show();
+                pictureBox1.Hide();
 
 
             }
@@ -567,10 +648,11 @@ namespace PDAI
                 ED.FormBorderStyle = FormBorderStyle.None;
                 ED.Width = container.Width - menu.width;
                 ED.Height = container.Height;
-                ED.Location = new Point(menu.locationX + menu.width, 23);
+                ED.Location = new System.Drawing.Point(menu.locationX + menu.width, 23);
                 container.Controls.Add(ED);
                 //ED.BringToFront();
                 ED.Show();
+                pictureBox1.Hide();
 
             }
 
@@ -585,10 +667,11 @@ namespace PDAI
                 AP.FormBorderStyle = FormBorderStyle.None;
                 AP.Width = container.Width - menu.width;
                 AP.Height = container.Height;
-                AP.Location = new Point(menu.locationX + menu.width, 23);
+                AP.Location = new System.Drawing.Point(menu.locationX + menu.width, 23);
                 container.Controls.Add(AP);
                 AP.BringToFront();
                 AP.Show();
+                pictureBox1.Hide();
 
             }
 

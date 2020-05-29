@@ -25,6 +25,8 @@ namespace PDAI
         option setOption;
         List<AccountItem> accountListItems;
         Dictionary<Button, AccountItem> getAccountItem;
+        Label titulo;
+        int fontSize = 13;
 
         public I_PersonView()
         {
@@ -41,6 +43,48 @@ namespace PDAI
         public void Open(option option)
         {
             setOption = option;
+
+            switch (option)
+            {
+                case option.viewEmployee:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Consultar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.editEmployee:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Editar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.deleteEmployee:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Apagar Funcionário";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+
+
+            }
 
 
             personList = new CustomizableList();
@@ -125,7 +169,10 @@ namespace PDAI
                     MessageBox.Show("Editar recluso");
                     break;
                 case "deletePrisoner":
-                    MessageBox.Show("Apagar recluso");
+                    if (MessageBox.Show("Tem certeza que deseja eliminar o FUncionnario?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                    {
+                        MessageBox.Show("Apagar recluso");
+                    }
                     break;
             }
             
