@@ -17,7 +17,7 @@ namespace PDAI
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
 
         Font_Class font;
-        Panel visit_interface;
+        Panel visit_interface, editPanelBorder,editPanel;
         PictureBox photo;
         Label lFullName, lVisitDate, lCC, lPrisionerVisited, titulo;
         TextBox tFullName, tCC;
@@ -60,20 +60,42 @@ namespace PDAI
 
         public void Open()
         {
+            
+
+            editPanelBorder = new Panel();
+            container.Controls.Add(editPanelBorder);
+            editPanelBorder.Location = new Point((container.Width / 5), (container.Width / 14));
+            //editPanelBorder.Size = new Size(1000, 707);
+            editPanelBorder.Size = new Size(750, 600);
+            editPanelBorder.BackColor = Color.Black;
+            editPanelBorder.SendToBack();
+
+            editPanel = new Panel();
+            editPanelBorder.Controls.Add(editPanel);
+            editPanel.Location = new Point((container.Width / 5), (container.Width / 14));
+            //editPanel.Size = new Size(993, 700);
+            editPanel.Size = new Size(750, 600);
+            editPanel.BackColor = Color.FromArgb(242, 242, 242);
+            editPanel.BringToFront();
+            editPanel.Dock = DockStyle.Fill;
 
             lFullName = new Label();
-            lFullName.Size = new Size(500, 20);
+            lFullName.Size = new Size(500, 25);
             lFullName.Location = new Point(container.Width * 1 / 20, container.Height * 1 / 10);
             lFullName.Text = "Nome Completo";
             font.Size(lFullName, fontSize);
-            container.Controls.Add(lFullName);
+            lFullName.Font = new Font("SansSerif", 15, FontStyle.Bold);
+            //container.Controls.Add(lFullName);
+            editPanel.Controls.Add(lFullName);
 
 
             tFullName = new TextBox();
             tFullName.Size = new Size(lFullName.Width, lFullName.Height);
-            tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height);
+            tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height + 10);
             font.Size(tFullName, fontSize);
-            container.Controls.Add(tFullName);
+            //container.Controls.Add(tFullName);
+            editPanel.Controls.Add(tFullName);
+
 
 
             titulo = new Label();
@@ -82,7 +104,7 @@ namespace PDAI
             titulo.Location = new Point(450, 0);
             font.Size(titulo, fontSize);
             titulo.Text = "Registar Visita";
-            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.Font = new Font("Cambria", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
             
@@ -92,30 +114,38 @@ namespace PDAI
             lVisitDate.Size = new Size(tFullName.Width, tFullName.Height);
             lVisitDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + 40);
             lVisitDate.Text = "Data da Visita";
+           
             font.Size(lVisitDate, fontSize);
-            container.Controls.Add(lVisitDate);
+            lVisitDate.Font = new Font("SansSerif", 15, FontStyle.Bold);
+            //container.Controls.Add(lVisitDate);
+            editPanel.Controls.Add(lVisitDate);
 
 
             tVisitDate = new DateTimePicker();
             tVisitDate.Size = new Size(150, lFullName.Height);
-            tVisitDate.Location = new Point(lVisitDate.Location.X, lVisitDate.Location.Y + lVisitDate.Height);
+            tVisitDate.Location = new Point(lVisitDate.Location.X, lVisitDate.Location.Y + lVisitDate.Height + 10);
             tVisitDate.Format = DateTimePickerFormat.Short;
             font.Size(tVisitDate, fontSize);
-            container.Controls.Add(tVisitDate);
+            //container.Controls.Add(tVisitDate);
+            editPanel.Controls.Add(tVisitDate);
 
             lPrisionerVisited = new Label();
             lPrisionerVisited.Size = new Size(tVisitDate.Width, tVisitDate.Height);
             lPrisionerVisited.Location = new Point(tVisitDate.Location.X, tVisitDate.Location.Y + tVisitDate.Height + 40);
             lPrisionerVisited.Text = "Recluso Visitado";
+            
             font.Size(lPrisionerVisited, fontSize);
-            container.Controls.Add(lPrisionerVisited);
+            lPrisionerVisited.Font = new Font("SansSerif", 15, FontStyle.Bold);
+            //container.Controls.Add(lPrisionerVisited);
+            editPanel.Controls.Add(lPrisionerVisited);
 
             cbPrisionerVisited = new ComboBox();
             cbPrisionerVisited.Size = new Size(200, lFullName.Height);
             cbPrisionerVisited.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbPrisionerVisited.Location = new Point(lPrisionerVisited.Location.X, lPrisionerVisited.Location.Y + lPrisionerVisited.Height);
+            cbPrisionerVisited.Location = new Point(lPrisionerVisited.Location.X, lPrisionerVisited.Location.Y + lPrisionerVisited.Height + 10);
             font.Size(cbPrisionerVisited, fontSize);
-            container.Controls.Add(cbPrisionerVisited);
+            //container.Controls.Add(cbPrisionerVisited);
+            editPanel.Controls.Add(cbPrisionerVisited);
             names = db.select.Recluso();
             for (int i = 0; i < names.Count; i++)
             {
@@ -126,16 +156,17 @@ namespace PDAI
 
             registration = new Button();
             registration.Size = new Size(150, 60);
-            registration.Location = new Point(cbPrisionerVisited.Location.X, cbPrisionerVisited.Location.Y + cbPrisionerVisited.Height + 50);
+            registration.Location = new Point(cbPrisionerVisited.Location.X + 200, cbPrisionerVisited.Location.Y + cbPrisionerVisited.Height + 100);
             registration.Text = "Registar";
             font.Size(registration, fontSize);
-            container.Controls.Add(registration);
+            //container.Controls.Add(registration);
             registration.Click += new EventHandler(Registration_Click);
-            registration.Image = Properties.Resources.adicionar;
-            registration.ImageAlign = ContentAlignment.MiddleLeft;
-            registration.TextAlign = ContentAlignment.MiddleRight;
+            
+            registration.TextAlign = ContentAlignment.MiddleCenter;
+            editPanel.Controls.Add(registration);
+          
 
-            registration.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
+            //registration.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
             //registration.ForeColor = Color.White;
             registration.Cursor = Cursors.Hand;
         }

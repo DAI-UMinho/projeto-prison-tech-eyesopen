@@ -141,7 +141,9 @@ namespace PDAI
 
 
             pictureBox1.Size = new Size(1100,600);
-            pictureBox1.Location = new System.Drawing.Point(320,50);
+            pictureBox1.Location = new System.Drawing.Point(container.Width * 8/ 38, container.Height * 3/ 55);
+            //pictureBox1. = container.Width * 9 / 10;
+            //pictureBox1.height = container.Height * 8 / 11;
             container.Controls.Add(pictureBox1);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
