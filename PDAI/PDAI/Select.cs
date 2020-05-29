@@ -1130,7 +1130,31 @@ namespace PDAI
             }
 
             return var;
+        }
 
+        public List<object> selecPerson(string id)
+        {
+
+            List<object> person = new List<object>();
+            try
+            {
+                sql = "select nomeCompleto from Pessoa where id='" + id + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    person.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return person;
         }
 
     }

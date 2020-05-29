@@ -90,6 +90,7 @@ namespace PDAI
             tVisitDate.Size = new Size(150, lFullName.Height);
             tVisitDate.Location = new Point(lVisitDate.Location.X, lVisitDate.Location.Y + lVisitDate.Height);
             tVisitDate.Format = DateTimePickerFormat.Short;
+            tVisitDate.MaxDate = DateTime.Today;
             font.Size(tVisitDate, fontSize);
             container.Controls.Add(tVisitDate);
 
