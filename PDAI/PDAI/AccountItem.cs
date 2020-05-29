@@ -181,6 +181,9 @@ namespace PDAI
 
                     accountButton.Image = Properties.Resources.delete; accountButton.Name = "" + option.deletePrisoner;
                     break;
+                case option.viewPrisonGuard:
+                    accountButton.Image = Properties.Resources.papel; accountButton.Name = "" + option.viewPrisonGuard;
+                    break;
             }
             
            

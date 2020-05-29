@@ -15,6 +15,7 @@ namespace PDAI
         public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
+        public string pageTitle { set;get; }
 
         Font_Class font;
         Database database;
@@ -119,7 +120,7 @@ namespace PDAI
             titulo.Size = new Size(700, 100);
             titulo.Location = new Point(450, 0);
             font.Size(titulo, fontSize);
-            titulo.Text = "Registar Recluso";
+            titulo.Text = pageTitle;
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
@@ -158,19 +159,19 @@ namespace PDAI
                 font.Size(lRole, fontSize);
                 container.Controls.Add(lRole);
 
-                titulo.Hide();
+                //titulo.Hide();
 
-                tituloFunc = new Label();
-                container.Controls.Add(tituloFunc);
-                tituloFunc.Size = new Size(700, 100);
-                tituloFunc.Location = new Point(450, 0);
-                font.Size(tituloFunc, fontSize);
-                tituloFunc.Text = "Registar Funcionário";
-                tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-                tituloFunc.ForeColor = Color.DarkBlue;
-                tituloFunc.SendToBack();
-                //nome.BorderStyle = BorderStyle.None;
-                //nome.BackColor = color;
+                //tituloFunc = new Label();
+                //container.Controls.Add(tituloFunc);
+                //tituloFunc.Size = new Size(700, 100);
+                //tituloFunc.Location = new Point(450, 0);
+                //font.Size(tituloFunc, fontSize);
+                //tituloFunc.Text = pageTitle;
+                //tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                //tituloFunc.ForeColor = Color.DarkBlue;
+                //tituloFunc.SendToBack();
+                ////nome.BorderStyle = BorderStyle.None;
+                ////nome.BackColor = color;
 
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);
@@ -200,7 +201,7 @@ namespace PDAI
         }
 
 
-        public void Load(AccountItem accountItem)
+        public void Load(AccountItem accountItem, option value)
         {
             bitmapImage = new Bitmap(accountItem.imagePath);
             photo.Image = bitmapImage;
@@ -211,6 +212,20 @@ namespace PDAI
             // tBirthDate.Text = 
             cbMaritalStatus.Text = accountItem.maritalStatus.Text;
             if(employee) cbRole.Text = accountItem.employeeRole.Text;
+
+            switch (value)
+            {
+                case option.view:
+                    registration.Visible = false;
+                    break;
+
+                case option.edit:
+                    registration.Text = "Editar";
+                    break;
+
+            }
+
+
         }
 
 
