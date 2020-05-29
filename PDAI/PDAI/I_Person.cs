@@ -95,6 +95,7 @@ namespace PDAI
             tBirthDate.Size = new Size(150, lFullName.Height);
             tBirthDate.Location = new Point(lBirthDate.Location.X, lBirthDate.Location.Y + lBirthDate.Height);
             tBirthDate.Format = DateTimePickerFormat.Short;
+            tBirthDate.MaxDate = new DateTime(DateTime.Today.Year - 18, DateTime.Today.Month, DateTime.Today.Day);
             font.Size(tBirthDate, fontSize);
             container.Controls.Add(tBirthDate);
 
