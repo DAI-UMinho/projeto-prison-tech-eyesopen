@@ -372,6 +372,7 @@ namespace PDAI
             else if (disposeObject.GetType() == typeof(viewCamNRec)) ((viewCamNRec)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(Edit_Incidents)) ((Edit_Incidents)disposeObject).Dispose();
             else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
+            else if (disposeObject.GetType() == typeof(ApagarOcorrencia)) ((ApagarOcorrencia)disposeObject).Dispose();
 
 
             if (((Button)sender).Name == "Privilégio Estatística-Consultar" || val == "Privilégio Estatística-Consultar")

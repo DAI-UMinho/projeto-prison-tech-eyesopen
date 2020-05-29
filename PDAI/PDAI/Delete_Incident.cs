@@ -14,6 +14,7 @@ namespace PDAI
     {
         Database db;
         List<object> var;
+        
         public ApagarOcorrencia()
         {
             InitializeComponent();
@@ -23,8 +24,8 @@ namespace PDAI
 
             PreencherDataGrid();
             button1.Enabled = false;
-            Teste();
-                    }
+            
+        }
 
         public void PreencherDataGrid()
         {
@@ -48,13 +49,6 @@ namespace PDAI
             }
         }
 
-        public void Teste()
-        {
-            while(dataGridView1.SelectedRows != null)
-            {
-                button1.Enabled = true;
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -65,6 +59,11 @@ namespace PDAI
             MessageBox.Show("Ocorrencia Eliminada");
             dataGridView1.Rows.Clear();
             PreencherDataGrid();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
         }
     }
 }
