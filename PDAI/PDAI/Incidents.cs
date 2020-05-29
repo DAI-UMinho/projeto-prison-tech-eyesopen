@@ -21,8 +21,9 @@ namespace PDAI
         Database database;
         RichTextBox description;
         RichTextBox pList;
+        RichTextBox motivo;
         string[] t = new string[0];
-        Label lDescription,titulo;
+        Label lDescription,titulo, lMotivo;
         DateTimePicker date;
         DateTimePicker hour;
         Label lDate;
@@ -69,10 +70,23 @@ namespace PDAI
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
 
+            lMotivo = new Label();
+            container.Controls.Add(lMotivo);
+            lMotivo.Size = new Size(100, 35);
+            lMotivo.Location = new Point(350, 280);
+            lMotivo.Text = "Motivo";
+            lMotivo.BorderStyle = BorderStyle.None;
+            font.Size(lMotivo, fontSize);
+
+            motivo = new RichTextBox();
+            container.Controls.Add(motivo);
+            motivo.Size = new Size(600, 40);
+            motivo.Location = new Point(350, 320);
+
             lDescription = new Label();
             container.Controls.Add(lDescription);
             lDescription.Size = new Size(100, 50);
-            lDescription.Location = new Point(350, 355);
+            lDescription.Location = new Point(350, 373);
             lDescription.Text = "Descrição";
             lDescription.BorderStyle = BorderStyle.None;
             font.Size(lDescription, fontSize);
@@ -80,13 +94,13 @@ namespace PDAI
             date = new DateTimePicker();
             container.Controls.Add(date);
             date.Size = new Size(200, 50);
-            date.Location = new Point(350, 295);
+            date.Location = new Point(350, 250);
             date.Format = DateTimePickerFormat.Short;
 
             hour = new DateTimePicker();
             container.Controls.Add(hour);
             hour.Size = new Size(200, 50);
-            hour.Location = new Point(750, 295);
+            hour.Location = new Point(750, 250);
             hour.Format = DateTimePickerFormat.Custom;
             hour.CustomFormat = "HH:mm tt";
             hour.Value = DateTime.Now.Date;
@@ -95,7 +109,7 @@ namespace PDAI
             lDate = new Label();
             container.Controls.Add(lDate);
             lDate.Size = new Size(100, 50);
-            lDate.Location = new Point(350, 250);
+            lDate.Location = new Point(350, 215);
             lDate.Text = "Data";
             lDate.BorderStyle = BorderStyle.None;
             font.Size(lDate, fontSize);
@@ -103,7 +117,7 @@ namespace PDAI
             lHour = new Label();
             container.Controls.Add(lHour);
             lHour.Size = new Size(100, 50);
-            lHour.Location = new Point(750, 250);
+            lHour.Location = new Point(750, 215);
             lHour.Text = "Hora";
             lHour.BorderStyle = BorderStyle.None;
             font.Size(lHour, fontSize);
@@ -139,7 +153,7 @@ namespace PDAI
                 data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
                     ":" + hour.Value.Second;
 
-                string motivo = lDescription.Text;
+                string motivu = motivo.Text;
                 string descricao = description.Text;
                 int codigoOcorrencia = 0; 
                 try
@@ -148,7 +162,7 @@ namespace PDAI
                     {
                         if (descricao.Length <= 100)
                         {
-                            database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                            database.insert.Ocorrencia(idPessoa, data, motivu, descricao, codigoOcorrencia);
                             MessageBox.Show("Registo efetuado");
                             if(idPessoas.Length>2)
                                 {
