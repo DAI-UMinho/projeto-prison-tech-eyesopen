@@ -1267,6 +1267,31 @@ namespace PDAI
             return person;
         }
 
+        public List<object> idIncident()
+        {
+
+            List<object> id = new List<object>();
+            try
+            {
+                sql = "select id from Ocorrencia";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    id.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return id;
+        }
+
     }
 }
 
