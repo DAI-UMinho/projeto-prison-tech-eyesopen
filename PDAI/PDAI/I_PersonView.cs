@@ -106,10 +106,21 @@ namespace PDAI
                     viewPerson.container.BringToFront();
                     break;
                 case "editEmployee":
-                    MessageBox.Show("Editar Funcionario");
+                    I_Person editPerson = new I_Person();
+                    container.Controls.Add(editPerson.container);
+                    editPerson.width = container.Width;
+                    editPerson.height = container.Height;
+                    editPerson.locationY = 0;
+                    editPerson.Open(true, false);
+                    editPerson.Load(getAccountItem[((Button)sender)]);
+                    editPerson.container.BringToFront();
                     break;
                 case "deleteEmployee":
-                    MessageBox.Show("Apagar Funcionario");
+                    DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende eliminar o funcionário?", "Eliminar funcionário", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        MessageBox.Show("\"Eliminado com sucesso.\"");
+                    }
                     break;
                 case "viewPrisoner":
                     I_Person viewPrisoner = new I_Person();
@@ -122,10 +133,22 @@ namespace PDAI
                     viewPrisoner.container.BringToFront();
                     break;
                 case "editPrisoner":
-                    MessageBox.Show("Editar recluso");
+                    I_Person editPrisoner = new I_Person();
+                    container.Controls.Add(editPrisoner.container);
+                    editPrisoner.width = container.Width;
+                    editPrisoner.height = container.Height;
+                    editPrisoner.locationY = 0;
+                    editPrisoner.Open(false, false);
+                    editPrisoner.Load(getAccountItem[((Button)sender)]);
+                    editPrisoner.container.BringToFront();
+                    break;
                     break;
                 case "deletePrisoner":
-                    MessageBox.Show("Apagar recluso");
+                    dialogResult = MessageBox.Show("Tem a certeza que pretende eliminar o recluso?", "Eliminar funcionário", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        MessageBox.Show("\"Eliminado com sucesso.\"");
+                    }
                     break;
             }
             
