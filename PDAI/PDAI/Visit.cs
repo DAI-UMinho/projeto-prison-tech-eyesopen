@@ -19,7 +19,7 @@ namespace PDAI
         Font_Class font;
         Panel visit_interface;
         PictureBox photo;
-        Label lFullName, lVisitDate, lCC, lPrisionerVisited;
+        Label lFullName, lVisitDate, lCC, lPrisionerVisited, titulo;
         TextBox tFullName, tCC;
         ComboBox cbPrisionerVisited;
         DateTimePicker tVisitDate;
@@ -60,6 +60,7 @@ namespace PDAI
 
         public void Open()
         {
+            font = new Font_Class();
 
             lFullName = new Label();
             lFullName.Size = new Size(500, 20);
@@ -98,6 +99,16 @@ namespace PDAI
             lPrisionerVisited.Text = "Recluso Visitado";
             font.Size(lPrisionerVisited, fontSize);
             container.Controls.Add(lPrisionerVisited);
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Registar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
 
             cbPrisionerVisited = new ComboBox();
             cbPrisionerVisited.Size = new Size(200, lFullName.Height);

@@ -125,7 +125,7 @@ namespace PDAI
             container.Controls.Add(menu.container);
 
             pictureBox1.Size = new Size(1100, 600);
-            pictureBox1.Location = new System.Drawing.Point(320, 50);
+            pictureBox1.Location = new System.Drawing.Point(container.Width * 8 / 38, container.Height * 3 / 55);
             container.Controls.Add(pictureBox1);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
@@ -149,6 +149,7 @@ namespace PDAI
                 menu.AddItem("Alterar Credenciais", AccountCredentials, MenuPosition.top);
                 menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
                 AccountList(item, new EventArgs());
+                pictureBox1.Hide();
             }
             else 
             {
@@ -322,6 +323,7 @@ namespace PDAI
             else if (disposeObject.GetType() == typeof(viewCamNRec)) ((viewCamNRec)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(Edit_Incidents)) ((Edit_Incidents)disposeObject).Dispose();
             else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
+            else if (disposeObject.GetType() == typeof(ApagarOcorrencia)) ((ApagarOcorrencia)disposeObject).Dispose();
 
 
 
@@ -658,7 +660,7 @@ namespace PDAI
 
 
 
-            if (((Button)sender).Name == "Privilégio Ocorrência-Apagar" || val == "Privilégio Ocorrência-Apagar")
+            if (((Button)sender).Name == "Privilégio Ocorrência-Eliminar" || val == "Privilégio Ocorrência-Eliminar")
             {
 
                 ApagarOcorrencia AP = new ApagarOcorrencia();
@@ -674,9 +676,6 @@ namespace PDAI
                 pictureBox1.Hide();
 
             }
-
-
-
 
 
 

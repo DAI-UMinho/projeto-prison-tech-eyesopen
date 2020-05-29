@@ -23,8 +23,8 @@ namespace PDAI
 
             PreencherDataGrid();
             button1.Enabled = false;
-            Teste();
-                    }
+            //Teste();
+        }
 
         public void PreencherDataGrid()
         {
@@ -48,13 +48,13 @@ namespace PDAI
             }
         }
 
-        public void Teste()
+        /*public void Teste()
         {
             while(dataGridView1.SelectedRows != null)
             {
                 button1.Enabled = true;
             }
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {

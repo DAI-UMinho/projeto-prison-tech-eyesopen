@@ -181,7 +181,73 @@ namespace PDAI
            
 
             itemsTop.Add(pane);
-          
+
+
+            if (item == "Estatística")
+            {
+                itemName.Image = Properties.Resources.grafico;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Câmara")
+            {
+                itemName.Image = Properties.Resources.camera_de_seguranca;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Recluso")
+            {
+                itemName.Image = Properties.Resources.prisioneiro;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Funcionário")
+            {
+                itemName.Image = Properties.Resources.biologo;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Guarda")
+            {
+                itemName.Image = Properties.Resources.policial;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Visita")
+            {
+                itemName.Image = Properties.Resources.visita;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Ocorrência")
+            {
+                itemName.Image = Properties.Resources.assassinato;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (item == "Alerta")
+            {
+                itemName.Image = Properties.Resources.alerta;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (item == "Conta")
+            {
+                itemName.Image = Properties.Resources.do_utilizador;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
             return pane;
            
 
@@ -220,6 +286,183 @@ namespace PDAI
             //  item.Height = itemDefaultHeight;
 
             //subItemName.Click += new EventHandler(clickEvent);
+
+            if (subItem == "Privilégio Funcionário-Registar")
+            {
+                itemName.Image = Properties.Resources.mais__1_;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (subItem == "Privilégio Recluso-Registar")
+            {
+                itemName.Image = Properties.Resources.mais__1_;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+
+            }
+
+            else if (subItem == "Privilégio Visita-Registar")
+            {
+                itemName.Image = Properties.Resources.mais__1_;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+
+
+            else if (subItem == "Privilégio Ocorrência-Registar")
+            {
+                itemName.Image = Properties.Resources.mais__1_;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Conta-Registar")
+            {
+                itemName.Image = Properties.Resources.mais__1_;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (subItem == "Privilégio Ocorrência-Editar")
+            {
+                itemName.Image = Properties.Resources.lapis;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Funcionário-Editar")
+            {
+                itemName.Image = Properties.Resources.lapis;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Recluso-Editar")
+            {
+                itemName.Image = Properties.Resources.lapis;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+
+
+            else if (subItem == "Privilégio Recluso-Editar")
+            {
+                itemName.Image = Properties.Resources.lapis;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Visita-Editar")
+            {
+                itemName.Image = Properties.Resources.lapis;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Conta-Editar")
+            {
+                itemName.Image = Properties.Resources.lapis;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (subItem == "Privilégio Recluso-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+            else if (subItem == "Privilégio Estatística-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Funcionário-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Guarda-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Prisioneiro-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Visita-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Alerta-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Ocorrência-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Câmara-Consultar")
+            {
+                itemName.Image = Properties.Resources.portable_document_format;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Câmara-Consultar Deteção")
+            {
+                itemName.Image = Properties.Resources.eye;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 10);
+            }
+
+            else if (subItem == "Privilégio Conta-Alterar Credenciais")
+            {
+                itemName.Image = Properties.Resources.change;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 10);
+            }
 
         }
 

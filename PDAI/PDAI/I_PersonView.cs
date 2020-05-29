@@ -76,7 +76,7 @@ namespace PDAI
                     titulo.Size = new Size(700, 100);
                     titulo.Location = new Point(450, 0);
                     font.Size(titulo, fontSize);
-                    titulo.Text = "Apagar Funcionário";
+                    titulo.Text = "Eliminar Funcionário";
                     titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
                     titulo.ForeColor = Color.DarkBlue;
                     titulo.SendToBack();
@@ -86,11 +86,50 @@ namespace PDAI
 
             }
 
+            switch (option)
+            {
+                case option.viewPrisoner:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Consultar Prisioneiro";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.editPrisoner:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Editar Prisioneiro";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.deletePrisoner:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Eliminar Prisioneiro";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+            }
 
             personList = new CustomizableList();
             container.Controls.Add(personList.container);
             personList.width = container.Width * 9 / 10;
-            personList.height = container.Height * 9 / 10;
+            personList.height = container.Height * 8 / 11;
             personList.locationX = container.Width / 2 - personList.width / 2;
             personList.locationY = container.Height / 2 - personList.height / 2;
 
