@@ -208,8 +208,7 @@ namespace PDAI
             editPanel.Controls.Add(cbMaritalStatus);
             cbMaritalStatus.Text = s.selecRecluso(select)[3].ToString();
             cbMaritalStatus.ForeColor = Color.White;
-           
-            
+
         }
 
         public static Control GetUniqueControl(string controlName, Control.ControlCollection Controls)
@@ -224,7 +223,6 @@ namespace PDAI
 
         public void Open()
         {
-
             font = new Font_Class();
 
             Label titulo = new Label();
@@ -236,7 +234,6 @@ namespace PDAI
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
-
             container.Controls.Clear();
 
             listPanel = new Panel();

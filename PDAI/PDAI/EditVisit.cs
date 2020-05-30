@@ -202,7 +202,6 @@ namespace PDAI
         public void Open()
         {
             font = new Font_Class();
-
             listPanel = new Panel();
             container.Controls.Add(listPanel);
             listPanel.Location = new Point((container.Width / 8), (container.Height / 8));
@@ -218,7 +217,6 @@ namespace PDAI
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
-
 
             tabela = new TableLayoutPanel();
             listPanel.Controls.Add(tabela);

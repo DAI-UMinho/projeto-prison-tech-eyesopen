@@ -50,7 +50,7 @@ namespace PDAI
             this.employee = employee;
             this.callback = callback;
 
-            
+
             editPanelBorder = new Panel();
             container.Controls.Add(editPanelBorder);
             editPanelBorder.Location = new Point((container.Width / 8), (container.Width / 14));
@@ -70,7 +70,7 @@ namespace PDAI
             editPanel.Dock = DockStyle.Fill;
 
             photo.Size = new Size(250, 250);
-            photo.Location = new Point(container.Width * 1 / 30, container.Height * 2/ 20);
+            photo.Location = new Point(container.Width * 1 / 30, container.Height * 2 / 20);
             //container.Controls.Add(photo);
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
@@ -99,7 +99,7 @@ namespace PDAI
 
 
             tFullName = new TextBox();
-            tFullName.Size = new Size(lFullName.Width - 130, lFullName.Height );
+            tFullName.Size = new Size(lFullName.Width - 130, lFullName.Height);
             tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height + 10);
             font.Size(tFullName, fontSize);
             //container.Controls.Add(tFullName);
@@ -171,7 +171,7 @@ namespace PDAI
             cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height + 10);
             font.Size(cbMaritalStatus, fontSize);
             //container.Controls.Add(cbMaritalStatus);
-            
+
             editPanel.Controls.Add(cbMaritalStatus);
             cbMaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             List<string> maritalStatus = database.select.GetMaritalStatus();
@@ -212,7 +212,7 @@ namespace PDAI
                 cbRole.Size = new Size(200, lFullName.Height);
                 cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height + 10);
                 font.Size(cbRole, fontSize);
-                
+
                 //container.Controls.Add(cbRole);
                 editPanel.Controls.Add(cbRole);
                 cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -241,6 +241,7 @@ namespace PDAI
             registration.BackColor = Color.FromArgb(255, 255, 255);
 
             //registration.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
+            registration.Click += new EventHandler(Registration_Click);
             registration.Click += new EventHandler(Registration_Click);
         }
 

@@ -82,8 +82,6 @@ namespace PDAI
                 lId.BackColor = Color.Transparent;
                 lId.Dock = DockStyle.Left;
                 lId.Visible = false;
-               
-                
 
                 ldata.Name = "labelData" + i;
                 l.Name = "labelNome" + i;
@@ -127,8 +125,6 @@ namespace PDAI
             editPanelBorder.Size = new Size(700, 600);
             editPanelBorder.BackColor = Color.Black;
             editPanelBorder.SendToBack();
-
-            
 
             editPanel = new Panel();
             editPanelBorder.Controls.Add(editPanel);
@@ -217,7 +213,7 @@ namespace PDAI
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
-            
+
 
             listPanel = new Panel();
             container.Controls.Add(listPanel);
