@@ -82,17 +82,13 @@ namespace PDAI
                     titulo.SendToBack();
                     break;
 
-            }
-
-            switch (option)
-            {
                 case option.viewPrisoner:
                     titulo = new Label();
                     container.Controls.Add(titulo);
                     titulo.Size = new Size(700, 100);
                     titulo.Location = new Point(450, 0);
                     font.Size(titulo, fontSize);
-                    titulo.Text = "Consultar Prisioneiro";
+                    titulo.Text = "Consultar Recluso";
                     titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
                     titulo.ForeColor = Color.DarkBlue;
                     titulo.SendToBack();
@@ -104,7 +100,7 @@ namespace PDAI
                     titulo.Size = new Size(700, 100);
                     titulo.Location = new Point(450, 0);
                     font.Size(titulo, fontSize);
-                    titulo.Text = "Editar Prisioneiro";
+                    titulo.Text = "Editar Recluso";
                     titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
                     titulo.ForeColor = Color.DarkBlue;
                     titulo.SendToBack();
@@ -116,13 +112,26 @@ namespace PDAI
                     titulo.Size = new Size(700, 100);
                     titulo.Location = new Point(450, 0);
                     font.Size(titulo, fontSize);
-                    titulo.Text = "Apagar Prisioneiro";
+                    titulo.Text = "Eliminar Recluso";
+                    titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                    titulo.ForeColor = Color.DarkBlue;
+                    titulo.SendToBack();
+                    break;
+
+                case option.viewPrisonGuard:
+                    titulo = new Label();
+                    container.Controls.Add(titulo);
+                    titulo.Size = new Size(700, 100);
+                    titulo.Location = new Point(450, 0);
+                    font.Size(titulo, fontSize);
+                    titulo.Text = "Consultar Guarda";
                     titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
                     titulo.ForeColor = Color.DarkBlue;
                     titulo.SendToBack();
                     break;
 
             }
+
             personList = new CustomizableList();
             container.Controls.Add(personList.container);
             personList.width = container.Width * 9 / 10;
@@ -132,6 +141,8 @@ namespace PDAI
 
             if (option == option.viewEmployee || option == option.editEmployee || option == option.deleteEmployee)
                 lastItemIndex = database.select.Get_Employees(personList, option);
+            else if(option == option.viewPrisonGuard)
+                lastItemIndex = database.select.Get_PrisonGuard(personList, option);
             else
                 lastItemIndex = database.select.Get_Prisoners(personList, option);
 
@@ -177,16 +188,25 @@ namespace PDAI
             {
                 case "viewEmployee":
                     I_Person viewPerson = new I_Person();
+                    viewPerson.pageTitle = "Consultar Funcionário";
                     container.Controls.Add(viewPerson.container);
                     viewPerson.width = container.Width;
                     viewPerson.height = container.Height;
                     viewPerson.locationY = 0;
                     viewPerson.Open(true, false);
-                    viewPerson.Load(getAccountItem[((Button)sender)]);
+                    viewPerson.Load(getAccountItem[((Button)sender)],option.view);
                     viewPerson.container.BringToFront();
                     break;
                 case "editEmployee":
-                    MessageBox.Show("Editar Funcionario");
+                    I_Person editPerson = new I_Person();
+                    editPerson.pageTitle = "Editar Funcionário";
+                    container.Controls.Add(editPerson.container);
+                    editPerson.width = container.Width;
+                    editPerson.height = container.Height;
+                    editPerson.locationY = 0;
+                    editPerson.Open(true, false);
+                    editPerson.Load(getAccountItem[((Button)sender)], option.edit);
+                    editPerson.container.BringToFront();
                     break;
                 case "deleteEmployee":
                     if (MessageBox.Show("Tem certeza que deseja eliminar o Funcionário?", "Confirmação", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
@@ -196,19 +216,39 @@ namespace PDAI
                     break;
                 case "viewPrisoner":
                     I_Person viewPrisoner = new I_Person();
+                    viewPrisoner.pageTitle = "Consultar Recluso";
                     container.Controls.Add(viewPrisoner.container);
                     viewPrisoner.width = container.Width;
                     viewPrisoner.height = container.Height;
                     viewPrisoner.locationY = 0;
                     viewPrisoner.Open(false, false);
-                    viewPrisoner.Load(getAccountItem[((Button)sender)]);
+                    viewPrisoner.Load(getAccountItem[((Button)sender)], option.view);
                     viewPrisoner.container.BringToFront();
                     break;
                 case "editPrisoner":
-                    MessageBox.Show("Editar recluso");
+                    I_Person editPrisoner = new I_Person();
+                    editPrisoner.pageTitle = "Editar Recluso";
+                    container.Controls.Add(editPrisoner.container);
+                    editPrisoner.width = container.Width;
+                    editPrisoner.height = container.Height;
+                    editPrisoner.locationY = 0;
+                    editPrisoner.Open(false, false);
+                    editPrisoner.Load(getAccountItem[((Button)sender)], option.edit);
+                    editPrisoner.container.BringToFront();
                     break;
                 case "deletePrisoner":
                     MessageBox.Show("Apagar recluso");
+                    break;
+                case "viewPrisonGuard":
+                    I_Person viewPrisonGuard = new I_Person();
+                    viewPrisonGuard.pageTitle = "Consultar Guarda";
+                    container.Controls.Add(viewPrisonGuard.container);
+                    viewPrisonGuard.width = container.Width;
+                    viewPrisonGuard.height = container.Height;
+                    viewPrisonGuard.locationY = 0;
+                    viewPrisonGuard.Open(true, false);
+                    viewPrisonGuard.Load(getAccountItem[((Button)sender)], option.view);
+                    viewPrisonGuard.container.BringToFront();
                     break;
             }
             

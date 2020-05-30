@@ -246,6 +246,35 @@ namespace PDAI
             return index;
         }
 
+        public int Get_PrisonGuard(CustomizableList list, option option)
+        {
+            int index = 0, counter = 0;
+            try
+            {
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa where tipo = 'Guarda' order by nomeCompleto"; // order by nomeCompleto
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                uint maxId = 0;
+                while (reader.Read())
+                {
+
+                    if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), option);
+                    counter++;
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return index;
+        }
+
         public int Get_Prisoners(CustomizableList list, option option)
         {
             int index = 0, counter = 0;

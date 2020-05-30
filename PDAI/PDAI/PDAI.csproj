@@ -276,13 +276,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\portable-document-format.png" />
-    <None Include="Resources\lapis.png" />
     <None Include="Resources\visita.png" />
-    <None Include="Resources\policial.png" />
-    <None Include="Resources\mais %281%29.png" />
-    <None Include="Resources\mais.png" />
     <None Include="Resources\prisioneiro.png" />
+    <None Include="Resources\portable-document-format.png" />
+    <None Include="Resources\policial.png" />
+    <None Include="Resources\olhos.png" />
+    <None Include="Resources\olhos %281%29.png" />
+    <None Include="Resources\mais.png" />
+    <None Include="Resources\mais %281%29.png" />
+    <None Include="Resources\lapis.png" />
     <None Include="Resources\xixa.png" />
     <None Include="Resources\log3png.png" />
     <None Include="Resources\Violencia-1.png" />
@@ -318,14 +320,14 @@
     <None Include="Resources\Dai1.png" />
     <None Include="Resources\Dai1.1.png" />
     <None Include="Resources\Homi.png" />
-    <None Include="Resources\amigos.png" />
-    <None Include="Resources\biologo.png" />
-    <None Include="Resources\assassinato.png" />
+    <None Include="Resources\adicionar.png" />
     <None Include="Resources\alerta.png" />
+    <None Include="Resources\amigos.png" />
+    <None Include="Resources\assassinato.png" />
+    <None Include="Resources\biologo.png" />
+    <None Include="Resources\change.png" />
     <None Include="Resources\do-utilizador.png" />
     <None Include="Resources\eye.png" />
-    <None Include="Resources\change.png" />
-    <None Include="Resources\adicionar.png" />
     <Content Include="Resources\IconEyesOpen.png" />
     <None Include="Resources\índice.png" />
   </ItemGroup>

@@ -36,6 +36,8 @@ namespace PDAI
         Panel editPanelBorder, editPanel;
 
 
+
+
         public Incidents()
         {
             font = new Font_Class();
@@ -77,7 +79,7 @@ namespace PDAI
             editPanel.Controls.Add(description);
             description.Size = new Size(500, 200);
             description.Location = new Point(350, 410);
-            
+
             titulo = new Label();
             container.Controls.Add(titulo);
             titulo.Size = new Size(700, 70);
@@ -87,6 +89,19 @@ namespace PDAI
             titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
+
+            lMotivo = new Label();
+            editPanel.Controls.Add(lMotivo);
+            lMotivo.Size = new Size(100, 35);
+            lMotivo.Location = new Point(350, 280);
+            lMotivo.Text = "Motivo";
+            lMotivo.BorderStyle = BorderStyle.None;
+            font.Size(lMotivo, fontSize);
+
+            motivo = new RichTextBox();
+            editPanel.Controls.Add(motivo);
+            motivo.Size = new Size(600, 40);
+            motivo.Location = new Point(350, 320);
 
             lDescription = new Label();
             editPanel.Controls.Add(lDescription);
@@ -136,7 +151,7 @@ namespace PDAI
             editPanel.Controls.Add(register);
             register.Click += new EventHandler(Register_Click);
             /*egister.BackColor = color;*/
-           
+
 
             register.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
 
@@ -162,19 +177,19 @@ namespace PDAI
                 data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
                     ":" + hour.Value.Second;
 
-                string motivo = lDescription.Text;
-                string descricao = description.Text;
-                int codigoOcorrencia = 0; 
-                try
+            string motivo = lDescription.Text;
+            string descricao = description.Text;
+            int codigoOcorrencia = 0;
+            try
+            {
+                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
                 {
-                    if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                    if (descricao.Length <= 100)
                     {
-                        if (descricao.Length <= 100)
+                        database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                        MessageBox.Show("Registo efetuado");
+                        if (idPessoas.Length > 2)
                         {
-                            database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
-                            MessageBox.Show("Registo efetuado");
-                            if(idPessoas.Length>2)
-                                {
                             int i = 2;
                             while(i<idPessoas.Length)
                             {
