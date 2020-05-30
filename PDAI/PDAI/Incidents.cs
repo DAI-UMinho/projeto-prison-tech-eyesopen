@@ -6,6 +6,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Data.SqlClient;
 using System.Globalization;
+using AForge.Vision.Motion;
 
 namespace PDAI
 {
@@ -178,17 +179,20 @@ namespace PDAI
                 data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
                     ":" + hour.Value.Second;
 
-            string motivo = lDescription.Text;
+            string motivu = motivo.Text;
             string descricao = description.Text;
             int codigoOcorrencia = 0;
             try
             {
-                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0 && motivu.Length >0)
                 {
                     if (descricao.Length <= 100)
                     {
-                        database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                        database.insert.Ocorrencia(idPessoa, data, motivu, descricao, codigoOcorrencia);
                         MessageBox.Show("Registo efetuado");
+                        pList.Text = null;
+                        description.Text = null;
+                        motivo.Text = null;
                         if (idPessoas.Length > 2)
                         {
                             int i = 2;
@@ -198,7 +202,6 @@ namespace PDAI
                                 database.insert.Reconhecimento(id);
                                 
                                 i += 2;
-                                MessageBox.Show("Registou mais que um recluso");
                             }
                                 }
                         }
@@ -224,12 +227,6 @@ namespace PDAI
                 catch (Exception ex)
                 {
                     System.Windows.Forms.MessageBox.Show("" + ex);
-                }
-                finally
-                {
-                    pList.Text = null;
-                    description.Text = null;
-
                 }
             
         }

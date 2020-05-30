@@ -34,7 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Interveniente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +43,6 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Motivo,
-            this.Interveniente,
             this.dataOcorrencia});
             this.dataGridView1.Location = new System.Drawing.Point(119, 70);
             this.dataGridView1.Name = "dataGridView1";
@@ -91,6 +89,7 @@
             this.richTextBox2.Size = new System.Drawing.Size(262, 96);
             this.richTextBox2.TabIndex = 4;
             this.richTextBox2.Text = "";
+            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // Motivo
             // 
@@ -100,17 +99,9 @@
             this.Motivo.ReadOnly = true;
             this.Motivo.Width = 125;
             // 
-            // Interveniente
-            // 
-            this.Interveniente.HeaderText = "Interveniente";
-            this.Interveniente.MinimumWidth = 6;
-            this.Interveniente.Name = "Interveniente";
-            this.Interveniente.ReadOnly = true;
-            this.Interveniente.Width = 125;
-            // 
             // dataOcorrencia
             // 
-            this.dataOcorrencia.HeaderText = "dataOcorrencia";
+            this.dataOcorrencia.HeaderText = "Data e Hora";
             this.dataOcorrencia.MinimumWidth = 6;
             this.dataOcorrencia.Name = "dataOcorrencia";
             this.dataOcorrencia.ReadOnly = true;
@@ -142,7 +133,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox richTextBox2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Interveniente;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
     }
 }

@@ -27,7 +27,7 @@ namespace PDAI
             var = db.select.VisualizarOcorrencia();
             for(int i = 0; i<var.Count; i+=4)
             {
-                dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 1), var.ElementAt(i + 2));
+                dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 2));
             }
         }
 
@@ -45,7 +45,7 @@ namespace PDAI
             des = db.select.getDescricao(idOcorrencia);
             string descricao = "" + des.ElementAt(0);
             lol = db.select.GetMaisIntervenientes(idOcorrencia);
-            string texto = "" + tryAgain.ElementAt(0); 
+            string texto = "" + tryAgain.ElementAt(0);
             for(int i = 0; i<lol.Count;i++)
             {
                     texto += " , " + lol.ElementAt(i);
@@ -62,6 +62,16 @@ namespace PDAI
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
