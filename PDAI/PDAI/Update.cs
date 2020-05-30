@@ -10,11 +10,34 @@ namespace PDAI
 {
     class Update : Connection
     {
-        public void Person(uint id, string recordsFolder)
+        public void PersonFolder(uint id, string recordsFolder)
         {
             try
             {
                 sql = "update Pessoa set pastaRegistos = '" + recordsFolder + "' where id = " + id;
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+        }
+
+
+
+        public void Person(uint id , string fullName, string birthDate, string cc, string maritalStatus, string type)
+        {
+            string date = Convert.ToDateTime(birthDate).ToString("yyyy-MM-dd");
+            try
+            {
+                sql = "update Pessoa set nomeCompleto='" + fullName + "',dataNascimento='" + date + "',cc='" + cc + "',estadoCivil='" + maritalStatus + "', tipo='" + type + "' where id=" + id;
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();

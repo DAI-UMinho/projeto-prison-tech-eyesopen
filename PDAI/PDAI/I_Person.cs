@@ -31,6 +31,8 @@ namespace PDAI
         string path = Rule.TargetPath, imgPath;
         bool employee, callback;
         Label ladicionarImg;
+        uint idPerson;
+        bool contentChanged;
 
         public I_Person()
         {
@@ -159,19 +161,6 @@ namespace PDAI
                 font.Size(lRole, fontSize);
                 container.Controls.Add(lRole);
 
-                //titulo.Hide();
-
-                //tituloFunc = new Label();
-                //container.Controls.Add(tituloFunc);
-                //tituloFunc.Size = new Size(700, 100);
-                //tituloFunc.Location = new Point(450, 0);
-                //font.Size(tituloFunc, fontSize);
-                //tituloFunc.Text = pageTitle;
-                //tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-                //tituloFunc.ForeColor = Color.DarkBlue;
-                //tituloFunc.SendToBack();
-                ////nome.BorderStyle = BorderStyle.None;
-                ////nome.BackColor = color;
 
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);
@@ -203,20 +192,34 @@ namespace PDAI
 
         public void Load(AccountItem accountItem, option value)
         {
-            bitmapImage = new Bitmap(accountItem.imagePath);
-            photo.Image = bitmapImage;
-            photo.Controls.Remove(ladicionarImg);
-          //  imgPath = open.FileName;
+            idPerson = accountItem.id;
 
+            if (accountItem.imagePath != String.Empty)
+            {
+                bitmapImage = new Bitmap(accountItem.imagePath);
+                photo.Image = bitmapImage;
+                photo.Controls.Remove(ladicionarImg);
+            }
+         
             tFullName.Text = accountItem.name.Text;
-            // tBirthDate.Text = 
+            try { tBirthDate.Text = accountItem.birthDate; } catch (Exception) { }
+            tCC.Text = accountItem.cc;
             cbMaritalStatus.Text = accountItem.maritalStatus.Text;
             if(employee) cbRole.Text = accountItem.employeeRole.Text;
-
+            
             switch (value)
             {
                 case option.view:
-                    registration.Visible = false;
+                    registration.Text = "Voltar";
+                    registration.Click -= new EventHandler(Registration_Click);
+                    registration.Click += new EventHandler(Dispose_Click);
+                    tFullName.ReadOnly = true;
+                    tBirthDate.Enabled = false;
+                    tCC.Enabled = false;
+                    cbMaritalStatus.Enabled = false;
+                    if (employee) cbRole.Enabled = false;
+                    ladicionarImg.DoubleClick -= new EventHandler(Photo_DoubleClick);
+                    photo.DoubleClick -= new EventHandler(Photo2_DoubleClick);
                     break;
 
                 case option.edit:
@@ -249,24 +252,37 @@ namespace PDAI
 
                                     if (type != string.Empty)
                                     {
-                                        uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
-                                        if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                        try
                                         {
-                                            try
+                                            uint id = 0;
+                                            if (registration.Text == "Registar")
                                             {
-                                                database.update.Person(id, path + id.ToString());
-                                                IO_Class.CopyFile(imgPath, path + id.ToString());
-                                                tFullName.Text = "";
-                                                tBirthDate.Text = "";
-                                                tCC.Text = "";
-                                                cbMaritalStatus.Text = "";
-                                                photo.Image = null;
-                                                if (employee) cbRole.Text = "";
-                                                MessageBox.Show("Registado com sucesso!");
+                                                
+                                                id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                                if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                                {
+                                                    database.update.PersonFolder(id, path + id.ToString());
+                                                    MessageBox.Show("Registado com sucesso!");
+                                                    IO_Class.CopyFile(imgPath, path + id.ToString());
+                                                    tFullName.Text = "";
+                                                    tBirthDate.Text = "";
+                                                    tCC.Text = "";
+                                                    cbMaritalStatus.Items.Clear();
+                                                    photo.Image = null;
+                                                    if (employee) cbRole.Items.Clear(); 
+                                                    
+                                                }
                                             }
-                                            catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                            else
+                                            {
+                                               
+                                                database.update.Person(idPerson, tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                                MessageBox.Show("Alterado com sucesso!");
+                                            }
+
+                                            if (callback) container.Dispose();
                                         }
-                                        if (callback) container.Dispose();
+                                        catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
                                     }
                                     else { MessageBox.Show("Campo cargo obrigatório."); }
                                 }
@@ -319,6 +335,15 @@ namespace PDAI
             }
             return true;
         }
+
+
+        private void Dispose_Click(object sender, EventArgs e)
+        {
+            container.Dispose();
+        }
+
+
+
 
     }
 }

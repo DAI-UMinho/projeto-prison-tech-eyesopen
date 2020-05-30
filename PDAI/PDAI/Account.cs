@@ -300,9 +300,8 @@ namespace PDAI
             if (stringObject.Count != 0) val = stringObject[0];
 
             if (disposeObject.GetType() == typeof(StatisticsForm)) ((StatisticsForm)disposeObject).Dispose();
-            else if (disposeObject.GetType() == typeof(I_Person)) ((I_Person)disposeObject).container.Dispose();
+            else if (disposeObject.GetType() == typeof(I_PersonView)) { ((I_PersonView)disposeObject).SetAsDisposed(); ((I_PersonView)disposeObject).container.Dispose(); }
             else if (disposeObject.GetType() == typeof(AccountCredentials)) ((AccountCredentials)disposeObject).container.Dispose();
-            else if (disposeObject.GetType() == typeof(I_PersonView)) ((I_PersonView)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(VisualizarOcorrencia)) ((VisualizarOcorrencia)disposeObject).Dispose();
             else if (disposeObject.GetType() == typeof(PrisonersManager)) ((PrisonersManager)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(I_CamGallery)) ((I_CamGallery)disposeObject).container.Dispose();
@@ -316,6 +315,7 @@ namespace PDAI
             else if (disposeObject.GetType() == typeof(Edit_Incidents)) ((Edit_Incidents)disposeObject).Dispose();
             else if (disposeObject.GetType() == typeof(Incidents)) ((Incidents)disposeObject).container.Dispose();
             else if (disposeObject.GetType() == typeof(ApagarOcorrencia)) ((ApagarOcorrencia)disposeObject).Dispose();
+            else if (disposeObject.GetType() == typeof(I_Person)) ((I_Person)disposeObject).container.Dispose();
 
 
 

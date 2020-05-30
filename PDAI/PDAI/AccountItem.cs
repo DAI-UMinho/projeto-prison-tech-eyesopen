@@ -16,6 +16,8 @@ namespace PDAI
         public Label name { get; }
         public Label maritalStatus { get; }
         public Label employeeRole { get; }
+        public string birthDate { get { return thisBirthDate; } }
+        public string cc { get { return thisCC; } }
         public uint id { get { return thisId; } }
         public int locationX { set { item.Location = new Point(value, item.Location.Y); } get { return item.Location.X; } }
         public int locationY { set { item.Location = new Point(item.Location.X, value); } get { return item.Location.Y; } }
@@ -28,6 +30,7 @@ namespace PDAI
         Event clicked;
         uint thisId;
         string imgPath;
+        string thisBirthDate, thisCC;
 
         public AccountItem(Panel container, Event clicked)
         {
@@ -41,15 +44,17 @@ namespace PDAI
             name = new Label();
             maritalStatus = new Label();
             employeeRole = new Label();
-
+            
         }
 
 
-        public void Create(uint id, string imgPath, string employeeName, string maritalStatus, string role, bool accountCreated, bool activeAccount)
+        public void Create(uint id, string imgPath, string employeeName, string maritalStatus, string role,string birthDate, string cc, bool accountCreated, bool activeAccount)
         {
             int lateral = 12;
 
             thisId = id;
+            thisBirthDate = birthDate;
+            thisCC = cc;
 
             parent.Controls.Add(item);
             item.Click += new EventHandler(Clicked);
@@ -104,13 +109,14 @@ namespace PDAI
             font.Size(lEmployeeMaritalStatus, fontSize);
             lEmployeeMaritalStatus.Click += new EventHandler(Clicked);
 
+            
             this.maritalStatus.Text = maritalStatus.ToString().ToUpper();
             this.maritalStatus.Size = new Size(name.Width, labelHeight);
             this.maritalStatus.Location = new Point(lName.Location.X + lName.Width, lEmployeeMaritalStatus.Location.Y);
             item.Controls.Add(this.maritalStatus);
             font.Size(maritalStatus, fontSize);
             this.maritalStatus.Click += new EventHandler(Clicked);
-
+          
 
             Label lemployeeRole = new Label();
             lemployeeRole.Text = "Cargo:";
@@ -131,11 +137,15 @@ namespace PDAI
 
 
 
-        public void Create(uint id, string imgPath, string employeeName, string maritalStatus, string role, option option)
+        public void Create(uint id, string imgPath, string employeeName, string maritalStatus, string role, string birthDate, string cc, option option)
         {
+
             int lateral = 12;
 
             thisId = id;
+            thisBirthDate = birthDate;
+            thisCC = cc;
+
 
             parent.Controls.Add(item);
             item.Click += new EventHandler(Clicked);
@@ -208,20 +218,21 @@ namespace PDAI
             name.Click += new EventHandler(Clicked);
 
 
-            //Label lEmployeeMaritalStatus = new Label();
-            //lEmployeeMaritalStatus.Text = "Estado Civil:";
-            //lEmployeeMaritalStatus.Size = new Size(labelWidth, labelHeight);
-            //lEmployeeMaritalStatus.Location = new Point(lName.Location.X, lName.Location.Y + labelHeight);
-            //item.Controls.Add(lEmployeeMaritalStatus);
-            //font.Size(lEmployeeMaritalStatus, fontSize);
-            //lEmployeeMaritalStatus.Click += new EventHandler(Clicked);
+            Label lEmployeeMaritalStatus = new Label();
+            lEmployeeMaritalStatus.Text = "Estado Civil:";
+            lEmployeeMaritalStatus.Size = new Size(labelWidth, labelHeight);
+            lEmployeeMaritalStatus.Location = new Point(lName.Location.X, lName.Location.Y + labelHeight);
+            item.Controls.Add(lEmployeeMaritalStatus);
+            font.Size(lEmployeeMaritalStatus, fontSize);
+            lEmployeeMaritalStatus.Click += new EventHandler(Clicked);
 
-            //this.maritalStatus.Text = maritalStatus.ToString().ToUpper();
-            //this.maritalStatus.Size = new Size(name.Width, labelHeight);
-            //this.maritalStatus.Location = new Point(lName.Location.X + lName.Width, lEmployeeMaritalStatus.Location.Y);
-            //item.Controls.Add(this.maritalStatus);
-            //font.Size(maritalStatus, fontSize);
-            //this.maritalStatus.Click += new EventHandler(Clicked);
+            this.maritalStatus.Text = maritalStatus.ToString().ToUpper();
+            this.maritalStatus.Size = new Size(name.Width, labelHeight);
+            this.maritalStatus.Location = new Point(lName.Location.X + lName.Width, lEmployeeMaritalStatus.Location.Y);
+            item.Controls.Add(this.maritalStatus);
+            font.Size(maritalStatus, fontSize);
+            this.maritalStatus.Click += new EventHandler(Clicked);
+
 
 
             Label lemployeeRole = new Label();

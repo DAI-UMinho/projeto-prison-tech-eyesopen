@@ -27,6 +27,7 @@ namespace PDAI
         Dictionary<Button, AccountItem> getAccountItem;
         Label titulo;
         int fontSize = 13;
+        bool setThisAsDisposed;
 
         public I_PersonView()
         {
@@ -34,15 +35,18 @@ namespace PDAI
             container.Location = new Point(0, 0);
             container.BackColor = Color.White;
             container.BorderStyle = BorderStyle.Fixed3D;
+            container.Disposed += new EventHandler(ThisWasDisposed);
 
             font = new Font_Class();
             database = new Database();
             getAccountItem = new Dictionary<Button, AccountItem>();
+            setThisAsDisposed = false;
         }
 
         public void Open(option option)
         {
             setOption = option;
+            container.Controls.Clear();
 
             switch (option)
             {
@@ -153,35 +157,6 @@ namespace PDAI
         }
 
 
-
-
-
-        private void Add_Employee(object sender, EventArgs e)
-        {
-            //container.Controls.Clear();
-
-            //person = new I_Person();
-            //container.Controls.Add(person.container);
-            //person.width = container.Width * 8 / 10;
-            //person.height = container.Height * 8 / 10;
-            //person.locationX = container.Width / 2 - person.width / 2;
-            //person.locationY = container.Height / 2 - person.height / 2; ;
-            //person.Open(true, true);
-            //person.container.Disposed += new EventHandler(Control_Disposed);
-            // person.container.BackColor = Color.White;
-
-
-            // PictureBox photo = new PictureBox();
-            // photo.Size = new Size(person.locationY, person.locationY);
-            // photo.Location = new Point(person.locationX, person.locationY / 2 - photo.Height / 2);
-            // container.Controls.Add(photo);
-            // photo.Image = Properties.Resources.Seta1;
-            // photo.SizeMode = PictureBoxSizeMode.StretchImage;
-            //// photo.BorderStyle = BorderStyle.Fixed3D;
-            // photo.BackColor = color;
-        }
-
-
         private void AccountButton_Click(object sender, EventArgs e)
         {
             switch (((Button)sender).Name)
@@ -204,15 +179,23 @@ namespace PDAI
                     editPerson.width = container.Width;
                     editPerson.height = container.Height;
                     editPerson.locationY = 0;
-                    editPerson.Open(true, false);
+                    editPerson.Open(true, true);
                     editPerson.Load(getAccountItem[((Button)sender)], option.edit);
                     editPerson.container.BringToFront();
+                    editPerson.container.Disposed += new EventHandler(ContainerGotFocus);
                     break;
                 case "deleteEmployee":
                     DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende eliminar o funcionário?", "Eliminar funcionário", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("\"Eliminado com sucesso.\"");
+                        try
+                        {
+                            database.delete.Person(getAccountItem[((Button)sender)].id);
+                            MessageBox.Show("Eliminado com sucesso.");
+                            Open(setOption);
+                        }
+                        catch (Exception) { MessageBox.Show("Não foi possível eliminar."); }
+                       
                     }
                     break;
                 case "viewPrisoner":
@@ -233,15 +216,22 @@ namespace PDAI
                     editPrisoner.width = container.Width;
                     editPrisoner.height = container.Height;
                     editPrisoner.locationY = 0;
-                    editPrisoner.Open(false, false);
+                    editPrisoner.Open(false, true);
                     editPrisoner.Load(getAccountItem[((Button)sender)], option.edit);
                     editPrisoner.container.BringToFront();
+                    editPrisoner.container.Disposed += new EventHandler(ContainerGotFocus);
                     break;
                 case "deletePrisoner":
                     dialogResult = MessageBox.Show("Tem a certeza que pretende eliminar o recluso?", "Eliminar funcionário", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        MessageBox.Show("\"Eliminado com sucesso.\"");
+                        try
+                        {
+                            database.delete.Person(getAccountItem[((Button)sender)].id);
+                            MessageBox.Show("Eliminado com sucesso.");
+                            Open(setOption);
+                        }
+                        catch (Exception) { MessageBox.Show("Não foi possível eliminar."); }
                     }
                     break;
                 case "viewPrisonGuard":
@@ -264,6 +254,22 @@ namespace PDAI
         {
             Open(setOption);
             personList.ScrollToLastItem(lastItemIndex);
+        }
+
+
+        private void ContainerGotFocus(object sender, EventArgs e)
+        {
+           if(!setThisAsDisposed) Open(setOption);
+        }
+
+        private void ThisWasDisposed(object sender, EventArgs e)
+        {
+            setThisAsDisposed = true;
+        }
+
+        public void SetAsDisposed()
+        {
+            setThisAsDisposed = true;
         }
 
     }

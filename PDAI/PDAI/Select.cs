@@ -155,7 +155,7 @@ namespace PDAI
             int index = 0, counter = 0;
             try
             {
-                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, Login.id, ativo from Pessoa left join Login on Pessoa.id = Login.id where tipo <> 'Administrador' and tipo <> 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, Login.id, ativo, dataNascimento, cc from Pessoa left join Login on Pessoa.id = Login.id where tipo <> 'Administrador' and tipo <> 'Prisioneiro'  and ativo = 1 order by nomeCompleto"; // order by nomeCompleto
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -168,7 +168,7 @@ namespace PDAI
 
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
                     if (!(reader.IsDBNull(5))) accountCreated = true;
-                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[7].ToString(), reader[8].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
                     accountCreated = false;
                     counter++;
                     // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
@@ -189,7 +189,7 @@ namespace PDAI
             int index = 0, counter = 0;
             try
             {
-                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, Login.id, ativo from Pessoa left join Login on Pessoa.id = Login.id where tipo = 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, Login.id, ativo, dataNascimento,cc from Pessoa left join Login on Pessoa.id = Login.id where tipo = 'Prisioneiro'  and ativo = 1 order by nomeCompleto"; // order by nomeCompleto
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -202,7 +202,7 @@ namespace PDAI
 
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
                     if (!(reader.IsDBNull(5))) accountCreated = true;
-                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[7].ToString(), reader[8].ToString(), accountCreated, Convert.ToBoolean(reader[6]));
                     accountCreated = false;
                     counter++;
                     // System.Windows.Forms.MessageBox.Show(Convert.ToUInt32(reader[0]) + " > " + maxId + "  Index= " + index);
@@ -222,7 +222,7 @@ namespace PDAI
             int index = 0, counter = 0;
             try
             {
-                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa left join Login on Pessoa.id = Login.id where tipo <> 'Administrador' and tipo <> 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, dataNascimento, cc from Pessoa left join Login on Pessoa.id = Login.id where tipo <> 'Administrador' and tipo <> 'Prisioneiro'  and ativo = 1 order by nomeCompleto"; // order by nomeCompleto
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -233,7 +233,7 @@ namespace PDAI
                 {
 
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
-                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), option);
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString(), option);
                     counter++;
                 }
                 reader.Close();
@@ -251,7 +251,7 @@ namespace PDAI
             int index = 0, counter = 0;
             try
             {
-                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa where tipo = 'Guarda' order by nomeCompleto"; // order by nomeCompleto
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, DataNascimento, cc from Pessoa where tipo = 'Guarda' and ativo = 1 order by nomeCompleto"; // order by nomeCompleto
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -262,7 +262,7 @@ namespace PDAI
                 {
 
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
-                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), option);
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString(), option);
                     counter++;
                 }
                 reader.Close();
@@ -280,7 +280,7 @@ namespace PDAI
             int index = 0, counter = 0;
             try
             {
-                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo from Pessoa left join Login on Pessoa.id = Login.id where tipo = 'Prisioneiro' order by nomeCompleto"; // order by nomeCompleto
+                sql = "select Pessoa.id, pastaRegistos, nomeCompleto, estadoCivil, tipo, dataNascimento, cc from Pessoa left join Login on Pessoa.id = Login.id where tipo = 'Prisioneiro'  and ativo = 1 order by nomeCompleto"; 
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
@@ -291,7 +291,7 @@ namespace PDAI
                 {
 
                     if (Convert.ToUInt32(reader[0]) > maxId) { maxId = Convert.ToUInt32(reader[0]); index = counter; }
-                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), option);
+                    list.AddItem(Convert.ToUInt32(reader[0]), reader[1].ToString(), reader[2].ToString(), reader[3].ToString(), reader[4].ToString(), reader[5].ToString(), reader[6].ToString(), option);
                     counter++;
                 }
                 reader.Close();

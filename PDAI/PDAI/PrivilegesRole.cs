@@ -114,10 +114,12 @@ namespace PDAI
             container.Controls.Add(lv);
 
             database.select.GetPrivilegesRole(lv);
-            for (int i = 0; i < lv.Items.Count; i++)
-            {
-                rolePrivileges = database.select.GetPrivileges(Convert.ToUInt32(lv.Items[i].SubItems[1].Text),rolePrivileges);
-            }
+
+            //for (int i = 0; i < lv.Items.Count; i++)
+            //{
+            //    rolePrivileges = database.select.GetPrivileges(Convert.ToUInt32(lv.Items[i].SubItems[1].Text),rolePrivileges);
+            //}
+            rolePrivileges = database.select.GetPrivileges(Convert.ToUInt32(lv.Items[0].SubItems[1].Text), rolePrivileges);
             try { createPrivilegeList(0, Convert.ToUInt32(lv.Items[0].SubItems[1].Text)); } catch (Exception) { }
 
         }
@@ -166,8 +168,17 @@ namespace PDAI
             }
             else
             {
-                if (add.Text == "Adicionar") database.insert.SetPrivileges(database.insert.PrivilegesRole(tPrivilegesRole.Text), allPrivileges); 
-                else database.delete.PrivilegesRole(tPrivilegesRole.Text); 
+                if (add.Text == "Adicionar") { database.insert.SetPrivileges(database.insert.PrivilegesRole(tPrivilegesRole.Text), allPrivileges); }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("Pretende eliminar o papel selecionado?", "Eliminar", MessageBoxButtons.YesNo);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        database.delete.PrivilegesRole(tPrivilegesRole.Text);
+                    }
+
+                }
+
                 database.select.GetPrivilegesRole(lv);
                 rolePrivileges = new Dictionary<string, List<string>>();
                 for (int i = 0; i < lv.Items.Count; i++)

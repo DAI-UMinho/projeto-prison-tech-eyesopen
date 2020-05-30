@@ -114,8 +114,8 @@ namespace PDAI
                     add_Account.height = container.Height * 8 / 10;
                     add_Account.locationX = container.Width / 2 - add_Account.width / 2;
                     add_Account.locationY = container.Height / 2 - add_Account.height / 2; ;
-                    add_Account.Open();
-                  //  person.container.Disposed += new EventHandler(Control_Disposed);
+                    add_Account.Open(true);
+                    add_Account.container.Disposed += new EventHandler(GotFocus);
 
                     break;
                 case "change":
@@ -127,7 +127,8 @@ namespace PDAI
                     alter_Account.height = container.Height * 8 / 10;
                     alter_Account.locationX = container.Width / 2 - alter_Account.width / 2;
                     alter_Account.locationY = container.Height / 2 - alter_Account.height / 2; ;
-                    alter_Account.Open();
+                    alter_Account.Open(true);
+                    alter_Account.container.Disposed += new EventHandler(GotFocus);
 
                     break;
                 case "activate":
@@ -142,6 +143,11 @@ namespace PDAI
         {
             Open();
             accountList.ScrollToLastItem(lastItemIndex);
+        }
+
+        private void GotFocus(object sender, EventArgs e)
+        {
+            Open();
         }
 
 
