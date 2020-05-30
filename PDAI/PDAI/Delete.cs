@@ -10,6 +10,28 @@ namespace PDAI
     class Delete : Connection
     {
 
+
+        public void Person(uint idPerson)
+        {
+            //logic delete
+            try
+            {
+                sql = "update Pessoa set ativo = 0 where id = " + idPerson;
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+
+                command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
+                adapter = new SqlDataAdapter();
+                adapter.InsertCommand = command;
+                command.ExecuteNonQuery();
+                command.Dispose();
+                adapter.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+        }
+
         public void Role(string role)
         {
             try

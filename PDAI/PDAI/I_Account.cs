@@ -37,7 +37,7 @@ namespace PDAI
         bool autoCheck, breakAction;
         List<string> allPrivileges;
         string user, pass, privilegeRole;
-       
+        bool callback;
 
         public I_Account(AccountItem accountItem)
         {
@@ -61,6 +61,7 @@ namespace PDAI
             GetPrivilegeItem = new Dictionary<CheckBox, PrivilegeItem>();
             autoCheck = false;
             breakAction = false;
+            callback = false;
             allPrivileges = new List<string>();
             foreach (string privilege in Rule.GetPrivileges())
             {
@@ -74,9 +75,9 @@ namespace PDAI
         }
 
 
-        public void Open()
+        public void Open(bool callback)
         {
-
+            this.callback = callback;
 
             string[] pictures = { "delete.png", "log1.jpg", "log2.jpg" };
 
@@ -266,9 +267,10 @@ namespace PDAI
 
                         database.insert.AssocRole(accountItem.id, idRole);
 
-                        ((Button)sender).Text = "Alterar";
-                        credentials.Visible = true;
+                        //((Button)sender).Text = "Alterar";
+                        //credentials.Visible = true;
                         MessageBox.Show("Conta criada com sucesso.\n\nCREDENCIAIS\n\nIdentificação: " + user + "\nPassword: " + pass);
+                        
                     }
                     else
                     {
@@ -278,9 +280,12 @@ namespace PDAI
 
                     privilegesRole = new Dictionary<string, List<string>>();
                     PrivilegeRoleChanged(cbPrivilegeRole, new EventArgs());
+
+                    if (callback) container.Dispose();
                 }
                 else MessageBox.Show("Não é possível criar/alterar uma conta sem um papel atribuido.");
-               
+
+
             }
             catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
 

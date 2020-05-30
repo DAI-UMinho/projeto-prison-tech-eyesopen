@@ -38,13 +38,13 @@ namespace PDAI
 
 
 
-        public void AddItem(uint id, string imgPath, string employeeName, string maritalStatus, string role, bool accountCreated, bool activeAccount)
+        public void AddItem(uint id, string imgPath, string employeeName, string maritalStatus, string role, string birthDate, string cc, bool accountCreated, bool activeAccount)
         {
 
             item = new AccountItem(container, ItemClicked);
             item.width = container.Width - 2;
             item.height = defaultHeight;
-            item.Create(id, imgPath, employeeName, maritalStatus, role, accountCreated, activeAccount);
+            item.Create(id, imgPath, employeeName, maritalStatus, role,birthDate,cc, accountCreated, activeAccount);
             this.id[item.item] = id;
             if (items.Count == 0) item.item.Location = new Point(0, 0);
             else item.item.Location = new Point(0, items[items.Count - 1].item.Location.Y + defaultHeight - 1);
@@ -54,13 +54,13 @@ namespace PDAI
         }
 
 
-        public void AddItem(uint id, string imgPath, string employeeName, string maritalStatus, string role, option option)
+        public void AddItem(uint id, string imgPath, string employeeName, string maritalStatus, string role, string birthDate, string cc, option option)
         {
 
             item = new AccountItem(container, ItemClicked);
             item.width = container.Width - 2;
             item.height = defaultHeight;
-            item.Create(id, imgPath, employeeName, maritalStatus, role, option);
+            item.Create(id, imgPath, employeeName, maritalStatus, role, birthDate, cc,option);
             this.id[item.item] = id;
             if (items.Count == 0) item.item.Location = new Point(0, 0);
             else item.item.Location = new Point(0, items[items.Count - 1].item.Location.Y + defaultHeight - 1);

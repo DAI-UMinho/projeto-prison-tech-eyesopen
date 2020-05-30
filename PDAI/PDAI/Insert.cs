@@ -244,15 +244,13 @@ namespace PDAI
         {
             try
             {
-                sql = "insert AssocPapel (idLogin,idPapel) values (@idLogin,@idPapel)";
+                sql = "insert AssocPapel (idLogin,idPapel) values ("+ idLogin + ","+ idRole + ")";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
                 command = new System.Data.SqlClient.SqlCommand(sql, sqlConn);
                 adapter = new SqlDataAdapter();
                 adapter.InsertCommand = command;
-                command.Parameters.Add("@idLogin", SqlDbType.Int).Value = idLogin;
-                command.Parameters.Add("@idPapel", SqlDbType.Int).Value = idRole;
                 command.ExecuteNonQuery();
                 command.Dispose();
                 adapter.Dispose();
