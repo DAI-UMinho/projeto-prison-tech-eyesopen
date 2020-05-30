@@ -16,7 +16,7 @@ namespace PDAI
             try
             {
 
-                sql = "select password, id from Login where username = '" + username + "'";
+                sql = "select password, Login.id from Login inner join Pessoa on Pessoa.id = Login.id where ativo = 1 and username = '" + username + "'";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
