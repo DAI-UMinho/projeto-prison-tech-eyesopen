@@ -981,7 +981,7 @@ namespace PDAI
         public List<object> VisualizarOcorrencia()
         {
             List<object> var = new List<object>();
-            string sql = "select p.nomeCompleto, o.motivo, convert(varchar(20),o.dataOcorrencia,120), o.id " +
+            string sql = "select o.motivo, p.nomeCompleto, convert(varchar(20),o.dataOcorrencia,120), o.id " +
                 "from Ocorrencia o, Pessoa p " +
                 "where o.idPessoa = p.id " +
                 "order by o.dataOcorrencia DESC;";
