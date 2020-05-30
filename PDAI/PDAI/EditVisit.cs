@@ -23,7 +23,7 @@ namespace PDAI
         TableLayoutPanel tabela;
         Select count = new Select();
         Button b, save;
-        Label l, ldata, lId, lFullName, lVisitDate, lPrisionerVisited;
+        Label l, ldata, lId, lFullName, lVisitDate, lPrisionerVisited, titulo;
         TextBox tFullName;
         DateTimePicker tVisitDate;
         ComboBox cbPrisionerVisited;
@@ -32,7 +32,7 @@ namespace PDAI
         public static String select;
         Panel row;
         int saveWidth, saveHeight;
-        double var;
+        string var;
         string label, nome, id_visit;
         int id, fontSize = 13;
         public EditVisit()
@@ -114,8 +114,10 @@ namespace PDAI
             select = (sender as Label).Text.ToString();
             container.Controls.Clear();
 
-            var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            //var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            var = (sender as Label).Name.ToString().Substring(9);
             label = "Id" + var;
+            System.Diagnostics.Debug.WriteLine(label);
             var control = tabela.Controls.Find(label, true)[0];
             id_visit = control.Text.ToString();
 
@@ -165,6 +167,7 @@ namespace PDAI
             cbPrisionerVisited.Location = new Point(lPrisionerVisited.Location.X, lPrisionerVisited.Location.Y + lPrisionerVisited.Height);
             font.Size(cbPrisionerVisited, fontSize);
             container.Controls.Add(cbPrisionerVisited);
+            cbPrisionerVisited.DropDownStyle = ComboBoxStyle.DropDownList;
             names = db.select.Recluso();
             for (int i = 0; i < names.Count; i++)
             {
@@ -198,12 +201,22 @@ namespace PDAI
 
         public void Open()
         {
+            font = new Font_Class();
             listPanel = new Panel();
             container.Controls.Add(listPanel);
-            listPanel.Location = new Point((container.Width / 5), (container.Height / 14));
+            listPanel.Location = new Point((container.Width / 8), (container.Height / 8));
             listPanel.Size = new Size(993, 800);
             listPanel.BackColor = Color.White;
 
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Editar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
 
             tabela = new TableLayoutPanel();
             listPanel.Controls.Add(tabela);
@@ -213,15 +226,35 @@ namespace PDAI
             tabela.RowCount = count.Visit().Count;
             tabela.AutoScroll = true;
             createTable();
+
+            font = new Font_Class();
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Editar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
         }
 
         public void Save_Click(object sender, EventArgs e)
         {
-            db.update.Visita(id_visit, tFullName.Text.ToString(), db.select.visitedPrisionerId(cbPrisionerVisited.Text.ToString())[0].ToString(), tVisitDate.Value.ToString());
-            MessageBox.Show("Alterações guardadas com sucesso!!");
-            //select = tFullName.Text;
-            container.Controls.Clear();
-            Open();
+            if (tFullName.Text != string.Empty)
+            {
+                if (tVisitDate.Text != string.Empty)
+                {
+                    db.update.Visita(id_visit, tFullName.Text.ToString(), db.select.visitedPrisionerId(cbPrisionerVisited.Text.ToString())[0].ToString(), tVisitDate.Value.ToString());
+                    MessageBox.Show("Alterações guardadas com sucesso!!");
+                    //select = tFullName.Text;
+                    container.Controls.Clear();
+                    Open();
+                }
+                else { MessageBox.Show("Campo Data da Visita obrigatório."); }
+            }
+            else { MessageBox.Show("Campo Nome Completo obrigatório."); }
         }
     }
 }

@@ -10,6 +10,10 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.Windows.Forms.DataVisualization.Charting;
 using System.IO;
+using AForge;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using AForge.Controls;
 
 namespace PDAI
 {
@@ -31,22 +35,55 @@ namespace PDAI
         int nov = 10;
         int dec = 1;
 
+        private FilterInfoCollection filters;
+        Font_Class font;
+
         public StatisticsForm()
         {
             InitializeComponent();
+            font = new Font_Class();
             //monthChartValues();
             this.db = new Database();
             Preenche_ComboBox();
             PreencherDataGrid();
             this.Name = "StatisticsForm";
             dataGridView1.Size = new Size(this.Size.Width / 3, this.Size.Height / 3);
-
+            filters = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            font.Size(label1, 15);
+            label1.Text = filters.Count.ToString();
+            label1.ForeColor = Color.White;
+            font.Size(label2, 15);
+            label2.Text = db.select.idIncident().Count.ToString();
+            label2.ForeColor = Color.White;
+            comboBox1.SelectedIndex = 0;
         }
 
         private void StatisticsForm_Load(object sender, EventArgs e)
         {
-            //limpar dados todos
             incidents_month.Series.Clear();
+            incidents_month.Series.Add("Ocorrencias");
+            List<object> var = new List<object>();
+            var = db.select.OcorrenciaMes((int)comboBox1.SelectedItem);
+
+            //insere meses com dados e depois preenche restantes meses a zero
+            bool flag = false;
+            for (int i = 1; i < 13; i++)
+            {
+                for (int j = 0; j < var.Count(); j += 2)
+                {
+                    if ((int)var.ElementAt(j) == i)
+                    {
+                        flag = true;
+                        incidents_month.Series["Ocorrencias"].Points.AddXY((int)var.ElementAt(j + 1), "" + var.ElementAt(j));
+                        break;
+                    }
+                }
+                if (flag == false)
+                {
+                    incidents_month.Series["Ocorrencias"].Points.AddXY(i, "0");
+                }
+                flag = false;
+            }
         }
 
         private void gunaLabel1_Click(object sender, EventArgs e)
@@ -93,36 +130,51 @@ namespace PDAI
                       "Nome Relatorio",
                       "NovoRelatorio"
                       );
+
+
             PdfDocument document = new PdfDocument();
             document.Info.Title = "Created with PDFsharp";
             // Create an empty page
             PdfPage page = document.AddPage();
-            //representa uma superficie de desenho abstracta
             XGraphics gfx = XGraphics.FromPdfPage(page);
             // Create a font
             XFont font = new XFont("Verdana", 25, XFontStyle.BoldItalic);
             // Draw the text
+
             gfx.DrawString("Relatório", font, XBrushes.Black,
             new XRect(0, 0, page.Width, 30),
             XStringFormats.Center);
-            //abre um fluxo cujo armazenamento secundario e a memoria
+
+
+
             MemoryStream ms = new MemoryStream();
-            //grava a imagem no formato escolhido
             incidents_month.SaveImage(ms, ChartImageFormat.Png);
             XImage xfoto = XImage.FromStream(ms);
             gfx.DrawImage(xfoto, 100, 50, 350, 300);
+
+            //Resize DataGridView to full height.
+            //int height = dataGridView1.Height - 500;
+
+            //dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
             gfx.DrawString("Reclusos com mais Ocorrências", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
             //Create a Bitmap and draw the DataGridView on it.
             Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
             dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+
+            //Resize DataGridView back to original height.
+
+            //dataGridView1.Height = height;
+
             MemoryStream ms2 = new MemoryStream();
             bitmap.Save(ms2, System.Drawing.Imaging.ImageFormat.Jpeg);
             xfoto = XImage.FromStream(ms2);
             double comeco = (page.Width - xfoto.PointWidth) / 2;
             gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
             // Save the document...
-            string filename = "C:\\Users\\Nuno\\Desktop\\" + input + ".pdf";
-            document.Save(filename);
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            //string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
+            
+            document.Save(path + "\\" + input + ".pdf");
             MessageBox.Show("Pdf criado com sucesso");
         }
 
@@ -169,7 +221,17 @@ namespace PDAI
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            
+        }
 
+        private void comboBox1_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

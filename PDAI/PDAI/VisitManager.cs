@@ -23,13 +23,13 @@ namespace PDAI
         TableLayoutPanel tabela;
         Select count = new Select();
         Button b;
-        Label l, ldata, lId, lFullName, tFullName, lVisitDate, tVisitDate, lPrisionerVisited, cbPrisionerVisited;
+        Label l, ldata, lId, lFullName, tFullName, lVisitDate, tVisitDate, lPrisionerVisited, cbPrisionerVisited, titulo;
         ListView lv;
         Font_Class font;
         public static String select;
         Panel save, row;
         int saveWidth, saveHeight;
-        double var;
+        string var;
         string label, nome, id_visit;
         int id, fontSize = 13;
         public VisitManager()
@@ -111,7 +111,8 @@ namespace PDAI
             select = (sender as Label).Text.ToString();
             container.Controls.Clear();
 
-            var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            //var = Char.GetNumericValue((sender as Label).Name.ToString(), 9);
+            var = (sender as Label).Name.ToString().Substring(9);
             label = "Id" + var;
             var control = tabela.Controls.Find(label, true)[0];
             id_visit = control.Text.ToString();
@@ -120,24 +121,27 @@ namespace PDAI
             editPanelBorder = new Panel();
             container.Controls.Add(editPanelBorder);
             editPanelBorder.Location = new Point((container.Width / 5), (container.Width / 14));
-            editPanelBorder.Size = new Size(1000, 707);
+            //editPanelBorder.Size = new Size(1000, 707);
+            editPanelBorder.Size = new Size(700, 600);
             editPanelBorder.BackColor = Color.Black;
             editPanelBorder.SendToBack();
 
             editPanel = new Panel();
             editPanelBorder.Controls.Add(editPanel);
             editPanel.Location = new Point((container.Width / 5), (container.Width / 14));
-            editPanel.Size = new Size(993, 700);
+            //editPanel.Size = new Size(993, 700);
+            editPanel.Size = new Size(700, 600);
             editPanel.BackColor = Color.FromArgb(128, 128, 128);
             editPanel.BringToFront();
             editPanel.Dock = DockStyle.Fill;
 
             lFullName = new Label();
             lFullName.Size = new Size(500, 20);
-            lFullName.Location = new Point(container.Width * 1 / 20, container.Height * 1 / 10);
+            lFullName.Location = new Point(container.Width * 1 / 5, container.Height * 1 / 10);
             lFullName.Text = "Nome Completo:";
             font.Size(lFullName, fontSize);
             editPanel.Controls.Add(lFullName);
+            lFullName.ForeColor = Color.FromArgb(192, 192, 192);
 
 
             tFullName = new Label();
@@ -146,6 +150,7 @@ namespace PDAI
             font.Size(tFullName, fontSize);
             tFullName.Text = db.select.selecVisita(id_visit)[1].ToString();
             editPanel.Controls.Add(tFullName);
+            tFullName.ForeColor = Color.White;
 
 
 
@@ -155,6 +160,7 @@ namespace PDAI
             lVisitDate.Text = "Data da Visita:";
             font.Size(lVisitDate, fontSize);
             editPanel.Controls.Add(lVisitDate);
+            lVisitDate.ForeColor = Color.FromArgb(192, 192, 192);
 
 
             tVisitDate = new Label();
@@ -163,6 +169,7 @@ namespace PDAI
             font.Size(tVisitDate, fontSize);
             tVisitDate.Text = db.select.selecVisita(id_visit)[3].ToString();
             editPanel.Controls.Add(tVisitDate);
+            tVisitDate.ForeColor = Color.White;
 
             lPrisionerVisited = new Label();
             lPrisionerVisited.Size = new Size(tVisitDate.Width, tVisitDate.Height);
@@ -170,6 +177,7 @@ namespace PDAI
             lPrisionerVisited.Text = "Recluso Visitado:";
             font.Size(lPrisionerVisited, fontSize);
             editPanel.Controls.Add(lPrisionerVisited);
+            lPrisionerVisited.ForeColor = Color.FromArgb(192, 192, 192);
 
             cbPrisionerVisited = new Label();
             cbPrisionerVisited.Size = new Size(200, lFullName.Height);
@@ -177,6 +185,7 @@ namespace PDAI
             font.Size(cbPrisionerVisited, fontSize);
             editPanel.Controls.Add(cbPrisionerVisited);
             cbPrisionerVisited.Text = db.select.selecReclusoVisitado(Int32.Parse(db.select.selecVisita(id_visit)[0].ToString()))[0].ToString();
+            cbPrisionerVisited.ForeColor = Color.White;
 
 
         }
@@ -193,9 +202,22 @@ namespace PDAI
 
         public void Open()
         {
+            font = new Font_Class();
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Consultar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
+
+
             listPanel = new Panel();
             container.Controls.Add(listPanel);
-            listPanel.Location = new Point((container.Width / 5), (container.Height / 14));
+            listPanel.Location = new Point((container.Width / 8), (container.Height / 8));
             listPanel.Size = new Size(993, 800);
             listPanel.BackColor = Color.White;
 
@@ -208,6 +230,18 @@ namespace PDAI
             tabela.RowCount = count.Visit().Count;
             tabela.AutoScroll = true;
             createTable();
+
+            font = new Font_Class();
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Consultar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
         }
     }
 }

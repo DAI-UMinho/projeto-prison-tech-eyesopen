@@ -26,13 +26,13 @@ namespace PDAI
         ComboBox cbMaritalStatus;
         Select count = new Select();
         Button b, guardar, addImg;
-        Label l, ldata, lId, lFullName, tFullName, lVisitDate, tVisitDate, lPrisionerVisited, cbPrisionerVisited;
+        Label l, ldata, lId, lFullName, tFullName, lVisitDate, tVisitDate, lPrisionerVisited, cbPrisionerVisited, titulo;
         ListView lv;
         Font_Class font;
         public static String select;
         Panel save, row;
         int saveWidth, saveHeight, fontSize = 13;
-        double var;
+        string var;
         string label, nome, id_visit;
         public DeleteVisit()
         {
@@ -59,9 +59,10 @@ namespace PDAI
 
                 Button b = new Button();
                 row.Controls.Add(b);
-                b.Text = "Eliminar";
+                b.Image = Properties.Resources.delete;
+                //b.Text = "Eliminar";
                 b.Size = new Size(85, 60);
-                b.BackColor = Color.FromArgb(127, 127, 127);
+                //b.BackColor = Color.FromArgb(127, 127, 127);
                 b.Click += new EventHandler(b_Click);
                 b.Cursor = Cursors.Hand;
                 b.Dock = DockStyle.Right;
@@ -129,7 +130,7 @@ namespace PDAI
         {
             listPanel = new Panel();
             container.Controls.Add(listPanel);
-            listPanel.Location = new Point((container.Width / 5), (container.Height / 14));
+            listPanel.Location = new Point((container.Width / 8), (container.Height / 8));
             listPanel.Size = new Size(993, 800);
             listPanel.BackColor = Color.White;
 
@@ -144,6 +145,18 @@ namespace PDAI
             //tabela.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
             System.Diagnostics.Debug.WriteLine(Application.StartupPath);
             createTable();
+
+            font = new Font_Class();
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Eliminar Visita";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
         }
 
         private void b_Click(object sender, EventArgs e)
@@ -154,7 +167,8 @@ namespace PDAI
             if (confirmResult == DialogResult.Yes)
             {
                 // If 'Yes', do something here.
-                var = Char.GetNumericValue((sender as Button).Name.ToString(), 3);
+                //var = Char.GetNumericValue((sender as Button).Name.ToString(), 3);
+                var = (sender as Label).Name.ToString().Substring(9);
                 label = "Id" + var;
                 var control = tabela.Controls.Find(label, true)[0];
                 id_visit = control.Text.ToString();

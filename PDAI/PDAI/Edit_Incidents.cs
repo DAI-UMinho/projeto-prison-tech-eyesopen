@@ -13,7 +13,7 @@ namespace PDAI
     public partial class Edit_Incidents : Form
     {
         Database db;
-        List<Object> var;
+        List<object> var;
         public Edit_Incidents()
         {
             InitializeComponent();
@@ -21,14 +21,15 @@ namespace PDAI
             PreencherDataGrid();
             button3.Enabled = false;
             button2.Enabled = false;
-            var = new List<object>();
+            //var = new List<object>();
         }
 
         public void PreencherDataGrid()
         {
-            List<object> var = new List<object>();
+            
             var = db.select.VisualizarOcorrencia();
-            for (int i = 0; i < var.Count; i += 3)
+            MessageBox.Show("" + var.Count);
+            for (int i = 0; i < var.Count; i += 4)
             {
                 dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 1), var.ElementAt(i + 2));
             }
@@ -44,16 +45,19 @@ namespace PDAI
             
             if (dataGridView1.SelectedCells.Count > 0)
             {
-                int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
+                int selectedrowindex = dataGridView1.SelectedCells[0].OwningRow.Index+1;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-                string id = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
+                //string id = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
                 string dataOcorrencia = Convert.ToString(selectedRow.Cells["dataOcorrencia"].Value);
                 string nomeCompleto = Convert.ToString(selectedRow.Cells["nomeCompleto"].Value);
+                MessageBox.Show("" + var.Count);
+                string id = "" + var.ElementAt(4 * (selectedrowindex+1) - 1);
+                List<object> lol = new List<object>();
+                lol = db.select.Edit_Incidents(id);
                 
-                var = db.select.Edit_Incidents(id);
-                int idPessoa = (int)var.ElementAt(0);
-                string descricao = (string)var.ElementAt(1);
-                var.Add(id);
+                int idPessoa = (int)lol.ElementAt(0);
+                string descricao = (string)lol.ElementAt(1);
+                
                 richTextBox1.Text = "" + idPessoa;
                 richTextBox2.Text = descricao;
                 button3.Enabled = true;

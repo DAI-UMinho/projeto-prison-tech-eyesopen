@@ -27,7 +27,7 @@ namespace PDAI
         TableLayoutPanel tabela;
         Select count = new Select();
         Button b;
-        Label l, lFullName, tFullName, lBirthDate, tBirthDate, lCC, tCC, lMaritalStatus, cbMaritalStatus;
+        Label l, lFullName, tFullName, lBirthDate, tBirthDate, lCC, tCC, lMaritalStatus, cbMaritalStatus,titulo;
         ListView lv;
         Font_Class font;
         public static String select;
@@ -120,15 +120,21 @@ namespace PDAI
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 8, container.Width * 1 / 8);
             editPanel.Controls.Add(photo);
-            //photo.BackColor = Color.Beige;
             photo.Image = Properties.Resources.preso1;
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
 
             if (s.prisionerPhoto(select) != null)
             {
                 string[] filePaths = Directory.GetFiles(s.prisionerPhoto(select)[0].ToString());
-                pPhoto = new Image<Bgr, byte>(filePaths[0]);
-                photo.Image = pPhoto.Bitmap;
+                if (filePaths.Length != 0)
+                {
+                    pPhoto = new Image<Bgr, byte>(filePaths[0]);
+                    photo.Image = pPhoto.Bitmap;
+                }
+                else
+                {
+                    photo.BackColor = Color.Beige;
+                }
             }
 
 
@@ -217,6 +223,17 @@ namespace PDAI
 
         public void Open()
         {
+            font = new Font_Class();
+
+            Label titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 100);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Editar Recluso";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
             container.Controls.Clear();
 
             listPanel = new Panel();

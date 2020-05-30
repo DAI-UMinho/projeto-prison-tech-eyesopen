@@ -16,6 +16,7 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Threading;
+using System.Timers;
 
 namespace PDAI
 {
@@ -70,6 +71,18 @@ namespace PDAI
 
         System.Windows.Forms.PictureBox teste;
 
+        List<string> detected = new List<string>();
+
+        Boolean exist = new Boolean();
+
+        List<string> idList = new List<string>();
+
+        Boolean tester = new Boolean();
+
+        int Cronos;
+
+        System.Windows.Forms.Timer t = new System.Windows.Forms.Timer();
+
         FaceRecognizer recognizer = new FisherFaceRecognizer(0, 3500);
 
         public viewCam(Panel content_interface, int content_width, int content_height, double dbl)
@@ -79,6 +92,7 @@ namespace PDAI
             saveWidth = content_width;
             saveHeight = content_height;
             db = new Database();
+            tester = true;
 
             //Treinar Algoritmo
             Faces = new List<Image<Gray, byte>>();
@@ -88,14 +102,14 @@ namespace PDAI
 
             for (int i = 0; i < db.select.trainImages().Count; i = (i + 2))
             {
-                System.Diagnostics.Debug.WriteLine(db.select.trainImages()[i + 1].ToString());
-
                 string[] filePaths = Directory.GetFiles(db.select.trainImages()[i + 1].ToString());
-                trainImg_II = new Image<Gray, byte>(filePaths[0]);
-                trainImg_II = trainImg_II.Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
-                Faces.Add(trainImg_II);
-                IDs.Add(Int32.Parse(db.select.trainImages()[i].ToString()));
-
+                if (filePaths.Length != 0)
+                {
+                    trainImg_II = new Image<Gray, byte>(filePaths[0]);
+                    trainImg_II = trainImg_II.Resize(ProcessedImageWidth, ProcessedImageHeight, Emgu.CV.CvEnum.Inter.Cubic);
+                    Faces.Add(trainImg_II);
+                    IDs.Add(Int32.Parse(db.select.trainImages()[i].ToString()));
+                }
             }
 
             var faceImages = new Image<Gray, byte>[Faces.Count];
@@ -211,6 +225,7 @@ namespace PDAI
             frameImg = new Image<Bgr, byte>(bitmap);
             predict();
 
+
         }
 
         private void Pause_Click(object sender, EventArgs e)
@@ -269,8 +284,21 @@ namespace PDAI
                                 }
                             }
 
+                            if (detected != null)
+                            {
+                                for (int i = 0; i < detected.Count; i++)
+                                {
+                                    if (detected[i] == result.Label.ToString())
+                                    {
+                                        exist = true;
+                                    }
+                                }
+                            }
 
-                            pic.Image = bitmap;
+                            if (exist == false)
+                            {
+                                detected.Add(result.Label.ToString());
+                            }
                         }
                         else
                         {
@@ -285,10 +313,20 @@ namespace PDAI
                             }
                         }
 
-
-
-                        System.Diagnostics.Debug.WriteLine("Aqui!!!! - ");
                     }
+
+                    if (tester == true)
+                    {
+                        triggerAlarm();
+                        System.Diagnostics.Debug.WriteLine("Alert------------- " + detected[0].ToString() + detected[detected.Count - 1].ToString());
+
+                    }
+                    else
+                    {
+                        SetTimer();
+                    }
+
+                    pic.Image = bitmap;
 
                 }
 
@@ -298,6 +336,55 @@ namespace PDAI
                 }
 
             }
+
+            System.Diagnostics.Debug.WriteLine("Aqui!!!! - ");
+        }
+
+
+        public void triggerAlarm()
+        {
+            for (int i = 0; i < db.select.idIncident().Count; i++) //Para cada ocurrencia
+            {
+                for (int a = 0; a < db.select.idPessoaFromIncident(Int32.Parse(db.select.idIncident()[i].ToString())).Count; a++) //Para cada idPessoa da ocurrencia i
+                {
+                    for (int b = 0; b < detected.Count; b++) //Para cada elemento de detected
+                    {
+                        if (detected[b] == db.select.idPessoaFromIncident(Int32.Parse(db.select.idIncident()[i].ToString()))[a].ToString()) //Se um elemento de detected é igual a um IdPessoa de uma ocorrencia
+                        {
+                            idList.Add(detected[b]);
+                        }
+                    }
+
+                }
+                //System.Diagnostics.Debug.WriteLine(idList[0]);
+                if (idList.Count > 1)
+                {
+                    db.insert.Alarm(1);
+                    for (int z = 0; z < idList.Count; z++)
+                    {
+                        db.insert.AssocAlarm(Convert.ToUInt32(idList[z]), Convert.ToUInt32(db.select.lastAlert()[0].ToString()));
+                        System.Diagnostics.Debug.WriteLine(" Por favor que seja isto ---- " + idList[z].ToString() + " " + db.select.lastAlert()[0].ToString());
+                    }
+                    tester = false;
+                    Cronos = 1;
+                }
+                else
+                {
+                    idList.Clear();
+                }
+            }
+        }
+
+        private void SetTimer()
+        {
+            t.Interval = 1800000; // specify interval time as you want
+            t.Tick += new EventHandler(timer_Tick);
+            t.Start();
+        }
+
+        void timer_Tick(object sender, EventArgs e)
+        {
+            triggerAlarm();
         }
     }
 }

@@ -26,13 +26,17 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
+        public System.ComponentModel.IContainer GetContainer()
+        {
+            return components;
+        }
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.nomeCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Intervenientes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -42,42 +46,33 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nomeCompleto,
-            this.idOcorrencia,
+            this.Intervenientes,
+            this.Motivo,
             this.dataOcorrencia});
-            this.dataGridView1.Location = new System.Drawing.Point(46, 53);
+            this.dataGridView1.Location = new System.Drawing.Point(46, 60);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(702, 347);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
-            // button1
+            // Intervenientes
             // 
-            this.button1.Location = new System.Drawing.Point(614, 451);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Intervenientes.HeaderText = "Intervenientes";
+            this.Intervenientes.MinimumWidth = 6;
+            this.Intervenientes.Name = "Intervenientes";
+            this.Intervenientes.ReadOnly = true;
+            this.Intervenientes.Width = 125;
             // 
-            // nomeCompleto
+            // Motivo
             // 
-            this.nomeCompleto.HeaderText = "nomeCompleto";
-            this.nomeCompleto.MinimumWidth = 6;
-            this.nomeCompleto.Name = "nomeCompleto";
-            this.nomeCompleto.ReadOnly = true;
-            this.nomeCompleto.Width = 125;
-            // 
-            // idOcorrencia
-            // 
-            this.idOcorrencia.HeaderText = "idOcorrencia";
-            this.idOcorrencia.MinimumWidth = 6;
-            this.idOcorrencia.Name = "idOcorrencia";
-            this.idOcorrencia.ReadOnly = true;
-            this.idOcorrencia.Width = 125;
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.MinimumWidth = 6;
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
+            this.Motivo.Width = 125;
             // 
             // dataOcorrencia
             // 
@@ -86,6 +81,16 @@
             this.dataOcorrencia.Name = "dataOcorrencia";
             this.dataOcorrencia.ReadOnly = true;
             this.dataOcorrencia.Width = 125;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(614, 451);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Eliminar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ApagarOcorrencia
             // 
@@ -104,9 +109,9 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idOcorrencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Intervenientes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
     }
 }

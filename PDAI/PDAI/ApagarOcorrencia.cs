@@ -13,23 +13,27 @@ namespace PDAI
     public partial class ApagarOcorrencia : Form
     {
         Database db;
+        List<object> var;
+        
         public ApagarOcorrencia()
         {
             InitializeComponent();
             button1.Text = "Apagar";
             db = new Database();
+            var = new List<object>();
+
             PreencherDataGrid();
             button1.Enabled = false;
-            Teste();
+            
         }
 
         public void PreencherDataGrid()
         {
             try
             {
-                List<object> var = new List<object>();
+                
                 var = db.select.VisualizarOcorrencia();
-                for (int i = 0; i < var.Count; i += 3)
+                for (int i = 0; i < var.Count; i += 4)
                 {
                     dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 1), var.ElementAt(i + 2));
                 }
@@ -45,23 +49,21 @@ namespace PDAI
             }
         }
 
-        public void Teste()
-        {
-            while(dataGridView1.SelectedRows != null)
-            {
-                button1.Enabled = true;
-            }
-        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int selectedrowindex = dataGridView1.SelectedCells[0].RowIndex;
-            DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
-            string a = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
+            int selectedrow = dataGridView1.SelectedCells[0].RowIndex + 1;
+            object id = var.ElementAt(selectedrow*4-1);
+            string a = Convert.ToString(id);
             db.delete.Ocorrencia(a);
             MessageBox.Show("Ocorrencia Eliminada");
             dataGridView1.Rows.Clear();
             PreencherDataGrid();
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+        {
+            button1.Enabled = true;
         }
     }
 }
