@@ -15,8 +15,8 @@ namespace PDAI
         public int locationY { set { container.Location = new Point(container.Location.X, value); } get { return container.Location.Y; } }
         public int width { set { container.Size = new Size(value, container.Height); } get { return container.Width; } }
         public int height { set { container.Size = new Size(container.Width, value); } get { return container.Height; } }
+        public string pageTitle { set;get; }
 
-        Panel  editPanelBorder, editPanel;
         Font_Class font;
         Database database;
         PictureBox photo;
@@ -50,32 +50,12 @@ namespace PDAI
             this.employee = employee;
             this.callback = callback;
 
-
-            editPanelBorder = new Panel();
-            container.Controls.Add(editPanelBorder);
-            editPanelBorder.Location = new Point((container.Width / 8), (container.Width / 14));
-            //editPanelBorder.Size = new Size(1000, 707);
-            editPanelBorder.Size = new Size(1000, 650);
-            editPanelBorder.BackColor = Color.Black;
-            editPanelBorder.SendToBack();
-
-            editPanel = new Panel();
-            editPanelBorder.Controls.Add(editPanel);
-            editPanel.Location = new Point((container.Width / 20), (container.Width / 14));
-            //editPanel.Size = new Size(993, 700);
-            editPanel.Size = new Size(1000, 650);
-            editPanel.BackColor = Color.FromArgb(242, 242, 242);
-            //editPanel.BackColor = Color.FromArgb(205,205,205);
-            editPanel.BringToFront();
-            editPanel.Dock = DockStyle.Fill;
-
             photo.Size = new Size(250, 250);
             photo.Location = new Point(container.Width * 1 / 30, container.Height * 2 / 20);
-            //container.Controls.Add(photo);
+            container.Controls.Add(photo);
             photo.SizeMode = PictureBoxSizeMode.StretchImage;
             photo.BorderStyle = BorderStyle.Fixed3D;
             photo.BackColor = Color.White;
-            editPanel.Controls.Add(photo);
 
             ladicionarImg = new Label();
             ladicionarImg.Size = new Size(photo.Width - 1, photo.Height - 1);
@@ -93,17 +73,14 @@ namespace PDAI
             lFullName.Location = new Point(photo.Location.X + photo.Width + (container.Width * 2 / 25), photo.Location.Y);
             lFullName.Text = "Nome Completo";
             font.Size(lFullName, fontSize);
-            lFullName.Font = new Font("SansSerif", 15, FontStyle.Bold);
-            //container.Controls.Add(lFullName);
-            editPanel.Controls.Add(lFullName);
+            container.Controls.Add(lFullName);
 
 
             tFullName = new TextBox();
-            tFullName.Size = new Size(lFullName.Width - 130, lFullName.Height);
-            tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height + 10);
+            tFullName.Size = new Size(lFullName.Width, lFullName.Height);
+            tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height);
             font.Size(tFullName, fontSize);
-            //container.Controls.Add(tFullName);
-            editPanel.Controls.Add(tFullName);
+            container.Controls.Add(tFullName);
 
 
 
@@ -112,19 +89,16 @@ namespace PDAI
             lBirthDate.Location = new Point(tFullName.Location.X, tFullName.Location.Y + tFullName.Height + container.Height * 1 / 20);
             lBirthDate.Text = "Data Nascimento";
             font.Size(lBirthDate, fontSize);
-            //container.Controls.Add(lBirthDate);
-            lBirthDate.Font = new Font("SansSerif", 15, FontStyle.Bold);
-            editPanel.Controls.Add(lBirthDate);
+            container.Controls.Add(lBirthDate);
 
 
             tBirthDate = new DateTimePicker();
             tBirthDate.Size = new Size(150, lFullName.Height);
-            tBirthDate.Location = new Point(lBirthDate.Location.X, lBirthDate.Location.Y + lBirthDate.Height + 10);
+            tBirthDate.Location = new Point(lBirthDate.Location.X, lBirthDate.Location.Y + lBirthDate.Height);
             tBirthDate.Format = DateTimePickerFormat.Short;
             tBirthDate.MaxDate = new DateTime(DateTime.Today.Year - 18, DateTime.Today.Month, DateTime.Today.Day);
             font.Size(tBirthDate, fontSize);
-            //container.Controls.Add(tBirthDate);
-            editPanel.Controls.Add(tBirthDate);
+            container.Controls.Add(tBirthDate);
 
 
 
@@ -133,24 +107,21 @@ namespace PDAI
             lCC.Location = new Point(tBirthDate.Location.X, tBirthDate.Location.Y + tBirthDate.Height + container.Height * 1 / 20);
             lCC.Text = "Cartão Cidadão";
             font.Size(lCC, fontSize);
-            //container.Controls.Add(lCC);
-            lCC.Font = new Font("SansSerif", 15, FontStyle.Bold);
-            editPanel.Controls.Add(lCC);
+            container.Controls.Add(lCC);
 
             tCC = new TextBox();
             tCC.Size = new Size(200, lFullName.Height);
-            tCC.Location = new Point(lCC.Location.X, lCC.Location.Y + lCC.Height + 10);
+            tCC.Location = new Point(lCC.Location.X, lCC.Location.Y + lCC.Height);
             font.Size(tCC, fontSize);
-            //container.Controls.Add(tCC);
-            editPanel.Controls.Add(tCC);
+            container.Controls.Add(tCC);
 
             titulo = new Label();
             container.Controls.Add(titulo);
             titulo.Size = new Size(700, 100);
             titulo.Location = new Point(450, 0);
             font.Size(titulo, fontSize);
-            titulo.Text = "Registar Recluso";
-            titulo.Font = new Font("Cambria", 30, FontStyle.Bold);
+            titulo.Text = pageTitle;
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
             //nome.BorderStyle = BorderStyle.None;
@@ -162,17 +133,13 @@ namespace PDAI
             lMaritalStatus.Location = new Point(tCC.Location.X, tCC.Location.Y + tCC.Height + container.Height * 1 / 20);
             lMaritalStatus.Text = "Estado Civil";
             font.Size(lMaritalStatus, fontSize);
-            //container.Controls.Add(lMaritalStatus);
-            lMaritalStatus.Font = new Font("SansSerif", 15, FontStyle.Bold);
-            editPanel.Controls.Add(lMaritalStatus);
+            container.Controls.Add(lMaritalStatus);
 
             cbMaritalStatus = new ComboBox();
             cbMaritalStatus.Size = new Size(200, lFullName.Height);
-            cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height + 10);
+            cbMaritalStatus.Location = new Point(lMaritalStatus.Location.X, lMaritalStatus.Location.Y + lMaritalStatus.Height);
             font.Size(cbMaritalStatus, fontSize);
-            //container.Controls.Add(cbMaritalStatus);
-
-            editPanel.Controls.Add(cbMaritalStatus);
+            container.Controls.Add(cbMaritalStatus);
             cbMaritalStatus.DropDownStyle = ComboBoxStyle.DropDownList;
             List<string> maritalStatus = database.select.GetMaritalStatus();
             foreach (string item in maritalStatus)
@@ -190,31 +157,27 @@ namespace PDAI
                 lRole.Location = new Point(cbMaritalStatus.Location.X, cbMaritalStatus.Location.Y + cbMaritalStatus.Height + container.Height * 1 / 20);
                 lRole.Text = "Cargo";
                 font.Size(lRole, fontSize);
-                //container.Controls.Add(lRole);
-                lRole.Font = new Font("SansSerif", 15, FontStyle.Bold);
-                editPanel.Controls.Add(lRole);
+                container.Controls.Add(lRole);
 
-                titulo.Hide();
+                //titulo.Hide();
 
-                tituloFunc = new Label();
-                container.Controls.Add(tituloFunc);
-                tituloFunc.Size = new Size(700, 100);
-                tituloFunc.Location = new Point(450, 0);
-                font.Size(tituloFunc, fontSize);
-                tituloFunc.Text = "Registar Funcionário";
-                tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
-                tituloFunc.ForeColor = Color.DarkBlue;
-                tituloFunc.SendToBack();
-                //nome.BorderStyle = BorderStyle.None;
-                //nome.BackColor = color;
+                //tituloFunc = new Label();
+                //container.Controls.Add(tituloFunc);
+                //tituloFunc.Size = new Size(700, 100);
+                //tituloFunc.Location = new Point(450, 0);
+                //font.Size(tituloFunc, fontSize);
+                //tituloFunc.Text = pageTitle;
+                //tituloFunc.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+                //tituloFunc.ForeColor = Color.DarkBlue;
+                //tituloFunc.SendToBack();
+                ////nome.BorderStyle = BorderStyle.None;
+                ////nome.BackColor = color;
 
                 cbRole = new ComboBox();
                 cbRole.Size = new Size(200, lFullName.Height);
-                cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height + 10);
+                cbRole.Location = new Point(lRole.Location.X, lRole.Location.Y + lRole.Height);
                 font.Size(cbRole, fontSize);
-
-                //container.Controls.Add(cbRole);
-                editPanel.Controls.Add(cbRole);
+                container.Controls.Add(cbRole);
                 cbRole.DropDownStyle = ComboBoxStyle.DropDownList;
                 List<string> roles = database.select.GetRoles();
                 foreach (string item in roles)
@@ -230,23 +193,15 @@ namespace PDAI
 
             registration = new Button();
             registration.Size = new Size(150, 60);
-            registration.Location = new Point(varLocationX + 400, varLocationY + varLocationHeight + container.Height * 1 / 30);
+            registration.Location = new Point(varLocationX, varLocationY + varLocationHeight + container.Height * 1 / 10);
             registration.Text = "Registar";
             font.Size(registration, fontSize);
-            /*ontainer.Controls.Add(registration);*/
-            //registration.Image = Properties.Resources.adicionar;
-            //registration.ImageAlign = ContentAlignment.MiddleLeft;
-            registration.TextAlign = ContentAlignment.MiddleCenter;
-            editPanel.Controls.Add(registration);
-            registration.BackColor = Color.FromArgb(255, 255, 255);
-
-            //registration.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
-            registration.Click += new EventHandler(Registration_Click);
+            container.Controls.Add(registration);
             registration.Click += new EventHandler(Registration_Click);
         }
 
 
-        public void Load(AccountItem accountItem)
+        public void Load(AccountItem accountItem, option value)
         {
             bitmapImage = new Bitmap(accountItem.imagePath);
             photo.Image = bitmapImage;
@@ -257,6 +212,20 @@ namespace PDAI
             // tBirthDate.Text = 
             cbMaritalStatus.Text = accountItem.maritalStatus.Text;
             if(employee) cbRole.Text = accountItem.employeeRole.Text;
+
+            switch (value)
+            {
+                case option.view:
+                    registration.Visible = false;
+                    break;
+
+                case option.edit:
+                    registration.Text = "Editar";
+                    break;
+
+            }
+
+
         }
 
 

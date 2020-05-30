@@ -144,12 +144,13 @@ namespace PDAI
 
             if (VerifiedAdmin())
             {
+                pictureBox1.Hide();
                 Panel item = menu.AddItem("Contas", AccountList,MenuPosition.top);
                 menu.AddItem("Definições", AccountSettings, MenuPosition.top);
                 menu.AddItem("Alterar Credenciais", AccountCredentials, MenuPosition.top);
                 menu.AddItem("Terminar sessão", Logout,  MenuPosition.bottom,0,60);
                 AccountList(item, new EventArgs());
-                pictureBox1.Hide();
+                
             }
             else 
             {
@@ -190,19 +191,8 @@ namespace PDAI
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-
-
             pictureBox1.Image = image[i];
-            if (i == image.Count - 1)
-            {
-                i = 0;
-            }
-            else
-            {
-                i++;
-            }
-
+            if (i == image.Count - 1){i = 0;}else{i++;}
         }
 
 
@@ -304,6 +294,8 @@ namespace PDAI
 
         private void Pages(object sender, EventArgs e)
         {
+            pictureBox1.Hide();
+
             string val = "";
             if (stringObject.Count != 0) val = stringObject[0];
 
@@ -331,7 +323,8 @@ namespace PDAI
             if (((Button)sender).Name == "Privilégio Estatística-Consultar" || val == "Privilégio Estatística-Consultar")
             {
 
-                    StatisticsForm statisticsForm = new StatisticsForm();
+                
+                StatisticsForm statisticsForm = new StatisticsForm();
                     disposeObject = statisticsForm;
                     statisticsForm.TopLevel = false;
                     statisticsForm.FormBorderStyle = FormBorderStyle.None;
@@ -341,15 +334,17 @@ namespace PDAI
                     container.Controls.Add(statisticsForm);
                     statisticsForm.BringToFront();
                     statisticsForm.Show();
-                    pictureBox1.Hide();
+                    
 
             }
 
 
             if (((Button)sender).Name == "Privilégio Funcionário-Registar" || val == "Privilégio Funcionário-Registar")
             {
-     
+
+               
                 I_Person person = new I_Person();
+                person.pageTitle = "Registar Funcionário";
                 disposeObject = person;
                 container.Controls.Add(person.container);
                 person.width = container.Width - menu.width;
@@ -357,15 +352,16 @@ namespace PDAI
                 person.locationX = menu.locationX + menu.width;
                 person.locationY = 0;
                 person.Open(true,false);
-                pictureBox1.Hide();
+              
 
             }
 
 
             if (((Button)sender).Name == "Privilégio Recluso-Registar" || val == "Privilégio Recluso-Registar")
             {
-
+               
                 I_Person person = new I_Person();
+                person.pageTitle = "Registar Recluso";
                 disposeObject = person;
                 container.Controls.Add(person.container);
                 person.width = container.Width - menu.width;
@@ -373,14 +369,14 @@ namespace PDAI
                 person.locationX = menu.locationX + menu.width;
                 person.locationY = 0;
                 person.Open(false,false);
-                pictureBox1.Hide();
+               
 
             }
 
 
             if (((Button)sender).Name == "Privilégio Conta-Alterar Credenciais" || val == "Privilégio Conta-Alterar Credenciais")
             {
-
+               
                 AccountCredentials accountCredentials = new AccountCredentials(idAccount,username,password);
                 disposeObject = accountCredentials;
                 container.Controls.Add(accountCredentials.container);
@@ -389,13 +385,13 @@ namespace PDAI
                 accountCredentials.locationX = menu.locationX + menu.width;
                 accountCredentials.locationY = 0;
                 accountCredentials.Open();
-                pictureBox1.Hide();
+                
 
             }
 
             if (((Button)sender).Name == "Privilégio Funcionário-Consultar" || val == "Privilégio Funcionário-Consultar")
             {
-
+               
                 I_PersonView employee = new I_PersonView();
                 disposeObject = employee;
                 container.Controls.Add(employee.container);
@@ -404,14 +400,14 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.viewEmployee);
-                pictureBox1.Hide();
+               
 
             }
 
 
             if (((Button)sender).Name == "Privilégio Funcionário-Editar" || val == "Privilégio Funcionário-Editar")
             {
-
+               
                 I_PersonView employee = new I_PersonView();
                 disposeObject = employee;
                 container.Controls.Add(employee.container);
@@ -420,7 +416,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.editEmployee);
-                pictureBox1.Hide();
+                
 
             }
 
@@ -428,7 +424,7 @@ namespace PDAI
 
             if (((Button)sender).Name == "Privilégio Funcionário-Eliminar" || val == "Privilégio Funcionário-Eliminar")
             {
-
+               
                 I_PersonView employee = new I_PersonView();
                 disposeObject = employee;
                 container.Controls.Add(employee.container);
@@ -437,7 +433,7 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.deleteEmployee);
-                pictureBox1.Hide();
+               
 
             }
 
@@ -445,7 +441,7 @@ namespace PDAI
 
             if (((Button)sender).Name == "Privilégio Ocorrência-Registar" || val == "Privilégio Ocorrência-Registar")
             {
-
+               
                 Incidents incidents = new Incidents();
                 disposeObject = incidents;
                 container.Controls.Add(incidents.container);
@@ -454,14 +450,14 @@ namespace PDAI
                 incidents.locationX = menu.locationX + menu.width;
                 incidents.locationY = 0;
                 incidents.Open();
-                pictureBox1.Hide();
+                
 
             }
 
 
             if (((Button)sender).Name == "Privilégio Recluso-Consultar" || val == "Privilégio Recluso-Consultar")
             {
-
+               
                 I_PersonView prisoner = new I_PersonView();
                 disposeObject = prisoner;
                 container.Controls.Add(prisoner.container);
@@ -470,7 +466,7 @@ namespace PDAI
                 prisoner.locationX = menu.locationX + menu.width;
                 prisoner.locationY = 0;
                 prisoner.Open(option.viewPrisoner);
-                pictureBox1.Hide();
+               
 
 
             }
@@ -478,15 +474,7 @@ namespace PDAI
             if (((Button)sender).Name == "Privilégio Recluso-Editar" || val == "Privilégio Recluso-Editar")
             {
 
-                //EditPrisioner ep = new EditPrisioner();
-                //disposeObject = ep;
-                //container.Controls.Add(ep.container);
-                //ep.width = container.Width - menu.width;
-                //ep.height = container.Height;
-                //ep.locationX = menu.locationX + menu.width;
-                //ep.locationY = 0;
-                //ep.Open();
-
+               
                 I_PersonView employee = new I_PersonView();
                 disposeObject = employee;
                 container.Controls.Add(employee.container);
@@ -495,22 +483,13 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.editPrisoner);
-                pictureBox1.Hide();
+               
 
             }
 
             if (((Button)sender).Name == "Privilégio Recluso-Eliminar" || val == "Privilégio Recluso-Eliminar")
             {
-
-                //DeletePrisioner dp = new DeletePrisioner();
-                //disposeObject = dp;
-                //container.Controls.Add(dp.container);
-                //dp.width = container.Width - menu.width;
-                //dp.height = container.Height;
-                //dp.locationX = menu.locationX + menu.width;
-                //dp.locationY = 0;
-                //dp.Open();
-
+                
                 I_PersonView employee = new I_PersonView();
                 disposeObject = employee;
                 container.Controls.Add(employee.container);
@@ -519,13 +498,30 @@ namespace PDAI
                 employee.locationX = menu.locationX + menu.width;
                 employee.locationY = 0;
                 employee.Open(option.deletePrisoner);
-                pictureBox1.Hide();
+               
 
             }
 
-            if (((Button)sender).Name == "Privilégio Câmara-Consultar Deteção" || val == "Privilégio Câmara-Consultar Deteção")
+            if (((Button)sender).Name == "Privilégio Guarda-Consultar" || val == "Privilégio Guarda-Consultar")
             {
 
+                I_PersonView prisionGuard = new I_PersonView();
+                disposeObject = prisionGuard;
+                container.Controls.Add(prisionGuard.container);
+                prisionGuard.width = container.Width - menu.width;
+                prisionGuard.height = container.Height;
+                prisionGuard.locationX = menu.locationX + menu.width;
+                prisionGuard.locationY = 0;
+                prisionGuard.Open(option.viewPrisonGuard);
+
+
+
+            }
+
+
+            if (((Button)sender).Name == "Privilégio Câmara-Consultar Deteção" || val == "Privilégio Câmara-Consultar Deteção")
+            {
+               
                 I_CamGallery camGallery = new I_CamGallery();
                 disposeObject = camGallery;
                 container.Controls.Add(camGallery.container);
@@ -534,7 +530,7 @@ namespace PDAI
                 camGallery.locationX = menu.locationX + menu.width;
                 camGallery.locationY = 0;
                 camGallery.Open();
-                pictureBox1.Hide();
+               
 
             }
 
@@ -551,7 +547,7 @@ namespace PDAI
                 visit.locationX = menu.locationX + menu.width;
                 visit.locationY = 0;
                 visit.Open();
-                pictureBox1.Hide();
+               
 
             }
 
@@ -566,7 +562,7 @@ namespace PDAI
                 VM.locationX = menu.locationX + menu.width;
                 VM.locationY = 0;
                 VM.Open();
-                pictureBox1.Hide();
+               
 
             }
 
@@ -581,7 +577,7 @@ namespace PDAI
                 dv.locationX = menu.locationX + menu.width;
                 dv.locationY = 0;
                 dv.Open();
-                pictureBox1.Hide();
+               
 
             }
 
@@ -596,7 +592,7 @@ namespace PDAI
                 ev.locationX = menu.locationX + menu.width;
                 ev.locationY = 0;
                 ev.Open();
-                pictureBox1.Hide();
+               
 
             }
 
@@ -611,7 +607,7 @@ namespace PDAI
                 vcnorecognition.locationX = menu.locationX + menu.width;
                 vcnorecognition.locationY = 0;
                 vcnorecognition.Open();
-                pictureBox1.Hide();
+               
 
 
             }
@@ -634,7 +630,7 @@ namespace PDAI
                 container.Controls.Add(VS);
                // VS.BringToFront();
                 VS.Show();
-                pictureBox1.Hide();
+               
 
 
             }
@@ -654,7 +650,7 @@ namespace PDAI
                 container.Controls.Add(ED);
                 //ED.BringToFront();
                 ED.Show();
-                pictureBox1.Hide();
+               
 
             }
 
@@ -673,7 +669,7 @@ namespace PDAI
                 container.Controls.Add(AP);
                 AP.BringToFront();
                 AP.Show();
-                pictureBox1.Hide();
+                
 
             }
 
