@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nomeCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -41,6 +38,9 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.Motivo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Interveniente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataOcorrencia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,8 +50,8 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nomeCompleto,
-            this.idOcorrencia,
+            this.Motivo,
+            this.Interveniente,
             this.dataOcorrencia});
             this.dataGridView1.Location = new System.Drawing.Point(159, 76);
             this.dataGridView1.Name = "dataGridView1";
@@ -60,30 +60,6 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(499, 409);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // nomeCompleto
-            // 
-            this.nomeCompleto.HeaderText = "nomeCompleto";
-            this.nomeCompleto.MinimumWidth = 6;
-            this.nomeCompleto.Name = "nomeCompleto";
-            this.nomeCompleto.ReadOnly = true;
-            this.nomeCompleto.Width = 125;
-            // 
-            // idOcorrencia
-            // 
-            this.idOcorrencia.HeaderText = "idOcorrencia";
-            this.idOcorrencia.MinimumWidth = 6;
-            this.idOcorrencia.Name = "idOcorrencia";
-            this.idOcorrencia.ReadOnly = true;
-            this.idOcorrencia.Width = 125;
-            // 
-            // dataOcorrencia
-            // 
-            this.dataOcorrencia.HeaderText = "dataOcorrencia";
-            this.dataOcorrencia.MinimumWidth = 6;
-            this.dataOcorrencia.Name = "dataOcorrencia";
-            this.dataOcorrencia.ReadOnly = true;
-            this.dataOcorrencia.Width = 125;
             // 
             // button1
             // 
@@ -168,6 +144,30 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Descrição:";
             // 
+            // Motivo
+            // 
+            this.Motivo.HeaderText = "Motivo";
+            this.Motivo.MinimumWidth = 6;
+            this.Motivo.Name = "Motivo";
+            this.Motivo.ReadOnly = true;
+            this.Motivo.Width = 125;
+            // 
+            // Interveniente
+            // 
+            this.Interveniente.HeaderText = "Interveniente";
+            this.Interveniente.MinimumWidth = 6;
+            this.Interveniente.Name = "Interveniente";
+            this.Interveniente.ReadOnly = true;
+            this.Interveniente.Width = 125;
+            // 
+            // dataOcorrencia
+            // 
+            this.dataOcorrencia.HeaderText = "dataOcorrencia";
+            this.dataOcorrencia.MinimumWidth = 6;
+            this.dataOcorrencia.Name = "dataOcorrencia";
+            this.dataOcorrencia.ReadOnly = true;
+            this.dataOcorrencia.Width = 125;
+            // 
             // Edit_Incidents
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -194,9 +194,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomeCompleto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idOcorrencia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
@@ -206,5 +203,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Motivo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Interveniente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataOcorrencia;
     }
 }

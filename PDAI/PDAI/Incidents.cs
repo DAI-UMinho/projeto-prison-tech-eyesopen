@@ -158,7 +158,7 @@ namespace PDAI
                 int codigoOcorrencia = 0; 
                 try
                 {
-                    if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                    if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0 && motivu.Length>0)
                     {
                         if (descricao.Length <= 100)
                         {

@@ -28,7 +28,7 @@ namespace PDAI
         {
             
             var = db.select.VisualizarOcorrencia();
-            MessageBox.Show("" + var.Count);
+            
             for (int i = 0; i < var.Count; i += 4)
             {
                 dataGridView1.Rows.Add(var.ElementAt(i), var.ElementAt(i + 1), var.ElementAt(i + 2));
