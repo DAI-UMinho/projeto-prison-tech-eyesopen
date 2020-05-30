@@ -131,7 +131,7 @@ namespace PDAI
             pictureBox1.BorderStyle = BorderStyle.Fixed3D;
             pictureBox1.BackColor = Color.White;
 
-            pictureBox1.Image = image[image.Count - 4];
+            pictureBox1.Image = image[image.Count - 1];
 
 
             System.Timers.Timer timer1 = new System.Timers.Timer();
