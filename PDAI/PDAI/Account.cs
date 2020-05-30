@@ -673,6 +673,21 @@ namespace PDAI
 
             }
 
+            if (((Button)sender).Name == "Privilégio Alerta-Consultar" || val == "Privilégio Alerta-Consultar")
+            {
+
+                viewAlert VA = new viewAlert();
+                disposeObject = VA;
+                container.Controls.Add(VA.container);
+                VA.width = container.Width - menu.width;
+                VA.height = container.Height;
+                VA.locationX = menu.locationX + menu.width;
+                VA.locationY = 0;
+                VA.Open();
+
+
+            }
+
 
 
         }

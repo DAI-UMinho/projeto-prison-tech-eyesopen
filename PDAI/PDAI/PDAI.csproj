@@ -229,6 +229,7 @@
       <DependentUpon>StatisticsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Update.cs" />
+    <Compile Include="viewAlert.cs" />
     <Compile Include="viewCam.cs" />
     <Compile Include="viewCamNRec.cs" />
     <Compile Include="viewPrisoner.cs" />

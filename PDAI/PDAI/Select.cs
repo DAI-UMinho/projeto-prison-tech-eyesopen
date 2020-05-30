@@ -1321,6 +1321,181 @@ namespace PDAI
             return id;
         }
 
+        public List<object> idPessoaFromIncident(int id)
+        {
+
+            List<object> idPessoa = new List<object>();
+            try
+            {
+                sql = "select idPessoa from Reconhecimento where idOcorrencia = '" + id + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        idPessoa.Add(reader.GetValue(i));
+                    }
+
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return idPessoa;
+        }
+
+        public List<object> lastAlert()
+        {
+
+            List<object> idAlert = new List<object>();
+            try
+            {
+                sql = "SELECT TOP 1 id FROM Alerta ORDER BY id DESC";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        idAlert.Add(reader.GetValue(i));
+                    }
+
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return idAlert;
+        }
+
+
+        public List<object> Alert()
+        {
+
+            List<object> idAlert = new List<object>();
+            try
+            {
+                sql = "select id from Alerta";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        idAlert.Add(reader.GetValue(i));
+                    }
+
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return idAlert;
+        }
+
+        public List<object> timeAlert(string id)
+        {
+
+            List<object> idAlert = new List<object>();
+            try
+            {
+                sql = "select dataRegisto from AssocAlerta where idAlerta = '" + id + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        idAlert.Add(reader.GetValue(i));
+                    }
+
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return idAlert;
+        }
+
+        public List<object> peopleAlert(string id)
+        {
+
+            List<object> idAlert = new List<object>();
+            try
+            {
+                sql = "select idPessoa from AssocAlerta where idAlerta = '" + id + "';";
+                System.Diagnostics.Debug.WriteLine("Aqui--------------------" + sql);
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        idAlert.Add(reader.GetValue(i));
+                    }
+
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return idAlert;
+        }
+
+        public List<object> peopleNamesAlert(string id)
+        {
+
+            List<object> idAlert = new List<object>();
+            try
+            {
+                sql = "select nomeCompleto from Pessoa where id = '" + id + "'";
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    {
+                        idAlert.Add(reader.GetValue(i));
+                    }
+
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return idAlert;
+        }
     }
 }
 
