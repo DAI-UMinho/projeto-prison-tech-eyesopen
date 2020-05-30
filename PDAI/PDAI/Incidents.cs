@@ -34,6 +34,9 @@ namespace PDAI
         int listY = 35;
         int fontSize = 13;
         Color color = Color.FromArgb(127, 127, 127);
+        Panel editPanelBorder, editPanel;
+
+
 
 
         public Incidents()
@@ -54,12 +57,30 @@ namespace PDAI
 
         public void Open()
         {
-            
+
+            editPanelBorder = new Panel();
+            container.Controls.Add(editPanelBorder);
+            editPanelBorder.Location = new Point((container.Width / 10), (container.Width / 17));
+            //editPanelBorder.Size = new Size(1000, 707);
+            editPanelBorder.Size = new Size(1000, 700);
+            editPanelBorder.BackColor = Color.Black;
+            editPanelBorder.SendToBack();
+
+            editPanel = new Panel();
+            editPanelBorder.Controls.Add(editPanel);
+            editPanel.Location = new Point((container.Width / 20), (container.Width / 14));
+            //editPanel.Size = new Size(993, 700);
+            editPanel.Size = new Size(1000, 700);
+            editPanel.BackColor = Color.FromArgb(242, 242, 242);
+            //editPanel.BackColor = Color.FromArgb(205,205,205);
+            editPanel.BringToFront();
+            editPanel.Dock = DockStyle.Fill;
+
             description = new RichTextBox();
-            container.Controls.Add(description);
-            description.Size = new Size(600, 300);
+            editPanel.Controls.Add(description);
+            description.Size = new Size(500, 200);
             description.Location = new Point(350, 410);
-            
+
             titulo = new Label();
             container.Controls.Add(titulo);
             titulo.Size = new Size(700, 70);
@@ -71,7 +92,7 @@ namespace PDAI
             titulo.SendToBack();
 
             lMotivo = new Label();
-            container.Controls.Add(lMotivo);
+            editPanel.Controls.Add(lMotivo);
             lMotivo.Size = new Size(100, 35);
             lMotivo.Location = new Point(350, 280);
             lMotivo.Text = "Motivo";
@@ -79,45 +100,45 @@ namespace PDAI
             font.Size(lMotivo, fontSize);
 
             motivo = new RichTextBox();
-            container.Controls.Add(motivo);
+            editPanel.Controls.Add(motivo);
             motivo.Size = new Size(600, 40);
             motivo.Location = new Point(350, 320);
 
             lDescription = new Label();
-            container.Controls.Add(lDescription);
+            editPanel.Controls.Add(lDescription);
             lDescription.Size = new Size(100, 50);
-            lDescription.Location = new Point(350, 373);
+            lDescription.Location = new Point(260, 305);
             lDescription.Text = "Descrição";
             lDescription.BorderStyle = BorderStyle.None;
             font.Size(lDescription, fontSize);
 
             date = new DateTimePicker();
-            container.Controls.Add(date);
+            editPanel.Controls.Add(date);
             date.Size = new Size(200, 50);
-            date.Location = new Point(350, 250);
+            date.Location = new Point(260, 245);
             date.Format = DateTimePickerFormat.Short;
 
             hour = new DateTimePicker();
-            container.Controls.Add(hour);
+            editPanel.Controls.Add(hour);
             hour.Size = new Size(200, 50);
-            hour.Location = new Point(750, 250);
+            hour.Location = new Point(650, 245);
             hour.Format = DateTimePickerFormat.Custom;
             hour.CustomFormat = "HH:mm tt";
             hour.Value = DateTime.Now.Date;
             hour.ShowUpDown = true;
 
             lDate = new Label();
-            container.Controls.Add(lDate);
+            editPanel.Controls.Add(lDate);
             lDate.Size = new Size(100, 50);
-            lDate.Location = new Point(350, 215);
+            lDate.Location = new Point(260, 200);
             lDate.Text = "Data";
             lDate.BorderStyle = BorderStyle.None;
             font.Size(lDate, fontSize);
 
             lHour = new Label();
-            container.Controls.Add(lHour);
+            editPanel.Controls.Add(lHour);
             lHour.Size = new Size(100, 50);
-            lHour.Location = new Point(750, 215);
+            lHour.Location = new Point(650, 200);
             lHour.Text = "Hora";
             lHour.BorderStyle = BorderStyle.None;
             font.Size(lHour, fontSize);
@@ -125,21 +146,25 @@ namespace PDAI
 
             register = new Button();
             register.Size = new Size(150, 60);
-            register.Location = new Point(875, 720);
+            register.Location = new Point(875, 650);
             register.Text = "Registar";
             font.Size(register, fontSize);
-            container.Controls.Add(register);
+            editPanel.Controls.Add(register);
             register.Click += new EventHandler(Register_Click);
-            register.BackColor = color;
+            /*egister.BackColor = color;*/
+
+
+            register.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
 
             add = new Button();
             add.Size = new Size(150, 60);
-            add.Location = new Point(350, 90);
+            add.Location = new Point(100, 60);
             add.Text = "Adicionar Intervenientes";
             font.Size(add, fontSize);
-            container.Controls.Add(add);
+            editPanel.Controls.Add(add);
+            add.BackColor = Color.White;
             add.Click += new EventHandler(Add_Click);
-            add.BackColor = color;
+            //add.BackColor = color;
 
             listPrisioners(t);
         }
@@ -153,19 +178,19 @@ namespace PDAI
                 data = "" + date.Value.Year + "-" + date.Value.Month + "-" + date.Value.Day + " " + hour.Value.Hour + ":" + hour.Value.Minute +
                     ":" + hour.Value.Second;
 
-                string motivu = motivo.Text;
-                string descricao = description.Text;
-                int codigoOcorrencia = 0; 
-                try
+            string motivo = lDescription.Text;
+            string descricao = description.Text;
+            int codigoOcorrencia = 0;
+            try
+            {
+                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
                 {
-                    if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                    if (descricao.Length <= 100)
                     {
-                        if (descricao.Length <= 100)
+                        database.insert.Ocorrencia(idPessoa, data, motivo, descricao, codigoOcorrencia);
+                        MessageBox.Show("Registo efetuado");
+                        if (idPessoas.Length > 2)
                         {
-                            database.insert.Ocorrencia(idPessoa, data, motivu, descricao, codigoOcorrencia);
-                            MessageBox.Show("Registo efetuado");
-                            if(idPessoas.Length>2)
-                                {
                             int i = 2;
                             while(i<idPessoas.Length)
                             {
@@ -229,18 +254,20 @@ namespace PDAI
             if (l == 0)
             {
                 pList = new RichTextBox();
-                container.Controls.Add(pList);
+                editPanel.Controls.Add(pList);
                 pList.Size = new Size(600, (listY));
-                pList.Location = new Point(350, 175);
+                pList.Location = new Point(260, 80);
                 pList.Text = "Não selecionou ninguém";
                 pList.Enabled = false;
+                pList.BackColor = Color.White;
             }
             else
             {
                 pList = new RichTextBox();
-                container.Controls.Add(pList);
+                editPanel.Controls.Add(pList);
                 pList.Size = new Size(l * 600, listY);
-                pList.Location = new Point(350, 175);
+                pList.Location = new Point(260, 80);
+                pList.BackColor = Color.White;
                 pList.Text = listP[0] + listP[1] + listP[2] + listP[3] + listP[4];
                 pList.Enabled = false;
             }
