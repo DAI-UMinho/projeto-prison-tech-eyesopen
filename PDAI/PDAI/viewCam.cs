@@ -280,7 +280,7 @@ namespace PDAI
                                 {
                                     graphics.DrawRectangle(pen, rectangle);
                                     Font font = new Font("Times New Roman", 24, FontStyle.Bold, GraphicsUnit.Pixel);
-                                    graphics.DrawString(result.Label.ToString(), font, Brushes.Black, rectangle.Location.X, rectangle.Location.Y - font.Height);
+                                    graphics.DrawString(db.select.selecPerson(result.Label.ToString())[0].ToString(), font, Brushes.Black, rectangle.Location.X, rectangle.Location.Y - font.Height);
                                 }
                             }
 
