@@ -64,7 +64,7 @@ namespace PDAI
                 string descricao = (string)lol.ElementAt(2);
                 dateTimePicker1.Value = DateTime.Parse(dt[0]);
                 dateTimePicker2.Value = DateTime.Parse(dt[1]);
-                richTextBox1.Text = "" nome;
+                richTextBox1.Text = "" + nome;
                 richTextBox2.Text = descricao;
                 button3.Enabled = true;
                 button2.Enabled = true;
