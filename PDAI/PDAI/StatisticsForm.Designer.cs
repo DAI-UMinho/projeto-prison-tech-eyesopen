@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.incidents_month = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.NomeRecluso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NumeroOcorrencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.gunaPanel2 = new Guna.UI.WinForms.GunaPanel();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,6 +44,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
+            this.NomeRecluso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NumeroOcorrencias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.incidents_month)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.gunaPanel2.SuspendLayout();
@@ -57,32 +58,32 @@
             // 
             this.incidents_month.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.incidents_month.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
-            chartArea2.Name = "ChartArea1";
-            this.incidents_month.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.incidents_month.Legends.Add(legend2);
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea5.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
+            chartArea5.Name = "ChartArea1";
+            this.incidents_month.ChartAreas.Add(chartArea5);
+            legend5.Name = "Legend1";
+            this.incidents_month.Legends.Add(legend5);
             this.incidents_month.Location = new System.Drawing.Point(117, 398);
-            this.incidents_month.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.incidents_month.Margin = new System.Windows.Forms.Padding(4);
             this.incidents_month.Name = "incidents_month";
             this.incidents_month.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Bright;
-            series2.BorderColor = System.Drawing.Color.Transparent;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.Crimson;
-            series2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            series2.Legend = "Legend1";
-            series2.Name = "Ocorrências";
-            this.incidents_month.Series.Add(series2);
+            series5.BorderColor = System.Drawing.Color.Transparent;
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.Crimson;
+            series5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series5.LabelBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            series5.Legend = "Legend1";
+            series5.Name = "Ocorrências";
+            this.incidents_month.Series.Add(series5);
             this.incidents_month.Size = new System.Drawing.Size(917, 588);
             this.incidents_month.TabIndex = 3;
             this.incidents_month.Text = "chart1";
-            title2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.Name = "teste";
-            title2.Text = "Número de Ocorrências por Mês";
-            this.incidents_month.Titles.Add(title2);
+            title5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            title5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title5.Name = "teste";
+            title5.Text = "Número de Ocorrências por Mês";
+            this.incidents_month.Titles.Add(title5);
             this.incidents_month.Click += new System.EventHandler(this.chart1_Click);
             // 
             // comboBox1
@@ -127,37 +128,13 @@
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.Size = new System.Drawing.Size(472, 263);
+            this.dataGridView1.Size = new System.Drawing.Size(520, 263);
             this.dataGridView1.TabIndex = 9;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // NomeRecluso
-            // 
-            this.NomeRecluso.HeaderText = "IDRecluso";
-            this.NomeRecluso.MinimumWidth = 6;
-            this.NomeRecluso.Name = "NomeRecluso";
-            this.NomeRecluso.ReadOnly = true;
-            this.NomeRecluso.Width = 125;
-            // 
-            // NumeroOcorrencias
-            // 
-            this.NumeroOcorrencias.HeaderText = "NumOcorrencias";
-            this.NumeroOcorrencias.MinimumWidth = 6;
-            this.NumeroOcorrencias.Name = "NumeroOcorrencias";
-            this.NumeroOcorrencias.ReadOnly = true;
-            this.NumeroOcorrencias.Width = 125;
-            // 
-            // Nome
-            // 
-            this.Nome.HeaderText = "Nome";
-            this.Nome.MinimumWidth = 6;
-            this.Nome.Name = "Nome";
-            this.Nome.ReadOnly = true;
-            this.Nome.Width = 320;
-            // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(1331, 809);
+            this.button2.Location = new System.Drawing.Point(1405, 837);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(117, 23);
@@ -172,7 +149,7 @@
             this.gunaPanel2.Controls.Add(this.label2);
             this.gunaPanel2.Controls.Add(this.gunaLabel2);
             this.gunaPanel2.Location = new System.Drawing.Point(1113, 81);
-            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPanel2.Name = "gunaPanel2";
             this.gunaPanel2.Size = new System.Drawing.Size(573, 148);
             this.gunaPanel2.TabIndex = 13;
@@ -203,7 +180,7 @@
             this.gunaPanel3.Controls.Add(this.label1);
             this.gunaPanel3.Controls.Add(this.gunaLabel3);
             this.gunaPanel3.Location = new System.Drawing.Point(141, 81);
-            this.gunaPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPanel3.Name = "gunaPanel3";
             this.gunaPanel3.Size = new System.Drawing.Size(573, 148);
             this.gunaPanel3.TabIndex = 12;
@@ -238,12 +215,47 @@
             this.gunaLabel1.Size = new System.Drawing.Size(0, 20);
             this.gunaLabel1.TabIndex = 11;
             // 
+            // NomeRecluso
+            // 
+            this.NomeRecluso.HeaderText = "IDRecluso";
+            this.NomeRecluso.MinimumWidth = 6;
+            this.NomeRecluso.Name = "NomeRecluso";
+            this.NomeRecluso.ReadOnly = true;
+            this.NomeRecluso.Width = 125;
+            // 
+            // NumeroOcorrencias
+            // 
+            this.NumeroOcorrencias.HeaderText = "Nº de Ocorrencias";
+            this.NumeroOcorrencias.MinimumWidth = 6;
+            this.NumeroOcorrencias.Name = "NumeroOcorrencias";
+            this.NumeroOcorrencias.ReadOnly = true;
+            this.NumeroOcorrencias.Width = 125;
+            // 
+            // Nome
+            // 
+            this.Nome.HeaderText = "Nome";
+            this.Nome.MinimumWidth = 6;
+            this.Nome.Name = "Nome";
+            this.Nome.ReadOnly = true;
+            this.Nome.Width = 320;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Narrow", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(1125, 388);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(363, 33);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Reclusos por nº de Ocorrências";
+            // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(196)))), ((int)(((byte)(196)))));
             this.ClientSize = new System.Drawing.Size(1940, 1047);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.gunaPanel2);
             this.Controls.Add(this.gunaPanel3);
             this.Controls.Add(this.gunaLabel1);
@@ -253,7 +265,7 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.incidents_month);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StatisticsForm";
             this.Text = "StatisticsForm";
             this.Load += new System.EventHandler(this.StatisticsForm_Load);
@@ -273,9 +285,6 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NomeRecluso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroOcorrencias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
         private System.Windows.Forms.Button button2;
         private Guna.UI.WinForms.GunaPanel gunaPanel2;
         private System.Windows.Forms.Label label2;
@@ -284,5 +293,9 @@
         private System.Windows.Forms.Label label1;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomeRecluso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NumeroOcorrencias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nome;
+        private System.Windows.Forms.Label label3;
     }
 }

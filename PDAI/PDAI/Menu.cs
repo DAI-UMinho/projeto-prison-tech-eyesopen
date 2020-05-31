@@ -83,6 +83,30 @@ namespace PDAI
             itemName.MouseLeave += new EventHandler(Leave);
             itemName.Click += new EventHandler(clickEvent);
 
+            if (item == "Definições")
+            {
+                itemName.Image = Properties.Resources.configuracoes;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 16);
+            }
+
+            if (item == "Alterar Credenciais")
+            {
+                itemName.Image = Properties.Resources.mudanca;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 16);
+            }
+
+            if (item == "Contas")
+            {
+                itemName.Image = Properties.Resources.contas;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 16);
+            }
+
             return pane;
         }
 
@@ -462,6 +486,38 @@ namespace PDAI
                 itemName.ImageAlign = ContentAlignment.MiddleLeft;
                 itemName.TextAlign = ContentAlignment.MiddleCenter;
                 itemName.Font = new Font("Microsoft Sans Serif", 10);
+            }
+
+            else if (subItem == "Privilégio Recluso-Eliminar")
+            {
+                itemName.Image = Properties.Resources.Eliminar;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Ocorrência-Eliminar")
+            {
+                itemName.Image = Properties.Resources.Eliminar;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Funcionário-Eliminar")
+            {
+                itemName.Image = Properties.Resources.Eliminar;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
+            }
+
+            else if (subItem == "Privilégio Visita-Eliminar")
+            {
+                itemName.Image = Properties.Resources.Eliminar;
+                itemName.ImageAlign = ContentAlignment.MiddleLeft;
+                itemName.TextAlign = ContentAlignment.MiddleCenter;
+                itemName.Font = new Font("Microsoft Sans Serif", 14);
             }
 
         }

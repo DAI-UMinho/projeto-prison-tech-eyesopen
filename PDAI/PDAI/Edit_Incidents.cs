@@ -150,5 +150,10 @@ namespace PDAI
             IncidentsAddForm f1 = new IncidentsAddForm(var, richTextBox1);
             f1.Show();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

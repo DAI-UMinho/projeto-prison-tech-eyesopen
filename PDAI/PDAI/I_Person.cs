@@ -32,6 +32,8 @@ namespace PDAI
         bool employee, callback;
         Label ladicionarImg;
         Panel editPanelBorder, editPanel;
+        uint idPerson;
+        bool contentChanged;
 
         public I_Person()
         {
@@ -211,20 +213,34 @@ namespace PDAI
 
         public void Load(AccountItem accountItem, option value)
         {
-            bitmapImage = new Bitmap(accountItem.imagePath);
-            photo.Image = bitmapImage;
-            photo.Controls.Remove(ladicionarImg);
-          //  imgPath = open.FileName;
+            idPerson = accountItem.id;
+
+            if (accountItem.imagePath != String.Empty)
+            {
+                bitmapImage = new Bitmap(accountItem.imagePath);
+                photo.Image = bitmapImage;
+                photo.Controls.Remove(ladicionarImg);
+            }
 
             tFullName.Text = accountItem.name.Text;
-            // tBirthDate.Text = 
+            try { tBirthDate.Text = accountItem.birthDate; } catch (Exception) { }
+            tCC.Text = accountItem.cc;
             cbMaritalStatus.Text = accountItem.maritalStatus.Text;
-            if(employee) cbRole.Text = accountItem.employeeRole.Text;
+            if (employee) cbRole.Text = accountItem.employeeRole.Text;
 
             switch (value)
             {
                 case option.view:
-                    registration.Visible = false;
+                    registration.Text = "Voltar";
+                    registration.Click -= new EventHandler(Registration_Click);
+                    registration.Click += new EventHandler(Dispose_Click);
+                    tFullName.ReadOnly = true;
+                    tBirthDate.Enabled = false;
+                    tCC.Enabled = false;
+                    cbMaritalStatus.Enabled = false;
+                    if (employee) cbRole.Enabled = false;
+                    ladicionarImg.DoubleClick -= new EventHandler(Photo_DoubleClick);
+                    photo.DoubleClick -= new EventHandler(Photo2_DoubleClick);
                     break;
 
                 case option.edit:
@@ -257,30 +273,43 @@ namespace PDAI
 
                                     if (type != string.Empty)
                                     {
-                                        uint id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
-                                        if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                        try
                                         {
-                                            try
+                                            uint id = 0;
+                                            if (registration.Text == "Registar")
                                             {
-                                                database.update.Person(id, path + id.ToString());
-                                                IO_Class.CopyFile(imgPath, path + id.ToString());
-                                                tFullName.Text = "";
-                                                tBirthDate.Text = "";
-                                                tCC.Text = "";
-                                                cbMaritalStatus.Text = "";
-                                                photo.Image = null;
-                                                if (employee) cbRole.Text = "";
-                                                MessageBox.Show("Registado com sucesso!");
+
+                                                id = database.insert.Person(tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                                if (IO_Class.CreateFolder(@"" + path + id.ToString()))
+                                                {
+                                                    database.update.PersonFolder(id, path + id.ToString());
+                                                    MessageBox.Show("Registado com sucesso!");
+                                                    IO_Class.CopyFile(imgPath, path + id.ToString());
+                                                    tFullName.Text = "";
+                                                    tBirthDate.Text = "";
+                                                    tCC.Text = "";
+                                                    cbMaritalStatus.Items.Clear();
+                                                    photo.Image = null;
+                                                    if (employee) cbRole.Items.Clear();
+
+                                                }
                                             }
-                                            catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
+                                            else
+                                            {
+
+                                                database.update.Person(idPerson, tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                                MessageBox.Show("Alterado com sucesso!");
+                                            }
+
+                                            if (callback) container.Dispose();
                                         }
-                                        if (callback) container.Dispose();
+                                        catch (Exception) { MessageBox.Show("Ocorreu um erro."); }
                                     }
                                     else { MessageBox.Show("Campo cargo obrigatório."); }
                                 }
                                 else { MessageBox.Show("Introduza um cartão de cidadão válido"); }
                             }
-                            else { MessageBox.Show("Campo cartão de cidadão só pode conter números."); }
+                            else { MessageBox.Show("Campo estado civil só pode conter números."); }
                         }
                         else { MessageBox.Show("Campo estado civil obrigatório."); }
                     }
@@ -326,6 +355,11 @@ namespace PDAI
                     return false;
             }
             return true;
+        }
+
+        private void Dispose_Click(object sender, EventArgs e)
+        {
+            container.Dispose();
         }
 
     }

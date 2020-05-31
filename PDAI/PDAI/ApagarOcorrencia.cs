@@ -18,7 +18,7 @@ namespace PDAI
         public ApagarOcorrencia()
         {
             InitializeComponent();
-            button1.Text = "Apagar";
+            button1.Text = "Eliminar";
             db = new Database();
             var = new List<object>();
 

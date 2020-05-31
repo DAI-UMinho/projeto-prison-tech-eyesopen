@@ -79,8 +79,8 @@ namespace PDAI
 
             description = new RichTextBox();
             editPanel.Controls.Add(description);
-            description.Size = new Size(500, 200);
-            description.Location = new Point(350, 410);
+            description.Size = new Size(600, 200);
+            description.Location = new Point(260, 400);
 
             titulo = new Label();
             container.Controls.Add(titulo);
@@ -88,41 +88,44 @@ namespace PDAI
             titulo.Location = new Point(450, 0);
             font.Size(titulo, fontSize);
             titulo.Text = "Registar Ocorrência";
-            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.Font = new Font("Cambria", 30, FontStyle.Bold);
             titulo.ForeColor = Color.DarkBlue;
             titulo.SendToBack();
 
             lMotivo = new Label();
+
             editPanel.Controls.Add(lMotivo);
             lMotivo.Size = new Size(100, 35);
-            lMotivo.Location = new Point(350, 280);
+            lMotivo.Location = new Point(260, 260);
             lMotivo.Text = "Motivo";
             lMotivo.BorderStyle = BorderStyle.None;
             font.Size(lMotivo, fontSize);
+            lMotivo.Font = new Font("SansSerif", 15, FontStyle.Bold);
 
             motivo = new RichTextBox();
             editPanel.Controls.Add(motivo);
-            motivo.Size = new Size(600, 40);
-            motivo.Location = new Point(350, 320);
+            motivo.Size = new Size(600, 33);
+            motivo.Location = new Point(260, 300);
 
             lDescription = new Label();
             editPanel.Controls.Add(lDescription);
-            lDescription.Size = new Size(100, 50);
-            lDescription.Location = new Point(260, 305);
+            lDescription.Size = new Size(150, 150);
+            lDescription.Location = new Point(260, 350);
             lDescription.Text = "Descrição";
             lDescription.BorderStyle = BorderStyle.None;
             font.Size(lDescription, fontSize);
+            lDescription.Font = new Font("SansSerif", 15, FontStyle.Bold);
 
             date = new DateTimePicker();
             editPanel.Controls.Add(date);
             date.Size = new Size(200, 50);
-            date.Location = new Point(260, 245);
+            date.Location = new Point(260, 205);
             date.Format = DateTimePickerFormat.Short;
 
             hour = new DateTimePicker();
             editPanel.Controls.Add(hour);
             hour.Size = new Size(200, 50);
-            hour.Location = new Point(650, 245);
+            hour.Location = new Point(650, 205);
             hour.Format = DateTimePickerFormat.Custom;
             hour.CustomFormat = "HH:mm tt";
             hour.Value = DateTime.Now.Date;
@@ -131,35 +134,32 @@ namespace PDAI
             lDate = new Label();
             editPanel.Controls.Add(lDate);
             lDate.Size = new Size(100, 50);
-            lDate.Location = new Point(260, 200);
+            lDate.Location = new Point(260, 160);
             lDate.Text = "Data";
             lDate.BorderStyle = BorderStyle.None;
             font.Size(lDate, fontSize);
+            lDate.Font = new Font("SansSerif", 15, FontStyle.Bold);
 
             lHour = new Label();
             editPanel.Controls.Add(lHour);
             lHour.Size = new Size(100, 50);
-            lHour.Location = new Point(650, 200);
+            lHour.Location = new Point(650, 160);
             lHour.Text = "Hora";
             lHour.BorderStyle = BorderStyle.None;
             font.Size(lHour, fontSize);
-
+            lHour.Font = new Font("SansSerif", 15, FontStyle.Bold);
 
             register = new Button();
             register.Size = new Size(150, 60);
-            register.Location = new Point(875, 650);
+            register.Location = new Point(840, 620);
             register.Text = "Registar";
             font.Size(register, fontSize);
             editPanel.Controls.Add(register);
             register.Click += new EventHandler(Register_Click);
-            /*egister.BackColor = color;*/
-
-
-            register.Font = new Font("Microsoft Sans Serif", 16, FontStyle.Bold);
 
             add = new Button();
-            add.Size = new Size(150, 60);
-            add.Location = new Point(100, 60);
+            add.Size = new Size(150, 50);
+            add.Location = new Point(705, 88);
             add.Text = "Adicionar Intervenientes";
             font.Size(add, fontSize);
             editPanel.Controls.Add(add);
@@ -253,7 +253,7 @@ namespace PDAI
                 pList = new RichTextBox();
                 editPanel.Controls.Add(pList);
                 pList.Size = new Size(600, (listY));
-                pList.Location = new Point(260, 80);
+                pList.Location = new Point(260, 50);
                 pList.Text = "Não selecionou ninguém";
                 pList.Enabled = false;
                 pList.BackColor = Color.White;
@@ -263,11 +263,13 @@ namespace PDAI
                 pList = new RichTextBox();
                 editPanel.Controls.Add(pList);
                 pList.Size = new Size(l * 600, listY);
-                pList.Location = new Point(260, 80);
+                pList.Location = new Point(260, 50);
                 pList.BackColor = Color.White;
                 pList.Text = listP[0] + listP[1] + listP[2] + listP[3] + listP[4];
                 pList.Enabled = false;
             }
         }
+
+
     }
 }

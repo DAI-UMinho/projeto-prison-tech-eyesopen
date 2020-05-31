@@ -276,6 +276,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\mudanca.png" />
     <None Include="Resources\visita.png" />
     <None Include="Resources\prisioneiro.png" />
     <None Include="Resources\portable-document-format.png" />
@@ -328,6 +329,9 @@
     <None Include="Resources\change.png" />
     <None Include="Resources\do-utilizador.png" />
     <None Include="Resources\eye.png" />
+    <None Include="Resources\Eliminar.png" />
+    <None Include="Resources\configuracoes.png" />
+    <None Include="Resources\contas.png" />
     <Content Include="Resources\IconEyesOpen.png" />
     <None Include="Resources\índice.png" />
   </ItemGroup>
