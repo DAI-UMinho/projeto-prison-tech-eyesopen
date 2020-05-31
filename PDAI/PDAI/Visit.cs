@@ -141,7 +141,7 @@ namespace PDAI
             editPanel.Controls.Add(lPrisionerVisited);
 
             cbPrisionerVisited = new ComboBox();
-            cbPrisionerVisited.Size = new Size(200, lFullName.Height);
+            cbPrisionerVisited.Size = new Size(lFullName.Width - 200 , lFullName.Height);
             cbPrisionerVisited.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPrisionerVisited.Location = new Point(lPrisionerVisited.Location.X, lPrisionerVisited.Location.Y + lPrisionerVisited.Height + 10);
             font.Size(cbPrisionerVisited, fontSize);

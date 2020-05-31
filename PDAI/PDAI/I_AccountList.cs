@@ -17,7 +17,7 @@ namespace PDAI
 
         Database database;
         CustomizableList accountList;
-        Label addEmployee;
+        Label addEmployee, titulo;
         I_Person person;
         Font_Class font;
         Dictionary<Button, AccountItem> getAccountItem;
@@ -25,6 +25,7 @@ namespace PDAI
         List<AccountItem> accountListItems;
         int lastItemIndex;
         string type;
+        int fontSize = 13;
 
         public I_AccountList(string type)
         {
@@ -78,16 +79,29 @@ namespace PDAI
         private void Add_Employee(object sender, EventArgs e)
         {
             container.Controls.Clear();
+            font = new Font_Class();
+
+            titulo = new Label();
+            container.Controls.Add(titulo);
+            titulo.Size = new Size(700, 80);
+            titulo.Location = new Point(450, 0);
+            font.Size(titulo, fontSize);
+            titulo.Text = "Registar Funcionário";
+            titulo.Font = new Font("Sitka Banner", 30, FontStyle.Bold);
+            titulo.ForeColor = Color.DarkBlue;
+            titulo.SendToBack();
 
             person = new I_Person();
             container.Controls.Add(person.container);
-            person.width = container.Width * 8 / 10;
-            person.height = container.Height * 8 / 10;
+            person.width = container.Width * 8 / 8;
+            person.height = container.Height * 11 / 11;
             person.locationX = container.Width/2 - person.width/2;
             person.locationY = container.Height / 2 - person.height / 2; ;
             person.Open(true, true);
             person.container.Disposed += new EventHandler(Control_Disposed);
-           // person.container.BackColor = Color.White;
+
+
+            // person.container.BackColor = Color.White;
 
 
             // PictureBox photo = new PictureBox();
@@ -141,6 +155,7 @@ namespace PDAI
 
         private void Control_Disposed(object sender, EventArgs e)
         {
+            titulo.Hide();
             Open();
             accountList.ScrollToLastItem(lastItemIndex);
         }

@@ -97,7 +97,7 @@ namespace PDAI
 
 
             tFullName = new TextBox();
-            tFullName.Size = new Size(lFullName.Width - 130, lFullName.Height);
+            tFullName.Size = new Size(lFullName.Width - 180, lFullName.Height);
             tFullName.Location = new Point(lFullName.Location.X, lFullName.Location.Y + lFullName.Height + 10);
             font.Size(tFullName, fontSize);
             editPanel.Controls.Add(tFullName);
