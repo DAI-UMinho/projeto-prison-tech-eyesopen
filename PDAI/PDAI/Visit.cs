@@ -127,6 +127,7 @@ namespace PDAI
             tVisitDate.Format = DateTimePickerFormat.Short;
             font.Size(tVisitDate, fontSize);
             //container.Controls.Add(tVisitDate);
+            tVisitDate.MaxDate = DateTime.Today;
             editPanel.Controls.Add(tVisitDate);
 
             lPrisionerVisited = new Label();
