@@ -14,6 +14,7 @@ namespace PDAI
     {
         Database db;
         List<object> var;
+        string id;
         public Edit_Incidents()
         {
             InitializeComponent();
@@ -21,6 +22,8 @@ namespace PDAI
             PreencherDataGrid();
             button3.Enabled = false;
             button2.Enabled = false;
+            dateTimePicker1.Enabled = false;
+            dateTimePicker2.Enabled = false;
             //var = new List<object>();
         }
 
@@ -45,13 +48,13 @@ namespace PDAI
             
             if (dataGridView1.SelectedCells.Count > 0)
             {
-                int selectedrowindex = dataGridView1.SelectedCells[0].OwningRow.Index+1;
+                int selectedrowindex = dataGridView1.SelectedCells[0].OwningRow.Index;
                 DataGridViewRow selectedRow = dataGridView1.Rows[selectedrowindex];
                 //string id = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
                 string dataOcorrencia = Convert.ToString(selectedRow.Cells["dataOcorrencia"].Value);
-                string nomeCompleto = Convert.ToString(selectedRow.Cells["nomeCompleto"].Value);
+                string nomeCompleto = Convert.ToString(selectedRow.Cells["Interveniente"].Value);
                 MessageBox.Show("" + var.Count);
-                string id = "" + var.ElementAt(4 * (selectedrowindex+1) - 1);
+                id = "" + var.ElementAt(4 * (selectedrowindex+1) - 1);
                 List<object> lol = new List<object>();
                 lol = db.select.Edit_Incidents(id);
                 
@@ -62,6 +65,10 @@ namespace PDAI
                 richTextBox2.Text = descricao;
                 button3.Enabled = true;
                 button2.Enabled = true;
+                richTextBox1.Enabled = true;
+                richTextBox2.Enabled = true;
+                dateTimePicker1.Enabled = true;
+                dateTimePicker2.Enabled = true;
 
             }
         }
@@ -75,8 +82,6 @@ namespace PDAI
                 ":" + dateTimePicker2.Value.Second;
 
             string descricao = richTextBox2.Text;
-            int codigoOcorrencia = 0;
-            string id = (string) var.ElementAt(2);
             try
             {
                 if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
@@ -126,6 +131,12 @@ namespace PDAI
             {
                 richTextBox1.Text = null;
                 richTextBox2.Text = null;
+                richTextBox1.Enabled = false;
+                richTextBox2.Enabled = false;
+                dateTimePicker1.Enabled = false;
+                dateTimePicker2.Enabled = false;
+                button2.Enabled = false;
+                button3.Enabled = false;
 
             }
 

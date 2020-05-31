@@ -723,7 +723,7 @@ namespace PDAI
         public List<object> Reclusos()
         {
             List<object> listPrisioners = new List<object>();
-            string sql = "select id,nomeCompleto from pessoa where tipo = 'Prisioneiro';";
+            string sql = "select id,nomeCompleto from pessoa where tipo = 'Prisioneiro' and ativo=1;";
             try
             {
 

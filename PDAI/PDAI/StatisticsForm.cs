@@ -69,18 +69,36 @@ namespace PDAI
             bool flag = false;
             for (int i = 1; i < 13; i++)
             {
+                string mes = "";
+                switch(i)
+                {
+                    case 1: mes = "Jan"; break;
+                    case 2: mes = "Fev"; break;
+                    case 3: mes = "Mar"; break;
+                    case 4: mes = "Abr"; break;
+                    case 5: mes = "Mai"; break;
+                    case 6: mes = "Jun"; break;
+                    case 7: mes = "Jul"; break;
+                    case 8: mes = "Ago"; break;
+                    case 9: mes = "Set"; break;
+                    case 10: mes = "Out"; break;
+                    case 11: mes = "Nov";break;
+                    case 12: mes = "Dez"; break;
+
+                }
                 for (int j = 0; j < var.Count(); j += 2)
                 {
-                    if ((int)var.ElementAt(j) == i)
+
+                    if ((int)var.ElementAt(j+1) == i)
                     {
                         flag = true;
-                        incidents_month.Series["Ocorrencias"].Points.AddXY((int)var.ElementAt(j + 1), "" + var.ElementAt(j));
+                        incidents_month.Series["Ocorrencias"].Points.AddXY(mes, (int)var.ElementAt(j));
                         break;
                     }
                 }
                 if (flag == false)
                 {
-                    incidents_month.Series["Ocorrencias"].Points.AddXY(i, "0");
+                    incidents_month.Series["Ocorrencias"].Points.AddXY(mes, 0);
                 }
                 flag = false;
             }
@@ -131,51 +149,57 @@ namespace PDAI
                       "NovoRelatorio"
                       );
 
+            if (input.Length > 0)
+            {
+                PdfDocument document = new PdfDocument();
+                document.Info.Title = "Created with PDFsharp";
+                // Create an empty page
+                PdfPage page = document.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+                // Create a font
+                XFont font = new XFont("Verdana", 25, XFontStyle.BoldItalic);
+                // Draw the text
 
-            PdfDocument document = new PdfDocument();
-            document.Info.Title = "Created with PDFsharp";
-            // Create an empty page
-            PdfPage page = document.AddPage();
-            XGraphics gfx = XGraphics.FromPdfPage(page);
-            // Create a font
-            XFont font = new XFont("Verdana", 25, XFontStyle.BoldItalic);
-            // Draw the text
-
-            gfx.DrawString("Relatório", font, XBrushes.Black,
-            new XRect(0, 0, page.Width, 30),
-            XStringFormats.Center);
+                gfx.DrawString("Relatório", font, XBrushes.Black,
+                new XRect(0, 0, page.Width, 30),
+                XStringFormats.Center);
 
 
 
-            MemoryStream ms = new MemoryStream();
-            incidents_month.SaveImage(ms, ChartImageFormat.Png);
-            XImage xfoto = XImage.FromStream(ms);
-            gfx.DrawImage(xfoto, 100, 50, 350, 300);
+                MemoryStream ms = new MemoryStream();
+                incidents_month.SaveImage(ms, ChartImageFormat.Png);
+                XImage xfoto = XImage.FromStream(ms);
+                gfx.DrawImage(xfoto, 100, 50, 350, 300);
 
-            //Resize DataGridView to full height.
-            //int height = dataGridView1.Height - 500;
+                //Resize DataGridView to full height.
+                //int height = dataGridView1.Height - 500;
 
-            //dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
-            gfx.DrawString("Reclusos com mais Ocorrências", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
-            //Create a Bitmap and draw the DataGridView on it.
-            Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
-            dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
+                //dataGridView1.Height = dataGridView1.RowCount * dataGridView1.RowTemplate.Height;
+                gfx.DrawString("Reclusos com mais Ocorrências", font, XBrushes.Black, new XRect(0, 250, page.Width, 280), XStringFormats.Center);
+                //Create a Bitmap and draw the DataGridView on it.
+                Bitmap bitmap = new Bitmap(this.dataGridView1.Width, this.dataGridView1.Height);
+                dataGridView1.DrawToBitmap(bitmap, new Rectangle(0, 0, this.dataGridView1.Width, this.dataGridView1.Height));
 
-            //Resize DataGridView back to original height.
+                //Resize DataGridView back to original height.
 
-            //dataGridView1.Height = height;
+                //dataGridView1.Height = height;
 
-            MemoryStream ms2 = new MemoryStream();
-            bitmap.Save(ms2, System.Drawing.Imaging.ImageFormat.Jpeg);
-            xfoto = XImage.FromStream(ms2);
-            double comeco = (page.Width - xfoto.PointWidth) / 2;
-            gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
-            // Save the document...
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            //string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
-            
-            document.Save(path + "\\" + input + ".pdf");
-            MessageBox.Show("Pdf criado com sucesso");
+                MemoryStream ms2 = new MemoryStream();
+                bitmap.Save(ms2, System.Drawing.Imaging.ImageFormat.Jpeg);
+                xfoto = XImage.FromStream(ms2);
+                double comeco = (page.Width - xfoto.PointWidth) / 2;
+                gfx.DrawImage(xfoto, new XRect(comeco, 450, xfoto.PointWidth, xfoto.PointHeight));
+                // Save the document...
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+                //string filename = "C:\\Users\\Bruno\\Desktop\\" + input + ".pdf";
+
+                document.Save(path + "\\" + input + ".pdf");
+                MessageBox.Show("Pdf criado com sucesso");
+            }
+            else
+            {
+                MessageBox.Show("Cancelou o pdf ou nao especificou um nome");
+            }
         }
 
         public void PreencherDataGrid()
