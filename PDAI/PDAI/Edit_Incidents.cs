@@ -53,15 +53,18 @@ namespace PDAI
                 //string id = Convert.ToString(selectedRow.Cells["idOcorrencia"].Value);
                 string dataOcorrencia = Convert.ToString(selectedRow.Cells["dataOcorrencia"].Value);
                 string nomeCompleto = Convert.ToString(selectedRow.Cells["Interveniente"].Value);
-                MessageBox.Show("" + var.Count);
+                string[] dt = dataOcorrencia.Split(null);
+               
                 id = "" + var.ElementAt(4 * (selectedrowindex+1) - 1);
                 List<object> lol = new List<object>();
                 lol = db.select.Edit_Incidents(id);
                 
+                string nome = ""+lol.ElementAt(1);
                 int idPessoa = (int)lol.ElementAt(0);
-                string descricao = (string)lol.ElementAt(1);
-                
-                richTextBox1.Text = "" + idPessoa;
+                string descricao = (string)lol.ElementAt(2);
+                dateTimePicker1.Value = DateTime.Parse(dt[0]);
+                dateTimePicker2.Value = DateTime.Parse(dt[1]);
+                richTextBox1.Text = "" + nome;
                 richTextBox2.Text = descricao;
                 button3.Enabled = true;
                 button2.Enabled = true;
@@ -89,7 +92,7 @@ namespace PDAI
                     if (descricao.Length <= 100)
                     {
                         db.update.Ocorrencia(idPessoa, descricao, id);
-                        MessageBox.Show("Registo efetuado");
+                        MessageBox.Show("Alterado com sucesso");
 
                         if (idPessoas.Length > 2)
                         {
