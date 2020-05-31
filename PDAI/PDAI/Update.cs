@@ -247,11 +247,11 @@ namespace PDAI
             catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
         }
 
-    public void Ocorrencia(string idPessoa, string descricao, string id)
+    public void Ocorrencia(int idPessoa, string descricao, string id, string data)
         {
             try
             {
-                sql = "update Ocorrencia set  idPessoa = " + idPessoa + " , descricao = '" + descricao + "' where id = " + id + ";";
+                sql = "update Ocorrencia set  idPessoa = " + idPessoa + " , descricao = '" + descricao + "', dataOcorrencia = " + data + " where id = " + id + ";";
 
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
