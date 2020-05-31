@@ -15,6 +15,7 @@ namespace PDAI
         Database db;
         List<object> var;
         string id;
+        int idPessoa;
         public Edit_Incidents()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace PDAI
             button2.Enabled = false;
             dateTimePicker1.Enabled = false;
             dateTimePicker2.Enabled = false;
-            //var = new List<object>();
+            
         }
 
         public void PreencherDataGrid()
@@ -60,8 +61,10 @@ namespace PDAI
                 lol = db.select.Edit_Incidents(id);
                 
                 string nome = ""+lol.ElementAt(1);
-                int idPessoa = (int)lol.ElementAt(0);
+                idPessoa = (int)lol.ElementAt(0);
                 string descricao = (string)lol.ElementAt(2);
+                
+
                 dateTimePicker1.Value = DateTime.Parse(dt[0]);
                 dateTimePicker2.Value = DateTime.Parse(dt[1]);
                 richTextBox1.Text = "" + nome;
@@ -78,8 +81,7 @@ namespace PDAI
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string[] idPessoas = richTextBox1.Text.Split('-');
-            string idPessoa = idPessoas[0];
+            
             string data;
             data = "" + dateTimePicker1.Value.Year + "-" + dateTimePicker1.Value.Month + "-" + dateTimePicker1.Value.Day + " " + dateTimePicker2.Value.Hour + ":" + dateTimePicker2.Value.Minute +
                 ":" + dateTimePicker2.Value.Second;
@@ -87,19 +89,20 @@ namespace PDAI
             string descricao = richTextBox2.Text;
             try
             {
-                if (idPessoa.Length > 0 && data.Length > 0 && descricao.Length > 0)
+                if (richTextBox1.Text.Length > 0 && data.Length > 0 && descricao.Length > 0)
                 {
                     if (descricao.Length <= 100)
                     {
-                        db.update.Ocorrencia(idPessoa, descricao, id);
+                        db.update.Ocorrencia(idPessoa, descricao, id, data);
                         MessageBox.Show("Alterado com sucesso");
 
-                        if (idPessoas.Length > 2)
+                        if (richTextBox1.Text.Length > 2)
                         {
                             int i = 2;
-                            while (i < idPessoas.Length)
+                            while (i < richTextBox1.Text.Length)
                             {
-                                string idP = idPessoas[i];
+                                string[] rich = richTextBox1.Text.Split('-');
+                                string idP = rich[i];
                                 db.insert.Reconhecimento(id);
 
                                 i += 2;
