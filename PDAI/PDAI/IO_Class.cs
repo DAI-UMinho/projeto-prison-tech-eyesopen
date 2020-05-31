@@ -46,6 +46,22 @@ namespace PDAI
 
 
 
+        public static void DeleteFile(string pathName)
+        {
+            string path = @"" + pathName;
+            try
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+            catch (Exception ee) { };
+
+        }
+
+
+
         public static void CopyFile(string sourcePath, string targetPath)
         {
             try

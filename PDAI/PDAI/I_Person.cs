@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Diagnostics;
+using System.IO;
 
 namespace PDAI
 {
@@ -33,7 +34,7 @@ namespace PDAI
         Label ladicionarImg;
         Panel editPanelBorder, editPanel;
         uint idPerson;
-        bool contentChanged;
+        string pictureName;
 
         public I_Person()
         {
@@ -218,6 +219,7 @@ namespace PDAI
 
             if (accountItem.imagePath != String.Empty)
             {
+                pictureName = accountItem.imagePath;
                 bitmapImage = new Bitmap(accountItem.imagePath);
                 photo.Image = bitmapImage;
                 photo.Controls.Remove(ladicionarImg);
@@ -249,7 +251,7 @@ namespace PDAI
                     break;
 
             }
-
+            
 
         }
 
@@ -297,9 +299,20 @@ namespace PDAI
                                             }
                                             else
                                             {
-
-                                                database.update.Person(idPerson, tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
-                                                MessageBox.Show("Alterado com sucesso!");
+                                                try
+                                                {
+                                                    if (!File.Exists(path + idPerson.ToString()))
+                                                    {
+                                                        IO_Class.CreateFolder(@"" + path + idPerson.ToString());
+                                                        database.update.PersonFolder(idPerson, path + idPerson.ToString());
+                                                    }
+                                                    IO_Class.DeleteFile(pictureName);
+                                                    database.update.Person(idPerson, tFullName.Text, tBirthDate.Text, tCC.Text, cbMaritalStatus.Text, type);
+                                                    IO_Class.CopyFile(imgPath, path + idPerson.ToString());
+                                                    MessageBox.Show("Alterado com sucesso!");
+                                                }
+                                                catch (Exception eu) { MessageBox.Show(""+eu); }
+                                                
                                             }
 
                                             if (callback) container.Dispose();
@@ -328,6 +341,7 @@ namespace PDAI
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
+                try { photo.Image.Dispose(); } catch (Exception) { }
                 bitmapImage = new Bitmap(open.FileName);
                 photo.Image = bitmapImage;
                 photo.Controls.Remove((Label)sender);
@@ -341,6 +355,7 @@ namespace PDAI
             open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
+                try { photo.Image.Dispose(); } catch (Exception) { }
                 bitmapImage = new Bitmap(open.FileName);
                 photo.Image = bitmapImage;
                 photo.Controls.Remove((PictureBox)sender);
