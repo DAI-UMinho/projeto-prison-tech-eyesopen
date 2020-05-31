@@ -168,7 +168,7 @@ namespace PDAI
             font.Size(cbPrisionerVisited, fontSize);
             container.Controls.Add(cbPrisionerVisited);
             cbPrisionerVisited.DropDownStyle = ComboBoxStyle.DropDownList;
-            names = db.select.Recluso();
+            names = db.select.reclusoVisits();
             for (int i = 0; i < names.Count; i++)
             {
                 cbPrisionerVisited.Items.Add(names[i].ToString());

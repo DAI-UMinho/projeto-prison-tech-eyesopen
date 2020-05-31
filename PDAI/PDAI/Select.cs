@@ -1072,6 +1072,32 @@ namespace PDAI
             return recluso;
         }
 
+        public List<object> reclusoVisits()
+        {
+
+            List<object> recluso = new List<object>();
+            try
+            {
+                sql = "select nomeCompleto from dbo.Pessoa where tipo='Prisioneiro'";
+
+
+                sqlConn = new SqlConnection(connectionString);
+                sqlConn.Open();
+                command = new SqlCommand(sql, sqlConn);
+                reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    recluso.Add(reader.GetValue(0));
+                }
+                reader.Close();
+                command.Dispose();
+                sqlConn.Close();
+            }
+            catch (Exception e) { System.Windows.Forms.MessageBox.Show("" + e); };
+
+            return recluso;
+        }
+
         public List<object> selecRecluso(String nome)
         {
 
