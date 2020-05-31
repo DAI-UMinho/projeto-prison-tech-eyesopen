@@ -222,9 +222,6 @@ namespace PDAI
             accountList.height = formContainerHeight;
             accountList.Open();
             activeContainer = accountList.container;
-
-
-
         }
 
 
@@ -608,8 +605,6 @@ namespace PDAI
                 vcnorecognition.locationY = 0;
                 vcnorecognition.Open();
                
-
-
             }
 
 
@@ -631,8 +626,6 @@ namespace PDAI
                // VS.BringToFront();
                 VS.Show();
                
-
-
             }
 
 
@@ -650,8 +643,6 @@ namespace PDAI
                 container.Controls.Add(ED);
                 //ED.BringToFront();
                 ED.Show();
-               
-
             }
 
 
@@ -670,7 +661,6 @@ namespace PDAI
                 AP.BringToFront();
                 AP.Show();
                 
-
             }
 
             if (((Button)sender).Name == "Privilégio Alerta-Consultar" || val == "Privilégio Alerta-Consultar")
