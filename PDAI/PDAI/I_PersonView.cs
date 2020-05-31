@@ -173,6 +173,8 @@ namespace PDAI
                     viewPerson.container.BringToFront();
                     break;
                 case "editEmployee":
+                    
+                    foreach (object pictureBox in ((Button)sender).Parent.Controls) { if (pictureBox.GetType() == typeof(PictureBox)) { try { ((PictureBox)pictureBox).Image.Dispose(); } catch (Exception) { } ((PictureBox)pictureBox).Dispose(); } }
                     I_Person editPerson = new I_Person();
                     editPerson.pageTitle = "Editar Funcionário";
                     container.Controls.Add(editPerson.container);
@@ -183,6 +185,8 @@ namespace PDAI
                     editPerson.Load(getAccountItem[((Button)sender)], option.edit);
                     editPerson.container.BringToFront();
                     editPerson.container.Disposed += new EventHandler(ContainerGotFocus);
+
+
                     break;
                 case "deleteEmployee":
                     DialogResult dialogResult = MessageBox.Show("Tem a certeza que pretende eliminar o funcionário?", "Eliminar funcionário", MessageBoxButtons.YesNo);
@@ -199,6 +203,7 @@ namespace PDAI
                     }
                     break;
                 case "viewPrisoner":
+                    foreach (object pictureBox in ((Button)sender).Parent.Controls) { if (pictureBox.GetType() == typeof(PictureBox)) { try { ((PictureBox)pictureBox).Image.Dispose(); } catch (Exception) { } ((PictureBox)pictureBox).Dispose(); } }
                     I_Person viewPrisoner = new I_Person();
                     viewPrisoner.pageTitle = "Consultar Recluso";
                     container.Controls.Add(viewPrisoner.container);

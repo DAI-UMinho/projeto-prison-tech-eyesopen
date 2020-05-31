@@ -54,10 +54,7 @@ namespace PDAI
         {
             List<string> privileges = new List<string>();
             privileges.Add("Privilégio Estatística-Consultar");
-            privileges.Add("Privilégio Câmara-Registar");
-            privileges.Add("Privilégio Câmara-Editar");
             privileges.Add("Privilégio Câmara-Consultar");
-            privileges.Add("Privilégio Câmara-Consultar Gravação");
             privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Funcionário-Consultar");
             privileges.Add("Privilégio Guarda");
@@ -105,11 +102,7 @@ namespace PDAI
         {
             List<string> privileges = new List<string>();
             privileges.Add("Privilégio Estatística-Consultar");
-            privileges.Add("Privilégio Câmara-Registar");
-            privileges.Add("Privilégio Câmara-Editar");
             privileges.Add("Privilégio Câmara-Consultar");
-            privileges.Add("Privilégio Câmara-Consultar Gravação");
-            privileges.Add("Privilégio Câmara-Eliminar Gravação");
             privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Ocorrência-Registar");
             privileges.Add("Privilégio Ocorrência-Editar");
@@ -127,7 +120,6 @@ namespace PDAI
         {
             List<string> privileges = new List<string>();
             privileges.Add("Privilégio Câmara-Consultar");
-            privileges.Add("Privilégio Câmara-Consultar Gravação");
             privileges.Add("Privilégio Recluso-Consultar");
             privileges.Add("Privilégio Ocorrência-Registar");
             privileges.Add("Privilégio Ocorrência-Editar");
@@ -144,13 +136,8 @@ namespace PDAI
             privileges.Add("Privilégio Estatística");
             privileges.Add("Privilégio Estatística-Consultar");
             privileges.Add("Privilégio Câmara");
-            privileges.Add("Privilégio Câmara-Registar");
-            privileges.Add("Privilégio Câmara-Editar");
-            privileges.Add("Privilégio Câmara-Eliminar");
             privileges.Add("Privilégio Câmara-Consultar");
             privileges.Add("Privilégio Câmara-Consultar Deteção");
-            privileges.Add("Privilégio Câmara-Consultar Gravação");
-            privileges.Add("Privilégio Câmara-Eliminar Gravação");
             privileges.Add("Privilégio Recluso");
             privileges.Add("Privilégio Recluso-Registar");
             privileges.Add("Privilégio Recluso-Editar");
