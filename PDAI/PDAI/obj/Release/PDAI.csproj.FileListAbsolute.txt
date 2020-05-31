@@ -8,3 +8,14 @@ C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Relea
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.VisualizarOcorrencia.resources
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.csproj.GenerateResource.cache
 C:\Users\bitok\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.sourcelink.json
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.csprojAssemblyReference.cache
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.ApagarOcorrencia.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.Edit_Incidents.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.Main.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.IncidentsAddForm.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.Properties.Resources.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.StatisticsForm.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.VisualizarOcorrencia.resources
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.csproj.GenerateResource.cache
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.csproj.CoreCompileInputs.cache
+C:\Users\Nuno\Documents\GitHub\projeto-prison-tech-eyesopen\PDAI\PDAI\obj\Release\PDAI.sourcelink.json

@@ -217,6 +217,7 @@ namespace PDAI
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+
             incidents_month.Series.Clear();
             incidents_month.Series.Add("Ocorrencias");
             List<object> var = new List<object>();
@@ -226,18 +227,36 @@ namespace PDAI
             bool flag = false;
             for (int i = 1; i < 13; i++)
             {
+                string mes = "";
+                switch (i)
+                {
+                    case 1: mes = "Jan"; break;
+                    case 2: mes = "Fev"; break;
+                    case 3: mes = "Mar"; break;
+                    case 4: mes = "Abr"; break;
+                    case 5: mes = "Mai"; break;
+                    case 6: mes = "Jun"; break;
+                    case 7: mes = "Jul"; break;
+                    case 8: mes = "Ago"; break;
+                    case 9: mes = "Set"; break;
+                    case 10: mes = "Out"; break;
+                    case 11: mes = "Nov"; break;
+                    case 12: mes = "Dez"; break;
+
+                }
                 for (int j = 0; j < var.Count(); j += 2)
                 {
-                    if ((int)var.ElementAt(j) == i)
+
+                    if ((int)var.ElementAt(j + 1) == i)
                     {
                         flag = true;
-                        incidents_month.Series["Ocorrencias"].Points.AddXY((int)var.ElementAt(j + 1), "" + var.ElementAt(j));
+                        incidents_month.Series["Ocorrencias"].Points.AddXY(mes, (int)var.ElementAt(j));
                         break;
                     }
                 }
                 if (flag == false)
                 {
-                    incidents_month.Series["Ocorrencias"].Points.AddXY(i, "0");
+                    incidents_month.Series["Ocorrencias"].Points.AddXY(mes, 0);
                 }
                 flag = false;
             }
