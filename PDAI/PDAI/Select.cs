@@ -1264,27 +1264,27 @@ namespace PDAI
             List<Object> var = new List<object>();
             try
             {
-             
-                String sql = "select o.idPessoa, p.nomeCompleto, o.descricao " +
-                    "from Ocorrencia o, Pessoa p " +
-                    "where o.id = " + id + " and o.idPessoa = p.id;";
+
+                String sql = "select idPessoa, descricao " +
+                    "from Ocorrencia  " +
+                    "where id = " + id +";";
+
                 sqlConn = new SqlConnection(connectionString);
                 sqlConn.Open();
                 command = new SqlCommand(sql, sqlConn);
                 reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                
                     var.Add(reader[0]);
                     var.Add(reader[1]);
                     var.Add(reader[2]);
-                    
+                    var.Add(reader[3]);
                 }
             }
 
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+
             }
 
             finally
